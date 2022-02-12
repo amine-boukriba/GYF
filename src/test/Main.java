@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utils;
+package test;
+
+import utils.Mydb;
 
 /**
  *
  * @author boukr
  */
-public class NewClass {
+public class Main {
+    public static void main(String[] args) {
+        Mydb.getInstance();
+    }
     
 }
