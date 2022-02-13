@@ -24,7 +24,7 @@ public class ServiceMonuments implements IService<Monuments> {
     }
 
     @Override
-    public void ajouter(Monuments t) {
+    public void ajout(Monuments t) {
         try {
             String req="insert into monuments(id_monument,nom_monument,image_monument,payant,prix,description,date_creation,pays,localisation,avis_monument) values "
                     +"('"+t.getId_monument()+"','"+t.getNom_monument()+"','"+t.getImage_monument()+"','"+t.getPayant()+"','"+t.getPrix()+"','"+t.getDescription()+"','"+t.getDate_creation()+"','"+t.getPays()+"','"+t.getLocalisation()+"','"+t.getAvis_monument()+"')";
@@ -61,7 +61,7 @@ public class ServiceMonuments implements IService<Monuments> {
     }
 
     
-    public void supprimer(int id) {
+    public void supprime(int id) {
         try {
             String req="delete from monuments where id_monument=?";
             PreparedStatement ps = cnx.prepareStatement(req);
@@ -73,7 +73,7 @@ public class ServiceMonuments implements IService<Monuments> {
     }
 
     @Override
-    public List<Monuments> afficher() {
+    public List<Monuments> affiche() {
         List <Monuments> list = new ArrayList<>();
         try {
             String req="select * from monuments";
@@ -103,10 +103,7 @@ public class ServiceMonuments implements IService<Monuments> {
         return list;
     }
 
-    @Override
-    public void supprimer(Monuments t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
    
 

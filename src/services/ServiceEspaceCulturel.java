@@ -31,7 +31,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
     }
 
     @Override
-    public void ajouter(Espace_culturels t) {
+    public void ajout(Espace_culturels t) {
         try {
             String req="insert into espace_culturels(id_espace,nom_espace,image_espace,horaire,prix,paye,date_creation,pays,localisation,description,avis_espace) values "
                     +"('"+t.getId_espace()+"','"+ t.getNom_espace()+"','"+ t.getImage_espace()+"','"+t.getHoraire()+"','"+t.getPrix()+"','"+t.getPaye()+"','"+t.getDate_creation()+"','"+t.getPays()+"','"+t.getLocalisation()+"','"+t.getDescription()+"','"+t.getAvis_espace()+"')";
@@ -68,7 +68,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
     }
 
     
-    public void supprimer(int id) {
+    public void supprime(int id) {
         try {
             String req="delete from espace_culturels where id_espace=?";
             PreparedStatement ps = cnx.prepareStatement(req);
@@ -80,7 +80,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
     }
 
     @Override
-    public List<Espace_culturels> afficher() {
+    public List<Espace_culturels> affiche() {
         List <Espace_culturels> list = new ArrayList<>();
         try {
             String req="select * from espace_culturels";
@@ -111,10 +111,8 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
         return list;
     }
 
-    @Override
-    public void supprimer(Espace_culturels t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    
 
     
     }
