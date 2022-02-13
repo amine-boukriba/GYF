@@ -48,7 +48,7 @@ public class ServiceRoles implements IService<Roles>{
             PreparedStatement ps=cnx.prepareStatement(req);
             ps.setInt(1,t.getIdr());
             ps.executeUpdate();
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         } catch (SQLException ex) {
             Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -64,14 +64,14 @@ public class ServiceRoles implements IService<Roles>{
             ps.setInt(2,t.getIdr());
             ps.executeUpdate();
             System.out.println("requete executé");
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         } catch (SQLException ex) {
             Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
-    public List<Roles> read(Roles t) {
+    public List<Roles> read() {
      List <Roles> list= new ArrayList<>();
         try {
             String req;
@@ -87,7 +87,7 @@ public class ServiceRoles implements IService<Roles>{
                 
             
             }
-                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                   //* throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         } catch (SQLException ex) {
             Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
         }

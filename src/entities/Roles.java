@@ -17,6 +17,11 @@ public class Roles {
         this.label = label;
     }
 
+    public Roles(int idr, String label) {
+        this.idr = idr;
+        this.label = label;
+    }
+
     public Roles() {
     }
 

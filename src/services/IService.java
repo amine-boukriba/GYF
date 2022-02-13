@@ -16,7 +16,7 @@ public interface IService <T>{
     public void create(T t);
     public void delete(T t);
     public void update(T t);
-    public List<T> read(T t);
+    public List<T> read();
     
     
     

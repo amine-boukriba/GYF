@@ -38,6 +38,21 @@ public class Users {
     public Users() {
     }
 
+    public Users(int id_user, String nom_user, String prenom_user, String sexe, int numero_tel, String email_user, String pays_user, String ville_user, int code_postal, String date_naissance, int id_role) {
+        this.id_user = id_user;
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+        this.sexe = sexe;
+        this.numero_tel = numero_tel;
+        this.email_user = email_user;
+        this.pays_user = pays_user;
+        this.ville_user = ville_user;
+        this.code_postal = code_postal;
+        Date date1=Date.valueOf(date_naissance);
+        this.date_naissance = date1;
+        this.id_role = id_role;
+    }
+
     public Users(String nom_user, String prenom_user, String sexe, int numero_tel, String email_user, String pays_user, String ville_user, int code_postal, String date_naissance, int id_role) {
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
