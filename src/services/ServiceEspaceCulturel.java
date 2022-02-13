@@ -38,7 +38,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceMonument.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -63,7 +63,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
             
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceMonument.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -75,7 +75,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceMonument.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -106,7 +106,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
                 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceMonument.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -116,8 +116,11 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
+    
     }
+
+   
+    
     
 
     
