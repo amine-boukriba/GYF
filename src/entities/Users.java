@@ -5,7 +5,10 @@
  */
 package entities;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -14,60 +17,69 @@ import java.util.logging.Logger;
  */
 public class Users {
     
-    private int id;
+    private int id_user;
     
-    private String First_name;
+    private String nom_user;
     
-    private String Last_name;
+    private String prenom_user;
     
     private String sexe;
     
-    private int tel;
+    private int numero_tel ;
     
-    private String email;
+    private String email_user ;
     
-    private String pays;
-private String ville;
-private int zip;
-private Date date;
-private int id_role;
+    private String pays_user;
+    
+    private String ville_user;
 
-    public Users(int id, String First_name, String Last_name, String sexe, int tel, String email, String pays, String ville, int zip, Date date, int id_role) {
-        this.id = id;
-        this.First_name = First_name;
-        this.Last_name = Last_name;
+    private int code_postal;
+    
+    private Date date_naissance ;
+    
+    private int id_role;
+
+    public Users(String nom_user, String prenom_user, String sexe, int numero_tel, String email_user, String pays_user, String ville_user, int code_postal, String date_naissance, int id_role) {
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
         this.sexe = sexe;
-        this.tel = tel;
-        this.email = email;
-        this.pays = pays;
-        this.ville = ville;
-        this.zip = zip;
-        this.date = date;
+        this.numero_tel = numero_tel;
+        this.email_user = email_user;
+        this.pays_user = pays_user;
+        this.ville_user = ville_user;
+        this.code_postal = code_postal;
+        Date date1 = null;
+        try {
+            date1 = new SimpleDateFormat("dd-MM-yyyy").parse(date_naissance);
+        } catch (ParseException ex) {
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.date_naissance = date1;
         this.id_role = id_role;
     }
 
-    public int getId() {
-        return id;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
-    public String getFirst_name() {
-        return First_name;
+    public String getNom_user() {
+        return nom_user;
     }
 
-    public void setFirst_name(String First_name) {
-        this.First_name = First_name;
+    public void setNom_user(String nom_user) {
+        this.nom_user = nom_user;
     }
 
-    public String getLast_name() {
-        return Last_name;
+    public String getPrenom_user() {
+        return prenom_user;
     }
 
-    public void setLast_name(String Last_name) {
-        this.Last_name = Last_name;
+    public void setPrenom_user(String prenom_user) {
+        this.prenom_user = prenom_user;
     }
 
     public String getSexe() {
@@ -78,52 +90,52 @@ private int id_role;
         this.sexe = sexe;
     }
 
-    public int getTel() {
-        return tel;
+    public int getNumero_tel() {
+        return numero_tel;
     }
 
-    public void setTel(int tel) {
-        this.tel = tel;
+    public void setNumero_tel(int numero_tel) {
+        this.numero_tel = numero_tel;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmail_user() {
+        return email_user;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail_user(String email_user) {
+        this.email_user = email_user;
     }
 
-    public String getPays() {
-        return pays;
+    public String getPays_user() {
+        return pays_user;
     }
 
-    public void setPays(String pays) {
-        this.pays = pays;
+    public void setPays_user(String pays_user) {
+        this.pays_user = pays_user;
     }
 
-    public String getVille() {
-        return ville;
+    public String getVille_user() {
+        return ville_user;
     }
 
-    public void setVille(String ville) {
-        this.ville = ville;
+    public void setVille_user(String ville_user) {
+        this.ville_user = ville_user;
     }
 
-    public int getZip() {
-        return zip;
+    public int getCode_postal() {
+        return code_postal;
     }
 
-    public void setZip(int zip) {
-        this.zip = zip;
+    public void setCode_postal(int code_postal) {
+        this.code_postal = code_postal;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDate_naissance() {
+        return date_naissance;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate_naissance(Date date_naissance) {
+        this.date_naissance = date_naissance;
     }
 
     public int getId_role() {
@@ -136,8 +148,8 @@ private int id_role;
 
     @Override
     public String toString() {
-        return "Users{" + "id=" + id + ", First_name=" + First_name + ", Last_name=" + Last_name + ", sexe=" + sexe + ", tel=" + tel + ", email=" + email + ", pays=" + pays + ", ville=" + ville + ", zip=" + zip + ", date=" + date + ", id_role=" + id_role + '}';
+        return "Users{" + "id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", sexe=" + sexe + ", numero_tel=" + numero_tel + ", email_user=" + email_user + ", pays_user=" + pays_user + ", ville_user=" + ville_user + ", code_postal=" + code_postal + ", date_naissance=" + date_naissance + ", id_role=" + id_role + '}';
     }
 
-
+    
 }

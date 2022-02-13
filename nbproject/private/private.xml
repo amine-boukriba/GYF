@@ -5,8 +5,9 @@
         <group>
             <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/entities/Users.java</file>
             <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/test/Main.java</file>
-            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/entities/Roles.java</file>
-            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/utils/Mydb.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/services/ServicesUsers.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/utils/MyDB.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/services/ServiceRoles.java</file>
         </group>
     </open-files>
 </project-private>
