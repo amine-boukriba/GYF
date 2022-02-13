@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
+package services;
+
+import java.util.List;
 
 /**
  *
  * @author anwer
  */
-public class aa {
+public interface IService<T> {
     
+    public void ajout(T t);
+    public void modifier(T t);
+    public void supprime(int id);
+    public List<T> affiche();
 }
