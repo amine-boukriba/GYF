@@ -5,11 +5,7 @@
  */
 package entities;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.Date;
 
 /**
  *
@@ -39,6 +35,9 @@ public class Users {
     
     private int id_role;
 
+    public Users() {
+    }
+
     public Users(String nom_user, String prenom_user, String sexe, int numero_tel, String email_user, String pays_user, String ville_user, int code_postal, String date_naissance, int id_role) {
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
@@ -48,12 +47,7 @@ public class Users {
         this.pays_user = pays_user;
         this.ville_user = ville_user;
         this.code_postal = code_postal;
-        Date date1 = null;
-        try {
-            date1 = new SimpleDateFormat("dd-MM-yyyy").parse(date_naissance);
-        } catch (ParseException ex) {
-            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Date date1=Date.valueOf(date_naissance);
         this.date_naissance = date1;
         this.id_role = id_role;
     }

@@ -6,32 +6,93 @@
 package services;
 
 import entities.Roles;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utils.MyDB;
 
 /**
  *
  * @author boukr
  */
 public class ServiceRoles implements IService<Roles>{
-
+    Connection cnx;
+    public ServiceRoles(){
+    cnx=MyDB.getInstance().getConnection();
+    }
     @Override
     public void create(Roles t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+         try {
+            String req;
+            req = "insert into roles(role)values(?)";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setString(1,t.getLabel());
+            ps.executeUpdate(); 
+            System.out.println("requete executé");
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
 
     @Override
     public void delete(Roles t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         try {
+            String req;
+            req = "delete from roles where id_role=?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setInt(1,t.getIdr());
+            ps.executeUpdate();
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void update(Roles t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String req;
+            req = "update roles set role=? where id_role=? ";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setString(1,t.getLabel());
+            ps.setInt(2,t.getIdr());
+            ps.executeUpdate();
+            System.out.println("requete executé");
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public List<Roles> read(Roles t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     List <Roles> list= new ArrayList<>();
+        try {
+            String req;
+            req = "select * from roles";
+            Statement st=cnx.createStatement();
+            ResultSet rs=st.executeQuery(req);
+            while (rs.next())
+            {
+                Roles role= new Roles();
+                role.setIdr(rs.getInt("id_role"));
+                role.setLabel(rs.getString("role"));
+                list.add(role);
+                
+            
+            }
+                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }    
     }
     
-}
+

@@ -13,9 +13,11 @@ public class Roles {
     private int idr;
     private String label;
 
-    public Roles(int idr, String label) {
-        this.idr = idr;
+    public Roles(String label) {
         this.label = label;
+    }
+
+    public Roles() {
     }
 
     public int getIdr() {
