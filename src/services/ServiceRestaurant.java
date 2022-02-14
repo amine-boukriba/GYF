@@ -26,7 +26,7 @@ public class ServiceRestaurant implements IService<restaurants> {
     
  
     @Override
-   public ArrayList<restaurants> afficher() {
+   public ArrayList<restaurants> affiche() {
      
 
       ArrayList<restaurants>  list = new ArrayList();
@@ -61,7 +61,7 @@ public class ServiceRestaurant implements IService<restaurants> {
 
 
     @Override
-    public void create(restaurants r) {
+    public void ajout(restaurants r) {
         try {
          Statement stm = connection.createStatement();
             String req = "INSERT INTO `restaurants`(`nom_restaurant`,`localisation`, `horaire`, `numero_restaurant`,`cuisinies`,`nombre_fourchet`,`avis_restaurant`, `image_restaurant`) VALUES ('"   + r.getNom_restaurant() + "','" + r.getLocalisation() + "','"
@@ -76,7 +76,7 @@ public class ServiceRestaurant implements IService<restaurants> {
    
            @Override
 
-    public void delete( int id   ) {
+    public void supprime( int id   ) {
         try {
             
             String req = "delete from restaurants where id_restaurant = ?" ;
@@ -85,7 +85,7 @@ public class ServiceRestaurant implements IService<restaurants> {
              ps.setInt(1,id);
 
             ps.executeUpdate();
-                         System.out.println(req);
+                  //       System.out.println(req);
 
         } catch (SQLException ex) {
                 Logger.getLogger(ServiceHotel.class.getName()).log(Level.SEVERE, null, ex);
@@ -94,7 +94,7 @@ public class ServiceRestaurant implements IService<restaurants> {
     }
         @Override
 
-    public void modify(restaurants r) {
+    public void modifier(restaurants r) {
         try {
          Statement stm = connection.createStatement();
             String req = "UPDATE `restaurants` SET `nom_restaurant`='"

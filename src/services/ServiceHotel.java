@@ -39,7 +39,7 @@ public class ServiceHotel implements IService<Hotel> {
           
     
     @Override
-   public ArrayList<Hotel> afficher() {
+   public ArrayList<Hotel> affiche() {
      
 
       ArrayList<Hotel>  list = new ArrayList();
@@ -53,9 +53,7 @@ public class ServiceHotel implements IService<Hotel> {
                          h.setId_hotel(rs.getInt("id_hotel"));
                          h.setNom_hotel(rs.getString("nom_hotel"));
                          h.setLocalisation(rs.getString("localisation"));
-                         h.setPrix_hotel(rs.getInt("prix_hotel"));
                          h.setCategorie(rs.getString("categorie"));
-                         h.setId_chambre(rs.getInt("id_chambre"));
                          h.setAvis_hotel(rs.getInt("avis_hotel"));
                          h.setImage_hotel(rs.getString("image_hotel"));
 
@@ -73,12 +71,11 @@ public class ServiceHotel implements IService<Hotel> {
 
           @Override
 
-    public void create(Hotel h) {
+    public void ajout(Hotel h) {
         try {
-            System.out.println("oamrrar");
-            String req = "INSERT INTO `hotels`(`nom_hotel`,`localisation`, `prix_hotel`,`categorie`,`id_chambre`,`avis_hotel`,`image_hotel`) VALUES ('" + h.getNom_hotel() + "','" + h.getLocalisation() + "','"
-                    + h.getPrix_hotel() + "','" + h.getCategorie() + "','" + h.getId_chambre() + "','" + h.getAvis_hotel() + "','" + h.getImage_hotel() +"')";
-                        System.out.println(h);
+            String req = "INSERT INTO `hotels`(`nom_hotel`,`localisation`,`categorie`,`avis_hotel`,`image_hotel`) VALUES ('" + h.getNom_hotel() + "','" + h.getLocalisation() + 
+                    "','" + h.getCategorie() + "','" + h.getAvis_hotel() + "','" + h.getImage_hotel() +"')";
+                //        System.out.println(h);
 
  
                 Statement sm = connection.createStatement();
@@ -96,11 +93,11 @@ public class ServiceHotel implements IService<Hotel> {
            @Override
 
     
-    public void delete(int id ) {
+    public void supprime(int id ) {
         try {
             String req = "DELETE FROM hotels WHERE id_hotel = ?" ;
           PreparedStatement ps = connection.prepareStatement(req);
-          System.out.println(req);
+       //   System.out.println(req);
             ps.setInt(1,id);
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -109,18 +106,17 @@ public class ServiceHotel implements IService<Hotel> {
     }
         @Override
 
-    public void modify(Hotel h) {
+    public void modifier(Hotel h) {
         try {
             Statement stm = connection.createStatement();
             String req = "UPDATE `hotels` SET `nom_hotel`='"
                     + h.getNom_hotel() + "',`localisation`='"
-                    + h.getLocalisation() + "',`prix_hotel`='"
-                    + h.getPrix_hotel() + "',`categorie`='"
-                    + h.getCategorie() + "',`id_chambre`='"
-                    + h.getId_chambre()+ "',`avis_hotel`='"
-                    + h.getAvis_hotel()+ "'`image_hotel`='"
+                    + h.getLocalisation()  + "',`categorie`='"
+                    + h.getCategorie() + "',`avis_hotel`='"
+                    + h.getAvis_hotel()+ "',`image_hotel`='"
                     + h.getImage_hotel()+ "' WHERE `id_hotel`='"
                     + h.getId_hotel()  + "'";
+          //      System.out.println(req);
             stm.executeUpdate(req);
         } catch (SQLException ex) {
             
