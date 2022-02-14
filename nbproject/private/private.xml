@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Desktop/bilel%20chakroun%203A12/GYF/src/services/IServices.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/bilel%20chakroun%203A12/GYF/src/services/ServiceAvis.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/gyf/GYF/src/services/ServiceReclamation.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/gyf/GYF/src/services/ServiceAvis.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/gyf/GYF/src/services/IService.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/gyf/GYF/src/test/Main.java</file>
         </group>
     </open-files>
 </project-private>

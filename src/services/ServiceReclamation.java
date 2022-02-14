@@ -22,7 +22,7 @@ import utils.MyDB;
  *
  * @author ASUS
  */
-public class ServiceReclamation implements IServices<reclamation>{
+public class ServiceReclamation implements IService<reclamation>{
     
  Connection cnx;
 
@@ -42,7 +42,8 @@ public class ServiceReclamation implements IServices<reclamation>{
     }
  
     }
-     public void supprimer(int id) {
+ @Override
+     public void supprime(int id) {
       try {
         String req ="delete from Reclamation where id_reclamation=?";
         PreparedStatement ps = cnx.prepareStatement(req);
@@ -52,6 +53,7 @@ public class ServiceReclamation implements IServices<reclamation>{
         Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
+ @Override
     public void modifier(reclamation t) {
     try {
         String req ="update reclamation set description= ?,date_creation= ?,date_traitement= ?,status= ?,image_reclamation= ?,cible_reclamation= ?,type_reclamation= ?,id_user= ? where id_reclamation= ?";
@@ -70,8 +72,8 @@ public class ServiceReclamation implements IServices<reclamation>{
         Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
-    
-     public List<reclamation> afficher() {
+    @Override
+     public List<reclamation> affiche() {
         List<reclamation> list =new ArrayList<>();
         try{
             String req ="select *from reclamation";
@@ -95,5 +97,10 @@ public class ServiceReclamation implements IServices<reclamation>{
         Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
     }
     return list;
+    }
+
+    @Override
+    public void ajout(reclamation t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

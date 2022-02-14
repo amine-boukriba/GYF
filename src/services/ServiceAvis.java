@@ -21,34 +21,39 @@ import utils.MyDB;
  *
  * @author ASUS
  */
-public class ServiceAvis implements IServices<avis>{
+public class ServiceAvis implements IService<avis>{
     Connection cnx;
 
     public ServiceAvis() {
         cnx = MyDB.getInstance().getConnection();
     }
-   public void ajouter(avis t) {
+    @Override
+   public void ajout(avis t) {
     try {
         String req = "insert into avis (id_avis,nombre_etoile,description,id_user,cible_avis,type_avis) "
                 + "values"+"('"+t.getId_avis()+"','"+ t.getNombre_etoile()+"','"+t.getDescription()+"','"+ t.getId_user()+"','"+t.getCible_avis()+"'"
                 + ",'"+t.getType_avis()+"')";
         Statement st=cnx.createStatement();
         st.executeUpdate(req);
+         System.out.println("votre avis a été ajouté avec succées");
     } catch (SQLException ex) {
         Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
     }
  
     }
-     public void supprimer(int id) {
+    @Override
+     public void supprime(int id) {
       try {
         String req ="delete from avis where id_avis=?";
         PreparedStatement ps = cnx.prepareStatement(req);
         ps.setInt(1,id);
         ps.executeUpdate();
+        System.out.println("supprission avec succées");
     } catch (SQLException ex) {
         Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
+    @Override
     public void modifier(avis t) {
     try {
         String req ="update avis set nombre_etoile = ?,description = ?,id_user = ?,cible_avis = ?,type_avis = ? where id_avis = ?";
@@ -59,14 +64,15 @@ public class ServiceAvis implements IServices<avis>{
         ps.setInt(4,t.getCible_avis());
         ps.setInt(5,t.getType_avis());
          ps.setInt(6,t.getId_avis());
-       
-        ps.executeUpdate();
+         ps.executeUpdate();
+         System.out.println("modification avec succées");
     } catch (SQLException ex) {
         Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
     
-     public List<avis> afficher() {
+    @Override
+     public List<avis> affiche() {
         List<avis> list =new ArrayList<>();
         try{
             String req ="select *from avis";
@@ -80,7 +86,7 @@ public class ServiceAvis implements IServices<avis>{
         a.setId_user(rs.getInt("id_user"));
         a.setCible_avis(rs.getInt("cible_avis"));
         a.setType_avis(rs.getInt("type_avis"));
-        
+        System.out.println("voici la liste de votre avis");
           list.add(a); 
     }
         } catch (SQLException ex) {
@@ -88,6 +94,9 @@ public class ServiceAvis implements IServices<avis>{
     }
     return list;
     }
-}
+
+   
+    }
+
 
 
