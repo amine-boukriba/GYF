@@ -9,16 +9,12 @@ import java.util.List;
 
 /**
  *
- * @author boukr
- * @param <T>
+ * @author anwer
  */
-public interface IService <T>{
-    public void create(T t);
-    public void delete(T t);
-    public void update(T t);
-    public List<T> read();
+public interface IService<T> {
     
-    
-    
-    
+    public void ajout(T t);
+    public void modifier(T t);
+    public void supprime(int id);
+    public List<T> affiche();
 }

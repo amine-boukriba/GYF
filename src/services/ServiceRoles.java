@@ -27,7 +27,7 @@ public class ServiceRoles implements IService<Roles>{
     cnx=MyDB.getInstance().getConnection();
     }
     @Override
-    public void create(Roles t) {
+    public void ajout(Roles t) {
          try {
             String req;
             req = "insert into roles(role)values(?)";
@@ -41,7 +41,7 @@ public class ServiceRoles implements IService<Roles>{
         }
 
     @Override
-    public void delete(Roles t) {
+    public void supprime(Roles t) {
          try {
             String req;
             req = "delete from roles where id_role=?";
@@ -55,7 +55,7 @@ public class ServiceRoles implements IService<Roles>{
     }
 
     @Override
-    public void update(Roles t) {
+    public void modifier(Roles t) {
         try {
             String req;
             req = "update roles set role=? where id_role=? ";
@@ -71,7 +71,7 @@ public class ServiceRoles implements IService<Roles>{
     }
 
     @Override
-    public List<Roles> read() {
+    public List<Roles> affiche() {
      List <Roles> list= new ArrayList<>();
         try {
             String req;
