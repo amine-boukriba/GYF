@@ -12,20 +12,20 @@ import utils.MyDB;
 public class Main {
     public static void main(String[] args) {
         
-    //ServiceMonuments sp = new ServiceMonuments();
-    ServiceEspaceCulturel sp = new ServiceEspaceCulturel();
+    ServiceMonuments sp = new ServiceMonuments();
+  // ServiceEspaceCulturel sp = new ServiceEspaceCulturel();
     
     //---------CRUD Monuments------------
-    //sp.ajouter(new Monuments("nom_monument", "image_monument", 1, 30, "description", "date_creation", "pays", "localisation", 5));
+   //sp.ajout(new Monuments("nom_monument", "image_monument", 1, 30, "description", "date_creation", "pays", "localisation", 5));
     //sp.modifier(new Monuments(3,"nom", "image_monument", 1, 30, "description", "date_creation", "pays", "localisation", 5));
-    //sp.supprimer();
+    //sp.supprime(5);
     //System.out.println(sp.afficher());
     
     //---------CRUD Espace culturel------------
-    //sp.ajouter(new Espace_culturels("nom_espace", "image_espace", "horaire", 0, 0, "date_creation", "pays", "localisation", "description", 0)); 
-    //sp.modifier(new Espace_culturels(5,"nom", "image_espace", "horaire", 0, 0, "date_creation", "pays", "localisation", "description", 0));
-    //sp.supprimer(5);
-    //System.out.println(sp.afficher());
+    //sp.ajout(new Espace_culturels("nom_espace", "image_espace", "horaire", 0, 0, "date_creation", "pays", "localisation", "description", 0)); 
+    //sp.modifier(new Espace_culturels(7,"albatros", "image_espace", "horaire", 0, 0, "date_creation", "pays", "localisation", "description", 0));
+    //sp.supprime(8);
+    //System.out.println(sp.affiche());
     
     
     }

@@ -33,10 +33,24 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
     @Override
     public void ajout(Espace_culturels t) {
         try {
-            String req="insert into espace_culturels(id_espace,nom_espace,image_espace,horaire,prix,paye,date_creation,pays,localisation,description,avis_espace) values "
-                    +"('"+t.getId_espace()+"','"+ t.getNom_espace()+"','"+ t.getImage_espace()+"','"+t.getHoraire()+"','"+t.getPrix()+"','"+t.getPaye()+"','"+t.getDate_creation()+"','"+t.getPays()+"','"+t.getLocalisation()+"','"+t.getDescription()+"','"+t.getAvis_espace()+"')";
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
+            String req="insert into espace_culturels(id_espace,nom_espace,image_espace,horaire,prix,paye,date_creation,pays,localisation,description,avis_espace) values (?,?,?,?,?,?,?,?,?,?,?)";
+                   
+            PreparedStatement ps = cnx.prepareStatement(req);
+             ps.setInt(1, t.getId_espace());
+            ps.setString(2, t.getNom_espace());
+            ps.setString(3, t.getImage_espace());
+            ps.setString(4, t.getHoraire());
+            ps.setInt(5, t.getPrix());
+            ps.setInt(6, t.getPaye());
+            ps.setString(7, t.getDate_creation());
+            ps.setString(8, t.getPays());
+            ps.setString(9, t.getLocalisation());
+            ps.setString(10, t.getDescription());
+            ps.setInt(11,t.getAvis_espace());
+           
+           
+            
+            ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
         }

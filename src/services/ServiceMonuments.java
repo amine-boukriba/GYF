@@ -26,10 +26,22 @@ public class ServiceMonuments implements IService<Monuments> {
     @Override
     public void ajout(Monuments t) {
         try {
-            String req="insert into monuments(id_monument,nom_monument,image_monument,payant,prix,description,date_creation,pays,localisation,avis_monument) values "
-                    +"('"+t.getId_monument()+"','"+t.getNom_monument()+"','"+t.getImage_monument()+"','"+t.getPayant()+"','"+t.getPrix()+"','"+t.getDescription()+"','"+t.getDate_creation()+"','"+t.getPays()+"','"+t.getLocalisation()+"','"+t.getAvis_monument()+"')";
-            Statement st = cnx.createStatement();
-            st.executeUpdate(req);
+            String req="insert into monuments(id_monument,nom_monument,image_monument,payant,prix,description,date_creation,pays,localisation,avis_monument) values (?,?,?,?,?,?,?,?,?,?)";
+                  
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setInt(1, t.getId_monument());
+            ps.setString(2, t.getNom_monument());
+            ps.setString(3, t.getImage_monument());
+            ps.setInt(4, t.getPayant());
+            ps.setInt(5, t.getPrix());
+            ps.setString(6, t.getDescription());
+            ps.setString(7, t.getDate_creation());
+            ps.setString(8, t.getPays());
+            ps.setString(9, t.getLocalisation());
+            ps.setInt(10,t.getAvis_monument());
+           
+            
+            ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
         }
