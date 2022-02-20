@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/omarb/Desktop/GYF-master/src/services/ServiceChambre.java</file>
-            <file>file:/C:/Users/omarb/Desktop/GYF-master/src/services/IService.java</file>
             <file>file:/C:/Users/omarb/Desktop/GYF-master/src/services/ServiceHotel.java</file>
-            <file>file:/C:/Users/omarb/Desktop/GYF-master/src/services/ServiceRestaurant.java</file>
-            <file>file:/C:/Users/omarb/Desktop/GYF-master/src/test/Main.java</file>
+            <file>file:/C:/Users/omarb/Desktop/GYF-master/src/services/ServiceReservation.java</file>
+            <file>file:/C:/Users/omarb/Desktop/GYF-master/src/entities/reservation.java</file>
+            <file>file:/C:/Users/omarb/Desktop/GYF-master/src/services/IVService.java</file>
         </group>
     </open-files>
 </project-private>

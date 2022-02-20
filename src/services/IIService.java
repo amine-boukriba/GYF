@@ -9,16 +9,19 @@ import java.util.List;
 
 /**
  *
- * @author anwer
+ * @author omarb
  */
-public interface IService<T> {
-    
+public interface IIService<T> { 
+      
     public void ajout(T t);
     public void modifier(T t);
     public void supprime(int id);
     public List<T> affiche();
-    public List<T> afficheByName(String nom_hotel);
+    public List<T> afficheByName(String nom_restaurant);
     public List<T> afficheBylocalisation(String localisation);
+    public List<T> afficheBycuisinies(String cuisinies);
+
     
 }
+
 

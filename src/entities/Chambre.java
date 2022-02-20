@@ -17,7 +17,10 @@ public class Chambre {
     private String type_chambre;
     private int prix_chambre;
     private int id_hotel;
-    
+    private String etat;
+private String nom_hotel;
+
+ 
 
     public Chambre(int id_chambre, String type_chambre, int prix_chambre, int id_hotel) {
         this.id_chambre = id_chambre;
@@ -35,9 +38,17 @@ public class Chambre {
     public Chambre(int id_chambre) {
         this.id_chambre = id_chambre;
     }
-
+    public Chambre(String adouble, int i) {
+          this.type_chambre = type_chambre;
+        this.prix_chambre = prix_chambre;
+    }
     public Chambre() {
     }
+        public Chambre(String nom_hotel) {
+        this.nom_hotel=nom_hotel;
+    }
+
+
   
 
     public int getId_chambre() {
@@ -71,9 +82,25 @@ public class Chambre {
     public void setId_hotel(int id_hotel) {
         this.id_hotel = id_hotel;
     }
+     public String getEtat() {
+        return etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
+       public String getNom_hotel() {
+        return nom_hotel;
+    }
+
+    public void setNom_hotel(String nom_hotel) {
+        this.nom_hotel = nom_hotel;
+    }
+   
+    
   @Override
     public String toString() {
-        return "Chambre{" + "id_chambre=" + id_chambre + ", type_chambre=" + type_chambre + ", prix_chambre=" + prix_chambre + ", id_hotel=" + id_hotel + '}';
+        return "Chambre{" + "id_chambre=" + id_chambre + ", type_chambre=" + type_chambre + ", prix_chambre=" + prix_chambre + ", id_hotel=" + id_hotel + ", etat=" + etat +'}';
     }
   
 }

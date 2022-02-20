@@ -6,19 +6,16 @@
 package services;
 
 import java.util.List;
-
 /**
  *
- * @author anwer
+ * @author omarb
  */
-public interface IService<T> {
-    
-    public void ajout(T t);
+public interface IIIService<T> {
+        public void ajout(T t);
     public void modifier(T t);
     public void supprime(int id);
     public List<T> affiche();
-    public List<T> afficheByName(String nom_hotel);
-    public List<T> afficheBylocalisation(String localisation);
-    
-}
+    public List<T> afficheBynom_hotel(String nom_hotel);
+    public List<T> affichePrix_chambreHotel(String nom_hotel);
 
+}

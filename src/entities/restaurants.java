@@ -21,7 +21,7 @@ public class restaurants {
     private int nombre_fourchet;
     private int avis_restaurant ;
     private String image_restaurant;
-
+    
   
     
         public restaurants(String nom_restaurant, String localisation, String horaire, String numero_restaurant, String cuisinies, int nombre_fourchet, int avis_restaurant , String image_restaurant) {

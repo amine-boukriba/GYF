@@ -18,7 +18,7 @@ import utils.MyDB;
 
 
  */
-public class ServiceRestaurant implements IService<restaurants> {
+public class ServiceRestaurant implements IIService<restaurants> {
 
     MyDB instance = MyDB.getInstance();
     Connection connection = instance.getConnection();
@@ -58,7 +58,114 @@ public class ServiceRestaurant implements IService<restaurants> {
         }   
      return list;    
     }
+    //////////////////////////////////////////////////////////////////////////////////////////
+   @Override
+   public ArrayList<restaurants> afficheByName(String nom_restaurant) {
+     
 
+      ArrayList<restaurants>  list = new ArrayList();
+       try {
+                  String req ="Select * FROM restaurants WHERE nom_restaurant='"+nom_restaurant+"'"; 
+            Statement st = connection.createStatement();
+            System.out.println(req);
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+               
+                         restaurants r = new restaurants();
+                         r.setId_restaurant(rs.getInt("id_restaurant"));
+                         r.setNom_restaurant(rs.getString("nom_restaurant"));
+                         r.setLocalisation(rs.getString("localisation"));
+                         r.setHoraire(rs.getString("horaire"));
+                         r.setNumero_restaurant(rs.getString("numero_restaurant"));
+                         r.setCuisinies(rs.getString("cuisinies"));
+                         r.setNombre_fourchet(rs.getInt("nombre_fourchet"));
+                         r.setAvis_restaurant(rs.getInt("avis_restaurant"));
+                         r.setImage_restaurant(rs.getString("image_restaurant"));
+
+                         list.add(r);
+
+             }             
+   
+        } catch (SQLException ex) {
+                Logger.getLogger(ServiceHotel.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting Hotel");
+
+        }   
+     return list;    
+    }
+ //////////////////////////////////////////////////////////////////////////////////////////
+           @Override
+
+ public ArrayList<restaurants> afficheBylocalisation(String localisation) {
+     
+
+      ArrayList<restaurants>  list = new ArrayList();
+       try {
+                  String req ="Select * FROM restaurants WHERE localisation='"+localisation+"'"; 
+            Statement st = connection.createStatement();
+            System.out.println(req);
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+               
+                         restaurants r = new restaurants();
+                         r.setId_restaurant(rs.getInt("id_restaurant"));
+                         r.setNom_restaurant(rs.getString("nom_restaurant"));
+                         r.setLocalisation(rs.getString("localisation"));
+                         r.setHoraire(rs.getString("horaire"));
+                         r.setNumero_restaurant(rs.getString("numero_restaurant"));
+                         r.setCuisinies(rs.getString("cuisinies"));
+                         r.setNombre_fourchet(rs.getInt("nombre_fourchet"));
+                         r.setAvis_restaurant(rs.getInt("avis_restaurant"));
+                         r.setImage_restaurant(rs.getString("image_restaurant"));
+
+                         list.add(r);
+
+             }             
+   
+        } catch (SQLException ex) {
+                Logger.getLogger(ServiceHotel.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting Hotel");
+
+        }   
+     return list;    
+    }
+ 
+  //////////////////////////////////////////////////////////////////////////////////////////
+
+public ArrayList<restaurants> afficheBycuisinies(String cuisinies) {
+     
+
+      ArrayList<restaurants>  list = new ArrayList();
+       try {
+                  String req ="Select * FROM restaurants WHERE cuisinies='"+cuisinies+"'"; 
+            Statement st = connection.createStatement();
+            System.out.println(req);
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+               
+                         restaurants r = new restaurants();
+                         r.setId_restaurant(rs.getInt("id_restaurant"));
+                         r.setNom_restaurant(rs.getString("nom_restaurant"));
+                         r.setLocalisation(rs.getString("localisation"));
+                         r.setHoraire(rs.getString("horaire"));
+                         r.setNumero_restaurant(rs.getString("numero_restaurant"));
+                         r.setCuisinies(rs.getString("cuisinies"));
+                         r.setNombre_fourchet(rs.getInt("nombre_fourchet"));
+                         r.setAvis_restaurant(rs.getInt("avis_restaurant"));
+                         r.setImage_restaurant(rs.getString("image_restaurant"));
+
+                         list.add(r);
+
+             }             
+   
+        } catch (SQLException ex) {
+                Logger.getLogger(ServiceHotel.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting Hotel");
+
+        }   
+     return list;    
+    }
+ //////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public void ajout(restaurants r) {
@@ -73,7 +180,8 @@ public class ServiceRestaurant implements IService<restaurants> {
             System.out.println("Error in inserting restaurant");
         }
     }
-   
+    //////////////////////////////////////////////////////////////////////////////////////////
+
            @Override
 
     public void supprime( int id   ) {
@@ -92,6 +200,8 @@ public class ServiceRestaurant implements IService<restaurants> {
                             System.out.println("Error in deleting restaurant");
         }
     }
+     //////////////////////////////////////////////////////////////////////////////////////////
+
         @Override
 
     public void modifier(restaurants r) {

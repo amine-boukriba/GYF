@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -20,7 +20,7 @@ import utils.MyDB;
  *
  * @author omarb
  */
-public class ServiceChambre implements IService<Chambre> {
+public class ServiceChambre implements IIIService<Chambre> {
     
         MyDB instance = MyDB.getInstance();
     Connection connection = instance.getConnection();
@@ -54,6 +54,76 @@ public class ServiceChambre implements IService<Chambre> {
         }   
      return list;    
     }
+   
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+  @Override
+   public ArrayList<Chambre> afficheBynom_hotel(String nom_hotel) {
+     
+
+      ArrayList<Chambre>  list = new ArrayList();
+       try {
+                  String req ="select * from chambre join hotels using (id_hotel) where nom_hotel ='"+nom_hotel+"'  and etat = 'disponible'  ";
+
+               //   System.out.println(req);
+            Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+               
+                       Chambre c = new Chambre();
+                         c.setId_chambre(rs.getInt("id_chambre"));
+                         c.setType_chambre(rs.getString("type_chambre"));
+                         c.setPrix_chambre(rs.getInt("prix_chambre"));
+                         c.setId_hotel(rs.getInt("id_hotel"));
+                         c.setEtat(rs.getString("etat"));
+                 
+                         list.add(c);
+
+             }             
+   
+        } catch (SQLException ex) {
+                Logger.getLogger(ServiceChambre.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting Chambre");
+
+        }   
+     return list;    
+    }
+
+   
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+   @Override
+   public ArrayList<Chambre> affichePrix_chambreHotel(String nom_hotel) {
+     
+
+      ArrayList<Chambre>  list = new ArrayList();
+       try {
+                  String req ="select * from chambre join hotels using (id_hotel) where nom_hotel ='"+nom_hotel+"'  and etat = 'disponible' ORDER by prix_chambre desc ";
+               //   System.out.println(req);
+            Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+               
+                       Chambre c = new Chambre();
+                         c.setId_chambre(rs.getInt("id_chambre"));
+                         c.setType_chambre(rs.getString("type_chambre"));
+                         c.setPrix_chambre(rs.getInt("prix_chambre"));
+                         c.setId_hotel(rs.getInt("id_hotel"));
+                         c.setEtat(rs.getString("etat"));
+                 
+                         list.add(c);
+
+             }             
+   
+        } catch (SQLException ex) {
+                Logger.getLogger(ServiceChambre.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting Chambre");
+
+        }   
+     return list;    
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////
 
           @Override
 
@@ -74,8 +144,9 @@ public class ServiceChambre implements IService<Chambre> {
             }
             
         }
-    
    
+     //////////////////////////////////////////////////////////////////////////////////////////
+
            @Override
 
     
@@ -90,6 +161,10 @@ public class ServiceChambre implements IService<Chambre> {
                 Logger.getLogger(ServiceChambre.class.getName()).log(Level.SEVERE, null, ex);
                             System.out.println("Error in deleting Chambre");        }
     }
+    
+     //////////////////////////////////////////////////////////////////////////////////////////
+
+    
         @Override
 
     public void modifier(Chambre c) {
