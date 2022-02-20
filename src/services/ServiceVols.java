@@ -7,6 +7,7 @@ package services;
 
 import entities.Vols;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -118,6 +119,83 @@ public class ServiceVols implements IService<Vols>{
                 vol.setImage_vol(rs.getString("image_vol"));
                 vol.setAvis_vol(rs.getInt("avis_vol"));
                 list.add(vol);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceVols.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    public List<Vols> getOne(int id){
+        List<Vols> list =new ArrayList<>();
+        String req = "select * from vols where id_vol = ? ";
+        
+        try {
+            PreparedStatement ps = connection.prepareStatement(req);
+            
+            ps.setInt(1, id);
+            
+            ResultSet rs = ps.executeQuery();
+            ;
+            while (rs.next()){
+                Vols vol= new Vols();
+                vol.setId_vol(rs.getInt(1));
+                vol.setCompagnie_aerien(rs.getString(2));
+                vol.setDepart(rs.getString(3));
+                vol.setDestination(rs.getString(4));
+                vol.setDate_depart(rs.getDate(5));
+                vol.setDate_arrive(rs.getDate(6));
+                vol.setPrix(rs.getFloat(7));
+                vol.setDuree(rs.getInt(8));
+                vol.setType_avion(rs.getString(9));
+                vol.setImage_vol(rs.getString(10));
+                vol.setAvis_vol(rs.getInt(11));
+                list.add(vol);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceVols.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+       return list;
+        
+    }
+    public List<Vols> rechercheVols(String depart,String destination ,Date date_dep){
+         List<Vols> list =new ArrayList();
+         
+        try {
+           
+            String req = "select * from vols where depart=? and destination=? and date_depart = ? "; 
+            
+             PreparedStatement ps = connection.prepareStatement(req);
+            
+            ps.setString(1, depart);
+            ps.setString(2,destination);
+            ps.setDate(3, date_dep);
+            
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Vols(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getFloat(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceVols.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+    
+    public List<Vols> filtrePrix (float prix_min , float prix_max){
+        List<Vols> list = new ArrayList();
+        try {
+            
+            String req = "select * from vols where prix between ? and ?";
+            PreparedStatement ps = connection.prepareStatement(req);
+            
+            ps.setFloat(1, prix_min);
+            ps.setFloat(2, prix_max);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){
+                list.add(new Vols(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getFloat(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ServiceVols.class.getName()).log(Level.SEVERE, null, ex);

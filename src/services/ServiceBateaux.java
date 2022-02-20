@@ -7,6 +7,7 @@ package services;
 
 import entities.Bateaux;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -105,6 +106,68 @@ public class ServiceBateaux implements IService<Bateaux>{
             
         } catch (SQLException ex) {
             Logger.getLogger(ServiceBateaux.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    public List<Bateaux> getOne(int id){
+        List<Bateaux> list = new ArrayList();
+        try {
+            
+            String req = "select * from bateaux where id_bateau = ?";
+            PreparedStatement ps = connection.prepareStatement(req);
+            ps.setInt(1, id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                list.add( new Bateaux(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getFloat(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11)));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceBateaux.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    public List<Bateaux> rechercheBateaux(String depart,String destination ,Date date_dep){
+         List<Bateaux> list =new ArrayList();
+         
+        try {
+           
+            String req = "select * from bateaux where depart=? and destination=? and date_depart = ? "; 
+            
+             PreparedStatement ps = connection.prepareStatement(req);
+            
+            ps.setString(1, depart);
+            ps.setString(2,destination);
+            ps.setDate(3, date_dep);
+            
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Bateaux(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getFloat(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceVols.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list ;
+    }
+    public List<Bateaux> filtrePrix (float prix_min , float prix_max){
+        List<Bateaux> list = new ArrayList();
+        try {
+            
+            String req = "select * from bateaux where prix between ? and ?";
+            PreparedStatement ps = connection.prepareStatement(req);
+            
+            ps.setFloat(1, prix_min);
+            ps.setFloat(2, prix_max);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){
+                list.add(new Bateaux(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getFloat(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceVols.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }

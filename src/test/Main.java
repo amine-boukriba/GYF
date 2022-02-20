@@ -6,11 +6,26 @@
 package test;
 
 import entities.Bateaux;
+import entities.Images;
+import entities.OfferOption;
 import entities.Offers;
+import entities.PaymentBateaux;
+import entities.PaymentOffers;
+import entities.PaymentPlan;
+import entities.PaymentVols;
+import entities.Plan;
 import entities.Vols;
 import java.sql.Date;
 import services.ServiceBateaux;
+import services.ServiceImages;
+import services.ServiceMail;
+import services.ServiceOfferOption;
 import services.ServiceOffers;
+import services.ServicePaymentBateaux;
+import services.ServicePaymentOffers;
+import services.ServicePaymentPlan;
+import services.ServicePaymentVols;
+import services.ServicePlan;
 import services.ServiceVols;
 import utils.MyDB;
 
@@ -21,14 +36,17 @@ import utils.MyDB;
 public class Main {
 
     public static void main(String[] args){
-        
+        //********************** MAIL ****************************
+        //ServiceMail.sendMail("anwerboubaker3@gmail.com");
         //********************** VOLS ****************************
         
         ServiceVols sv = new ServiceVols();
-        //sv.ajout(new Vols("tun","12","fr",new Date(1),new Date(1),12.6f,3,"arbus","azdsd",5));
+        //System.out.println(sv.getOne(3));
+        //sv.ajout(new Vols("tun","12","fr",Date.valueOf("2020-02-12"),new Date(1),12.6f,3,"arbus","azdsd",5));
+        //sv.rechercheVols("22", "ita");
         //sv.modifier(new Vols(1,"tun","22","ita",new Date(999999999),new Date(999999999),12.69f,3,"arbus","azdsd",5));
         //sv.supprime(2);
-        //System.out.println(sv.affiche());
+        //System.out.println(sv.filtrePrix(1, 133));
         
         //********************** BATEAUX ****************************
         
@@ -36,15 +54,56 @@ public class Main {
         //sb.ajout(new Bateaux("tun","12","fr",new Date(500),new Date(600),14.6f,3,"arbus","azdsd",5));
         //sb.modifier(new Bateaux(1,"fr","14","al",new Date(500),new Date(600),14.6f,3,"edward","azdsd",5));
         //sb.supprime(3);
-        //System.out.println(sb.affiche());
+        //System.out.println(sb.getOne(1));
         
         //********************** OFFERS ****************************
         
         ServiceOffers sf = new ServiceOffers();
-        //sf.ajout(new Offers("titre","fr","alg",new Date(1),new Date(1),6,"description",72.1f,"azdzadaz",4,1,1,1,1,1,1));
-        //sf.modifier(new Offers(1,"titre","fr","ing",new Date(1),new Date(1),10,"description",72.1f,"a",4,1,1,1,1,1,1));
-        //sf.supprime(2);
-        System.out.println(sf.affiche());
+        //sf.ajout(new Offers("titre","fr","alg",new Date(1),new Date(1),6,"description",72.1f,4));
+        //sf.modifier(new Offers(1,"titre","fr","alg",new Date(1),new Date(1),6,"description",72.1f,4));
+        //sf.supprime(1);
+        //System.out.println(sf.affiche());
+        //System.out.println(sf.rechercheOffers("fr", "ing", Date.valueOf("1970-01-01")));
+        
+        //********************** IMAGES ****************************
+        ServiceImages si = new ServiceImages();
+        //si.ajout(new Images("adaz",1,1,1,1,3,1));
+        //********************** OFFER/PLAN OPTION ****************************
+        
+        ServiceOfferOption so = new ServiceOfferOption();
+        
+        //so.ajout(new OfferOption(0,1,1,1,1,1,1,1,4));
+        
+        //********************** PLAN ****************************
+        ServicePlan sp = new ServicePlan();
+        
+        //sp.ajout(new Plan("azdda","dazdaz",Date.valueOf("2020-12-12"),Date.valueOf("2020-12-03"),12.2f,2));
+        //sp.modifier(new Plan(3,"aaaaa","aaaa",Date.valueOf("2020-12-12"),Date.valueOf("2020-12-03"),12.2f,2));
+        //sp.supprime(3);
+        
+        //********************** PAYMENT BATAUX ****************************
+        
+        ServicePaymentBateaux spb = new ServicePaymentBateaux();
+        //spb.ajout(new PaymentBateaux(1,2,"agence"));
+        //System.out.println(spb.affiche());
+        
+        //********************** PAYMENT VOLS ****************************
+        
+        ServicePaymentVols spv = new ServicePaymentVols();
+        //spv.ajout(new PaymentVols(1,2,"en ligne"));
+        //System.out.println(spv.affiche());
+        
+        //********************** PAYMENT OFFERS ****************************
+        
+        ServicePaymentOffers spo = new ServicePaymentOffers();
+        //spo.ajout(new PaymentOffers(4,2,"en ligne"));
+        //System.out.println(spv.affiche());
+        
+        //********************** PAYMENT PLAN ****************************
+        
+        ServicePaymentPlan spp = new ServicePaymentPlan();
+        spp.ajout(new PaymentPlan(4,2,"agence"));
+        
     }
     
 }

@@ -3,14 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/PI/GYF/src/services/ServiceOffers.java</file>
-            <file>file:/D:/PI/GYF/src/utils/MyDB.java</file>
-            <file>file:/D:/PI/GYF/src/services/ServiceBateaux.java</file>
-            <file>file:/D:/PI/GYF/src/test/Main.java</file>
-            <file>file:/D:/PI/GYF/src/entities/Vols.java</file>
-            <file>file:/D:/PI/GYF/src/services/ServiceVols.java</file>
+            <file>file:/D:/PI/GYF/src/services/ServiceMail.java</file>
+            <file>file:/D:/PI/GYF/src/entities/OfferOption.java</file>
+            <file>file:/D:/PI/GYF/src/entities/Images.java</file>
             <file>file:/D:/PI/GYF/src/entities/Offers.java</file>
             <file>file:/D:/PI/GYF/src/services/IService.java</file>
+            <file>file:/D:/PI/GYF/src/services/ServiceOffers.java</file>
+            <file>file:/D:/PI/GYF/src/services/ServiceImages.java</file>
+            <file>file:/D:/PI/GYF/src/utils/MyDB.java</file>
+            <file>file:/D:/PI/GYF/src/services/ServiceBateaux.java</file>
+            <file>file:/D:/PI/GYF/src/services/ServicePaymentBateaux.java</file>
+            <file>file:/D:/PI/GYF/src/test/Main.java</file>
+            <file>file:/D:/PI/GYF/src/services/ServicePlan.java</file>
+            <file>file:/D:/PI/GYF/src/entities/Vols.java</file>
+            <file>file:/D:/PI/GYF/src/entities/PaymentBateaux.java</file>
+            <file>file:/D:/PI/GYF/src/services/ServiceOfferOption.java</file>
+            <file>file:/D:/PI/GYF/src/entities/Plan.java</file>
+            <file>file:/D:/PI/GYF/src/services/ServiceVols.java</file>
             <file>file:/D:/PI/GYF/src/entities/Bateaux.java</file>
         </group>
     </open-files>
