@@ -11,17 +11,15 @@ import java.util.List;
  *
  * @author omarb
  */
-public interface IIService<T> { 
-      
-    public void ajout(T t);
-    public void modifier(T t);
-    public void supprime(int id);
-    public List<T> affiche();
-    public List<T> afficheByName(String nom_restaurant);
-    public List<T> afficheBylocalisation(String localisation);
-    public List<T> afficheBycuisinies(String cuisinies);
+public interface IIService<T> {
+    public void AjoutReservationHotel(T t);
+    public void modifierReservationHotel(T t);
 
-    
+    /////////////////////////////////////////////////
+    public void AjoutReservationRestaurant(T t);
+    public void modifierReservationRestaurant(T t);
+
+    ////////////////////////////////////////////////////////
+    public List<T> afficheReservation();
+   public void supprimerReservation(int id);
 }
-
-

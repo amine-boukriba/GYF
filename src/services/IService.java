@@ -17,8 +17,8 @@ public interface IService<T> {
     public void modifier(T t);
     public void supprime(int id);
     public List<T> affiche();
-    public List<T> afficheByName(String nom_hotel);
-    public List<T> afficheBylocalisation(String localisation);
+
+
     
 }
 

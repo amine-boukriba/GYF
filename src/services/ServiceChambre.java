@@ -20,7 +20,7 @@ import utils.MyDB;
  *
  * @author omarb
  */
-public class ServiceChambre implements IIIService<Chambre> {
+public class ServiceChambre implements IService<Chambre> {
     
         MyDB instance = MyDB.getInstance();
     Connection connection = instance.getConnection();
@@ -57,7 +57,7 @@ public class ServiceChambre implements IIIService<Chambre> {
    
     //////////////////////////////////////////////////////////////////////////////////////////
 
-  @Override
+ // @Override
    public ArrayList<Chambre> afficheBynom_hotel(String nom_hotel) {
      
 
@@ -92,7 +92,7 @@ public class ServiceChambre implements IIIService<Chambre> {
    
     //////////////////////////////////////////////////////////////////////////////////////////
 
-   @Override
+  // @Override
    public ArrayList<Chambre> affichePrix_chambreHotel(String nom_hotel) {
      
 

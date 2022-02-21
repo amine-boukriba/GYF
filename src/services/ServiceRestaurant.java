@@ -18,7 +18,7 @@ import utils.MyDB;
 
 
  */
-public class ServiceRestaurant implements IIService<restaurants> {
+public class ServiceRestaurant implements IService<restaurants> {
 
     MyDB instance = MyDB.getInstance();
     Connection connection = instance.getConnection();
@@ -59,7 +59,7 @@ public class ServiceRestaurant implements IIService<restaurants> {
      return list;    
     }
     //////////////////////////////////////////////////////////////////////////////////////////
-   @Override
+  // @Override
    public ArrayList<restaurants> afficheByName(String nom_restaurant) {
      
 
@@ -94,7 +94,7 @@ public class ServiceRestaurant implements IIService<restaurants> {
      return list;    
     }
  //////////////////////////////////////////////////////////////////////////////////////////
-           @Override
+     //      @Override
 
  public ArrayList<restaurants> afficheBylocalisation(String localisation) {
      

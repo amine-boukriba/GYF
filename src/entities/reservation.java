@@ -14,7 +14,7 @@ public class reservation {
 
         
    private int id_reservation;
-   private int id_hotel;
+   private int id_chambre;
   private  Date date_debut ;
    private Date date_fin;
    private String mode_payment;
@@ -27,9 +27,9 @@ private int nbr_personne;
 
  
 
-    public reservation(int id_reservation, int id_hotel, Date date_debut, Date date_fin, String mode_payment, int prix, int id_restaurant, int id_user,int nbr_personne) {
+    public reservation(int id_reservation, int id_chambre, Date date_debut, Date date_fin, String mode_payment, int prix, int id_restaurant, int id_user,int nbr_personne) {
         this.id_reservation = id_reservation;
-        this.id_hotel = id_hotel;
+        this.id_chambre = id_chambre;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.mode_payment = mode_payment;
@@ -41,8 +41,8 @@ private int nbr_personne;
 
 
 
-    public reservation(int id_hotel, Date date_debut, Date date_fin, String mode_payment, int prix, int id_restaurant, int id_user,int nbr_personne) {
-        this.id_hotel = id_hotel;
+    public reservation(int id_chambre, Date date_debut, Date date_fin, String mode_payment, int prix, int id_restaurant, int id_user,int nbr_personne) {
+        this.id_chambre = id_chambre;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.mode_payment = mode_payment;
@@ -53,8 +53,8 @@ private int nbr_personne;
 
     }
         
-    public reservation(int id_hotel, Date date_debut, Date date_fin, String mode_payment, int prix, int id_user, int nbr_personne) {
-        this.id_hotel = id_hotel;
+    public reservation(int id_chambre, Date date_debut, Date date_fin, String mode_payment, int prix, int id_user, int nbr_personne) {
+        this.id_chambre = id_chambre;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.mode_payment = mode_payment;
@@ -110,12 +110,12 @@ private int nbr_personne;
         this.id_reservation = id_reservation;
     }
 
-    public int getId_hotel() {
-        return id_hotel;
+    public int getId_chambre() {
+        return id_chambre;
     }
 
-    public void setId_hotel(int id_hotel) {
-        this.id_hotel = id_hotel;
+    public void setId_chambre(int id_chambre) {
+        this.id_chambre = id_chambre;
     }
 
     public Date getDate_debut() {
@@ -176,7 +176,7 @@ private int nbr_personne;
 
     @Override
     public String toString() {
-        return "reservation{" + "id_reservation=" + id_reservation + ", id_hotel=" + id_hotel + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", mode_payment=" + mode_payment + ", prix=" + prix + ", id_restaurant=" + id_restaurant + ", id_user=" + id_user + '}';
+        return "reservation{" + "id_reservation=" + id_reservation + ", id_chambre=" + id_chambre + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", mode_payment=" + mode_payment + ", prix=" + prix + ", id_restaurant=" + id_restaurant + ", id_user=" + id_user + '}';
     }
 
 }
