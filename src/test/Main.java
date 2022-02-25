@@ -30,12 +30,10 @@ public class Main {
                 System.out.println(user.affiche()+"********************************************");
                 System.out.println(role.affiche());
                 
-                user.supprime(new Users(8,"boukriba","mohamed amine","male",123551231,
-                        "mohamed@gmail.com","tunisia","tunis",4534,"2021-01-22",1));
-                user.supprime(new Users(7,"haji","abdesatar","male",123551231,
-                        "mohamed@gmail.com","tunisia","tunis",4534,"2021-01-22",1));
-                role.supprime(new Roles(8,"super admin"));
-                role.supprime(new Roles(7,"super admin"));
+                user.supprime(8);
+                user.supprime(7);
+                role.supprime(15);
+                role.supprime(16);
     }         
     
     }

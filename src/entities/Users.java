@@ -14,7 +14,15 @@ import java.sql.Date;
 public class Users {
     
     private int id_user;
-    
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
     private String nom_user;
     
     private String prenom_user;
@@ -34,6 +42,31 @@ public class Users {
     private Date date_naissance ;
     
     private int id_role;
+    
+    private boolean verification;
+
+    public Users(int id_user, String nom_user, String prenom_user, String sexe, int numero_tel, String email_user, String pays_user, String ville_user, int code_postal, Date date_naissance, int id_role, boolean verification) {
+        this.id_user = id_user;
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+        this.sexe = sexe;
+        this.numero_tel = numero_tel;
+        this.email_user = email_user;
+        this.pays_user = pays_user;
+        this.ville_user = ville_user;
+        this.code_postal = code_postal;
+        this.date_naissance = date_naissance;
+        this.id_role = id_role;
+        this.verification = verification;
+    }
+
+    public boolean isVerification() {
+        return verification;
+    }
+
+    public void setVerification(boolean verification) {
+        this.verification = verification;
+    }
 
     public Users() {
     }

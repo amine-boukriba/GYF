@@ -5,6 +5,7 @@
  */
 package services;
 
+import entities.Historiques;
 import entities.Users;
 import java.sql.Connection;
 import java.sql.Date;
@@ -53,14 +54,14 @@ public class ServicesUsers implements IService<Users> {
             Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
-    @Override
-    public void supprime(Users t) {
+ @Override
+    public void supprime(int id) {
         
         try {
             String req;
             req = "delete from users where id_user=?";
             PreparedStatement ps=cnx.prepareStatement(req);
-            ps.setInt(1,t.getId_user());
+            ps.setInt(1,id);
             ps.executeUpdate();
             //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         } catch (SQLException ex) {
@@ -128,6 +129,49 @@ public class ServicesUsers implements IService<Users> {
         }
         return list;
     }
+    public List<Users> filter_users(){
+        
+        
+        
+        return null;
+};
+    public void verification_user(Users user){};
+    public int sign_in(Users user) throws SQLException{
+            String login=user.getEmail_user();
+            String  password=user.getPassword();
+            String req;
+            req = "SELECT password FROM users WHERE email_user  ='"+login+"'";
+            Statement st=cnx.createStatement();
+            ResultSet resultat = st.executeQuery(req);
+            
+            if(resultat.next()){
+                
+                
+                    String motDePasse = resultat.getString(1);
+                    
+                    if(motDePasse.equals(password)){
+                        
+                        return 1; //"Connexion réussie ! ","Success",JOptionPane.PLAIN_MESSAGE);
+                    }else {
+                        
+                        return 0;//"Mot de passe incorrect ! ","Error",1);
+                    }
+        
+                }
+            else {
+                
+                return -1;//"Login incorrect ! ","Error",1);
+            }
+        
+    }
+      
+    
+    public void sign_out(Users user,Historiques h){
+       ServicesHistorique histo=new ServicesHistorique();
+       histo.exit_session(h);
+        
+    };
+    public void  reset_password(Users user){};
 }
   
 

@@ -41,12 +41,12 @@ public class ServiceRoles implements IService<Roles>{
         }
 
     @Override
-    public void supprime(Roles t) {
+    public void supprime(int id) {
          try {
             String req;
             req = "delete from roles where id_role=?";
             PreparedStatement ps=cnx.prepareStatement(req);
-            ps.setInt(1,t.getIdr());
+            ps.setInt(1,id);
             ps.executeUpdate();
             //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         } catch (SQLException ex) {
