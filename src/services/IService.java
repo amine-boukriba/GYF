@@ -10,11 +10,12 @@ import java.util.List;
 /**
  *
  * @author anwer
+ * @param <T>
  */
 public interface IService<T> {
     
     public void ajout(T t);
     public void modifier(T t);
-    public void supprime(T t);
+    public void supprime(int id);
     public List<T> affiche();
 }

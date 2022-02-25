@@ -18,11 +18,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.MyDB;
+import utils.RandomString;
+import utils.SendEmail;
 
-/**
- *
- * @author boukr
- */
 public class ServicesUsers implements IService<Users> {
     Connection cnx;
     
@@ -135,7 +133,22 @@ public class ServicesUsers implements IService<Users> {
         
         return null;
 };
-    public void verification_user(Users user){};
+    public String send_verification_code(String utility){
+     RandomString rs= new RandomString();
+     String code;
+        code = rs.getAlphaNumericString(5);
+        SendEmail mailer=new SendEmail();
+        mailer.email_sending("hello this is your" + utility + "code: " + code,utility);
+     return code;
+      }
+    public boolean verification_user(Users user,String verification_code_user){
+        if (compare_code(verification_code_user,"verification")){
+        user.setVerification(true);
+         modifier(user);
+         return true;
+        }
+        else{return false;}
+    }
     public int sign_in(Users user) throws SQLException{
             String login=user.getEmail_user();
             String  password=user.getPassword();
@@ -171,7 +184,23 @@ public class ServicesUsers implements IService<Users> {
        histo.exit_session(h);
         
     };
-    public void  reset_password(Users user){};
+    public boolean compare_code(String verification_code_user,String utility){
+        String verification_code;
+        verification_code=send_verification_code(utility);
+        return verification_code.equals(verification_code_user);
+    }
+     public void  reset_password(String password){
+        try {
+            String req;
+            req = "update users set password=?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setString(1,password);
+            ps.executeUpdate();
+            System.out.println("requete executé");
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
 }
   
 
