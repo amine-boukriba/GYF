@@ -5,16 +5,10 @@
  */
 package services;
 
-import java.util.List;
-
 /**
  *
- * @author anwer
+ * @author boukr
  */
-public interface IService<T> {
+public class ServicesHistorique {
     
-    public void ajout(T t);
-    public void modifier(T t);
-    public void supprime(T t);
-    public List<T> affiche();
 }

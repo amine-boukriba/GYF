@@ -24,18 +24,18 @@ public class Main {
                 System.out.println(user.affiche()+"********************************************");
                 System.out.println(role.affiche());
                 System.out.println("before changes\n-------------------------------------");
-                user.modifier(new Users(1,"boukriba","mohamed amine","male",123551231,
+                user.modifier(new Users(3,"boukriba","mohamed amine","male",123551231,
                         "mohamed@gmail.com","tunisia","tunis",4534,"2021-01-22",1));
-                role.modifier(new Roles(1,"super admin"));
+                role.modifier(new Roles(4,"super admin"));
                 System.out.println(user.affiche()+"********************************************");
                 System.out.println(role.affiche());
                 
-                user.supprime(new Users(1,"boukriba","mohamed amine","male",123551231,
+                user.supprime(new Users(8,"boukriba","mohamed amine","male",123551231,
                         "mohamed@gmail.com","tunisia","tunis",4534,"2021-01-22",1));
-                user.supprime(new Users(2,"haji","abdesatar","male",123551231,
+                user.supprime(new Users(7,"haji","abdesatar","male",123551231,
                         "mohamed@gmail.com","tunisia","tunis",4534,"2021-01-22",1));
-                role.supprime(new Roles(1,"super admin"));
-                role.supprime(new Roles(2,"super admin"));
+                role.supprime(new Roles(8,"super admin"));
+                role.supprime(new Roles(7,"super admin"));
     }         
     
     }

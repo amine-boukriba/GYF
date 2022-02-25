@@ -30,7 +30,7 @@ public class ServicesUsers implements IService<Users> {
 }
 
     @Override
-    public void create(Users t) {
+    public void ajout(Users t) {
         try {
             String req;
             req = "insert into users(nom_user,prenom_user,"
@@ -54,7 +54,7 @@ public class ServicesUsers implements IService<Users> {
         }
         }
     @Override
-    public void delete(Users t) {
+    public void supprime(Users t) {
         
         try {
             String req;
@@ -69,7 +69,7 @@ public class ServicesUsers implements IService<Users> {
     }
 
     @Override
-    public void update(Users t) {
+    public void modifier(Users t) {
         
         try {
             String req;
@@ -97,7 +97,7 @@ public class ServicesUsers implements IService<Users> {
     }
 
     @Override
-    public List<Users> read() {
+    public List<Users> affiche() {
         List <Users> list= new ArrayList<>();
         try {
             String req;
