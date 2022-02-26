@@ -11,6 +11,21 @@ import java.util.Date;
  */
 public class reservation {
 
+    public reservation(int id_reservation,String mode_payment, int prix, Date date_debut, Date date_fin,  String nom_user, String prenom_user, String email_user, String type_chambre, String nom_hotel,int prix_chambre) {
+        this.id_reservation = id_reservation;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.mode_payment = mode_payment;
+        this.prix = prix;
+        this.nom_hotel = nom_hotel;
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+        this.email_user = email_user;
+        this.type_chambre = type_chambre;
+                this.prix_chambre = prix_chambre;
+
+    }
+
 
         
    private int id_reservation;
@@ -24,6 +39,52 @@ public class reservation {
    private String nom_restaurant;
 private String nom_hotel;
 private int nbr_personne;
+private String nom_user;
+private String prenom_user;
+private String email_user;
+private String type_chambre;
+private int prix_chambre;
+
+    public int getPrix_chambre() {
+        return prix_chambre;
+    }
+
+    public void setPrix_chambre(int prix_chambre) {
+        this.prix_chambre = prix_chambre;
+    }
+
+    public void setNom_user(String nom_user) {
+        this.nom_user = nom_user;
+    }
+
+    public void setPrenom_user(String prenom_user) {
+        this.prenom_user = prenom_user;
+    }
+
+    public void setEmail_user(String email_user) {
+        this.email_user = email_user;
+    }
+
+    public void setType_chambre(String type_chambre) {
+        this.type_chambre = type_chambre;
+    }
+
+
+    public String getNom_user() {
+        return nom_user;
+    }
+
+    public String getPrenom_user() {
+        return prenom_user;
+    }
+
+    public String getEmail_user() {
+        return email_user;
+    }
+
+    public String getType_chambre() {
+        return type_chambre;
+    }
 
  
 
@@ -174,9 +235,10 @@ private int nbr_personne;
         this.nbr_personne = nbr_personne;
     }
 
-    @Override
+
     public String toString() {
-        return "reservation{" + "id_reservation=" + id_reservation + ", id_chambre=" + id_chambre + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", mode_payment=" + mode_payment + ", prix=" + prix + ", id_restaurant=" + id_restaurant + ", id_user=" + id_user + '}';
+        return "reservation{" + "id_reservation=" + id_reservation + ", id_chambre=" + id_chambre + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", mode_payment=" + mode_payment + ", prix=" + prix + ", id_restaurant=" + id_restaurant + ", id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", email_user=" + email_user + ", type_chambre=" + type_chambre + ", nom_hotel=" + nom_hotel + ", prix_chambre=" + prix_chambre + '}';
     }
+
 
 }

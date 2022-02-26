@@ -51,12 +51,10 @@ public class ServiceHotel implements IService<Hotel> {
              while (rs.next()){
                
                        Hotel h = new Hotel();
-                         h.setId_hotel(rs.getInt("id_hotel"));
                          h.setNom_hotel(rs.getString("nom_hotel"));
                          h.setLocalisation(rs.getString("localisation"));
                          h.setCategorie(rs.getString("categorie"));
-                         h.setAvis_hotel(rs.getInt("avis_hotel"));
-                         h.setImage_hotel(rs.getString("image_hotel"));
+                      
 
                          list.add(h);
 

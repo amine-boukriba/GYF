@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
  
 import entities.reservation;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -210,29 +211,78 @@ public class ServiceReservation implements IIService<reservation> {
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
- @Override
+   public List<reservation> Afficherfullinformation(int id_reservation) {
+          
+       
+       ArrayList<reservation>  list = new ArrayList();
 
-  public void AjoutReservationHotel(reservation r) {
+
+       try {
+                   String req ="select id_reservation,mode_payment,prix,date_debut,date_fin,nom_user,prenom_user,email_user,type_chambre,nom_hotel,prix_chambre from users join reservations_resto_hotel using (id_user) join chambre using (id_chambre) join hotels using (id_hotel) where id_reservation='"+id_reservation+"' ";
+
+            Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+                 reservation r = new reservation();
+                    r.setId_reservation(rs.getInt("id_reservation"));
+                    r.setMode_payment(rs.getString("mode_payment"));
+                    r.setPrix(rs.getInt("prix"));
+                      r.setDate_debut(rs.getDate("date_debut"));
+                         r.setDate_fin(rs.getDate("date_fin"));
+                         r.setNom_user(rs.getString("nom_user"));
+                    r.setPrenom_user(rs.getString("prenom_user"));
+                    r.setEmail_user(rs.getNString("email_user"));
+                    r.setType_chambre(rs.getString("type_chambre"));
+                    r.setNom_hotel(rs.getString("nom_hotel"));
+                    r.setPrix_chambre(rs.getInt("prix_chambre"));
+
+                         list.add(r);
+
+
+            }
+
+             }             
+     
+        catch (SQLException ex) {
+                Logger.getLogger(ServiceChambre.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting reservation");
+
+        }   
+     return list;    
+    }
+  public void AjoutReservationHotel(reservation r  ) {
               List<String> list = new ArrayList<>();
 
+  
+
         try {
-            String req = "INSERT INTO `reservations_resto_hotel`(`id_chambre`,`date_debut`,`date_fin`,`mode_payment`,`prix`,`id_user`,`nbr_personne`) VALUES ('" + r.getId_chambre()+ "','" + r.getDate_debut()+ 
-                    "','" + r.getDate_fin()+"','" + r.getMode_payment()+ "','" + r.getPrix()+ "','" + r.getId_user()+ "','" + r.getNbr_personne()+ "')";
+         
+
+            String req = "INSERT INTO reservations_resto_hotel(id_chambre,date_debut,date_fin,mode_payment,prix,id_user,nbr_personne) VALUES (?,?,?,?,?,?,?)";
                 //        System.out.println(h);
+                
+                   PreparedStatement ps = connection.prepareStatement(req);
+                   System.out.println(req);
+            ps.setInt(1, r.getId_chambre());
+            ps.setDate(2, (Date) r.getDate_debut());
+            ps.setDate(3, (Date) r.getDate_fin());
+            ps.setString(4, r.getMode_payment());
+            ps.setInt(5, r.getPrix());
+            ps.setInt(6, r.getId_user());
+            ps.setInt(7, r.getNbr_personne());
 
- 
-                Statement sm = connection.createStatement();
-                sm.executeUpdate(req);
- String reqP ="select id_reservation,mode_payment,prix,date_debut,date_fin,nom_user,prenom_user,email_user,type_chambre,nom_hotel from users join reservations_resto_hotel using (id_user) join chambre using (id_chambre) join hotels using (id_hotel) where id_reservation=? ";
-            
-            PreparedStatement ps1 = connection.prepareStatement(reqP);
-            
-            ps1.setInt(1, r.getId_reservation());
-            
 
-            ResultSet rs = ps1.executeQuery();
-            
-            
+                  ps.executeUpdate();
+                     
+
+  String reqP ="select id_reservation,mode_payment,prix,date_debut,date_fin,nom_user,prenom_user,email_user,type_chambre,nom_hotel,prix_chambre from users join reservations_resto_hotel using (id_user) join chambre using (id_chambre) join hotels using (id_hotel) where id_reservation=?";
+
+                   PreparedStatement ps1 = connection.prepareStatement(reqP);
+                   ps1.setInt(1,50);
+
+                      ResultSet rs = ps1.executeQuery();
+                                                System.out.println(ps1);
+
             while (rs.next()){
                 list.add(0,rs.getString(1));
                 list.add(1,rs.getString(2));
@@ -244,16 +294,22 @@ public class ServiceReservation implements IIService<reservation> {
                 list.add(7,rs.getString(8));
                 list.add(8,rs.getString(9));
                 list.add(9,rs.getString(10));
-  
+                list.add(10,rs.getString(11));
+                          System.out.println(r +"daaz");
+
+           ServiceMail sm = new ServiceMail(list);
+            sm.sendMail(list);
             }
-            ServiceMail smv = new ServiceMail(list);
-            smv.sendMail(list);
-            } catch (SQLException ex) {
+        }
+        /*{
+          
+            } */catch (SQLException ex) {
                 Logger.getLogger(ServiceChambre.class.getName()).log(Level.SEVERE, null, ex);
                             System.out.println("Error in inserting reservation");
 
             }
-            
+                                System.out.println();
+
         }
   /////////////////////////////////////////////////////////////////////////
    @Override

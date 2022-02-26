@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterRestaurantController">
+   <children>
+      <AnchorPane layoutX="7.0" layoutY="77.0" prefHeight="546.0" prefWidth="983.0">
+         <children>
+            <VBox layoutX="16.0" layoutY="14.0" prefHeight="519.0" prefWidth="957.0">
+               <children>
+                  <HBox prefHeight="398.0" prefWidth="957.0">
+                     <children>
+                        <VBox prefHeight="455.0" prefWidth="462.0">
+                           <children>
+                              <VBox prefHeight="455.0" prefWidth="498.0" translateY="50.0">
+                                 <children>
+                                    <VBox prefHeight="348.0" prefWidth="475.0">
+                                       <children>
+                                          <JFXTextField fx:id="nom_res" labelFloat="true" promptText="Nom restaruant:" translateX="-30.0">
+                                             <VBox.margin>
+                                                <Insets left="100.0" top="40.0" />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                          <JFXTextField fx:id="localisation" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Localisation:" translateX="-30.0">
+                                             <VBox.margin>
+                                                <Insets left="100.0" top="20.0" />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                          <JFXTextField fx:id="horaire" labelFloat="true" layoutX="10.0" layoutY="36.0" promptText="Horaire de travaille:" translateX="-30.0">
+                                             <VBox.margin>
+                                                <Insets left="100.0" top="20.0" />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                          <HBox prefHeight="187.0" prefWidth="475.0">
+                                             <padding>
+                                                <Insets left="100.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets top="40.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <JFXButton fx:id="btnHome" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4CAF50;" text="BACK" translateX="100.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="348.0" prefWidth="475.0" translateY="50.0">
+                           <children>
+                              <JFXTextField fx:id="téléphone" labelFloat="true" promptText="Numéro téléphone:" translateX="-30.0">
+                                 <VBox.margin>
+                                    <Insets left="100.0" top="40.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="spécialité" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Spécialité:" translateX="-30.0">
+                                 <VBox.margin>
+                                    <Insets left="100.0" top="20.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="nbr_fourchet" labelFloat="true" layoutX="10.0" layoutY="36.0" promptText="Nombre de fourchet" translateX="-30.0">
+                                 <VBox.margin>
+                                    <Insets left="100.0" top="20.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <HBox prefHeight="235.0" prefWidth="475.0">
+                                 <padding>
+                                    <Insets left="100.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <JFXButton fx:id="btnNext" onAction="#ajout" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4CAF50;" text="Ajouter" translateX="50.0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <Label alignment="CENTER" layoutY="55.0" prefHeight="44.0" prefWidth="1020.0" text="Ajout des restaurants">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -25,7 +25,7 @@ public class Main {
     Chambre c = new Chambre("double",2000,6);
    reservation  rsh = new reservation( 5,Date.valueOf("2020-12-12"),Date.valueOf("2020-12-03"),"agence",1234,1,4);
   //  Chambre c = new Chambre(3);
-  
+             System.out.println("adadad");
 
 //Hotel h1 = new Hotel(5);
 //ha.supprime(h1.getId_hotel());
@@ -36,7 +36,7 @@ public class Main {
 //System.out.println(ha.afficheBylocalisation("hammamet"));
 //System.out.println(ha.afficheByName("marhaba"));
 
-System.out.println(rs.AfficherReservationHotel());
+//System.out.println(rs.AfficherReservationHotel());
 
 //ra.ajout(r);
  //ra.modifier(r);
@@ -47,12 +47,11 @@ System.out.println(rs.AfficherReservationHotel());
 //ca.modifier(c);
 //ca.supprime(c.getId_chambre());
 //System.out.println(ca.afficheBynom_hotel("marhaba"));
-//System.out.println(ca.affichePrix_chambreHotel("marhaba"));
-
-
+                
 //ServiceMail.sendMail("omar.bouchniba@esprit.tn");
 //rs.AjoutReservationHotel(rsh);
 
+      //    System.out.println(rs.Afficherfullinformation(50));
     }
     
     }
