@@ -9,17 +9,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
  *
  * @author boukr
  */
-public class FXMLController implements Initializable {
+public class FXML1Controller implements Initializable {
 
     @FXML
-    private TextField login;
+    private Button auth;
 
     /**
      * Initializes the controller class.

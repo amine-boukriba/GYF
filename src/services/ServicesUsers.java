@@ -34,7 +34,7 @@ public class ServicesUsers implements IService<Users> {
             String req;
             req = "insert into users(nom_user,prenom_user,"
                     + "sexe,numero_tel,email_user,pays_user,ville_user,"
-                    + "code_postal,date_naissance, id_role)values(?,?,?,?,?,?,?,?,?,?)";
+                    + "code_postal,date_naissance, id_role,password,verifcation,blocked)values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps=cnx.prepareStatement(req);
             ps.setString(1,t.getNom_user());
             ps.setString(2,t.getPrenom_user());
@@ -46,6 +46,9 @@ public class ServicesUsers implements IService<Users> {
             ps.setInt(8,t.getCode_postal());
             ps.setDate(9,t.getDate_naissance());
             ps.setInt(10,t.getId_role());
+            ps.setString(11,t.getPassword());
+            ps.setBoolean(12,t.isVerification());
+            ps.setBoolean(13,t.isBlocked());
             ps.executeUpdate(); 
             System.out.println("requete executé");
         } catch (SQLException ex) {
@@ -74,7 +77,7 @@ public class ServicesUsers implements IService<Users> {
             String req;
             req = "update users set nom_user=?,prenom_user=?,"
                     + "sexe=?,numero_tel=?,email_user=?,pays_user=?,ville_user=?,"
-                    + "code_postal=?,date_naissance=?, id_role=? where id_user=? ";
+                    + "code_postal=?,date_naissance=?, id_role=?,password=?,verifcation=?,blocked=? where id_user=? ";
             PreparedStatement ps=cnx.prepareStatement(req);
             ps.setString(1,t.getNom_user());
             ps.setString(2,t.getPrenom_user());
@@ -86,7 +89,10 @@ public class ServicesUsers implements IService<Users> {
             ps.setInt(8,t.getCode_postal());
             ps.setDate(9, (Date) t.getDate_naissance());
             ps.setInt(10,t.getId_role());
-            ps.setInt(11,t.getId_user());
+            ps.setString(11,t.getPassword());
+            ps.setBoolean(12,t.isVerification());
+            ps.setBoolean(13,t.isBlocked());
+            ps.setInt(14,t.getId_user());
             ps.executeUpdate();
             System.out.println("requete executé");
             //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
