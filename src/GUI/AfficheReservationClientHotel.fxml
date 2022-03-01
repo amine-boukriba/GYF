@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="459.0" prefWidth="1038.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficheReservationClientHotelController">
+   <children>
+      <TableView fx:id="id_affiche" layoutX="6.0" layoutY="148.0" prefHeight="200.0" prefWidth="1018.0">
+         <columns>
+            <TableColumn fx:id="nom_hotel" prefWidth="99.0" text="Nom Hôtel" />
+            <TableColumn fx:id="type_chambre" prefWidth="123.0" text="Type Chambre" />
+            <TableColumn fx:id="prix_chambre" prefWidth="103.0" text="Prix Chambre" />
+            <TableColumn fx:id="date_entree" prefWidth="117.0" text="Date entrée" />
+            <TableColumn fx:id="date_sortie" prefWidth="224.0" text="Date Sortie" />
+            <TableColumn fx:id="nbr_personne" prefWidth="176.0" text="Nombre de personne" />
+            <TableColumn fx:id="total_prix" prefWidth="177.0" text="Total Prix" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="492.0" layoutY="391.0" onAction="#Delete" prefHeight="31.0" prefWidth="124.0" style="-fx-background-color: #8EADB0;" text="Supprimer" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="14.0" prefHeight="44.0" prefWidth="635.0" text="Votre liste reservation Hôtel ">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="search_reservation" layoutX="26.0" layoutY="102.0" prefHeight="31.0" prefWidth="742.0" promptText="Recherche par Nom hôtel , type chambre" />
+   </children>
+</AnchorPane>

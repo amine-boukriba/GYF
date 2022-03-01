@@ -58,12 +58,12 @@ public class ServiceChambre implements IService<Chambre> {
     //////////////////////////////////////////////////////////////////////////////////////////
 
  // @Override
-   public ArrayList<Chambre> afficheBynom_hotel(String nom_hotel) {
+   public ArrayList<Chambre> afficheavecnom_hotel() {
      
 
       ArrayList<Chambre>  list = new ArrayList();
        try {
-                  String req ="select * from chambre join hotels using (id_hotel) where nom_hotel ='"+nom_hotel+"'  and etat = 'disponible'  ";
+                  String req ="select id_chambre,prix_chambre , type_chambre,nom_hotel from chambre join hotels using (id_hotel) where etat = 'disponible'  ";
 
                //   System.out.println(req);
             Statement st = connection.createStatement();
@@ -71,12 +71,10 @@ public class ServiceChambre implements IService<Chambre> {
              while (rs.next()){
                
                        Chambre c = new Chambre();
-                         c.setId_chambre(rs.getInt("id_chambre"));
+                        c.setId_chambre(rs.getInt("id_chambre"));
                          c.setType_chambre(rs.getString("type_chambre"));
                          c.setPrix_chambre(rs.getInt("prix_chambre"));
-                         c.setId_hotel(rs.getInt("id_hotel"));
-                         c.setEtat(rs.getString("etat"));
-                 
+                          c.setNom_hotel(rs.getString("nom_hotel"));
                          list.add(c);
 
              }             

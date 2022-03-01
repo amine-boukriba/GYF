@@ -8,12 +8,16 @@ package GUI;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import entities.Hotel;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,11 +27,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import services.ServiceHotel;
@@ -39,8 +45,6 @@ import services.ServiceHotel;
  */
 public class AjouterHotelController implements Initializable {
 ServiceHotel Hotel = new ServiceHotel();
-    @FXML
-    private AnchorPane root;
     private TableView<Hotel> tblhotelDetails;
     private TableColumn<Hotel, String> nom_h;
     private TableColumn<Hotel, String> lo;
@@ -52,39 +56,66 @@ ServiceHotel Hotel = new ServiceHotel();
     @FXML
     private TextField catégorie;
     @FXML
-    private JFXButton btnHome;
-    @FXML
     private JFXButton btnNext;
+    
+        private List<String> listfiles;
+    @FXML
+    private JFXButton btnNext1;
+    @FXML
+    private JFXTextField img;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+         listfiles = new ArrayList<>();
+        listfiles.add("*.png");
+        listfiles.add("*.jpg");
     }    
      @FXML
     private void ajout(ActionEvent event) {
-        
+                  if (validateFields()) {
+
         Hotel h = new Hotel();
         h.setNom_hotel(nom.getText());
         h.setLocalisation(localisation.getText());
         h.setCategorie(catégorie.getText());
+        h.setImage_hotel(img.getText()); 
+
         Hotel.ajout(h);
-
-        Notifications notificationBuilder = Notifications.create()
-                .title("ajouter avec succées")
-                 .text("ajouter aux list des hotels")
-                 .graphic(null)
-                 .hideAfter(Duration.seconds(5))
-                 .position(Pos.TOP_RIGHT)
-                 .onAction(new EventHandler<ActionEvent>(){
-                   @Override 
-                   public void handle(ActionEvent event){
-                     System.out.println("Clicked on notification");
-                 }
-                 });
-       notificationBuilder.showConfirm();
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Succès!");
+            alert.setHeaderText(null);
+            alert.setContentText("L'Hotel "+h.getNom_hotel()+" est ajouté avec succès");
+            alert.showAndWait();
+       
+                  } else if(validateFields()==false){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur Validation!");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez remplir tous les champs");
+            alert.showAndWait();
+        }
 
     }
+   
+    // Test de validation de saisie
+    private boolean validateFields(){
+        if(nom.getText().isEmpty() || localisation.getText().isEmpty() || catégorie.getText().isEmpty() || img.getText().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
     }
-
+    
+     public void fileChooser(ActionEvent event) {
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", listfiles));
+        File f = fc.showOpenDialog(null);
+        if(f != null) {
+            img.setText(f.getAbsolutePath());
+        }
+    }
+ 
+}

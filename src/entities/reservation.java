@@ -23,7 +23,7 @@ public class reservation {
         this.email_user = email_user;
         this.type_chambre = type_chambre;
                 this.prix_chambre = prix_chambre;
-
+                this.date_creation = date_creation;
     }
 
 
@@ -44,7 +44,15 @@ private String prenom_user;
 private String email_user;
 private String type_chambre;
 private int prix_chambre;
+private String date_creation;
 
+    public String getDate_creation() {
+        return date_creation;
+    }
+
+    public void setDate_creation(String date_creation) {
+        this.date_creation = date_creation;
+    }
     public int getPrix_chambre() {
         return prix_chambre;
     }
@@ -88,7 +96,7 @@ private int prix_chambre;
 
  
 
-    public reservation(int id_reservation, int id_chambre, Date date_debut, Date date_fin, String mode_payment, int prix, int id_restaurant, int id_user,int nbr_personne) {
+    public reservation(int id_reservation, int id_chambre, Date date_debut, Date date_fin, String mode_payment, int prix, int id_restaurant, int id_user,int nbr_personne , String date_creation) {
         this.id_reservation = id_reservation;
         this.id_chambre = id_chambre;
         this.date_debut = date_debut;
@@ -98,11 +106,13 @@ private int prix_chambre;
         this.id_restaurant = id_restaurant;
      this.nbr_personne = nbr_personne;
         this.id_user = id_user;
+        
+        this.date_creation = date_creation;
     }
 
 
 
-    public reservation(int id_chambre, Date date_debut, Date date_fin, String mode_payment, int prix, int id_restaurant, int id_user,int nbr_personne) {
+    public reservation(int id_chambre, Date date_debut, Date date_fin, String mode_payment, int prix, int id_restaurant, int id_user,int nbr_personne,String date_creation) {
         this.id_chambre = id_chambre;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
@@ -111,10 +121,11 @@ private int prix_chambre;
         this.id_restaurant = id_restaurant;
         this.id_user = id_user;
              this.nbr_personne = nbr_personne;
-
+               
+        this.date_creation = date_creation;
     }
         
-    public reservation(int id_chambre, Date date_debut, Date date_fin, String mode_payment, int prix, int id_user, int nbr_personne) {
+    public reservation(int id_chambre, Date date_debut, Date date_fin, String mode_payment, int prix, int id_user, int nbr_personne ,String date_creation) {
         this.id_chambre = id_chambre;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
@@ -122,14 +133,17 @@ private int prix_chambre;
         this.prix = prix;
         this.id_user = id_user;
         this.nbr_personne = nbr_personne;
+        this.date_creation = date_creation;
+
     }
 
-        public reservation(Date date_debut, Date date_fin, int id_restaurant, int id_user,  int nbr_personne) {
+        public reservation(Date date_debut, Date date_fin, int id_restaurant, int id_user,  int nbr_personne, String date_creation ) {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.id_restaurant = id_restaurant;
         this.id_user = id_user;
         this.nbr_personne = nbr_personne;
+                this.date_creation = date_creation;
     }
     
 
@@ -237,7 +251,7 @@ private int prix_chambre;
 
 
     public String toString() {
-        return "reservation{" + "id_reservation=" + id_reservation + ", id_chambre=" + id_chambre + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", mode_payment=" + mode_payment + ", prix=" + prix + ", id_restaurant=" + id_restaurant + ", id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", email_user=" + email_user + ", type_chambre=" + type_chambre + ", nom_hotel=" + nom_hotel + ", prix_chambre=" + prix_chambre + '}';
+        return "reservation{"  + id_reservation + ", id_chambre=" + id_chambre + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", mode_payment=" + mode_payment + ", prix=" + prix + ", id_restaurant=" + id_restaurant + ", id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", email_user=" + email_user + ", type_chambre=" + type_chambre + ", nom_hotel=" + nom_hotel + ", prix_chambre=" + prix_chambre + '}';
     }
 
 

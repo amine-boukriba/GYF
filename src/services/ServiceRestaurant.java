@@ -206,6 +206,7 @@ public ArrayList<restaurants> afficheBycuisinies(String cuisinies) {
 
     public void modifier(restaurants r) {
         try {
+            System.out.println(r);
          Statement stm = connection.createStatement();
             String req = "UPDATE `restaurants` SET `nom_restaurant`='"
                     + r.getNom_restaurant() + "',`localisation`='"

@@ -84,5 +84,6 @@
          </children>
       </VBox>
       <JFXButton fx:id="btnDelete" layoutX="267.0" layoutY="675.0" onAction="#Delete" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #f44336;" text="DELETE" />
+      <JFXButton fx:id="btnUpdate" layoutX="579.0" layoutY="675.0" onAction="#UpdateTable" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #008CBA;" text="UPDATE" />
    </children>
 </AnchorPane>

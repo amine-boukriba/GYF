@@ -11,6 +11,13 @@ package entities;
  */
 public class Hotel {
 
+    public Hotel(int id_hotel, String nom_hotel, String localisation, String categorie) {
+        this.id_hotel = id_hotel;
+        this.nom_hotel = nom_hotel;
+        this.localisation = localisation;
+        this.categorie = categorie;
+    }
+
     private int id_hotel;
 
    

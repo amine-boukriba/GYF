@@ -12,6 +12,25 @@ package entities;
 public class restaurants {
         private int id_restaurant ;
 
+    public restaurants(String nom_restaurant, String localisation, String horaire, String numero_restaurant, String cuisinies, int nombre_fourchet) {
+        this.nom_restaurant = nom_restaurant;
+        this.localisation = localisation;
+        this.horaire = horaire;
+        this.numero_restaurant = numero_restaurant;
+        this.cuisinies = cuisinies;
+        this.nombre_fourchet = nombre_fourchet;
+    }
+
+    public restaurants(int id_restaurant, String nom_restaurant, String localisation, String horaire, String numero_restaurant, String cuisinies, int nombre_fourchet) {
+        this.id_restaurant = id_restaurant;
+        this.nom_restaurant = nom_restaurant;
+        this.localisation = localisation;
+        this.horaire = horaire;
+        this.numero_restaurant = numero_restaurant;
+        this.cuisinies = cuisinies;
+        this.nombre_fourchet = nombre_fourchet;
+    }
+
 
     private String nom_restaurant ;
     private String localisation;

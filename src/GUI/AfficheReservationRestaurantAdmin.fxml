@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="id_affiche" layoutX="26.0" layoutY="198.0" prefHeight="200.0" prefWidth="901.0">
+        <columns>
+          <TableColumn fx:id="nom_hotel" prefWidth="101.0" text="Nom Hôtel" />
+          <TableColumn fx:id="type_chambre" prefWidth="118.0" text="Type Chambre" />
+            <TableColumn fx:id="prix_chambre" prefWidth="111.0" text="Prix Chambre" />
+            <TableColumn fx:id="date_entree" prefWidth="111.0" text="Date entrée" />
+            <TableColumn fx:id="date_sortie" prefWidth="161.0" text="Date sortie" />
+            <TableColumn fx:id="date_creation" prefWidth="178.0" text="Date Création" />
+            <TableColumn fx:id="total_prix" prefWidth="120.0" text="Total Prix" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btnNext" layoutX="433.0" layoutY="422.0" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4CAF50;" text="Supprimer">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="58.0" prefHeight="44.0" prefWidth="635.0" text="Votre Liste reservation Hôtel">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

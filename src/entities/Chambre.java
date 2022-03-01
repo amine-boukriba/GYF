@@ -10,6 +10,12 @@ package entities;
  * @author omarb
  */
 public class Chambre {
+
+    public Chambre(String type_chambre, int prix_chambre, String nom_hotel) {
+        this.type_chambre = type_chambre;
+        this.prix_chambre = prix_chambre;
+        this.nom_hotel = nom_hotel;
+    }
     
     
     

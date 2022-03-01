@@ -6,6 +6,7 @@
 package GUI;
 
 import com.jfoenix.controls.JFXTextField;
+import entities.restaurants;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -13,48 +14,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.fxml.Initializable;
-import javafx.scene.control.cell.PropertyValueFactory;
-
-
-import java.util.Optional;
-
-
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.cell.PropertyValueFactory;
 import services.ServiceRestaurant;
-import entities.restaurants;
 
 /**
  * FXML Controller class
  *
  * @author omarb
  */
-public class AfficheRestaurantController implements Initializable {
-    int index = -1;
-  
-
+public class AfficheRestaurantClientController implements Initializable {
     ServiceRestaurant res = new ServiceRestaurant();
     /**
      * Initializes the controller class.
      */
-  @FXML
-    private JFXTextField nom_res1;
-    @FXML
-    private JFXTextField localisation1;
-    @FXML
-    private JFXTextField horaire1;
-  
-    @FXML
-    private JFXTextField téléphone1;
-    @FXML
-    private JFXTextField spécialité1;
-    @FXML
-    private JFXTextField nbr_fourchet1;
+
   
 
 @FXML
@@ -176,80 +153,4 @@ public class AfficheRestaurantController implements Initializable {
 		// 5. Add sorted (and filtered) data to the table.
 		id_affiche.setItems(sortedData);
    }
-        
-@FXML
-    void getSelected (MouseEvent event){
-       
-        
-    index = id_affiche.getSelectionModel().getSelectedIndex();
-    
-    if (index <= -1){
-    
-        return;
-    
-    }
-    nom_res1.setText(nom_res.getCellData(index).toString());
-    localisation1.setText(lo.getCellData(index).toString());
-    spécialité1.setText(spécialité.getCellData(index).toString());
-    horaire1.setText(horaire.getCellData(index).toString());
-    téléphone1.setText(téléphone.getCellData(index).toString());
-    nbr_fourchet1.setText(nbr_fourchet.getCellData(index).toString());
-
-    
 }
-    @FXML
-    public void Delete(){
-        restaurants r = id_affiche.getSelectionModel().getSelectedItem();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Demande de confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText("Etes-vous sûr de vouloir supprimer le restaurant " + r.getNom_restaurant());
-        Optional<ButtonType> btn = alert.showAndWait();
-        if (btn.get() == ButtonType.OK) {
-            res.supprime(r.getId_restaurant());
-            showRestaurant();
-            Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
-            resAlert.setHeaderText(null);
-            resAlert.setContentText("Le restaurant " + r.getNom_restaurant()+ " a été supprimé");
-            resAlert.showAndWait();
-        } else {
-            alert.close();
-        }
-    }
-   
-     
-    
-    @FXML
-      public void UpdateTable(){
-      /*  nom_res.setCellValueFactory(new PropertyValueFactory<restaurants,String>("nom_restaurant"));
-        lo.setCellValueFactory(new PropertyValueFactory<restaurants,String>("localisation"));
-        spécialité.setCellValueFactory(new PropertyValueFactory<restaurants,String>("cuisinies"));
-        horaire.setCellValueFactory(new PropertyValueFactory<restaurants,String>("horaire"));
-        téléphone.setCellValueFactory(new PropertyValueFactory<restaurants,String>("numero_restaurant"));
-        nbr_fourchet.setCellValueFactory(new PropertyValueFactory<restaurants,Integer>("nombre_fourchet"));
-
-*/
-             int  id_selected = id_affiche.getSelectionModel().getSelectedItem().getId_restaurant();
-        System.out.println(index);
-        String nom_restauarnt = nom_res1.getText();
-        String localisation = localisation1.getText();
-        int nombre_fourchet = Integer.parseInt(nbr_fourchet1.getText());
-        System.out.println(nombre_fourchet);
-        String numero_restaurant = téléphone1.getText();
-        String cuisinies = spécialité1.getText();
-        String horaire = this.horaire1.getText();
-
-        restaurants r = new restaurants(id_selected, nom_restauarnt,localisation,horaire,numero_restaurant,cuisinies,nombre_fourchet);
-       res.modifier(r);
-       
-          showRestaurant();
-    }
-}
-    
-
-  
-
-  
-
-    
-

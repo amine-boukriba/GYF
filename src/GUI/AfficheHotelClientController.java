@@ -1,10 +1,12 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package GUI;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-
-import com.jfoenix.controls.JFXTextField;
+import entities.Hotel;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,33 +14,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.fxml.Initializable;
-import javafx.scene.control.cell.PropertyValueFactory;
-
-
-import java.util.Optional;
-
-
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.input.MouseEvent;
-import services.ServiceHotel;
-import entities.Hotel;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import services.ServiceHotel;
+
 /**
  * FXML Controller class
  *
- * @author Skander
+ * @author omarb
  */
-public class AfficheHotelController implements Initializable {
-        int index = -1;
+public class AfficheHotelClientController implements Initializable {
 
-ServiceHotel Hotel = new ServiceHotel();
+    ServiceHotel Hotel = new ServiceHotel();
 @FXML
     private TableView<Hotel> tblhotelDetails;
 @FXML
@@ -49,31 +43,19 @@ ServiceHotel Hotel = new ServiceHotel();
     private TableColumn<Hotel, String> caté;
      @FXML 
     private GridPane grid_img;
-        
-    @FXML
+     
+      @FXML
     private JFXTextField txtHotelSearch;
-    @FXML
-    private JFXTextField nom;
-    @FXML
-    private JFXTextField localisation;
-    @FXML
-    private JFXTextField catégorie;
-    @FXML
-    private JFXButton btnDelete;
-    @FXML
-    private JFXButton btnUpdate;
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            
-        showHotel();
-        
-               
-    }
-    public void showHotel(){
+        // TODO
+    showHotel();
+    }    
+    
+      public void showHotel(){
           List<Hotel> hotels = Hotel.affiche();
 
         ObservableList list = FXCollections.observableArrayList(hotels);
@@ -165,79 +147,13 @@ ServiceHotel Hotel = new ServiceHotel();
 		// 5. Add sorted (and filtered) data to the table.
 		tblhotelDetails.setItems(sortedData);
     }
-
-@FXML
-    void getSelected (MouseEvent event){
-       
-        
-    index = tblhotelDetails.getSelectionModel().getSelectedIndex();
-    
-    if (index <= -1){
-    
-        return;
-    
-    }
-    nom.setText(nom_h.getCellData(index).toString());
-    localisation.setText(lo.getCellData(index).toString());
-    catégorie.setText(caté.getCellData(index).toString());
-   
-
-    
-}
-     @FXML
-    public void Delete(){
-
-
-
-        ObservableList<Hotel> lp = tblhotelDetails.getSelectionModel().getSelectedItems();
-        Hotel r = tblhotelDetails.getSelectionModel().getSelectedItem();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Demande de confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText("Etes-vous sûr de vouloir supprimer le restaurant " + r.getNom_hotel());
-        Optional<ButtonType> btn = alert.showAndWait();
-        if (btn.get() == ButtonType.OK) {
-         Hotel.supprime(r.getId_hotel());
-            showHotel();
-            Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
-            resAlert.setHeaderText(null);
-            resAlert.setContentText("Le restaurant " + r.getNom_hotel()+ " a été supprimé");
-            resAlert.showAndWait();
-        } else {
-            alert.close();
-        }
-    }
-   
-     
-    
-    @FXML
-      public void UpdateTable(){
-      /*  nom_res.setCellValueFactory(new PropertyValueFactory<restaurants,String>("nom_restaurant"));
-        lo.setCellValueFactory(new PropertyValueFactory<restaurants,String>("localisation"));
-        spécialité.setCellValueFactory(new PropertyValueFactory<restaurants,String>("cuisinies"));
-        horaire.setCellValueFactory(new PropertyValueFactory<restaurants,String>("horaire"));
-        téléphone.setCellValueFactory(new PropertyValueFactory<restaurants,String>("numero_restaurant"));
-        nbr_fourchet.setCellValueFactory(new PropertyValueFactory<restaurants,Integer>("nombre_fourchet"));
-
-*/
-             int  id_selected = tblhotelDetails.getSelectionModel().getSelectedItem().getId_hotel();
-        System.out.println(id_selected);
-        String nom_hotel = nom.getText();
-        String localisation = this.localisation.getText();
-        String categorie = catégorie.getText();
-
-     
-
-        Hotel h = new Hotel(id_selected, nom_hotel,localisation,categorie);
-       Hotel.modifier(h);
-       
-          showHotel();
-    }
-      
-    private void showImage(MouseEvent event) {
+  private void showImage(MouseEvent event) {
       Hotel h = tblhotelDetails.getSelectionModel().getSelectedItem();
       String path = h.getImage_hotel();
       grid_img.getChildren().clear();
       grid_img.add(new ImageView(new Image("file:/"+path, 193, 200, false, false)), 0, 0);
+       
+    
+   
     }
 }

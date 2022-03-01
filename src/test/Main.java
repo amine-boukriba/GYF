@@ -23,7 +23,7 @@ public class Main {
  Hotel h = new Hotel(5,"omar","talel","jdaazd",1,"");
   restaurants r = new restaurants(1,"alfa" , "sousse" , "12:00 - 22:00", "26353009", "spécialité mer " , 1 , 2 ,"");
     Chambre c = new Chambre("double",2000,6);
-   reservation  rsh = new reservation( 5,Date.valueOf("2020-12-12"),Date.valueOf("2020-12-03"),"agence",1234,1,4);
+   //reservation  rsh = new reservation( 5,Date.valueOf("2020-12-12"),Date.valueOf("2020-12-03"),"agence",1234,1,4);
   //  Chambre c = new Chambre(3);
              System.out.println("adadad");
 
@@ -52,6 +52,8 @@ public class Main {
 //rs.AjoutReservationHotel(rsh);
 
       //    System.out.println(rs.Afficherfullinformation(50));
+         //     System.out.println(rs.afficheID());
+
     }
     
     }
