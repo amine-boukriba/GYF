@@ -16,30 +16,25 @@ public class reclamation {
     
      private int id_reclamation;
      private String description;
-     private Date date_creation;
-     private Date date_traitement;
+      private String nom;
+       private String prenom;
+        private String email;
+     private String date_creation;
+     private String date_traitement;
      private String status; 
      private String image_reclamation; 
      private int cible_reclamation; 
-     private int type_reclamation; 
+     private String type_reclamation; 
      private int id_user; 
      public reclamation() {
     }
 
-    public reclamation(int id_reclamation, String description, Date date_creation, Date date_traitement, String status, String image_reclamation, int cible_reclamation, int type_reclamation) {
+    public reclamation(int id_reclamation, String description, String nom, String prenom, String email, String date_creation, String date_traitement, String status, String image_reclamation, int cible_reclamation, String type_reclamation, int id_user) {
         this.id_reclamation = id_reclamation;
         this.description = description;
-        this.date_creation = date_creation;
-        this.date_traitement = date_traitement;
-        this.status = status;
-        this.image_reclamation = image_reclamation;
-        this.cible_reclamation = cible_reclamation;
-        this.type_reclamation = type_reclamation;
-    }
-
-    public reclamation(int id_reclamation, String description, Date date_creation, Date date_traitement, String status, String image_reclamation, int cible_reclamation, int type_reclamation, int id_user) {
-        this.id_reclamation = id_reclamation;
-        this.description = description;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
         this.date_creation = date_creation;
         this.date_traitement = date_traitement;
         this.status = status;
@@ -49,8 +44,11 @@ public class reclamation {
         this.id_user = id_user;
     }
 
-    public reclamation(String description, Date date_creation, Date date_traitement, String status, String image_reclamation, int cible_reclamation, int type_reclamation, int id_user) {
+    public reclamation(String description, String nom, String prenom, String email, String date_creation, String date_traitement, String status, String image_reclamation, int cible_reclamation, String type_reclamation, int id_user) {
         this.description = description;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
         this.date_creation = date_creation;
         this.date_traitement = date_traitement;
         this.status = status;
@@ -76,19 +74,43 @@ public class reclamation {
         this.description = description;
     }
 
-    public Date getDate_creation() {
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDate_creation() {
         return date_creation;
     }
 
-    public void setDate_creation(Date date_creation) {
+    public void setDate_creation(String date_creation) {
         this.date_creation = date_creation;
     }
 
-    public Date getDate_traitement() {
+    public String getDate_traitement() {
         return date_traitement;
     }
 
-    public void setDate_traitement(Date date_traitement) {
+    public void setDate_traitement(String date_traitement) {
         this.date_traitement = date_traitement;
     }
 
@@ -116,11 +138,11 @@ public class reclamation {
         this.cible_reclamation = cible_reclamation;
     }
 
-    public int getType_reclamation() {
+    public String getType_reclamation() {
         return type_reclamation;
     }
 
-    public void setType_reclamation(int type_reclamation) {
+    public void setType_reclamation(String type_reclamation) {
         this.type_reclamation = type_reclamation;
     }
 
@@ -134,7 +156,16 @@ public class reclamation {
 
     @Override
     public String toString() {
-        return "reclamation{" + "id_reclamation=" + id_reclamation + ", description=" + description + ", date_creation=" + date_creation + ", date_traitement=" + date_traitement + ", status=" + status + ", image_reclamation=" + image_reclamation + ", cible_reclamation=" + cible_reclamation + ", type_reclamation=" + type_reclamation + ", id_user=" + id_user + '}';
+        return "reclamation{" + "id_reclamation=" + id_reclamation + ", description=" + description + ", nom=" + nom + ", prenom=" +
+                prenom + ", email=" + email + ", date_creation=" + date_creation + ", date_traitement=" + date_traitement + ", status=" +
+                status + ", image_reclamation=" + image_reclamation + ", cible_reclamation=" + cible_reclamation + ", type_reclamation=" +
+                type_reclamation + ", id_user=" + id_user + '}';
     }
+
+    public void setType_reclamation(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
      
 }

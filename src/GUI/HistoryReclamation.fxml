@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HistoryReclamationController">
+   <children>
+      <TableView fx:id="tvhist" layoutX="71.0" layoutY="109.0" prefHeight="413.0" prefWidth="650.0">
+        <columns>
+          <TableColumn fx:id="Cl_Id" prefWidth="75.0" text="id reponse" />
+          <TableColumn fx:id="Cl_Rec" prefWidth="123.0" text="id reclamation" />
+            <TableColumn fx:id="Cl_Type" prefWidth="169.0" text="Type" />
+            <TableColumn fx:id="Cl_Message" prefWidth="282.0" text="message" />
+        </columns>
+      </TableView>
+      <Button fx:id="BtnRetour" layoutX="45.0" layoutY="36.0" mnemonicParsing="false" onAction="#fnRetour" prefHeight="49.0" prefWidth="113.0" text="Retour" />
+   </children>
+</AnchorPane>

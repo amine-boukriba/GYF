@@ -21,9 +21,8 @@ public class MyDB {
      private String user="root";
       private String pass="";
       private Connection connection;
-
-   
       static MyDB instance;
+      
       private MyDB(){
         try {
             connection= DriverManager.getConnection(url,user,pass);
@@ -32,12 +31,14 @@ public class MyDB {
             Logger.getLogger(MyDB.class.getName()).log(Level.SEVERE, null, ex);
         }
       }
+      
       public static MyDB getInstance(){
           if(instance==null)
               instance =new MyDB();
           return instance;
       }
-       public Connection getConnection() {
+      
+      public Connection getConnection() {
         return connection;
     }
 }
