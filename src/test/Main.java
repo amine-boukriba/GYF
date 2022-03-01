@@ -12,8 +12,8 @@ import utils.MyDB;
 public class Main {
     public static void main(String[] args) {
         
-    ServiceMonuments sp = new ServiceMonuments();
-  // ServiceEspaceCulturel sp = new ServiceEspaceCulturel();
+    //ServiceMonuments sp = new ServiceMonuments();
+   //ServiceEspaceCulturel sp = new ServiceEspaceCulturel();
     
     //---------CRUD Monuments------------
    //sp.ajout(new Monuments("nom_monument", "image_monument", 1, 30, "description", "date_creation", "pays", "localisation", 5));
@@ -27,6 +27,7 @@ public class Main {
     //sp.supprime(8);
     //System.out.println(sp.affiche());
     
-    
+       // System.out.println(sp.rechercherParNom("nom_monument"));
+      // System.out.println(sp.rechercherParNom("nom_espace"));
     }
 }

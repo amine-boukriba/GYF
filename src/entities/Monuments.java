@@ -6,7 +6,7 @@ public class Monuments {
      private int id_monument;
      private String nom_monument;
      private String image_monument;
-     private int payant;
+     private Boolean payant;
      private int prix;
      private String description;
      private String date_creation;
@@ -17,7 +17,7 @@ public class Monuments {
     public Monuments() {
     }
 
-    public Monuments(int id_monument, String nom_monument, String image_monument, int payant, int prix, String description, String date_creation, String pays, String localisation, int avis_monument) {
+    public Monuments(int id_monument, String nom_monument, String image_monument, Boolean payant, int prix, String description, String date_creation, String pays, String localisation, int avis_monument) {
         this.id_monument = id_monument;
         this.nom_monument = nom_monument;
         this.image_monument = image_monument;
@@ -29,7 +29,7 @@ public class Monuments {
         this.localisation = localisation;
         this.avis_monument = avis_monument;
     }
-    public Monuments( String nom_monument, String image_monument, int payant, int prix, String description, String date_creation, String pays, String localisation, int avis_monument) {
+    public Monuments( String nom_monument, String image_monument, Boolean payant, int prix, String description, String date_creation, String pays, String localisation, int avis_monument) {
         
         this.nom_monument = nom_monument;
         this.image_monument = image_monument;
@@ -54,7 +54,7 @@ public class Monuments {
         return image_monument;
     }
 
-    public int getPayant() {
+    public Boolean getPayant() {
         return payant;
     }
 
@@ -94,7 +94,7 @@ public class Monuments {
         this.image_monument = image_monument;
     }
 
-    public void setPayant(int payant) {
+    public void setPayant(Boolean payant) {
         this.payant = payant;
     }
 
