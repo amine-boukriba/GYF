@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VolInterfaceController">
+   <children>
+      <HBox layoutX="14.0" layoutY="18.0" prefHeight="413.0" prefWidth="200.0">
+         <children>
+            <VBox prefHeight="355.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="101.0" text="Compagnie aerien">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="depart">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="destination">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="date depart">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="date arrive">
+                     <VBox.margin>
+                        <Insets top="17.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="prix">
+                     <VBox.margin>
+                        <Insets top="17.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="duree">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="type_avion">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="image_vol">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="avis_vol">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="label_id" text="Id">
+                     <VBox.margin>
+                        <Insets top="17.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TextField fx:id="compAeri">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="depart">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="destination">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <DatePicker fx:id="date_dep">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <DatePicker fx:id="date_arr">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <TextField fx:id="prix">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="duree">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="type_avion">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="image_vol">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#saveImage" prefHeight="26.0" prefWidth="103.0" text="chosir image">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <TextField fx:id="avis_vol">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="input_id">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <TableView fx:id="tab_vols" layoutX="223.0" layoutY="14.0" onMouseClicked="#getValues" prefHeight="326.0" prefWidth="861.0">
+         <columns>
+            <TableColumn fx:id="tab_id" prefWidth="75.0" text="id" />
+            <TableColumn fx:id="tab_comp" prefWidth="120.0" text="Compagnie aerien" />
+            <TableColumn fx:id="tab_depart" prefWidth="67.20001220703125" text="depart" />
+            <TableColumn fx:id="tab_dest" prefWidth="84.79998779296875" text="destination" />
+            <TableColumn fx:id="tabd_dat_dep" prefWidth="82.39996337890625" text="date depart" />
+            <TableColumn fx:id="tab_date_arr" prefWidth="76.0" text="date arrive" />
+            <TableColumn fx:id="tab_prix" prefWidth="50.39996337890625" text="prix" />
+            <TableColumn fx:id="tab_duree" prefWidth="56.0" text="duree" />
+            <TableColumn fx:id="tab_tyope_avion" prefWidth="80.00006103515625" text="type_avion" />
+            <TableColumn id="tab_idg_vol" fx:id="tab_img_vol" prefWidth="83.199951171875" text="image_vol" />
+            <TableColumn id="tab_avi_vol" fx:id="tab_avis" prefWidth="86.40008544921875" text="avis_vol" />
+         </columns>
+      </TableView>
+      <Button fx:id="btn_ajout" layoutX="313.0" layoutY="371.0" mnemonicParsing="false" onAction="#ajouter" text="ajouter" />
+      <Button fx:id="btn_modif" layoutX="428.0" layoutY="371.0" mnemonicParsing="false" onAction="#modifier" text="modifier" />
+      <Button fx:id="btn_sup" layoutX="565.0" layoutY="371.0" mnemonicParsing="false" onAction="#supprime" text="supprime" />
+   </children>
+</AnchorPane>

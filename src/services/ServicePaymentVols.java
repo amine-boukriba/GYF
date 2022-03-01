@@ -5,6 +5,7 @@
  */
 package services;
 
+import com.stripe.exception.StripeException;
 import entities.PaymentBateaux;
 import entities.PaymentVols;
 import java.sql.Connection;
@@ -29,10 +30,19 @@ public class ServicePaymentVols implements IService<PaymentVols>{
     public ServicePaymentVols() {
         connection = MyDB.getInstance().getConnection();
     }
-    @Override
-    public void ajout(PaymentVols t) {
+    
+    public void ajoutPay(PaymentVols t,List<String> listItems) {
         List<String> list = new ArrayList<>();
+        int prix = (int)Float.parseFloat(listItems.get(0)) ;
+        
+//        System.out.println(prix);
+//        System.out.println(listItems.get(1));
         try {
+            if(t.getType_payment().equals("en ligne")){
+                ServicePaymentStripe spt = new ServicePaymentStripe("annnn@gmail.com","ann",prix*100,listItems.get(1));
+        
+            spt.payer();
+            }
             String req = "insert into payment_vols (id_vol,id_user ,type_payment) values (?,?,?)";
             
             PreparedStatement ps = connection.prepareStatement(req);
@@ -42,7 +52,10 @@ public class ServicePaymentVols implements IService<PaymentVols>{
             ps.setString(3, t.getType_payment());
             
             ps.executeUpdate();
-            String reqP ="SELECT id_pay_vol,type_payment,compagnie_aerien,prix,nom_user,prenom_user,email_user FROM payment_vols p  inner join vols b on p.id_vol = ? inner join users u on P.id_user = ? ";
+
+
+            
+            String reqP ="SELECT id_pay_vol ,type_payment,compagnie_aerien,prix,nom_user,prenom_user,email_user FROM payment_vols p inner join vols v on p.id_vol=v.id_vol and p.id_vol=? inner join users u on p.id_user=u.id_user and p.id_user=?";
             
             PreparedStatement ps1 = connection.prepareStatement(reqP);
             
@@ -50,9 +63,9 @@ public class ServicePaymentVols implements IService<PaymentVols>{
             ps1.setInt(2,t.getId_user());
             
             ResultSet rs = ps1.executeQuery();
+
             
-            
-            while (rs.next()){
+                while(rs.next()){
                 list.add(0,rs.getString(1));
                 list.add(1,rs.getString(2));
                 list.add(2,rs.getString(3));
@@ -62,11 +75,15 @@ public class ServicePaymentVols implements IService<PaymentVols>{
                 list.add(6,rs.getString(7));
                 list.add(7,"vol");
             }
+            
             ServiceMail sm = new ServiceMail(list);
             sm.sendMail(list);
         } catch (SQLException ex) {
             Logger.getLogger(ServicePaymentBateaux.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (StripeException ex) {
+            Logger.getLogger(ServicePaymentVols.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     @Override
@@ -96,6 +113,11 @@ public class ServicePaymentVols implements IService<PaymentVols>{
             Logger.getLogger(ServicePaymentBateaux.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+
+    @Override
+    public void ajout(PaymentVols t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

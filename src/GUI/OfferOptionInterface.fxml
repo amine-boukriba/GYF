@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OfferOptionInterfaceController">
+     <children>
+      <BorderPane layoutX="10.0" prefHeight="400.0" prefWidth="1058.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <HBox prefHeight="413.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="355.0" prefWidth="100.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="101.0" text="Id offer">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="bateau">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="espace culturel">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="vol">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="hotel">
+                           <VBox.margin>
+                              <Insets top="17.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="monument">
+                           <VBox.margin>
+                              <Insets top="17.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="restaurant">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="evenement">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="label_id" text="Id">
+                           <VBox.margin>
+                              <Insets top="17.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField fx:id="id_offer">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <ChoiceBox fx:id="bateau_opt" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="espace_opt" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="vol_opt" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="hotel_opt" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets top="7.0" />
+                           </VBox.margin>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="monument_opt" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets top="9.0" />
+                           </VBox.margin>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="restaurant_opt" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </ChoiceBox>
+                        <ChoiceBox fx:id="evenement_opt" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets top="7.0" />
+                           </VBox.margin>
+                        </ChoiceBox>
+                        <TextField fx:id="input_id">
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </left>
+         <center>
+            <TableView fx:id="tab_option" onMouseClicked="#getValues" prefHeight="362.0" prefWidth="764.0" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn fx:id="tab_id" prefWidth="75.0" text="id" />
+                  <TableColumn fx:id="tab_offer" prefWidth="82.39999389648438" text="id_offer " />
+                  <TableColumn fx:id="tab_bateau" prefWidth="98.4000244140625" text="id_bateau " />
+                  <TableColumn fx:id="tab_espace" prefWidth="76.79995727539062" text="id_espace " />
+                  <TableColumn fx:id="tab_vol" prefWidth="79.199951171875" text="id_vol " />
+                  <TableColumn fx:id="tab_hotel" prefWidth="85.60003662109375" text="id_hotel " />
+                  <TableColumn fx:id="tab_monument" prefWidth="111.199951171875" text="id_monument " />
+                  <TableColumn fx:id="tab_restaurant" prefWidth="105.5999755859375" text="id_restaurant " />
+                  <TableColumn fx:id="tab_evenement" prefWidth="140.7999267578125" text="id_evenement " />
+               </columns>
+            </TableView>
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="66.0" prefWidth="964.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btn_ajout" layoutX="356.0" layoutY="14.0" mnemonicParsing="false" onAction="#ajouter" text="ajouter" />
+                  <Button fx:id="btn_modif" layoutX="452.0" layoutY="14.0" mnemonicParsing="false" onAction="#modifier" text="modifier" />
+                  <Button fx:id="btn_sup" layoutX="576.0" layoutY="14.0" mnemonicParsing="false" onAction="#supprime" text="supprime" />
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

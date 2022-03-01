@@ -98,18 +98,18 @@ public class ServiceOffers implements IService<Offers>{
         
         List<Offers> list = new ArrayList();
         try {
-            String req ="select * from offers";
+            String req ="select *,(select path from images where offers.id_offer=images.id_offer ) as path from offers";
             
             Statement st = connection.createStatement();
             
             ResultSet rs = st.executeQuery(req);
             while (rs.next()){
-                list.add(new Offers(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getInt(7),rs.getString(8),rs.getFloat(9),rs.getInt(10)));
+                list.add(new Offers(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getInt(7),rs.getString(8),rs.getFloat(9),rs.getInt(10),rs.getString(11)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ServiceOffers.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        System.out.println(list);
         return list;
     }
     public List<Offers> rechercheOffers(String depart,String destination ,Date date_dep){
@@ -154,5 +154,21 @@ public class ServiceOffers implements IService<Offers>{
             Logger.getLogger(ServiceVols.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+    public int lastId(){
+        int id=0;
+        String req = "SELECT max(id_offer) id_offer FROM offers";
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()){
+                id= rs.getInt(1);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceOffers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(id);
+        return id;
     }
 }

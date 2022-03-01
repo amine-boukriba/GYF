@@ -5,6 +5,7 @@
  */
 package services;
 
+import com.stripe.exception.StripeException;
 import entities.PaymentBateaux;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,6 +37,9 @@ public class ServicePaymentBateaux implements IService<PaymentBateaux>{
         
         List<String> list = new ArrayList<>();
         try {
+            ServicePaymentStripe spt = new ServicePaymentStripe("annnn@gmail.com","ann",2000,"4111111111111111");
+            spt.payer();
+            
             String req = "insert into payment_bateaux (id_bateau,id_user ,type_payment) values (?,?,?)";
             
             PreparedStatement ps = connection.prepareStatement(req);
@@ -68,6 +72,8 @@ public class ServicePaymentBateaux implements IService<PaymentBateaux>{
             ServiceMail sm = new ServiceMail(list);
             sm.sendMail(list);
         } catch (SQLException ex) {
+            Logger.getLogger(ServicePaymentBateaux.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (StripeException ex) {
             Logger.getLogger(ServicePaymentBateaux.class.getName()).log(Level.SEVERE, null, ex);
         }
         

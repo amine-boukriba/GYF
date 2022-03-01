@@ -5,6 +5,7 @@
  */
 package services;
 
+import entities.Bateaux;
 import entities.Vols;
 import java.sql.Connection;
 import java.sql.Date;
@@ -159,19 +160,19 @@ public class ServiceVols implements IService<Vols>{
        return list;
         
     }
-    public List<Vols> rechercheVols(String depart,String destination ,Date date_dep){
+    public List<Vols> rechercheVols(String depart,String destination ,Date date_dep , Date date_arr){
          List<Vols> list =new ArrayList();
          
         try {
            
-            String req = "select * from vols where depart=? and destination=? and date_depart = ? "; 
+            String req = "select * from vols where depart=? and destination=? and date_depart = ? and date_arrive=?"; 
             
              PreparedStatement ps = connection.prepareStatement(req);
             
             ps.setString(1, depart);
             ps.setString(2,destination);
             ps.setDate(3, date_dep);
-            
+            ps.setDate(4,date_arr);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 list.add(new Vols(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getFloat(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11)));
@@ -200,6 +201,27 @@ public class ServiceVols implements IService<Vols>{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceVols.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return list;
+    }
+     public List<Vols> getVol(Date dat_dep,String dep, String dest){
+        
+        List<Vols> list = new ArrayList<>();
+        String req ="select id_vol, compagnie_aerien from vols where depart='"+dep+"' and destination ='"+dest+"' and date_depart ='"+dat_dep+"'";
+        
+        try {
+           Statement st = connection.createStatement();
+            
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()){
+                Vols v =new Vols() ;
+                v.setId_vol(rs.getInt(1));
+                v.setCompagnie_aerien(rs.getString(2));
+                list.add(v);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceBateaux.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(list);
         return list;
     }
     

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VolClientInterfaceController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="43.0" text="Trouver votre vol" />
+                  <TextField fx:id="depart" layoutX="14.0" layoutY="73.0" promptText="Depart de" />
+                  <TextField fx:id="arrive" layoutX="14.0" layoutY="109.0" promptText="Arriver a" />
+                  <DatePicker fx:id="date_dep" layoutX="14.0" layoutY="145.0" prefHeight="26.0" prefWidth="123.0" promptText="Date depart" />
+                  <DatePicker fx:id="date_arr" layoutX="14.0" layoutY="187.0" prefHeight="26.0" prefWidth="123.0" promptText="Date arriver" />
+                  <JFXButton fx:id="btn_rechercher" layoutX="38.0" layoutY="233.0" onAction="#rechercher" style="-fx-background-color: green;" text="Rechercher" />
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <HBox prefHeight="320.0" prefWidth="652.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane fx:id="scrole" prefHeight="306.0" prefWidth="650.0">
+                     <content>
+                        <GridPane fx:id="grid" prefHeight="118.0" prefWidth="647.0" vgap="20.0">
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </ScrollPane>
+               </children>
+            </HBox>
+         </center>
+         <top>
+            <Label fx:id="text_error" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

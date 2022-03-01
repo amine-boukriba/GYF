@@ -5,6 +5,7 @@
  */
 package services;
 
+import com.stripe.exception.StripeException;
 import entities.PaymentPlan;
 import entities.PaymentVols;
 import java.sql.Connection;
@@ -31,10 +32,14 @@ public class ServicePaymentPlan implements IService<PaymentPlan>{
     }
     
     
-    @Override
-    public void ajout(PaymentPlan t) {
+   
+    public void ajoutPay(PaymentPlan t,List<String> listItems) {
          List<String> list = new ArrayList<>();
+         int prix = (int)Float.parseFloat(listItems.get(0)) ;
         try {
+            ServicePaymentStripe spt = new ServicePaymentStripe("annnn@gmail.com","ann",prix*100,listItems.get(1));
+            spt.payer();
+            
             String req = "insert into payment_plan (id_plan,id_user ,type_payment) values (?,?,?)";
             
             PreparedStatement ps = connection.prepareStatement(req);
@@ -65,10 +70,13 @@ public class ServicePaymentPlan implements IService<PaymentPlan>{
                 list.add(6,rs.getString(6));
                 list.add(7,"plan");
             }
+            System.out.println("lista lel mail"+list);
             ServiceMail sm = new ServiceMail(list);
             sm.sendMail(list);
         } catch (SQLException ex) {
             Logger.getLogger(ServicePaymentBateaux.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (StripeException ex) {
+            Logger.getLogger(ServicePaymentPlan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -99,6 +107,25 @@ public class ServicePaymentPlan implements IService<PaymentPlan>{
             Logger.getLogger(ServicePaymentBateaux.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+    public int getLast(){
+        int id=0;
+        try {
+            String req ="select max(id_pay_plan) from payment_plan";
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            rs.next();
+            id=rs.getInt(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicePaymentPlan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+
+    @Override
+    public void ajout(PaymentPlan t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

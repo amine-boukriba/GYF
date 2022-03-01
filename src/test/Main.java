@@ -5,6 +5,7 @@
  */
 package test;
 
+import com.stripe.exception.StripeException;
 import entities.Bateaux;
 import entities.Images;
 import entities.OfferOption;
@@ -24,6 +25,7 @@ import services.ServiceOffers;
 import services.ServicePaymentBateaux;
 import services.ServicePaymentOffers;
 import services.ServicePaymentPlan;
+import services.ServicePaymentStripe;
 import services.ServicePaymentVols;
 import services.ServicePlan;
 import services.ServiceVols;
@@ -35,13 +37,13 @@ import utils.MyDB;
  */
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws StripeException{
         //********************** MAIL ****************************
         //ServiceMail.sendMail("anwerboubaker3@gmail.com");
         //********************** VOLS ****************************
         
         ServiceVols sv = new ServiceVols();
-        //System.out.println(sv.getOne(3));
+        //System.out.println(sv.affiche());
         //sv.ajout(new Vols("tun","12","fr",Date.valueOf("2020-02-12"),new Date(1),12.6f,3,"arbus","azdsd",5));
         //sv.rechercheVols("22", "ita");
         //sv.modifier(new Vols(1,"tun","22","ita",new Date(999999999),new Date(999999999),12.69f,3,"arbus","azdsd",5));
@@ -90,7 +92,7 @@ public class Main {
         //********************** PAYMENT VOLS ****************************
         
         ServicePaymentVols spv = new ServicePaymentVols();
-        //spv.ajout(new PaymentVols(1,2,"en ligne"));
+        //spv.ajout(new PaymentVols(1,2,"agence"));
         //System.out.println(spv.affiche());
         
         //********************** PAYMENT OFFERS ****************************
@@ -102,8 +104,11 @@ public class Main {
         //********************** PAYMENT PLAN ****************************
         
         ServicePaymentPlan spp = new ServicePaymentPlan();
-        spp.ajout(new PaymentPlan(4,2,"agence"));
+        //spp.ajout(new PaymentPlan(4,2,"agence"));
         
+        //********************** PAYMENT STRIPE ****************************
+//        ServicePaymentStripe spt = new ServicePaymentStripe("annnn@gmail.com","ann",2000,"4111111111111111");
+//        spt.payer();
     }
     
 }

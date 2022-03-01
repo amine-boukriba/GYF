@@ -23,6 +23,7 @@ public class Offers {
     private String description;
     private float prix;
     private int avis_offer ;
+    private String path;
     
 
     public Offers() {
@@ -40,6 +41,23 @@ public class Offers {
         this.avis_offer = avis_offre;
     }
 
+    public Offers(int id_offer, String titre, String depart, String destination, Date date_debut, Date date_fin, int nombre_nuits, String description, float prix, int avis_offer, String path) {
+        this.id_offer = id_offer;
+        this.titre = titre;
+        this.depart = depart;
+        this.destination = destination;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.nombre_nuits = nombre_nuits;
+        this.description = description;
+        this.prix = prix;
+        this.avis_offer = avis_offer;
+        this.path = path;
+    }
+
+    
+
+   
     
     
     public Offers(int id_offer, String titre, String depart, String destination, Date date_debut, Date date_fin, int nombre_nuits, String description, float prix, int avis_offre) {
@@ -132,8 +150,16 @@ public class Offers {
         return avis_offer;
     }
 
-    public void setAvis_vol(int avis_offer) {
+    public void setAvis_offer(int avis_offer) {
         this.avis_offer= avis_offer;
+    }
+    
+     public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
 

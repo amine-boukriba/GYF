@@ -171,5 +171,26 @@ public class ServiceBateaux implements IService<Bateaux>{
         }
         return list;
     }
+    public List<Bateaux> getBateaux(Date dat_dep,String dep, String dest){
+        
+        List<Bateaux> list = new ArrayList<>();
+        String req ="select id_bateau, compagnie_maritime from bateaux where depart='"+dep+"' and destination ='"+dest+"' and date_depart ='"+dat_dep+"'";
+        
+        try {
+           Statement st = connection.createStatement();
+            
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()){
+                Bateaux b =new Bateaux() ;
+                b.setId_bateau(rs.getInt(1));
+                b.setCompagnie_maritime(rs.getString(2));
+                list.add(b);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceBateaux.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(list);
+        return list;
+    }
     
 }

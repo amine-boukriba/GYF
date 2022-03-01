@@ -8,7 +8,9 @@ package services;
 import entities.Plan;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -90,5 +92,19 @@ public class ServicePlan implements IService<Plan>{
     public List<Plan> affiche() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+     public int getLast(){
+        int id=0;
+        try {
+            String req ="select max(id_plan) from plan";
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            rs.next();
+            
+            id=rs.getInt(1);
+            System.out.println(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicePaymentPlan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
 }
