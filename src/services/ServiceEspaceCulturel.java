@@ -6,6 +6,7 @@
 package services;
 
 import entities.Espace_culturels;
+import entities.Monuments;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,7 +42,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
             ps.setString(3, t.getImage_espace());
             ps.setString(4, t.getHoraire());
             ps.setInt(5, t.getPrix());
-            ps.setInt(6, t.getPaye());
+            ps.setBoolean(6, t.getPaye());
             ps.setString(7, t.getDate_creation());
             ps.setString(8, t.getPays());
             ps.setString(9, t.getLocalisation());
@@ -65,7 +66,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
             ps.setString(2, t.getImage_espace());
             ps.setString(3, t.getHoraire());
             ps.setInt(4, t.getPrix());
-            ps.setInt(5, t.getPaye());
+            ps.setBoolean(5, t.getPaye());
             ps.setString(6, t.getDate_creation());
             ps.setString(7, t.getPays());
             ps.setString(8, t.getLocalisation());
@@ -108,7 +109,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
                 e.setImage_espace(rs.getString("image_espace"));
                 e.setHoraire(rs.getString("horaire"));
                 e.setPrix(rs.getInt("prix"));
-                e.setPaye(rs.getInt("paye"));
+                e.setPaye(rs.getBoolean("paye"));
                 e.setDate_creation(rs.getString("date_creation"));
                 e.setPays(rs.getString("pays"));
                 e.setLocalisation(rs.getString("localisation"));
@@ -125,10 +126,66 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
         return list;
     }
 
-    
+    public List<Espace_culturels>  rechercherParNom(String nom_espace){
+        List<Espace_culturels> list2 =new ArrayList<>();
+        try{
+            String req ="select * from espace_culturels where nom_espace = '"+nom_espace+"'";
+            Statement st = cnx.createStatement();
+            ResultSet rs =st.executeQuery(req);
+            while(rs.next()){
+              Espace_culturels e =new Espace_culturels();
+                e.setId_espace(rs.getInt("id_espace"));
+                e.setNom_espace(rs.getString("nom_espace"));
+                e.setImage_espace(rs.getString("image_espace"));
+                e.setHoraire(rs.getString("horaire"));
+                e.setPrix(rs.getInt("prix"));
+                e.setPaye(rs.getBoolean("paye"));
+                e.setDate_creation(rs.getString("date_creation"));
+                e.setPays(rs.getString("pays"));
+                e.setLocalisation(rs.getString("localisation"));
+                e.setDescription(rs.getString("description"));
+                e.setAvis_espace(rs.getInt("avis_espace"));
+                
+                
+       list2.add(e);
+    }
+        } catch (SQLException ex) {
+        Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
+    }
+   return list2;
+    }
     
 
-    
+    public Espace_culturels getEspace_culturelsById(int id) {
+        Espace_culturels est = new Espace_culturels();
+        try {
+            String req="select * from espace_culturels where id_espace="+id+"";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                
+                est.setId_espace(rs.getInt("id_espace"));
+                est.setNom_espace(rs.getString("nom_espace"));
+                est.setImage_espace(rs.getString("image_espace"));
+                est.setHoraire(rs.getString("horaire"));
+                est.setPrix(rs.getInt("prix"));
+                est.setPaye(rs.getBoolean("paye"));
+                est.setDate_creation(rs.getString("date_creation"));
+                est.setPays(rs.getString("pays"));
+                est.setLocalisation(rs.getString("localisation"));
+                est.setDescription(rs.getString("description"));
+                est.setAvis_espace(rs.getInt("avis_espace"));
+                System.out.println("test");
+                
+                
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return est;
+    }
     }
 
    
