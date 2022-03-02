@@ -409,10 +409,16 @@ public class PlaningInterfaceController implements Initializable {
             pp.setId_plan(sp.getLast());
             pp.setId_user(2);
             pp.setType_payment("agence");
-         System.out.println(pp);
+         
            //listitem.add()
            //Service plan payment n3adiwoulou el objet eli chyinserih ou leflous wel carta
-            spp.ajoutPay(pp,listitem);           
+            
+            spp.ajoutPay(pp,listitem);    
+             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Succes");
+				alert.setHeaderText("reservation  valide");
+				alert.setContentText("you will reseve a email with more informations");
+                                Optional<ButtonType> result = alert.showAndWait();
        }else{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("PaymentInterface.fxml"));

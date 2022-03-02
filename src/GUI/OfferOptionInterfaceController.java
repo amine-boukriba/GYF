@@ -65,6 +65,9 @@ public class OfferOptionInterfaceController implements Initializable {
     ServiceEvents se = new ServiceEvents();
     ServiceEspaceCulturel sec = new ServiceEspaceCulturel();
     ServiceOfferOption sop = new ServiceOfferOption();
+    
+   
+    
     @FXML
     private Label label_id;
     @FXML
@@ -134,7 +137,7 @@ public class OfferOptionInterfaceController implements Initializable {
         bateau_opt.setConverter(converterBateu);
         
         //*****************Vol
-        listVol.addAll(sv.getVol(Date.valueOf("2022-02-18"), "zefz", "zefze"));
+        
         
         vol_opt.setItems(listVol);
         StringConverter<Vols> converterVol = new StringConverter<Vols>() {
@@ -236,6 +239,7 @@ public class OfferOptionInterfaceController implements Initializable {
         };
         espace_opt.setConverter(converterEcp); 
         afficher();
+        
     }    
 
 
@@ -258,8 +262,10 @@ private void getValues() {
 //        });
    }
 
-    public void setIdOffer(Integer id){
+    public void setIdValues(Integer id,Date offerDateDeb,String depart,String destination){
         id_offer.setText(id+"");
+        listVol.addAll(sv.getVol(offerDateDeb,depart, destination));
+         
     }
     private void afficher(){
         ObservableList <OfferOption> data = FXCollections.observableArrayList(sop.affiche());
@@ -283,15 +289,37 @@ private void getValues() {
     @FXML
     private void ajouter(ActionEvent event) {
         OfferOption op = new OfferOption();
+        System.out.println(bateau_opt.getValue());
         op.setId_offer(Integer.parseInt(id_offer.getText()));
-        op.setId_bateau(bateau_opt.getSelectionModel().getSelectedItem().getId_bateau());
-        op.setId_espace(espace_opt.getSelectionModel().getSelectedItem().getId_espace());
-        op.setId_vol(vol_opt.getSelectionModel().getSelectedItem().getId_vol());
-        op.setId_hotel(hotel_opt.getSelectionModel().getSelectedItem().getId_hotel());
-        op.setId_monument(monument_opt.getSelectionModel().getSelectedItem().getId_monument());
-        op.setId_restaurant(restaurant_opt.getSelectionModel().getSelectedItem().getId_restaurant());
-        op.setId_evenement(evenement_opt.getSelectionModel().getSelectedItem().getId_event());
-        
+        if(bateau_opt.getValue()==null)
+            op.setId_bateau(0);
+        else
+            op.setId_bateau(bateau_opt.getSelectionModel().getSelectedItem().getId_bateau());
+        if(espace_opt.getValue()==null)
+            op.setId_espace(0);
+        else
+            op.setId_espace(espace_opt.getSelectionModel().getSelectedItem().getId_espace());
+        if(vol_opt.getValue()==null)
+            op.setId_vol(0);
+        else
+            op.setId_vol(vol_opt.getSelectionModel().getSelectedItem().getId_vol());
+        if(hotel_opt.getValue()==null)
+            op.setId_hotel(0);
+        else
+            op.setId_hotel(hotel_opt.getSelectionModel().getSelectedItem().getId_hotel());
+        if(monument_opt.getValue()==null)
+            op.setId_monument(0);
+        else
+            op.setId_monument(monument_opt.getSelectionModel().getSelectedItem().getId_monument());
+        if(restaurant_opt.getValue()==null)
+            op.setId_restaurant(0);
+        else
+            op.setId_restaurant(restaurant_opt.getSelectionModel().getSelectedItem().getId_restaurant());
+        if(evenement_opt.getValue()==null)
+            op.setId_evenement(0);
+        else
+            op.setId_evenement(evenement_opt.getSelectionModel().getSelectedItem().getId_event());
+        System.out.println(op);
         sop.ajout(op);
         afficher();
     }

@@ -34,11 +34,17 @@ public class ServicePaymentPlan implements IService<PaymentPlan>{
     
    
     public void ajoutPay(PaymentPlan t,List<String> listItems) {
+        System.out.println(listItems);
          List<String> list = new ArrayList<>();
-         int prix = (int)Float.parseFloat(listItems.get(0)) ;
+         
         try {
-            ServicePaymentStripe spt = new ServicePaymentStripe("annnn@gmail.com","ann",prix*100,listItems.get(1));
-            spt.payer();
+            
+            if(t.getType_payment().equals("en ligne")){
+                
+                 int prix = (int)Float.parseFloat(listItems.get(0)) ;
+                ServicePaymentStripe spt = new ServicePaymentStripe("annnn@gmail.com","ann",prix*100,listItems.get(1));
+                spt.payer();
+            }
             
             String req = "insert into payment_plan (id_plan,id_user ,type_payment) values (?,?,?)";
             

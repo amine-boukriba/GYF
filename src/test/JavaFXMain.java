@@ -29,11 +29,11 @@ public class JavaFXMain extends Application {
         
             Parent root;
         try {
-            //root = FXMLLoader.load(getClass().getResource("../GUI/VolInterface.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../GUI/VolInterface.fxml"));
             //root = FXMLLoader.load(getClass().getResource("../GUI/BateauxInterface.fxml"));
             //root = FXMLLoader.load(getClass().getResource("../GUI/OfferInterface.fxml"));
             //root = FXMLLoader.load(getClass().getResource("../GUI/OfferOptionInterface.fxml"));
-            root = FXMLLoader.load(getClass().getResource("../GUI/VolClientInterface.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("../GUI/VolClientInterface.fxml"));
             //root = FXMLLoader.load(getClass().getResource("../GUI/PlaningInterface.fxml"));
             
             Scene scene = new Scene(root);

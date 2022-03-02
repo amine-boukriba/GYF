@@ -33,15 +33,15 @@ public class ServicePaymentVols implements IService<PaymentVols>{
     
     public void ajoutPay(PaymentVols t,List<String> listItems) {
         List<String> list = new ArrayList<>();
-        int prix = (int)Float.parseFloat(listItems.get(0)) ;
+        
         
 //        System.out.println(prix);
 //        System.out.println(listItems.get(1));
         try {
             if(t.getType_payment().equals("en ligne")){
+                int prix = (int)Float.parseFloat(listItems.get(0)) ;
                 ServicePaymentStripe spt = new ServicePaymentStripe("annnn@gmail.com","ann",prix*100,listItems.get(1));
-        
-            spt.payer();
+                spt.payer();
             }
             String req = "insert into payment_vols (id_vol,id_user ,type_payment) values (?,?,?)";
             

@@ -42,6 +42,7 @@ import javax.swing.JFileChooser;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -94,7 +95,7 @@ public class VolInterfaceController implements Initializable {
     @FXML
     private TableColumn<Vols, Date> tab_date_arr;
     @FXML
-    private TableColumn<Vols, Float> tab_prix;
+    private TableColumn<Vols, Integer> tab_prix;
     @FXML
     private TableColumn<Vols, Integer> tab_duree;
     @FXML
@@ -146,20 +147,22 @@ public class VolInterfaceController implements Initializable {
             //System.out.println();
         }
     }
-    @FXML
-    private void ajouter(ActionEvent event) {
- 
+    
+    public boolean checkData(){
+        boolean v=false;
         Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
         Matcher m = p.matcher(prix.getText());
         Matcher m1 = p.matcher(duree.getText());
         Matcher m2 = p.matcher(avis_vol.getText());
+        
+        
         if(compAeri.getText().isEmpty() && depart.getText().isEmpty() && destination.getText().isEmpty() && date_dep.getValue()==null && date_arr.getValue()==null && prix.getText().isEmpty()&&duree.getText().isEmpty()&&type_avion.getText().isEmpty()&&image_vol.getText().isEmpty()&&avis_vol.getText().isEmpty()){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Error");
 				alert.setHeaderText("text non valide");
 				alert.setContentText("saisire tous les champ");
                                 Optional<ButtonType> result = alert.showAndWait();
-
+                                v=true;
                                 
         }else if (!(m.find() && m.group().equals(prix.getText()))){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -167,6 +170,7 @@ public class VolInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                v=true;
         }
         else if (!(m1.find() && m1.group().equals(duree.getText()))){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -174,6 +178,7 @@ public class VolInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                v=true;
         }
         else if (!(m2.find() && m2.group().equals(avis_vol.getText()) )){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -181,9 +186,23 @@ public class VolInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                v=true;
+        }else if(Date.valueOf(date_dep.getValue()).compareTo(Date.valueOf(date_arr.getValue()))>0 ){
+             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Error");
+				alert.setHeaderText("Date not valid");
+				alert.setContentText("la date d'arriver doit etre superieur a date de depart");
+                                Optional<ButtonType> result = alert.showAndWait();
+                                v=true;
         }
-        else{
-        Vols v = new Vols();
+            return v;
+    }
+    @FXML
+    private void ajouter(ActionEvent event) {
+ 
+        
+        if(checkData()== false){
+         Vols v = new Vols();
         v.setCompagnie_aerien(compAeri.getText());
         v.setDepart(depart.getText());
         v.setDestination(destination.getText());
@@ -196,9 +215,11 @@ public class VolInterfaceController implements Initializable {
         v.setAvis_vol(Integer.parseInt(avis_vol.getText()));
         
         sv.ajout(v);
-        affiche();
+        affiche();   
+        }
+        
     }
-    }
+    
 
     @FXML
     private void modifier(ActionEvent event) {

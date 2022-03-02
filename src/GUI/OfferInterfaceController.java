@@ -180,7 +180,7 @@ public class OfferInterfaceController implements Initializable {
             for (int i = 0; i < 30; i++) {
                   name +=  alphabet.charAt(r.nextInt(alphabet.length()));
             }
-            System.out.println(name);
+            //System.out.println(name);
             
             dest = new File(newPath+name+'.'+ext);
             Files.copy(source.toPath(), dest.toPath());
@@ -271,7 +271,7 @@ public class OfferInterfaceController implements Initializable {
         
         i.setPath(path);
         
-        System.out.println(i);
+        //System.out.println(i);
         si.ajout(i);
         afficher();
 
@@ -279,8 +279,9 @@ public class OfferInterfaceController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("OfferOptionInterface.fxml"));
             Parent root = loader.load();
+            
             OfferOptionInterfaceController controller = loader.getController();
-            controller.setIdOffer(sf.lastId());
+            controller.setIdValues(sf.lastId(),Date.valueOf(date_debut.getValue()),depart.getText()+"",destination.getText()+"");
             btn_ajout.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(OfferInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
