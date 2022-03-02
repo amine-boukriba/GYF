@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -51,14 +52,34 @@ public class AddReservationEspController implements Initializable {
     @FXML
     private void fnConfirm(ActionEvent event) throws IOException {
         ServiceReservation ser=new ServiceReservation();
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Reservation rec=new Reservation();
         rec.setCard_password(tfPasswordCard.getText());
+         
         rec.setDate_reservation(tfDate.getValue().toString());
         rec.setId_esp(ClientEspaceCulturelsController.id);
         rec.setUser(1);
         rec.setType(Boolean.TRUE);
         rec.setNum_card(Integer.parseInt(tfNumCard.getText()));
+        if(tfPasswordCard.getText().isEmpty()){
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("veuillez insérer le mot de passe!");
+            alert.show();
+        }else {
+            
+        
+       
+        
+        
         ser.ajout(rec);
+        
+         alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("paiement ajoutée avec succés!");
+        alert.show();
+        }
+        
         Parent etab = FXMLLoader.load(getClass().getResource("MesReservation.fxml"));      
         Scene scene = new Scene(etab);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

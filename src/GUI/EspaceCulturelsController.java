@@ -15,6 +15,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -41,6 +42,7 @@ import javafx.stage.Stage;
 import services.ServiceEspaceCulturel;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -285,9 +287,19 @@ public class EspaceCulturelsController implements Initializable {
     }
 
     @FXML
-    private void fnDelete(ActionEvent event) {
-        ServiceEspaceCulturel sr= new ServiceEspaceCulturel() {};
+     private void fnDelete(ActionEvent event) {
+        ServiceEspaceCulturel sr= new ServiceEspaceCulturel(){};
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        
+        alert.setTitle("Confirmation suppression!");
+        alert.setHeaderText(null);
+        alert.setContentText("Etes vous sur de supprimer ce espace culturel!");
+        Optional <ButtonType> action = alert.showAndWait();
+        
+        if (action.get() == ButtonType.OK){
         sr.supprime(Integer.parseInt(lbId.getText()));
+        }
+        
         fnShow();
         lbId.setText("");
         lbFileName.setText("");
@@ -295,9 +307,9 @@ public class EspaceCulturelsController implements Initializable {
         tfdescription.setText("");
         tflocalisation.setText("");
         tfnom_monument.setText("");
+       
         tfpays.setText("");
         tfprix.setText("");
-        tfHoraire.setText("");
         String img="file:///"+lbFileName.getText();
        Image image=new Image(img);
        ImgView.setImage(null);

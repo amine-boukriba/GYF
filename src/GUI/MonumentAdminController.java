@@ -16,6 +16,7 @@ import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,6 +31,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -238,7 +240,17 @@ public class MonumentAdminController implements Initializable {
     @FXML
     private void fnDelete(ActionEvent event) {
         ServiceMonuments sr= new ServiceMonuments() {};
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        
+        alert.setTitle("Confirmation suppression!");
+        alert.setHeaderText(null);
+        alert.setContentText("Etes vous sur de supprimer ce monument!");
+        Optional <ButtonType> action = alert.showAndWait();
+        
+        if (action.get() == ButtonType.OK){
         sr.supprime(Integer.parseInt(lbId.getText()));
+        }
+        
         fnShow();
         lbId.setText("");
         lbFileName.setText("");
