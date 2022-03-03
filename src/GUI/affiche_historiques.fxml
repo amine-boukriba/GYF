@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Affiche_historiquesController">
+   <children>
+      <TableView fx:id="tvhistorique" layoutX="95.0" layoutY="85.0" prefHeight="231.0" prefWidth="227.0">
+        <columns>
+          <TableColumn fx:id="entry_date" prefWidth="75.0" text="entry date" />
+          <TableColumn fx:id="leave_date" prefWidth="75.0" text="leave date" />
+            <TableColumn fx:id="duration" prefWidth="75.0" text="duration" />
+        </columns>
+      </TableView>
+      <TextField fx:id="recherche" layoutX="209.0" layoutY="32.0" />
+      <TableView fx:id="tvuser" layoutX="322.0" layoutY="85.0" prefHeight="231.0" prefWidth="174.0">
+        <columns>
+            <TableColumn fx:id="email" prefWidth="39.0" text="email" />
+            <TableColumn fx:id="name" prefWidth="59.6666259765625" text="name" />
+            <TableColumn fx:id="last_name" prefWidth="75.66668701171875" text="last name" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

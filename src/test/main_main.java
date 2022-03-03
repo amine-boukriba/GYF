@@ -6,6 +6,9 @@
 package test;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,14 +23,29 @@ import javafx.stage.Stage;
  *
  * @author boukr
  */
-public class NewFXMain extends Application {
+public class main_main extends Application {
     
     @Override
-    public void start(Stage primaryStage) throws IOException {
-       Parent root=FXMLLoader.load(getClass().getResource("../GUI/FXML.fxml"));
-       Scene scene=new Scene (root);
-       primaryStage.setScene(scene);
-       primaryStage.show();
+    public void start(Stage primaryStage) {
+        
+        try {
+
+    // try code
+   Parent root=FXMLLoader.load(getClass().getResource("../GUI/auth.fxml"));
+            Scene scene =new Scene(root,600,400);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+}catch (Exception e) {
+
+    // generic exception handling
+    e.printStackTrace();
+}
+        // Answer:
+        
+            
+        
+        
     }
 
     /**

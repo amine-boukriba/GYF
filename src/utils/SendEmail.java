@@ -21,7 +21,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 public class SendEmail {
    public SendEmail(){}
-  public void email_sending(String content,String subject ) {
+  public void email_sending(String email, String content,String subject ) {
     final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
  // Get a Properties object
     Properties props = System.getProperties();
@@ -50,9 +50,10 @@ public class SendEmail {
    // -- Set the FROM and TO fields --
       msg.setFrom(new InternetAddress(username));
       msg.setRecipients(Message.RecipientType.TO, 
-                        InternetAddress.parse("boukriba.mohamed.amine@gmail.com",false));
+                        InternetAddress.parse(email,false));
       msg.setSubject(subject);
       msg.setText(content);
+        System.out.println(email);
       msg.setSentDate(new Date());
       Transport.send(msg);
       System.out.println("Message sent.");

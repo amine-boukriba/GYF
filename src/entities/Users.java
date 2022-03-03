@@ -43,9 +43,27 @@ public class Users {
     
     private int id_role;
     
-    private boolean verification;
+    private int verification;
+        private int blocked;
 
-    public Users(int id_user, String nom_user, String prenom_user, String sexe, int numero_tel, String email_user, String pays_user, String ville_user, int code_postal, Date date_naissance, int id_role, boolean verification) {
+    public void setBlocked(int blocked) {
+        this.blocked = blocked;
+    }
+
+    public int getVerification() {
+        return verification;
+    }
+
+    public int getBlocked() {
+        return blocked;
+    }
+
+
+
+    
+
+
+    public Users(int id_user, String nom_user, String prenom_user, String sexe, int numero_tel, String email_user, String pays_user, String ville_user, int code_postal, Date date_naissance, int id_role, int verification) {
         this.id_user = id_user;
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
@@ -60,11 +78,10 @@ public class Users {
         this.verification = verification;
     }
 
-    public boolean isVerification() {
-        return verification;
-    }
+ 
 
-    public void setVerification(boolean verification) {
+
+    public void setVerification(int verification) {
         this.verification = verification;
     }
 
@@ -190,7 +207,7 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users{" + "id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", sexe=" + sexe + ", numero_tel=" + numero_tel + ", email_user=" + email_user + ", pays_user=" + pays_user + ", ville_user=" + ville_user + ", code_postal=" + code_postal + ", date_naissance=" + date_naissance + ", id_role=" + id_role + '}';
+        return "Users{" + "id_user=" + id_user + ", password=" + password + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", sexe=" + sexe + ", numero_tel=" + numero_tel + ", email_user=" + email_user + ", pays_user=" + pays_user + ", ville_user=" + ville_user + ", code_postal=" + code_postal + ", date_naissance=" + date_naissance + ", id_role=" + id_role + ", verification=" + verification + ", blocked=" + blocked + '}';
     }
 
     
