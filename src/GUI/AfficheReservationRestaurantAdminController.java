@@ -5,8 +5,10 @@
  */
 package GUI;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import entities.reservation;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.List;
@@ -16,13 +18,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import services.ServiceReservation;
 
 /**
@@ -39,9 +47,9 @@ public class AfficheReservationRestaurantAdminController implements Initializabl
     
         @FXML
     private TableView<reservation> id_affiche;
-@FXML
+     @   FXML
     private TableColumn<reservation, String> nom_user;
-@FXML
+    @FXML
     private TableColumn<reservation, String> prénom_user;
     @FXML
     private TableColumn<reservation, String> nom_restaurant;
@@ -52,12 +60,11 @@ public class AfficheReservationRestaurantAdminController implements Initializabl
 
 @FXML
     private TableColumn<reservation, String> date_creation;
-    private TableColumn<reservation, String> email;
-
 @FXML
     private JFXTextField search_restaurant;
-    @FXML
+ @   FXML
     private TableColumn<reservation, String> email_user;
+ 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -76,7 +83,7 @@ public class AfficheReservationRestaurantAdminController implements Initializabl
                   
                            ObservableList list = FXCollections.observableArrayList(r);
                   
-               nom_user.setCellValueFactory(new PropertyValueFactory<>("nom_user"));
+        nom_user.setCellValueFactory(new PropertyValueFactory<>("nom_user"));
         prénom_user.setCellValueFactory(new PropertyValueFactory<>("prenom_user"));
         email_user.setCellValueFactory(new PropertyValueFactory<>("email_user"));
         nom_restaurant.setCellValueFactory(new PropertyValueFactory<>("nom_restaurant"));
@@ -169,7 +176,6 @@ public class AfficheReservationRestaurantAdminController implements Initializabl
 		id_affiche.setItems(sortedData);
               }  
        
-    @FXML
     public void Delete(){
         reservation r = id_affiche.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -188,4 +194,24 @@ public class AfficheReservationRestaurantAdminController implements Initializabl
             alert.close();
         }
     }
+         @FXML
+  public void gotoRestaurantAd(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurant.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+
+  
+    @FXML
+  public void gotoHotelAd   (ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficheHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
 }

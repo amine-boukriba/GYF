@@ -7,6 +7,7 @@ package GUI;
 
 import com.jfoenix.controls.JFXTextField;
 import entities.reservation;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.List;
@@ -16,13 +17,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import services.ServiceReservation;
 
 /**
@@ -31,42 +38,37 @@ import services.ServiceReservation;
  * @author omarb
  */
 public class AfficheReservationClientHotelController implements Initializable {
-    ServiceReservation res = new ServiceReservation();
-  @FXML
-    private TableView<reservation> id_affiche;
-@FXML
-    private TableColumn<reservation, String> nom_hotel;
-@FXML
-    private TableColumn<reservation, String> type_chambre;
-
-
-@FXML
-    private TableColumn<reservation, Date> date_sortie;
-@FXML
-    private TableColumn<reservation, Date> date_entree;
-@FXML
-    private TableColumn<reservation, Integer> prix_chambre;
-
-    private TableColumn<reservation, String> date_creation;
-
-@FXML
-    private TableColumn<reservation, Integer> total_prix;
-
-@FXML
-    private JFXTextField search_reservation;
+  ServiceReservation res = new ServiceReservation();
     @FXML
-    private TableColumn<reservation,Integer> nbr_personne;
+    private TableView<reservation> id_affiche;
+    @FXML
+    private TableColumn<reservation, ?> nom_hotel;
+    @FXML
+    private TableColumn<reservation, String> type_chambre;
+    @FXML
+    private TableColumn<reservation, Integer> prix_chambre;
+    @FXML
+    private TableColumn<reservation, Date> date_entree;
+    @FXML
+    private TableColumn<reservation, Date> date_sortie;
+    @FXML
+    private TableColumn<reservation, Integer> nbr_personne;
+    @FXML
+    private TableColumn<reservation, Integer> total_prix;
+    @FXML
+    private JFXTextField search_reservation;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO 
-        showReservation();
+                showReservation();
+
     }    
-    
-     public void showReservation(){
-          reservation ra = new reservation();
+        public void showReservation(){
+             reservation ra = new reservation();
                     
                  
            
@@ -78,7 +80,6 @@ public class AfficheReservationClientHotelController implements Initializable {
         nom_hotel.setCellValueFactory(new PropertyValueFactory<>("nom_hotel"));
         type_chambre.setCellValueFactory(new PropertyValueFactory<>("type_chambre"));
         total_prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
-        date_creation.setCellValueFactory(new PropertyValueFactory<>("date_creation"));
         date_entree.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
         prix_chambre.setCellValueFactory(new PropertyValueFactory<>("mode_payment"));
         date_sortie.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
@@ -156,11 +157,12 @@ public class AfficheReservationClientHotelController implements Initializable {
 		
 		// 5. Add sorted (and filtered) data to the table.
 		id_affiche.setItems(sortedData);
-              }  
-       
+        }
     @FXML
-    public void Delete(){
-        reservation r = id_affiche.getSelectionModel().getSelectedItem();
+    private void Delete(ActionEvent event) {
+    
+    
+  reservation r = id_affiche.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Demande de confirmation");
         alert.setHeaderText(null);
@@ -177,4 +179,33 @@ public class AfficheReservationClientHotelController implements Initializable {
             alert.close();
         }
     }
+     @FXML
+  public void gotoRestaurant(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurantClient.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+	
+  
+    @FXML
+  public void gotoHotel(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheHotelClient.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+  
+  public void gotoReservation(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjoutReservationClientHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
 }

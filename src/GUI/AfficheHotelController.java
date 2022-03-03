@@ -27,9 +27,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import services.ServiceHotel;
 import entities.Hotel;
+import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
@@ -240,4 +247,45 @@ ServiceHotel Hotel = new ServiceHotel();
       grid_img.getChildren().clear();
       grid_img.add(new ImageView(new Image("file:/"+path, 193, 200, false, false)), 0, 0);
     }
+     @FXML
+  public void gotoRestaurantAd(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurant.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+	
+   @FXML
+  public void gotoAjoutHotel(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjouterHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+  
+    @FXML
+  public void gotoHotelAd   (ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficheHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+ 
+
+  
+    @FXML
+  public void gotoListeResrv   (ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheReservationAdmin.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
 }

@@ -9,6 +9,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import entities.Hotel;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,15 +28,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import javax.swing.JFileChooser;
 import org.controlsfx.control.Notifications;
 import services.ServiceHotel;
 
@@ -74,7 +81,7 @@ ServiceHotel Hotel = new ServiceHotel();
         listfiles.add("*.jpg");
     }    
      @FXML
-    private void ajout(ActionEvent event) {
+    private void ajout(ActionEvent event) throws IOException {
                   if (validateFields()) {
 
         Hotel h = new Hotel();
@@ -89,7 +96,11 @@ ServiceHotel Hotel = new ServiceHotel();
             alert.setHeaderText(null);
             alert.setContentText("L'Hotel "+h.getNom_hotel()+" est ajouté avec succès");
             alert.showAndWait();
-       
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjouterChambre.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
                   } else if(validateFields()==false){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur Validation!");
@@ -109,13 +120,44 @@ ServiceHotel Hotel = new ServiceHotel();
         }
     }
     
-     public void fileChooser(ActionEvent event) {
-        FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", listfiles));
-        File f = fc.showOpenDialog(null);
-        if(f != null) {
-            img.setText(f.getAbsolutePath());
-        }
-    }
+    @FXML
+    private void get_image(ActionEvent event) {
+         JFileChooser chooser=new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f=chooser.getSelectedFile();
+        String filename=f.getAbsolutePath();
+        img.setText(filename);
+        Image imagee;
+          try {
+              imagee = new Image(new FileInputStream(filename));
+      //         imagev.setImage(imagee);
+          } catch (FileNotFoundException ex) {
+              Logger.getLogger(AjouterHotelController.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          
+    };
  
-}
+	
+
+  
+    @FXML
+  public void gotoHotelAd   (ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficheHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+  @FXML
+    public void gotoRestaurantAd(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurant.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+        }
+    
+ 

@@ -1,35 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficheReservationRestaurantAdminController">
    <children>
-      <TableView fx:id="id_affiche" layoutX="26.0" layoutY="198.0" prefHeight="200.0" prefWidth="901.0">
+      <TableView fx:id="id_affiche" layoutX="26.0" layoutY="258.0" prefHeight="200.0" prefWidth="901.0">
         <columns>
-          <TableColumn fx:id="nom_hotel" prefWidth="101.0" text="Nom Hôtel" />
-          <TableColumn fx:id="type_chambre" prefWidth="118.0" text="Type Chambre" />
-            <TableColumn fx:id="prix_chambre" prefWidth="111.0" text="Prix Chambre" />
-            <TableColumn fx:id="date_entree" prefWidth="111.0" text="Date entrée" />
-            <TableColumn fx:id="date_sortie" prefWidth="161.0" text="Date sortie" />
-            <TableColumn fx:id="date_creation" prefWidth="178.0" text="Date Création" />
-            <TableColumn fx:id="total_prix" prefWidth="120.0" text="Total Prix" />
+          <TableColumn fx:id="nom_user" prefWidth="101.0" text="Nom Client" />
+          <TableColumn fx:id="prénom_user" prefWidth="118.0" text="Prénom Client" />
+            <TableColumn fx:id="email_user" prefWidth="111.0" text="Email Client" />
+            <TableColumn fx:id="nom_restaurant" prefWidth="111.0" text="Nom restaurant" />
+            <TableColumn fx:id="date_entree" prefWidth="161.0" text="Jour de reservation" />
+            <TableColumn fx:id="nbr_persone" prefWidth="178.0" text="Nombre de personne" />
+            <TableColumn fx:id="date_creation" prefWidth="120.0" text="date de création" />
         </columns>
       </TableView>
-      <JFXButton fx:id="btnNext" layoutX="433.0" layoutY="422.0" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4CAF50;" text="Supprimer">
+      <JFXButton fx:id="btnNext" layoutX="433.0" layoutY="482.0" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4CAF50;" text="Supprimer">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="58.0" prefHeight="44.0" prefWidth="635.0" text="Votre Liste reservation Hôtel">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="118.0" prefHeight="44.0" prefWidth="635.0" text="Votre Liste reservation Restaurant">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
+      <Separator layoutX="6.0" layoutY="55.0" prefHeight="20.0" prefWidth="947.0" style="-fx-background-color: #6BD5C7;" />
+      <JFXButton layoutX="288.0" layoutY="14.0" onAction="#gotoRestaurantAd" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Restaurant" />
+      <JFXButton layoutX="477.0" layoutY="19.0" onAction="#gotoHotelAd" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Hôtel" />
+      <ImageView fitHeight="46.0" fitWidth="426.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@LOGO%20GET%20.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="24.0" layoutY="94.0" onAction="#gotoRestaurantAd" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Retour" />
+      <JFXTextField fx:id="search_restaurant" layoutX="32.0" layoutY="217.0" prefHeight="31.0" prefWidth="471.0" promptText="rechercher par  Nom restaurant , nom de client ou par prénom" />
    </children>
 </AnchorPane>

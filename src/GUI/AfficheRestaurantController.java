@@ -28,6 +28,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import services.ServiceRestaurant;
 import entities.restaurants;
+import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -244,6 +251,49 @@ public class AfficheRestaurantController implements Initializable {
        
           showRestaurant();
     }
+      
+          @FXML
+  public void gotoRestaurantAd(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurant.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+	
+   @FXML
+  public void gotoAjoutRestaurant(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjouterRestaurant.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+  
+    @FXML
+  public void gotoHotelAd   (ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficheHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+     @FXML
+  public void gotolistres   (ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheReservationRestaurantAdmin.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+ 
+
+  
+  
 }
     
 

@@ -227,7 +227,7 @@ String req="select * from users join (select DATEDIFF( date_fin, date_debut) AS 
         try {
          
 
-            String req = "INSERT INTO reservations_resto_hotel(id_chambre,date_debut,date_fin,mode_payment,id_user,nbr_personne, date_creation) VALUES (?,?,?,?,?,?,?,?)";
+            String req = "INSERT INTO reservations_resto_hotel(id_chambre,date_debut,date_fin,mode_payment,id_user,nbr_personne, date_creation) VALUES (?,?,?,?,?,?,?)";
                 //        System.out.println(h);
                 
                    PreparedStatement ps = connection.prepareStatement(req);
@@ -236,11 +236,12 @@ String req="select * from users join (select DATEDIFF( date_fin, date_debut) AS 
             ps.setDate(2, (Date) r.getDate_debut());
             ps.setDate(3, (Date) r.getDate_fin());
             ps.setString(4, r.getMode_payment());
-            ps.setInt(6, r.getId_user());
-            ps.setInt(7, r.getNbr_personne());
-            ps.setString(8, r.getDate_creation());
+            ps.setInt(5, r.getId_user());
+            ps.setInt(6, r.getNbr_personne());
+            ps.setString(7, r.getDate_creation());
 
 
+                                          ps.executeUpdate();
 
                      
 
@@ -272,7 +273,6 @@ String req="select * from users join (select DATEDIFF( date_fin, date_debut) AS 
             sm.sendMail(list);
 
             }
-                                          ps.executeUpdate();
 
         }
         /*{
@@ -378,7 +378,8 @@ String req = "select * from users join (select DATEDIFF( date_fin, date_debut) A
           PreparedStatement ps = connection.prepareStatement(req);
                            reservation r = new reservation();
 
-                       ps.setInt(1,r.getId_user());
+                      // ps.setInt(1,r.getId_user());
+                       ps.setInt(1,1);
 
           ResultSet rs = ps.executeQuery();
              while (rs.next()){

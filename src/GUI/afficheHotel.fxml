@@ -7,6 +7,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -24,7 +26,7 @@
             <TableColumn fx:id="caté" prefWidth="198.0" text="Catégorie" />
          </columns>
       </TableView>
-      <VBox layoutX="220.0" layoutY="88.0" prefHeight="348.0" prefWidth="475.0">
+      <VBox layoutX="220.0" layoutY="129.0" prefHeight="348.0" prefWidth="475.0">
          <children>
             <JFXTextField fx:id="nom" labelFloat="true" promptText="Nom Hôtel:">
                <VBox.margin>
@@ -43,7 +45,7 @@
             </JFXTextField>
          </children>
       </VBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="14.0" prefHeight="44.0" prefWidth="635.0" text="Liste des Hôtels">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="229.0" layoutY="107.0" prefHeight="44.0" prefWidth="635.0" text="Liste des Hôtels">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
@@ -64,5 +66,15 @@
       <Separator layoutX="888.0" layoutY="393.0" prefWidth="200.0" />
       <Separator layoutX="888.0" layoutY="644.0" prefWidth="200.0" />
       <Separator layoutX="1096.0" layoutY="386.0" orientation="VERTICAL" prefHeight="229.0" prefWidth="6.0" />
+      <Separator layoutX="16.0" layoutY="85.0" prefHeight="20.0" prefWidth="1162.0" style="-fx-background-color: #6BD5C7;" />
+      <JFXButton layoutX="258.0" layoutY="37.0" onAction="#gotoRestaurantAd" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Restaurant" />
+      <JFXButton layoutX="430.0" layoutY="37.0" onAction="#gotoHotelAd" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Hôtel" />
+      <ImageView fitHeight="46.0" fitWidth="426.0" layoutX="21.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@LOGO%20GET%20.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="961.0" layoutY="205.0" onAction="#gotoAjoutHotel" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Ajout Hôtel" />
+      <JFXButton layoutX="927.0" layoutY="135.0" onAction="#gotoListeResrv" prefHeight="33.0" prefWidth="187.0" style="-fx-border-color: #436D4E;" text="Liste des reservations" />
    </children>
 </AnchorPane>

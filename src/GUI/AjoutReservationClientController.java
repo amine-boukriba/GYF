@@ -26,6 +26,7 @@ import services.ServiceChambre;
  * @author omarb
  */
 import entities.Chambre;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -39,11 +40,16 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import services.ServiceReservation;
@@ -218,7 +224,7 @@ public class AjoutReservationClientController implements Initializable {
         r.setDate_creation(dtf.format(now));
         String text1 = nbr_personne.getText();
           
-        r.setPrix_chambre(Integer.parseInt(text1));
+        r.setNbr_personne(Integer.parseInt(text1));
 
         res.AjoutReservationHotel(r);
     
@@ -273,6 +279,36 @@ public class AjoutReservationClientController implements Initializable {
             return true;
         }
     }
+      @FXML
+  public void gotoRestaurant(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurantClient.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+	
+  
+    @FXML
+  public void gotoHotel(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheHotelClient.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+  
+    @FXML
+  public void gotolistReservation(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheReservationClientHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
  
 }
     

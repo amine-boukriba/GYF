@@ -26,7 +26,9 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
   try {
       
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficheHotelClient.fxml"));
+          // Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheHotelClient.fxml"));
+
+           Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficheHotel.fxml"));
             primaryStage.setResizable(false);
 
             Scene scene = new Scene(root);

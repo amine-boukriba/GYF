@@ -7,22 +7,32 @@ package GUI;
 
 import com.jfoenix.controls.JFXTextField;
 import entities.Hotel;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import services.ServiceHotel;
 
 /**
@@ -31,6 +41,7 @@ import services.ServiceHotel;
  * @author omarb
  */
 public class AfficheHotelClientController implements Initializable {
+    Hotel h = new Hotel(); 
 
     ServiceHotel Hotel = new ServiceHotel();
 @FXML
@@ -148,12 +159,45 @@ public class AfficheHotelClientController implements Initializable {
 		tblhotelDetails.setItems(sortedData);
     }
   private void showImage(MouseEvent event) {
-      Hotel h = tblhotelDetails.getSelectionModel().getSelectedItem();
-      String path = h.getImage_hotel();
-      grid_img.getChildren().clear();
-      grid_img.add(new ImageView(new Image("file:/"+path, 193, 200, false, false)), 0, 0);
+   Image image;
+                            try {
+                                image = new Image(new FileInputStream(h.getImage_hotel()));
+                            
+                          //      imagev.setImage(image); 
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(AfficheHotelClientController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
        
     
    
     }
+  @FXML
+  public void gotoRestaurant(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurantClient.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+	
+   @FXML
+  public void gotoReservation(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjoutReservationClientHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+  
+    @FXML
+  public void gotoHotel(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheHotelClient.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
 }

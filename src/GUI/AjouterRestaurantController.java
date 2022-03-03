@@ -14,11 +14,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import services.ServiceRestaurant;
 import entities.restaurants;
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 
@@ -108,7 +114,25 @@ ServiceRestaurant res = new ServiceRestaurant();
         }
     }
  
-    
+      
+    @FXML
+  public void gotoHotelAd   (ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficheHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+  @FXML
+    public void gotoRestaurantAd(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurant.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
     
 
     }

@@ -5,12 +5,25 @@
  */
 package GUI;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import entities.Chambre;
+import entities.reservation;
 import entities.restaurants;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -22,61 +35,71 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import services.ServiceReservation;
 import services.ServiceRestaurant;
+import utils.MyDB;
 
 /**
  * FXML Controller class
  *
  * @author omarb
  */
-public class AfficheRestaurantClientController implements Initializable {
+public class AjoutReservationRestaurantController implements Initializable {
     ServiceRestaurant res = new ServiceRestaurant();
+     ServiceReservation res1 = new ServiceReservation();
+
+int index = -1;
+        
+      @FXML
+    private JFXTextField nbr_personne;
+    @FXML
+    private JFXTextField nom_restaurant;
+    
+      @FXML
+    private JFXTextField localisation;
+ 
+     @FXML 
+     private JFXDatePicker date_arrivé;
+    @FXML
+    private JFXButton btnUpdate;
+    @FXML
+    private JFXTextField search_resto;
+    @FXML
+    private TableView<restaurants> id_affiche;
+    @FXML
+    private TableColumn<restaurants, String> reservation_nomResto;
+    @FXML
+    private TableColumn<restaurants, String> reservation_local_resto;
+    @FXML
+    private TableColumn<restaurants, String> spécialité;
+    
+    
+    
+          
     /**
      * Initializes the controller class.
      */
-
-  
-
-@FXML
-    private TableView<restaurants> id_affiche;
-@FXML
-    private TableColumn<restaurants, String> nom_res;
-@FXML
-    private TableColumn<restaurants, String> lo;
-@FXML
-    private TableColumn<restaurants, String> spécialité;
-@FXML
-    private TableColumn<restaurants, String> horaire;
-@FXML
-    private TableColumn<restaurants, Integer> nbr_fourchet;
-@FXML
-    private TableColumn<restaurants, String> téléphone;
-    @FXML
-    private JFXTextField searchres;
-    
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
-                showRestaurant();
-               
-    }
-   public void showRestaurant(){
+        // TODO*
+        showRestaurant();
+    }    
+    
+   
+    public void showRestaurant(){
     List<restaurants> r = res.affiche();
 
         ObservableList list = FXCollections.observableArrayList(r);
-        nom_res.setCellValueFactory(new PropertyValueFactory<>("nom_restaurant"));
-        lo.setCellValueFactory(new PropertyValueFactory<>("localisation"));
+        reservation_nomResto.setCellValueFactory(new PropertyValueFactory<>("nom_restaurant"));
+        reservation_local_resto.setCellValueFactory(new PropertyValueFactory<>("localisation"));
         spécialité.setCellValueFactory(new PropertyValueFactory<>("cuisinies"));
-         nbr_fourchet.setCellValueFactory(new PropertyValueFactory<>("nombre_fourchet"));
-        téléphone.setCellValueFactory(new PropertyValueFactory<>("numero_restaurant"));
-        horaire.setCellValueFactory(new PropertyValueFactory<>("horaire"));
+     
           id_affiche.setItems(list);
 //        try {
 
@@ -93,7 +116,7 @@ public class AfficheRestaurantClientController implements Initializable {
  FilteredList<restaurants> filteredData = new FilteredList<>(list, b -> true);
 		
 		// 2. Set the filter Predicate whenever the filter changes.
-		searchres.textProperty().addListener((observable, oldValue, newValue) -> {
+		search_resto.textProperty().addListener((observable, oldValue, newValue) -> {
 			filteredData.setPredicate(restaurants -> {
 				// If filter text is empty, display all persons.
 								
@@ -129,7 +152,7 @@ public class AfficheRestaurantClientController implements Initializable {
                 // Wrap the ObservableList in a FilteredList (initially display all data).
 		
 		// 2. Set the filter Predicate whenever the filter changes.
-		searchres.textProperty().addListener((observable, oldValue, newValue) -> {
+		search_resto.textProperty().addListener((observable, oldValue, newValue) -> {
 			filteredData.setPredicate(restaurants -> {
 				// If filter text is empty, display all persons.
 								
@@ -162,6 +185,101 @@ public class AfficheRestaurantClientController implements Initializable {
 		id_affiche.setItems(sortedData);
    }
    
+
+  @FXML
+    void getSelected (MouseEvent event){
+       
+        
+    index = id_affiche.getSelectionModel().getSelectedIndex();
+    
+    if (index <= -1){
+    
+        return;
+    
+    }
+    nom_restaurant.setText(reservation_nomResto.getCellData(index).toString());
+    localisation.setText(reservation_local_resto.getCellData(index).toString());
+ 
+
+     
+    
+
+    }
+            
+    
+     @FXML
+    private void ajout(ActionEvent event) throws IOException {
+                  if (validateNumber() && validateFields()) {
+
+       DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+   LocalDateTime now = LocalDateTime.now();
+
+     int  id_selected = id_affiche.getSelectionModel().getSelectedItem().getId_restaurant();
+
+        reservation r = new reservation();
+        r.setDate_debut(Date.valueOf(date_arrivé.getValue()));
+        r.setId_user(1);
+        r.setId_restaurant(id_selected);
+
+        r.setDate_creation(dtf.format(now));
+        String text1 = nbr_personne.getText();
+          
+        r.setNbr_personne(Integer.parseInt(text1));
+
+        res1.AjoutReservationRestaurant(r);
+    
+        try {
+                         MyDB instance = MyDB.getInstance();
+    Connection connection = instance.getConnection();
+
+            String req = "update chambre set etat=\"non disponible\" where id_chambre =?"  ;
+                      PreparedStatement ps = connection.prepareStatement(req);
+                ps.setInt(1,id_selected);
+
+          //      System.out.println(req);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            
+            System.out.println("Error in updating hotel ");
+        }
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Succès!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ton  reservation  est ajouté avec succès");
+            alert.showAndWait();
+        } else if(validateNumber()==false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur Validation!");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez saisir un nombre de personne valide");
+            alert.showAndWait();
+        } else if(validateFields()==false){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur Validation!");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez remplir tous les champs");
+            alert.showAndWait();
+            
+        }
+
+    }
+    private boolean validateNumber() {
+        Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
+        Matcher m = p.matcher(nbr_personne.getText());
+        if(m.find() && m.group().equals(nbr_personne.getText())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // Test de validation de saisie
+    private boolean validateFields(){
+        if(date_arrivé.getValue() == null  ||  nom_restaurant.getText().isEmpty()|| localisation.getText().isEmpty() || nbr_personne.getText().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
    @FXML
   public void gotoRestaurant(ActionEvent event) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurantClient.fxml"));
@@ -183,20 +301,8 @@ public class AfficheRestaurantClientController implements Initializable {
 
 	}
   
-  public void gotoReservationResto(ActionEvent event) throws IOException {
-                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjoutReservationRestaurant.fxml"));
-		Scene scene = new Scene(root);
-		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		stage.setScene(scene);
-		stage.show();
-
-	}
-
-    @FXML
-    private void gotoReservation(ActionEvent event) {
-    }
-       
-       
  
-    }
 
+  
+    
+}

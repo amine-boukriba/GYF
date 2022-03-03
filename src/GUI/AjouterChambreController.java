@@ -80,7 +80,8 @@ int index = -1;
          type_chambre.getItems().add("suite");
     }    
 public void gotohotels(ActionEvent event) throws IOException {
-                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjoutReservationClientHotel.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjoutReservationClientHotel.fxml\n" +
+"                Parent root = FXMLLoader.load(getClass().getResource(\""));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -248,6 +249,31 @@ public void gotohotels(ActionEvent event) throws IOException {
     private void handle(MouseEvent event) {
     }
     
+       @FXML
+  public void gotoHotelAd   (ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficheHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+    public void gotoRestaurantAd(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurant.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
+     public void gotoaddhotel(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjouterHotel.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+
+	}
 }
 
     
