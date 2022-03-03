@@ -65,6 +65,7 @@ public class AddReservationEspController implements Initializable {
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer le mot de passe!");
+            
             alert.show();
         }else {
             

@@ -136,6 +136,7 @@ public class MonumentAdminController implements Initializable {
     @FXML
    private void fnInsert(ActionEvent event) {
         Monuments mon=new Monuments();
+        
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         
         mon.setDate_creation(TfDate.getValue().toString());
@@ -149,24 +150,34 @@ public class MonumentAdminController implements Initializable {
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer le nom du Monument!");
-            alert.show();
+           tfnom_monument.setStyle("-fx-border-color: red; -fx-border-width:2px;");
+            new animatefx.animation.Shake(tfnom_monument).play();
+           
+             alert.show();
+            
         }
         else if(tfdescription.getText().isEmpty()){
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer la description du Monument!");
+             tfdescription.setStyle("-fx-border-color: red; -fx-border-width:2px;");
+            new animatefx.animation.Shake(tfdescription).play();
             alert.show();
         }
         else if(tflocalisation.getText().isEmpty()){
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer la localisation du Monument!");
+            tflocalisation.setStyle("-fx-border-color: red; -fx-border-width:2px;");
+            new animatefx.animation.Shake(tflocalisation).play();
             alert.show();
         }
         else if(tfpays.getText().isEmpty()){
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer le pays du Monument!");
+            tfpays.setStyle("-fx-border-color: red; -fx-border-width:2px;");
+            new animatefx.animation.Shake(tfpays).play();
             alert.show();
         }
         else if(ComboPayant.getValue()=="Non payant"){

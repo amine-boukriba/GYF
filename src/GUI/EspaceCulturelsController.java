@@ -189,30 +189,40 @@ public class EspaceCulturelsController implements Initializable {
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer l'horaire de l'espace culturel!");
+            tfHoraire.setStyle("-fx-border-color: red; -fx-border-width:2px;");
+            new animatefx.animation.Shake(tfHoraire).play();
             alert.show();
         }
         else if(tfnom_monument.getText().isEmpty()){
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer le nom de l'espace culturel!");
+            tfnom_monument.setStyle("-fx-border-color: red; -fx-border-width:2px;");
+            new animatefx.animation.Shake(tfnom_monument).play();
             alert.show();
         }
         else if(tfdescription.getText().isEmpty()){
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer la description de l'espace culturel!");
+            tfdescription.setStyle("-fx-border-color: red; -fx-border-width:2px;");
+            new animatefx.animation.Shake(tfdescription).play();
             alert.show();
         }
         else if(tflocalisation.getText().isEmpty()){
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer la localisation de l'espace culturel!");
+            tflocalisation.setStyle("-fx-border-color: red; -fx-border-width:2px;");
+            new animatefx.animation.Shake(tflocalisation).play();
             alert.show();
         }
         else if(tfpays.getText().isEmpty()){
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("veuillez insérer le pays de l'espace culturel!");
+            tfpays.setStyle("-fx-border-color: red; -fx-border-width:2px;");
+            new animatefx.animation.Shake(tfpays).play();
             alert.show();
         }
         else if(ComboPayant.getValue()=="Non payant"){
