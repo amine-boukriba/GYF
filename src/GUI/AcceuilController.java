@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import utils.Globals;
 
 /**
  * FXML Controller class
@@ -26,7 +27,7 @@ public class AcceuilController implements Initializable {
 
     @FXML
     private Button show_users;
-
+    Globals global=new Globals();
     /**
      * Initializes the controller class.
      */
@@ -45,5 +46,54 @@ public class AcceuilController implements Initializable {
                 show_users.getScene().setRoot(root);
         
     }
+        public void goto_show_historiques(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/affiche_historiques.fxml"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException ex) {
+                    Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                show_users.getScene().setRoot(root);
+        
+    }
+            public void goto_change_password(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/change_password.fxml"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException ex) {
+                    Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                show_users.getScene().setRoot(root);
+        
+    }
+            
+    public void SIGN_OUT (ActionEvent event) {
+        global.serviceuser.sign_out(global.user,global.historique);
+        global.user=null;
+        global.historique=null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/auth.fxml"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException ex) {
+                    Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                show_users.getScene().setRoot(root);
+        
+    }
+     public void goto_show_users(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/setuser.fxml"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException ex) {
+                    Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                show_users.getScene().setRoot(root);
+        
+    }
+
     
 }

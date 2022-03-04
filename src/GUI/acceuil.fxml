@@ -5,10 +5,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AcceuilController">
    <children>
-      <Button layoutX="53.0" layoutY="24.0" mnemonicParsing="false" text="sign_out" />
+      <Button fx:id="sign_out" layoutX="53.0" layoutY="24.0" mnemonicParsing="false" onAction="#SIGN_OUT" text="sign_out" />
       <Button fx:id="MODIFIER" layoutX="58.0" layoutY="74.0" mnemonicParsing="false" onAction="#goto_modification" text="modfier" />
-      <Button layoutX="53.0" layoutY="129.0" mnemonicParsing="false" text="change_password" />
-      <Button layoutX="53.0" layoutY="188.0" mnemonicParsing="false" text="show hisotriques" />
-      <Button fx:id="show_users" layoutX="64.0" layoutY="257.0" mnemonicParsing="false" text="show users" />
+      <Button layoutX="53.0" layoutY="129.0" mnemonicParsing="false" onAction="#goto_change_password" text="change_password" />
+      <Button fx:id="show_historiques" layoutX="53.0" layoutY="188.0" mnemonicParsing="false" onAction="#goto_show_historiques" text="show hisotriques" />
+      <Button fx:id="show_users" layoutX="64.0" layoutY="257.0" mnemonicParsing="false" onAction="#goto_show_users" text="show users" />
    </children>
 </AnchorPane>

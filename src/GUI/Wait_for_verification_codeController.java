@@ -44,7 +44,7 @@ public class Wait_for_verification_codeController implements Initializable {
          if (global.user.getVerification()==0){
          if (code.equals(code_user.getText()))
          {   
-                
+                global.servicehistoriques.add_session(global.historique);
                 global.user.setVerification(1);
                 global.serviceuser.modifier(global.user);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

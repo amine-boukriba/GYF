@@ -249,7 +249,7 @@ public class ServicesUsers implements IService<Users> {
     
     public void sign_out(Users user,Historiques h){
        ServicesHistorique histo=new ServicesHistorique();
-       histo.exit_session(h);
+       histo.exit_session(h, user);
         
     };
      public void  reset_password(String email,String password){
@@ -309,7 +309,96 @@ public class ServicesUsers implements IService<Users> {
             
         return resultat.next();
      }
-}
+      public void modifier_by_email(Users t) {
+        
+        try {
+            String req;
+            req = "update users set nom_user=?,prenom_user=?,"
+                    + "sexe=?,numero_tel=?,email_user=?,pays_user=?,ville_user=?,"
+                    + "code_postal=?,date_naissance=? where email_user=? ";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setString(1,t.getNom_user());
+            ps.setString(2,t.getPrenom_user());
+            ps.setString(3,t.getSexe());
+            ps.setInt(4,t.getNumero_tel());
+            ps.setString(5,t.getEmail_user());
+            ps.setString(6,t.getPays_user());
+            ps.setString(7,t.getVille_user());
+            ps.setInt(8,t.getCode_postal());
+            ps.setDate(9, (Date) t.getDate_naissance());
+            ps.setString(10,t.getEmail_user());
+            System.out.println(req);
+            ps.executeUpdate();
+            System.out.println("requete executé");
+            //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+      public void make_admin(Users user){
+          user.setId_role(21);
+          try {
+            String req;
+            req = "update users set id_role=? where email_user=? ";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setInt(1,user.getId_role());  
+            ps.setString(2,user.getEmail_user());  
+            ps.executeUpdate();
+            System.out.println("requete executé");
+            //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+      public void delete_user(Users user){
+           try {
+            String req;
+            req = "delete from users where email_user=?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setString(1,user.getEmail_user());
+            ps.executeUpdate();
+            //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+      public void blockUnblock(Users user)
+      {
+         if (user.getBlocked()==1)
+         {try {
+            String req;
+            req = "update users set blocked=? where email_user=? ";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setInt(1,0);  
+            ps.setString(2,user.getEmail_user());  
+            ps.executeUpdate();
+            System.out.println("requete executé");
+            //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+         else
+         {
+             try {
+            String req;
+            req = "update users set blocked=? where email_user=? ";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setInt(1,1);  
+            ps.setString(2,user.getEmail_user());  
+            ps.executeUpdate();
+            System.out.println("requete executé");
+            //*throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+             
+         }
+          
+      }
+
+
   
 
     

@@ -9,6 +9,7 @@ import entities.Historiques;
 import entities.Roles;
 import entities.Users;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -69,13 +70,26 @@ public class ServicesHistorique {
           }
         }
   
-    public void exit_session(Historiques h){
+    public void exit_session(Historiques h,Users user){
             LocalDateTime myDateObj = LocalDateTime.now();
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     String formattedDate = myDateObj.format(myFormatObj);
     h.setSortie_date(formattedDate);
     calcul_duration(h);
-    }
+    try {
+            String req;
+            req = "insert into historique(entre_date,sortie_date,duree,id_user)values(?,?,?,?)";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setString(1,h.getEntre_date());
+            ps.setString(2,h.getSortie_date());
+            ps.setLong(3,h.getDuree());
+            ps.setInt(4,user.getId_user());
+            ps.executeUpdate(); 
+            System.out.println("requete executé");
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesUsers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
     
     public HashMap<Historiques,Users> filter_historiques(String value){
         HashMap<Historiques,Users> map= new HashMap<>();
@@ -92,8 +106,8 @@ public class ServicesHistorique {
                 user.setPrenom_user(rs.getString("prenom_user"));
                 user.setEmail_user(rs.getString("email_user"));
                 h.setDuree(rs.getInt("duree"));
-                h.setEntre_date(rs.getString("entre_date "));
-                h.setSortie_date(rs.getString("sortie_date "));
+                h.setEntre_date(rs.getString("entre_date"));
+                h.setSortie_date(rs.getString("sortie_date"));
                 map.put(h,user);
             }
                    //* throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
