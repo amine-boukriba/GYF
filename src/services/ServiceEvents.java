@@ -118,6 +118,34 @@ public class ServiceEvents implements IService<Evenement> {
        
        
     }
+    public List<Evenement> getById(int id ){
+        List<Evenement> list = new ArrayList<>();
+        try {
+            String req = "select * from evenement where id_evenement="+id+"";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                 Evenement E =new Evenement();
+                E.setId_event(rs.getInt("id_evenement"));
+                E.setNom(rs.getString("nom_evenement"));
+                E.setDescription(rs.getString("description"));
+                E.setType(rs.getString("type_evenement"));
+                E.setLocalisation(rs.getString("localisation"));
+                E.setImage(rs.getString("image_evenement"));
+                E.setDate_debut(rs.getDate("date_debut"));
+                E.setDate_fin(rs.getDate("date_fin"));
+                E.setPays(rs.getString("pays"));
+                E.setNbre_participants(rs.getInt("nombre_participants"));
+                E.setPrix(rs.getInt("prix"));
+                list.add(E);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceEvents.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+        
+    }
     
    
 }

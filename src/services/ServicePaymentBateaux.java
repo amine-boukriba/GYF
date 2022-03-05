@@ -32,13 +32,17 @@ public class ServicePaymentBateaux implements IService<PaymentBateaux>{
     
     
 
-    @Override
-    public void ajout(PaymentBateaux t) {
+    
+    public void ajoutPay(PaymentBateaux t,List<String> listItems) {
         
         List<String> list = new ArrayList<>();
         try {
-            ServicePaymentStripe spt = new ServicePaymentStripe("annnn@gmail.com","ann",2000,"4111111111111111");
-            spt.payer();
+            if(t.getType_payment().equals("en ligne")){
+                
+                 int prix = (int)Float.parseFloat(listItems.get(0)) ;
+                ServicePaymentStripe spt = new ServicePaymentStripe("annnn@gmail.com","ann",prix*100,listItems.get(1));
+                spt.payer();
+            }
             
             String req = "insert into payment_bateaux (id_bateau,id_user ,type_payment) values (?,?,?)";
             
@@ -107,6 +111,11 @@ public class ServicePaymentBateaux implements IService<PaymentBateaux>{
             Logger.getLogger(ServicePaymentBateaux.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+
+    @Override
+    public void ajout(PaymentBateaux t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

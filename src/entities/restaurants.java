@@ -122,20 +122,11 @@ public class restaurants {
     public void setImage_restaurant(String image_restaurant) {
         this.image_restaurant = image_restaurant;
     }
+
     @Override
     public String toString() {
-        return "hotels{" +
-                "id_restaurant=" + id_restaurant +
-                ", nom_restaurant='" + nom_restaurant + '\'' +
-                ", localisation='" + localisation + '\'' +
-                ", horaire='" + horaire + '\'' +
-                ", numero_restaurant='" + numero_restaurant + '\'' +
-                ", cuisinies='" + cuisinies + '\'' +
-                ", nombre_fourchet=" + nombre_fourchet +
-                ", avis_restaurant=" + avis_restaurant +
-                ", image_restaurant=" + image_restaurant +
-                '}';
+        return "restaurants{" + "id_restaurant=" + id_restaurant + ", nom_restaurant=" + nom_restaurant + ", localisation=" + localisation + ", horaire=" + horaire + ", numero_restaurant=" + numero_restaurant + ", cuisinies=" + cuisinies + ", nombre_fourchet=" + nombre_fourchet + ", avis_restaurant=" + avis_restaurant + ", image_restaurant=" + image_restaurant + '}';
     }
-  
+   
 
 }

@@ -152,8 +152,8 @@ public class BateauxInterfaceController implements Initializable {
             Image getAbsolutePath = null;
             ImageIcon icon = new ImageIcon(img);
             //Image image = icon.getImage().getScaledInstance(50, 50, 50);
-            
-            String newPath ="/src/Images/";
+            String filePath = new File("").getAbsolutePath();
+            String newPath =filePath.concat("\\src\\Images\\");
             File directory = new File(newPath);
             if(!(directory.exists())){
                 directory.mkdirs();
@@ -165,20 +165,19 @@ public class BateauxInterfaceController implements Initializable {
             
             Random r = new Random();
             String name="";
-            String alphabet = "123adftnxyz";
+            String alphabet = "123xyz";
             for (int i = 0; i < 30; i++) {
                   name +=  alphabet.charAt(r.nextInt(alphabet.length()));
             }
-            System.out.println(name);
             
             dest = new File(newPath+name+'.'+ext);
             Files.copy(source.toPath(), dest.toPath());
 
-            
+                        System.out.println(dest.toString());
 
-//            System.out.println(source);
-//            System.out.println(dest);
-            this.path=dest.toString();
+
+          
+            this.path=name+'.'+ext;
         } catch (IOException ex) {
             Logger.getLogger(VolInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -239,6 +238,13 @@ public class BateauxInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+        }else if(Date.valueOf(date_dep.getValue()).compareTo(Date.valueOf(date_arr.getValue()))>0 ){
+             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Error");
+				alert.setHeaderText("Date not valid");
+				alert.setContentText("la date d'arriver doit etre superieur a date de depart");
+                                Optional<ButtonType> result = alert.showAndWait();
+                                
         }
         else{
            b.setCompagnie_maritime(compMar.getText());
@@ -263,8 +269,8 @@ public class BateauxInterfaceController implements Initializable {
     private void modifier(ActionEvent event) {
         Bateaux b = new Bateaux();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-	alert.setTitle("Unsaved data warning");
-	alert.setContentText("There is unsaved data. Do you want to continue and lose data ?");
+	alert.setTitle("warning");
+	alert.setContentText("Do you want to continue and lose data ?");
 
 	Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
@@ -291,8 +297,8 @@ public class BateauxInterfaceController implements Initializable {
     @FXML
     private void supprime(ActionEvent event) {
          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-	alert.setTitle("Unsaved data warning");
-	alert.setContentText("There is unsaved data. Do you want to continue and lose data ?");
+	alert.setTitle("warning");
+	alert.setContentText(" Do you want to continue and lose data ?");
 
 	Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){

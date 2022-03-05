@@ -156,7 +156,7 @@ public class VolInterfaceController implements Initializable {
         Matcher m2 = p.matcher(avis_vol.getText());
         
         
-        if(compAeri.getText().isEmpty() && depart.getText().isEmpty() && destination.getText().isEmpty() && date_dep.getValue()==null && date_arr.getValue()==null && prix.getText().isEmpty()&&duree.getText().isEmpty()&&type_avion.getText().isEmpty()&&image_vol.getText().isEmpty()&&avis_vol.getText().isEmpty()){
+        if(compAeri.getText().isEmpty() || depart.getText().isEmpty() || destination.getText().isEmpty() || date_dep.getValue()==null || date_arr.getValue()==null || prix.getText().isEmpty() ||duree.getText().isEmpty() ||type_avion.getText().isEmpty() ||image_vol.getText().isEmpty() ||avis_vol.getText().isEmpty()){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Error");
 				alert.setHeaderText("text non valide");
@@ -304,9 +304,11 @@ public class VolInterfaceController implements Initializable {
             image_vol.setText(img);
             Image getAbsolutePath = null;
             ImageIcon icon = new ImageIcon(img);
-            Image image = icon.getImage().getScaledInstance(50, 50, 50);
+            //Image image = icon.getImage().getScaledInstance(50, 50, 50);
             
-            String newPath ="src/Images/";
+            String filePath = new File("").getAbsolutePath();
+            String newPath =filePath.concat("\\src\\Images\\");
+            
             File directory = new File(newPath);
             if(!(directory.exists())){
                 directory.mkdirs();
@@ -331,7 +333,7 @@ public class VolInterfaceController implements Initializable {
 
 //            System.out.println(source);
 //            System.out.println(dest);
-            this.path=dest.toString();
+            this.path=name+'.'+ext;
         } catch (IOException ex) {
             Logger.getLogger(VolInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }

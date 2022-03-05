@@ -65,6 +65,39 @@ public class ServiceRestaurant implements IService<restaurants> {
     }
     //////////////////////////////////////////////////////////////////////////////////////////
   // @Override
+   public ArrayList<restaurants> getById(int id) {
+       ArrayList<restaurants>  list = new ArrayList();
+       try {
+                  String req ="Select * FROM restaurants WHERE id_restaurant="+id+""; 
+            Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+               
+                         restaurants r = new restaurants();
+                         r.setId_restaurant(rs.getInt("id_restaurant"));
+                         r.setNom_restaurant(rs.getString("nom_restaurant"));
+                         r.setLocalisation(rs.getString("localisation"));
+                         r.setHoraire(rs.getString("horaire"));
+                         r.setNumero_restaurant(rs.getString("numero_restaurant"));
+                         r.setCuisinies(rs.getString("cuisinies"));
+                         r.setNombre_fourchet(rs.getInt("nombre_fourchet"));
+                         r.setAvis_restaurant(rs.getInt("avis_restaurant"));
+                         r.setImage_restaurant(rs.getString("image_restaurant"));
+                         System.out.println(r);
+                         list.add(r);
+
+             }             
+   
+        } catch (SQLException ex) {
+                Logger.getLogger(ServiceHotel.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting Hotel");
+
+        }   
+       System.out.println(" mel base "+list);
+     return list;  
+   }
+   
+   
    public ArrayList<restaurants> afficheByName(String nom_restaurant) {
      
 

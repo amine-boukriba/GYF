@@ -13,20 +13,22 @@ import java.sql.Date;
  */
 public class Evenement { 
      private int id_evenement;
-
-    public Evenement(int id_evenement) {
-        this.id_evenement = id_evenement;
-    }
      private String nom;
      private String description;
      private String type;
+     private String localisation;
      private String image;
      private Date date_debut;
      private Date date_fin;
      private String pays;
-     private int  prix;
      private int nbre_participants;
-     private String localisation;
+     private int  prix;
+     
+    public Evenement(int id_evenement) {
+        this.id_evenement = id_evenement;
+    }
+     
+     
      public Evenement() {
     }
      
@@ -44,7 +46,7 @@ public class Evenement {
         this.localisation=localisation;
     }
 
-    public Evenement(int id_evenement, String nom, String description, String type, String image, Date date_debut, Date date_fin, String pays, int prix, int nbre_participants, String localisation) {
+    public Evenement(int id_evenement, String nom, String description, String type,String localisation, String image, Date date_debut, Date date_fin, String pays, int prix, int nbre_participants) {
         this.id_evenement = id_evenement;
         this.nom = nom;
         this.description = description;
@@ -148,13 +150,14 @@ public class Evenement {
     public void setLocalisation(String localisation) {
         this.localisation = localisation;
     }
-    
-     
+
     @Override
     public String toString() {
-        return "evenement:\n id :"+this.id_evenement+"\n nom :"+this.nom+"\ndescription :"+this.description+"\ntype :"+this.type+"\npays :"+this.pays+"\nlocalisation :"+this.localisation+"\nprix :"+this.prix+"\ndate début :"+this.date_debut+"\ndate fin :"+this.date_fin+"\nnobre de participants :"+this.nbre_participants+"\nImage :"+this.image; //To change body of generated methods, choose Tools | Templates.
+        return "Evenement{" + "id_evenement=" + id_evenement + ", nom=" + nom + ", description=" + description + ", type=" + type + ", localisation=" + localisation + ", image=" + image + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", pays=" + pays + ", nbre_participants=" + nbre_participants + ", prix=" + prix + '}';
     }
-
+    
+     
+    
  
      
      

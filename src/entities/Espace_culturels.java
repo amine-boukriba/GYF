@@ -15,7 +15,7 @@ public class Espace_culturels{
      private String image_espace;
      private String horaire;
      private int prix;
-     private int paye;
+     private Boolean paye;
      private String date_creation;
      private String pays;
      private String localisation;
@@ -25,7 +25,7 @@ public class Espace_culturels{
     public Espace_culturels() {
     }
 
-    public Espace_culturels(int id_espace, String nom_espace, String image_espace, String horaire, int prix, int paye, String date_creation, String pays, String localisation, String description, int avis_espace) {
+    public Espace_culturels(int id_espace, String nom_espace, String image_espace, String horaire, int prix, Boolean paye, String date_creation, String pays, String localisation, String description, int avis_espace) {
         this.id_espace = id_espace;
         this.nom_espace = nom_espace;
         this.image_espace = image_espace;
@@ -39,7 +39,7 @@ public class Espace_culturels{
         this.avis_espace = avis_espace;
     }
 
-    public Espace_culturels(String nom_espace, String image_espace, String horaire, int prix, int paye, String date_creation, String pays, String localisation, String description, int avis_espace) {
+    public Espace_culturels(String nom_espace, String image_espace, String horaire, int prix, Boolean paye, String date_creation, String pays, String localisation, String description, int avis_espace) {
         this.nom_espace = nom_espace;
         this.image_espace = image_espace;
         this.horaire = horaire;
@@ -72,7 +72,7 @@ public class Espace_culturels{
         return prix;
     }
 
-    public int getPaye() {
+    public Boolean getPaye() {
         return paye;
     }
 
@@ -116,7 +116,7 @@ public class Espace_culturels{
         this.prix = prix;
     }
 
-    public void setPaye(int paye) {
+    public void setPaye(Boolean paye) {
         this.paye = paye;
     }
 

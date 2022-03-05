@@ -380,12 +380,19 @@ public class PlaningInterfaceController implements Initializable {
 
     @FXML
     private void payer(ActionEvent event) {
-        if(depart_input.getText().isEmpty()&&destination_input.getText().isEmpty()&&debut_input.getValue()==null&&fin_input.getValue()==null){
+        if(depart_input.getText().isEmpty()||destination_input.getText().isEmpty()||debut_input.getValue()==null||fin_input.getValue()==null){
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Error");
 				alert.setHeaderText("text non valide");
 				alert.setContentText("saisire tous les champ");
                                 Optional<ButtonType> result = alert.showAndWait();
+        }else if(Date.valueOf(debut_input.getValue()).compareTo(Date.valueOf(fin_input.getValue()))>0 ){
+             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Error");
+				alert.setHeaderText("Date not valid");
+				alert.setContentText("la date d'arriver doit etre superieur a date de depart");
+                                Optional<ButtonType> result = alert.showAndWait();
+                                
         }else{
             
         
@@ -429,7 +436,7 @@ public class PlaningInterfaceController implements Initializable {
                 pp.setType_payment("en ligne");
                 listitem.add(prix+"");
 
-                controller.setPaymentPlan(pp,pl);
+                controller.setPayment(pp,pl);
                 btn_payer.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(DetailItemsController.class.getName()).log(Level.SEVERE, null, ex);

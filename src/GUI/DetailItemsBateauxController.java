@@ -7,8 +7,8 @@ package GUI;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
-import entities.PaymentVols;
-import entities.Vols;
+import entities.Bateaux;
+import entities.PaymentBateaux;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -22,23 +22,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import services.ServicePaymentVols;
-import services.ServiceVols;
+import services.ServiceBateaux;
+import services.ServicePaymentBateaux;
 
 /**
  * FXML Controller class
  *
  * @author anwer
  */
-public class DetailItemsController implements Initializable {
+public class DetailItemsBateauxController implements Initializable {
 
-    ServicePaymentVols spv = new ServicePaymentVols();
-    ServiceVols sv = new ServiceVols();
-    PaymentVols payVol = new PaymentVols();
-    Vols list;
+    ServicePaymentBateaux spb = new ServicePaymentBateaux();
+    ServiceBateaux sb = new ServiceBateaux();
+    PaymentBateaux payBat = new PaymentBateaux();
+    Bateaux list;
+    
     @FXML
     private ImageView image;
     @FXML
@@ -58,6 +58,8 @@ public class DetailItemsController implements Initializable {
     @FXML
     private Label avis_text;
     @FXML
+    private Label nom_bateau;
+    @FXML
     private JFXButton btn_retour;
     @FXML
     private JFXButton btn_payer;
@@ -70,67 +72,64 @@ public class DetailItemsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-//        System.out.println(id);
-//        System.out.println(id);
-//        List<Vols> list = new ArrayList<>(sv.getOne(id));
-//        System.out.println(list);
-            
     }    
-    
-    public void setId(Vols v){
-        this.list=v;
-        Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+list.getImage_vol()));
-        this.image.setImage(image);
-        comp.setText(v.getCompagnie_aerien());
-        depart_text.setText(v.getDepart());
-        destination_text.setText(v.getDestination());
-        date_dep_text.setText(v.getDate_depart()+"");
-        date_arr_text.setText(v.getDate_arrive()+"");
-        ptix_text.setText(v.getPrix()+"");
-        duree_text.setText(v.getDuree()+"");
-        avis_text.setText(v.getAvis_vol()+"");
-        
-    }
 
     @FXML
     private void retourVol(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("VolClientInterface.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("BateauxClientInterface.fxml"));
             Parent root = loader.load();
-            VolClientInterfaceController controller = loader.getController();
+            BateauxClientInterfaceController controller = loader.getController();
             btn_retour.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(DetailItemsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+     public void setId(Bateaux b){
+        this.list=b;
+        Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+list.getImage_bateau()));
+        this.image.setImage(image);
+        comp.setText(b.getCompagnie_maritime());
+        depart_text.setText(b.getDepart());
+        destination_text.setText(b.getDestination());
+        date_dep_text.setText(b.getDate_depart()+"");
+        date_arr_text.setText(b.getDate_arrive()+"");
+        ptix_text.setText(b.getPrix()+"");
+        duree_text.setText(b.getDuree()+"");
+        avis_text.setText(b.getAvis_bateau()+"");
+        nom_bateau.setText(b.getNom_bateau());
+        
     }
 
     @FXML
     private void Payer(ActionEvent event) {
         List <String> listitem=new ArrayList<>();
         if(rad_reserver.isSelected()==true){
-            payVol.setId_vol(list.getId_vol());
-            payVol.setId_user(2);
-            payVol.setType_payment("agence");
-         System.out.println(payVol);
+            payBat.setId_bateau(list.getId_bateau());
+            payBat.setId_user(2);
+            payBat.setType_payment("agence");
+         System.out.println(payBat);
            //listitem.add()
-            spv.ajoutPay(payVol,listitem);           
+            spb.ajoutPay(payBat,listitem);           
        }else{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("PaymentInterface.fxml"));
                 Parent root = loader.load();
                 PaymentInterfaceController controller = loader.getController();
-                payVol.setId_vol(list.getId_vol());
-                payVol.setId_user(2);
-                payVol.setType_payment("en ligne");
+                payBat.setId_bateau(list.getId_bateau());
+                payBat.setId_user(2);
+                payBat.setType_payment("en ligne");
                 listitem.add(list.getPrix()+"");
 
-                controller.setPayment(payVol,list);
+                controller.setPayment(payBat,list);
                 btn_payer.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(DetailItemsController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
     }
+    
+   
     
 }

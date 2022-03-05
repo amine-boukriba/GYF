@@ -30,6 +30,7 @@ public class ServiceOffers implements IService<Offers>{
         connection = MyDB.getInstance().getConnection();
     }
     
+    
             
             
     @Override
@@ -117,7 +118,7 @@ public class ServiceOffers implements IService<Offers>{
          
         try {
            
-            String req = "select * from offers where depart=? and destination=? and date_debut = ? "; 
+            String req = "select *,(select path from images where offers.id_offer=images.id_offer ) as path from offers where depart=? and destination=? and date_debut = ? "; 
             
              PreparedStatement ps = connection.prepareStatement(req);
             
@@ -127,7 +128,7 @@ public class ServiceOffers implements IService<Offers>{
             
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                list.add(new Offers(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getInt(7),rs.getString(8),rs.getFloat(9),rs.getInt(10)));
+                list.add(new Offers(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getDate(6),rs.getInt(7),rs.getString(8),rs.getFloat(9),rs.getInt(10),rs.getString(11)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ServiceVols.class.getName()).log(Level.SEVERE, null, ex);

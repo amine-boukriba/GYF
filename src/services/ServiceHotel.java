@@ -64,7 +64,39 @@ public class ServiceHotel implements IService<Hotel> {
      return list;    
     }
  //////////////////////////////////////////////////////////////////////////////////////////
+   
+   public ArrayList<Hotel> getById(int id) {
+       
+      ArrayList<Hotel>  list = new ArrayList();
+       try {
+                  String req ="Select * FROM hotels WHERE id_hotel='"+id+"'"; 
+            Statement st = connection.createStatement();
+            System.out.println(req);
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+               
+                       Hotel h = new Hotel();
+                         h.setId_hotel(rs.getInt("id_hotel"));
+                         h.setNom_hotel(rs.getString("nom_hotel"));
+                         h.setLocalisation(rs.getString("localisation"));
+                         h.setCategorie(rs.getString("categorie"));
+                         h.setAvis_hotel(rs.getInt("avis_hotel"));
+                         h.setImage_hotel(rs.getString("image_hotel"));
+                         
+                         list.add(h);
 
+             }             
+   
+        } catch (SQLException ex) {
+                Logger.getLogger(ServiceHotel.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting Hotel");
+
+        }   
+     return list;    
+    }
+   
+   
+   
    public ArrayList<Hotel> afficheBylocalisation(String localisation) {
      
 

@@ -9,7 +9,6 @@ import com.jfoenix.controls.JFXButton;
 import entities.Bateaux;
 import entities.Vols;
 import java.io.IOException;
-import javafx.geometry.Insets;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -23,6 +22,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
@@ -32,18 +32,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
-import services.ServiceVols;
+import services.ServiceBateaux;
 
 /**
  * FXML Controller class
  *
  * @author anwer
  */
-public class VolClientInterfaceController implements Initializable {
+public class BateauxClientInterfaceController implements Initializable {
 
- 
+    ServiceBateaux sb = new ServiceBateaux();
     
-    ServiceVols sv = new ServiceVols();
+    @FXML
+    private Label text_error;
     @FXML
     private TextField depart;
     @FXML
@@ -52,35 +53,34 @@ public class VolClientInterfaceController implements Initializable {
     private DatePicker date_dep;
     @FXML
     private DatePicker date_arr;
-    private AnchorPane list_items;
     @FXML
     private JFXButton btn_rechercher;
     @FXML
     private ScrollPane scrole;
     @FXML
     private GridPane grid;
-    @FXML
-    private Label text_error;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        List<Bateaux> list = new ArrayList<>(sb.affiche());
+        //System.out.println(list);
         
-List<Vols> list = new ArrayList<>(sv.affiche());
-        //List<Vols> list = new ArrayList<>(sv.rechercheVols(depart.getText(), arrive.getText(), Date.valueOf(date_dep.getValue()), Date.valueOf(date_arr.getValue())));
       
         if(list.size()==0){
            text_error.setText("No data found");
-        }
+        }else{
             try {
                 for (int i=0;i<list.size();i++){
+                    
                     FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(getClass().getResource("ItemVols.fxml"));
+                    fxmlLoader.setLocation(getClass().getResource("ItemBateaux.fxml"));
                     AnchorPane anchorPane = fxmlLoader.load();
-                    ItemVolsController itemController = fxmlLoader.getController();
+                    ItemBateauxController itemController = fxmlLoader.getController();
                     itemController.setData(list.get(i));
+                    //System.out.println(list.get(i));
                     grid.add(anchorPane, 1, i+1);
                     grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                     grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
@@ -96,11 +96,12 @@ List<Vols> list = new ArrayList<>(sv.affiche());
             } catch (IOException ex) {
                 Logger.getLogger(VolClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
             }
-    }   
+        }
+    }    
 
     @FXML
     private void rechercher(ActionEvent event) {
-        if(depart.getText().isEmpty() || date_dep.getValue()==null || date_arr.getValue()==null || arrive.getText().isEmpty()){
+        if(depart.getText().isEmpty() && date_dep.getValue()==null && date_arr.getValue()==null && arrive.getText().isEmpty()){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Error");
 				alert.setHeaderText("text non valide");
@@ -116,16 +117,16 @@ List<Vols> list = new ArrayList<>(sv.affiche());
         }
         else{
          grid.getChildren().clear();
-        List<Vols> list = new ArrayList<>(sv.rechercheVols(depart.getText(), arrive.getText(), Date.valueOf(date_dep.getValue()), Date.valueOf(date_arr.getValue())));
+        List<Bateaux> list = new ArrayList<>(sb.rechercheBateaux(depart.getText(), arrive.getText(), Date.valueOf(date_dep.getValue())));
         if(list.size()==0){
            text_error.setText("No data found");
         }
             try {
                 for (int i=0;i<list.size();i++){
                     FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(getClass().getResource("ItemVols.fxml"));
+                    fxmlLoader.setLocation(getClass().getResource("ItemBateaux.fxml"));
                     AnchorPane anchorPane = fxmlLoader.load();
-                    ItemVolsController itemController = fxmlLoader.getController();
+                    ItemBateauxController itemController = fxmlLoader.getController();
                     itemController.setData(list.get(i));
                     grid.add(anchorPane, 1, i+1);
                     grid.setMinWidth(Region.USE_COMPUTED_SIZE);

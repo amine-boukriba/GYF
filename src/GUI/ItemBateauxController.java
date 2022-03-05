@@ -7,12 +7,9 @@ package GUI;
 
 import com.jfoenix.controls.JFXButton;
 import entities.Bateaux;
-import entities.Vols;
+import java.io.File;
 import java.io.IOException;
-import javafx.scene.image.Image;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,8 +19,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import services.ServiceBateaux;
 
 /**
@@ -31,11 +28,11 @@ import services.ServiceBateaux;
  *
  * @author anwer
  */
-public class ItemVolsController implements Initializable {
+public class ItemBateauxController implements Initializable {
 
     ServiceBateaux sb = new ServiceBateaux();
-            
-    Vols listvol = new Vols();
+    Bateaux listBateaux = new Bateaux();
+   
     @FXML
     private ImageView img_comp;
     @FXML
@@ -56,36 +53,35 @@ public class ItemVolsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        // TODO
     }    
-    
-    public void setData(Vols vols) {
-        
-        depart.setText(vols.getDepart());
-        date_deb.setText(vols.getDate_depart()+"");
-        arrive.setText(vols.getDestination());
-        date_arr.setText(vols.getDate_arrive()+"");
-        prix.setText(vols.getPrix()+"");
-        Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+vols.getImage_vol()));
-        img_comp.setImage(image);
-        listvol = vols;
-        //System.out.println(listvol);
-    }
 
+     public void setData(Bateaux bateaux) {
+         System.out.println(bateaux);
+        depart.setText(bateaux.getDepart());
+        date_deb.setText(bateaux.getDate_depart()+"");
+        arrive.setText(bateaux.getDestination());
+        date_arr.setText(bateaux.getDate_arrive()+"");
+        prix.setText(bateaux.getPrix()+"");
+        Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+bateaux.getImage_bateau()));
+         
+        img_comp.setImage(image);
+        listBateaux = bateaux;
+        
+    }
+    
     @FXML
     private void voirDetail(ActionEvent event) {
-        
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailItems.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailItemsBateaux.fxml"));
             Parent root = loader.load();
-            DetailItemsController controller = loader.getController();
+            DetailItemsBateauxController controller = loader.getController();
             btn_detail.getScene().setRoot(root);
-            controller.setId(listvol);
+            controller.setId(listBateaux);
             
         } catch (IOException ex) {
             Logger.getLogger(ItemVolsController.class.getName()).log(Level.SEVERE, null, ex);
         }
-                    
     }
     
 }

@@ -7,9 +7,9 @@ package GUI;
 
 import com.jfoenix.controls.JFXButton;
 import entities.Bateaux;
-import entities.Vols;
+import entities.OfferOption;
+import entities.Offers;
 import java.io.IOException;
-import javafx.scene.image.Image;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,20 +22,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import services.ServiceBateaux;
+import services.ServiceOfferOption;
+import services.ServiceOffers;
 
 /**
  * FXML Controller class
  *
  * @author anwer
  */
-public class ItemVolsController implements Initializable {
+public class ItemOfferController implements Initializable {
 
-    ServiceBateaux sb = new ServiceBateaux();
-            
-    Vols listvol = new Vols();
+    
+    ServiceOffers so = new ServiceOffers();
+    ServiceOfferOption soo = new ServiceOfferOption();
+    Offers listOffer = new Offers();
     @FXML
     private ImageView img_comp;
     @FXML
@@ -56,36 +58,39 @@ public class ItemVolsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        // TODO
     }    
     
-    public void setData(Vols vols) {
-        
-        depart.setText(vols.getDepart());
-        date_deb.setText(vols.getDate_depart()+"");
-        arrive.setText(vols.getDestination());
-        date_arr.setText(vols.getDate_arrive()+"");
-        prix.setText(vols.getPrix()+"");
-        Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+vols.getImage_vol()));
+     public void setData(Offers offer) {
+         System.out.println();
+        depart.setText(offer.getDepart());
+        date_deb.setText(offer.getDate_debut()+"");
+        arrive.setText(offer.getDestination());
+        date_arr.setText(offer.getDate_fin()+"");
+        prix.setText(offer.getPrix()+"");
+        Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+offer.getPath()));
+         
         img_comp.setImage(image);
-        listvol = vols;
-        //System.out.println(listvol);
+        listOffer = offer;
+        
     }
-
+    
     @FXML
     private void voirDetail(ActionEvent event) {
-        
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailItems.fxml"));
+       try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailItemOffer.fxml"));
             Parent root = loader.load();
-            DetailItemsController controller = loader.getController();
+            DetailItemOfferController controller = loader.getController();
             btn_detail.getScene().setRoot(root);
-            controller.setId(listvol);
+            System.out.println("itemOffer ");
+            System.out.println(listOffer);
+            System.out.println("itemOffer ");
+            controller.setId(listOffer);
+            
             
         } catch (IOException ex) {
             Logger.getLogger(ItemVolsController.class.getName()).log(Level.SEVERE, null, ex);
         }
-                    
     }
     
 }

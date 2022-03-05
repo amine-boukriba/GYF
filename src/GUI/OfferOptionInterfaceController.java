@@ -121,7 +121,8 @@ public class OfferOptionInterfaceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        listBateu.addAll(sb.getBateaux(Date.valueOf("1970-01-01"),"14", "al" ));
+        //listBateu.addAll(sb.getBateaux(Date.valueOf("1970-01-01"),"14", "al" ));
+        listBateu.addAll(sb.affiche());
         bateau_opt.setItems(listBateu);
         StringConverter<Bateaux> converterBateu = new StringConverter<Bateaux>() {
             @Override
@@ -138,7 +139,7 @@ public class OfferOptionInterfaceController implements Initializable {
         
         //*****************Vol
         
-        
+        listVol.addAll(sv.affiche());
         vol_opt.setItems(listVol);
         StringConverter<Vols> converterVol = new StringConverter<Vols>() {
             @Override
@@ -224,7 +225,7 @@ public class OfferOptionInterfaceController implements Initializable {
         
         //*********************Espace
         listEsp.addAll(sec.affiche());
-        
+        System.out.println(sec.affiche());
         espace_opt.setItems(listEsp);
         StringConverter<Espace_culturels> converterEcp = new StringConverter<Espace_culturels>() {
             @Override

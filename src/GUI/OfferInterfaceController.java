@@ -164,7 +164,9 @@ public class OfferInterfaceController implements Initializable {
             ImageIcon icon = new ImageIcon(img);
             Image image = icon.getImage().getScaledInstance(50, 50, 50);
             
-            String newPath ="src/Images/";
+            String filePath = new File("").getAbsolutePath();
+            String newPath =filePath.concat("\\src\\Images\\");
+            
             File directory = new File(newPath);
             if(!(directory.exists())){
                 directory.mkdirs();
@@ -189,7 +191,7 @@ public class OfferInterfaceController implements Initializable {
 
 //            System.out.println(source);
 //            System.out.println(dest);
-            this.path=dest.toString();
+            this.path=name+'.'+ext;
         } catch (IOException ex) {
             Logger.getLogger(VolInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -221,7 +223,7 @@ public class OfferInterfaceController implements Initializable {
         Matcher m = p.matcher(prix.getText());
         Matcher m1 = p.matcher(nb_nuit.getText());
         Matcher m2 = p.matcher(avis_offer.getText());
-        if(titre.getText().isEmpty() && depart.getText().isEmpty() && destination.getText().isEmpty() && date_debut.getValue()==null && date_fin.getValue()==null && prix.getText().isEmpty()&&nb_nuit.getText().isEmpty()&&description.getText().isEmpty()&&image_offer.getText().isEmpty()&&avis_offer.getText().isEmpty()){
+        if(titre.getText().isEmpty() || depart.getText().isEmpty() || destination.getText().isEmpty() || date_debut.getValue()==null || date_fin.getValue()==null || prix.getText().isEmpty() || nb_nuit.getText().isEmpty() ||description.getText().isEmpty() ||image_offer.getText().isEmpty() ||avis_offer.getText().isEmpty()){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Error");
 				alert.setHeaderText("text non valide");
@@ -249,6 +251,13 @@ public class OfferInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+        }else if(Date.valueOf(date_debut.getValue()).compareTo(Date.valueOf(date_fin.getValue()))>0 ){
+             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Error");
+				alert.setHeaderText("Date not valid");
+				alert.setContentText("la date d'arriver doit etre superieur a date de depart");
+                                Optional<ButtonType> result = alert.showAndWait();
+                                
         }
         else{
         Offers o = new Offers();

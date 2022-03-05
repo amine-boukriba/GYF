@@ -73,7 +73,7 @@ public class Main {
         //********************** OFFER/PLAN OPTION ****************************
         
         ServiceOfferOption so = new ServiceOfferOption();
-        
+        System.out.println(so.getOffers(35));
         //so.ajout(new OfferOption(0,1,1,1,1,1,1,1,4));
         
         //********************** PLAN ****************************
