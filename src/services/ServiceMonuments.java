@@ -82,6 +82,21 @@ public class ServiceMonuments implements IService<Monuments> {
             Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public int count() {
+        int nbre =0;
+        try {
+            String req="SELECT COUNT(*) AS rowcount FROM monuments";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            rs.next();
+            nbre = rs.getInt("rowcount");
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nbre;
+    }
+    
 
     @Override
     public List<Monuments> affiche() {
@@ -150,7 +165,7 @@ public class ServiceMonuments implements IService<Monuments> {
             while(rs.next()){
               
                 m.setId_monument(rs.getInt("id_monument"));
-                m.setNom_monument(rs.getString("nom_monument"));
+                m.setNom_monument(rs.getString("nom_monid_monumument"));
                 m.setImage_monument(rs.getString("image_monument"));
                 m.setPayant(rs.getBoolean("payant"));
                 m.setPrix(rs.getInt("prix"));

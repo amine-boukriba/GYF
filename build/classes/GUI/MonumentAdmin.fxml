@@ -7,12 +7,13 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MonumentAdminController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="942.0" style="-fx-background-color: #fffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MonumentAdminController">
    <children>
       <VBox layoutX="19.0" layoutY="237.0" prefHeight="299.0" prefWidth="89.0" spacing="15.0">
          <children>
@@ -28,24 +29,24 @@
       </VBox>
       <VBox layoutX="108.0" layoutY="237.0" prefHeight="299.0" prefWidth="99.0" spacing="6.0">
          <children>
-            <TextField fx:id="tfnom_monument" />
+            <TextField fx:id="tfnom_monument" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
             <Button fx:id="btnImage" mnemonicParsing="false" onAction="#fnAddImage" prefHeight="25.0" prefWidth="103.0" text="Image" />
             <ComboBox fx:id="ComboPayant" prefWidth="150.0" />
-            <TextField fx:id="tfprix" layoutX="10.0" layoutY="60.0" />
-            <TextField fx:id="tfdescription" layoutX="10.0" layoutY="85.0" />
-            <DatePicker fx:id="TfDate" />
-            <TextField fx:id="tfpays" layoutX="10.0" layoutY="135.0" />
-            <TextField fx:id="tflocalisation" layoutX="10.0" layoutY="196.0" />
+            <TextField fx:id="tfprix" layoutX="10.0" layoutY="60.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
+            <TextField fx:id="tfdescription" layoutX="10.0" layoutY="85.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
+            <DatePicker fx:id="TfDate" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
+            <TextField fx:id="tfpays" layoutX="10.0" layoutY="135.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
+            <TextField fx:id="tflocalisation" layoutX="10.0" layoutY="196.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
          </children>
       </VBox>
-      <Button fx:id="btnInsert" layoutX="328.0" layoutY="524.0" mnemonicParsing="false" onAction="#fnInsert" prefHeight="25.0" prefWidth="73.0" text="insert" />
-      <Button fx:id="btnUpdate" layoutX="415.0" layoutY="524.0" mnemonicParsing="false" onAction="#fnUpdate" prefHeight="25.0" prefWidth="73.0" text="update" />
-      <Button fx:id="btnDelete" layoutX="497.0" layoutY="524.0" mnemonicParsing="false" onAction="#fnDelete" prefHeight="25.0" prefWidth="73.0" text="delete" />
-      <TableView fx:id="TvMonum" layoutX="221.0" layoutY="238.0" onMouseClicked="#fnSelected" prefHeight="254.0" prefWidth="504.0">
+      <Button fx:id="btnInsert" layoutX="328.0" layoutY="524.0" mnemonicParsing="false" onAction="#fnInsert" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="insert" />
+      <Button fx:id="btnUpdate" layoutX="415.0" layoutY="524.0" mnemonicParsing="false" onAction="#fnUpdate" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="update" />
+      <Button fx:id="btnDelete" layoutX="497.0" layoutY="524.0" mnemonicParsing="false" onAction="#fnDelete" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="delete" />
+      <TableView fx:id="TvMonum" layoutX="221.0" layoutY="238.0" onMouseClicked="#fnSelected" prefHeight="254.0" prefWidth="504.0" style="-fx-background-color: #76b776;" stylesheets="@../stylesheet/style.css">
         <columns>
           <TableColumn fx:id="colNomMonument" prefWidth="102.0" text="Nom Monument" />
-            <TableColumn fx:id="colPayant" prefWidth="48.0" text="payant" />
-            <TableColumn fx:id="colPrix" prefWidth="48.0" text="prix" />
+            <TableColumn fx:id="colPayant" prefWidth="48.79998779296875" text="payant" />
+            <TableColumn fx:id="colPrix" prefWidth="47.20001220703125" text="prix" />
             <TableColumn fx:id="colDescription" prefWidth="73.0" text="description" />
             <TableColumn fx:id="colDateCreation" prefWidth="88.0" text="date creation" />
             <TableColumn fx:id="colPays" prefWidth="48.0" text="pays" />
@@ -54,7 +55,7 @@
       </TableView>
       <Label layoutX="125.0" layoutY="114.0" prefHeight="44.0" prefWidth="99.0" text="Rechercher :" />
       <Label fx:id="lbId" layoutX="31.0" layoutY="13.0" visible="false" />
-      <TextField fx:id="tfSearch" layoutX="250.0" layoutY="124.0" prefHeight="25.0" prefWidth="294.0" />
+      <TextField fx:id="tfSearch" layoutX="250.0" layoutY="124.0" prefHeight="25.0" prefWidth="294.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
       <ImageView fx:id="ImgView" fitHeight="186.0" fitWidth="200.0" layoutX="730.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="lbImage" layoutX="727.0" layoutY="91.0" text="Image:" visible="false">
          <font>
@@ -62,6 +63,11 @@
          </font>
       </Label>
       <Label fx:id="lbFileName" layoutX="726.0" layoutY="13.0" visible="false" />
-      <Button fx:id="btnRetour" layoutX="65.0" layoutY="34.0" mnemonicParsing="false" onAction="#fnRetour" text="Retour" />
+      <Button fx:id="btnRetour" layoutX="64.0" layoutY="65.0" mnemonicParsing="false" onAction="#fnRetour" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Retour" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../public/Image/gyf20.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

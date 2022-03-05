@@ -12,13 +12,15 @@ import utils.MyDB;
 public class Main {
     public static void main(String[] args) {
         
-    //ServiceMonuments sp = new ServiceMonuments();
+   //ServiceMonuments sp = new ServiceMonuments();
    //ServiceEspaceCulturel sp = new ServiceEspaceCulturel();
     
     //---------CRUD Monuments------------
    //sp.ajout(new Monuments("nom_monument", "image_monument", 1, 30, "description", "date_creation", "pays", "localisation", 5));
     //sp.modifier(new Monuments(3,"nom", "image_monument", 1, 30, "description", "date_creation", "pays", "localisation", 5));
     //sp.supprime(5);
+    //sp.count();
+    //System.out.println(sp.count());
     //System.out.println(sp.afficher());
     
     //---------CRUD Espace culturel------------

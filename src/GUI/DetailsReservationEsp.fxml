@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DetailsReservationEspController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ffffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DetailsReservationEspController">
    <children>
       <VBox layoutX="23.0" layoutY="37.0" prefHeight="253.0" prefWidth="100.0" spacing="20.0">
          <children>
@@ -20,9 +20,9 @@
       </VBox>
       <VBox layoutX="178.0" layoutY="46.0" prefHeight="200.0" prefWidth="182.0" spacing="30.0">
          <children>
-            <TextField fx:id="tfNumCard" prefHeight="40.0" prefWidth="100.0" />
-            <TextField fx:id="tfPasswordCard" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="100.0" />
-            <DatePicker fx:id="tfDate" prefHeight="28.0" prefWidth="185.0" />
+            <TextField fx:id="tfNumCard" prefHeight="40.0" prefWidth="100.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
+            <TextField fx:id="tfPasswordCard" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="100.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
+            <DatePicker fx:id="tfDate" prefHeight="28.0" prefWidth="185.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
          </children>
       </VBox>
       <VBox layoutX="14.0" layoutY="246.0" prefHeight="281.0" prefWidth="182.0">
@@ -47,9 +47,9 @@
          </font>
       </Label>
       <ImageView fx:id="imgView" fitHeight="165.0" fitWidth="283.0" layoutX="459.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnModif" layoutX="187.0" layoutY="544.0" mnemonicParsing="false" onAction="#fnModif" prefHeight="38.0" prefWidth="87.0" text="Modifier" />
-      <Button fx:id="btnSupp" layoutX="381.0" layoutY="543.0" mnemonicParsing="false" onAction="#fnSupp" prefHeight="38.0" prefWidth="87.0" text="Supprimer" />
+      <Button fx:id="btnModif" layoutX="187.0" layoutY="544.0" mnemonicParsing="false" onAction="#fnModif" prefHeight="38.0" prefWidth="87.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Modifier" />
+      <Button fx:id="btnSupp" layoutX="381.0" layoutY="543.0" mnemonicParsing="false" onAction="#fnSupp" prefHeight="38.0" prefWidth="87.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Supprimer" />
       <Label fx:id="filename" layoutX="227.0" layoutY="14.0" visible="false" />
-      <Button fx:id="btnRetour" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#FnRetour" text="Retour" />
+      <Button fx:id="btnRetour" layoutX="23.0" layoutY="10.0" mnemonicParsing="false" onAction="#FnRetour" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Retour" />
    </children>
 </AnchorPane>

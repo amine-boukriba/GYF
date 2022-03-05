@@ -8,6 +8,8 @@ package GUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +22,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
+import services.ServiceMonuments;
+import services.ServiceEspaceCulturel;
 
 /**
  * FXML Controller class
@@ -33,12 +38,22 @@ public class EspaceAdminController implements Initializable {
     private Button btnEspCult;
     @FXML
     private Button btnMonm;
+    @FXML
+    private PieChart piechart;
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ServiceMonuments sm = new ServiceMonuments();
+        ServiceEspaceCulturel src = new ServiceEspaceCulturel();
+        ObservableList<PieChart.Data> pieChartData= FXCollections.observableArrayList(
+        new PieChart.Data("Monuments",sm.count()),
+        new PieChart.Data("Espace culturels",src.count()));
+        piechart.setData(pieChartData);
+        piechart.setTitle("Monument et espace culturels");
         // TODO
     }    
 
