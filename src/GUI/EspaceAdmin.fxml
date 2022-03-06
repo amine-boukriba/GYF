@@ -9,12 +9,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="810.0" style="-fx-background-color: #fffffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EspaceAdminController">
    <children>
-      <Button fx:id="btnEspCult" layoutX="162.0" layoutY="118.0" mnemonicParsing="false" onAction="#fnEspac" prefHeight="112.0" prefWidth="296.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Gestion Espace Culturels">
+      <Button fx:id="btnEspCult" layoutX="162.0" layoutY="118.0" mnemonicParsing="false" onAction="#fnEspac" prefHeight="112.0" prefWidth="296.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Gestion Espace Culturels" visible="false">
          <font>
             <Font size="21.0" />
          </font>
       </Button>
-      <Button fx:id="btnMonm" layoutX="162.0" layoutY="259.0" mnemonicParsing="false" onAction="#fnMonume" prefHeight="112.0" prefWidth="296.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Gestion Monuments">
+      <Button fx:id="btnMonm" layoutX="162.0" layoutY="259.0" mnemonicParsing="false" onAction="#fnMonume" prefHeight="112.0" prefWidth="296.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Gestion Monuments" visible="false">
          <font>
             <Font size="21.0" />
          </font>
@@ -24,6 +24,6 @@
             <Image url="@../public/Image/gyf20.png" />
          </image>
       </ImageView>
-      <PieChart fx:id="piechart" layoutX="473.0" layoutY="33.0" prefHeight="394.0" prefWidth="324.0" />
+      <PieChart fx:id="piechart" layoutX="39.0" layoutY="60.0" prefHeight="367.0" prefWidth="758.0" />
    </children>
 </AnchorPane>
