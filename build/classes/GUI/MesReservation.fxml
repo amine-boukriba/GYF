@@ -37,6 +37,6 @@
       <Label fx:id="id_mon" layoutX="389.0" layoutY="23.0" visible="false" />
       <Button fx:id="btnDetailsCult" layoutX="109.0" layoutY="328.0" mnemonicParsing="false" onAction="#fnDetails" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Affiche Details" />
       <Button fx:id="btnDetailsMon" layoutX="384.0" layoutY="325.0" mnemonicParsing="false" onAction="#fnDetailsMon" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Affiche Details" />
-      <Button fx:id="btnRetour" layoutX="40.0" layoutY="19.0" mnemonicParsing="false" onAction="#fnRetour" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Retour" />
+      <Button fx:id="btnRetour" layoutX="40.0" layoutY="19.0" mnemonicParsing="false" onAction="#fnRetour" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Retour" visible="false" />
    </children>
 </AnchorPane>
