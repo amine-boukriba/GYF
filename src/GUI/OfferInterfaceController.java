@@ -90,8 +90,7 @@ public class OfferInterfaceController implements Initializable {
     private TextField avis_offer;
     @FXML
     private TableView<Offers> tab_offer;
-    @FXML
-    private TableColumn<Offers, Integer> tab_id;
+
     @FXML
     private TableColumn<Offers, String> tab_depart;
     @FXML
@@ -127,7 +126,6 @@ public class OfferInterfaceController implements Initializable {
         
         tab_offer.getItems().clear();
         
-        tab_id.setCellValueFactory(new PropertyValueFactory<>("id_offer"));
         tab_titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
         tab_depart.setCellValueFactory(new PropertyValueFactory<>("depart"));
         tab_dest.setCellValueFactory(new PropertyValueFactory<>("destination"));
@@ -205,9 +203,9 @@ public class OfferInterfaceController implements Initializable {
             titre.setText(listOffers.getTitre());
             depart.setText(listOffers.getDepart());
             destination.setText(listOffers.getDestination());
-            //date_dep.setDayCellFactory(value);
-            //date_arr.setValue(listVols.getDate_arrive());
-            prix.setText(Float.toString(listOffers.getPrix()));
+            date_debut.setValue(listOffers.getDate_debut().toLocalDate());
+            date_fin.setValue(listOffers.getDate_fin().toLocalDate());
+            prix.setText(Math.round(listOffers.getPrix())+"");
             nb_nuit.setText(Integer.toString(listOffers.getNombre_nuits()));
             description.setText(listOffers.getDescription());
             image_offer.setText(listOffers.getPath());
@@ -217,9 +215,9 @@ public class OfferInterfaceController implements Initializable {
         });
     }
 
-    @FXML
-    private void ajouter(ActionEvent event) {
-         Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
+    private boolean checkData(){
+        boolean v = false;
+        Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
         Matcher m = p.matcher(prix.getText());
         Matcher m1 = p.matcher(nb_nuit.getText());
         Matcher m2 = p.matcher(avis_offer.getText());
@@ -229,7 +227,7 @@ public class OfferInterfaceController implements Initializable {
 				alert.setHeaderText("text non valide");
 				alert.setContentText("saisire tous les champ");
                                 Optional<ButtonType> result = alert.showAndWait();
-
+                                v = true;
                                 
         }else if (!(m.find() && m.group().equals(prix.getText()))){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -237,6 +235,7 @@ public class OfferInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                 v = true;
         }
         else if (!(m1.find() && m1.group().equals(nb_nuit.getText()))){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -244,6 +243,7 @@ public class OfferInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                 v = true;
         }
         else if (!(m2.find() && m2.group().equals(avis_offer.getText()) )){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -251,15 +251,22 @@ public class OfferInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                 v = true;
         }else if(Date.valueOf(date_debut.getValue()).compareTo(Date.valueOf(date_fin.getValue()))>0 ){
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Error");
 				alert.setHeaderText("Date not valid");
 				alert.setContentText("la date d'arriver doit etre superieur a date de depart");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                 v = true;
                                 
         }
-        else{
+        return v;
+    }
+    @FXML
+    private void ajouter(ActionEvent event) {
+         
+        if(checkData()==false){
         Offers o = new Offers();
         o.setTitre(titre.getText());
         o.setDepart(depart.getText());
@@ -271,9 +278,6 @@ public class OfferInterfaceController implements Initializable {
         o.setPrix(Integer.parseInt(prix.getText()));
 
         o.setAvis_offer((Integer.parseInt(avis_offer.getText())));
-        
-        
-        
         sf.ajout(o);
         Images i = new Images();
         i.setId_offer(sf.lastId());
@@ -283,6 +287,7 @@ public class OfferInterfaceController implements Initializable {
         //System.out.println(i);
         si.ajout(i);
         afficher();
+        
 
        
         try {
@@ -295,11 +300,12 @@ public class OfferInterfaceController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(OfferInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }  
+        }
     }
 
     @FXML
     private void modifier(ActionEvent event) {
+        if(checkData()==false){
         Offers o = new Offers();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 	alert.setTitle("Unsaved data warning");
@@ -332,6 +338,7 @@ public class OfferInterfaceController implements Initializable {
         }
         else{
             System.out.println("");
+        }
         }
     }
 

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="815.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="GUI.OfferClientInterfaceController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OfferClientInterfaceController">
     <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -29,7 +29,7 @@
          <center>
             <HBox prefHeight="320.0" prefWidth="652.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fx:id="scrole" prefHeight="306.0" prefWidth="650.0">
+                  <ScrollPane fx:id="scrole" prefHeight="372.0" prefWidth="696.0">
                      <content>
                         <GridPane fx:id="grid" prefHeight="118.0" prefWidth="647.0" vgap="20.0">
                            <rowConstraints>

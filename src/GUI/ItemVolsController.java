@@ -61,11 +61,11 @@ public class ItemVolsController implements Initializable {
     
     public void setData(Vols vols) {
         
-        depart.setText(vols.getDepart());
-        date_deb.setText(vols.getDate_depart()+"");
-        arrive.setText(vols.getDestination());
-        date_arr.setText(vols.getDate_arrive()+"");
-        prix.setText(vols.getPrix()+"");
+        depart.setText("Depart \n"+vols.getDepart());
+        date_deb.setText("Date Debut \n"+vols.getDate_depart()+"");
+        arrive.setText("arrive \n"+vols.getDestination());
+        date_arr.setText("Date arrive \n"+vols.getDate_arrive()+"");
+        prix.setText("Prix \n"+vols.getPrix()+"");
         Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+vols.getImage_vol()));
         img_comp.setImage(image);
         listvol = vols;

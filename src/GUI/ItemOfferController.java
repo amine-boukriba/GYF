@@ -63,11 +63,11 @@ public class ItemOfferController implements Initializable {
     
      public void setData(Offers offer) {
          System.out.println();
-        depart.setText(offer.getDepart());
-        date_deb.setText(offer.getDate_debut()+"");
-        arrive.setText(offer.getDestination());
-        date_arr.setText(offer.getDate_fin()+"");
-        prix.setText(offer.getPrix()+"");
+        depart.setText("Depart \n"+offer.getDepart());
+        date_deb.setText("Date Depart \n"+offer.getDate_debut()+"");
+        arrive.setText("Arrive \n"+offer.getDestination());
+        date_arr.setText("Date arrive \n"+offer.getDate_fin()+"");
+        prix.setText("Prix \n"+offer.getPrix()+"");
         Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+offer.getPath()));
          
         img_comp.setImage(image);

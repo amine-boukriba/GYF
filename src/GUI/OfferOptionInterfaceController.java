@@ -13,16 +13,21 @@ import entities.Monuments;
 import entities.OfferOption;
 import entities.Vols;
 import entities.restaurants;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -74,8 +79,7 @@ public class OfferOptionInterfaceController implements Initializable {
     private TextField input_id;
     @FXML
     private TableColumn<?, ?> tab_bateau;
-    @FXML
-    private TableColumn<?, ?> tab_id;
+    
     @FXML
     private Button btn_ajout;
     @FXML
@@ -114,6 +118,8 @@ public class OfferOptionInterfaceController implements Initializable {
     private TableColumn<OfferOption, Integer> tab_evenement;
     @FXML
     private TableView<OfferOption> tab_option;
+    @FXML
+    private Button btn_return;
 
     /**
      * Initializes the controller class.
@@ -124,6 +130,7 @@ public class OfferOptionInterfaceController implements Initializable {
         //listBateu.addAll(sb.getBateaux(Date.valueOf("1970-01-01"),"14", "al" ));
         listBateu.addAll(sb.affiche());
         bateau_opt.setItems(listBateu);
+       
         StringConverter<Bateaux> converterBateu = new StringConverter<Bateaux>() {
             @Override
             public String toString(Bateaux object) {
@@ -246,21 +253,25 @@ public class OfferOptionInterfaceController implements Initializable {
 
     @FXML
 private void getValues() {
-//        List<OfferOption> list = new ArrayList<>();
-//        tab_option.setOnMouseClicked((MouseEvent event) -> {
-//            OfferOption listOption = tab_option.getItems().get(tab_option.getSelectionModel().getSelectedIndex());
-//            bateau_opt.setText(listOption.get());
+        List<OfferOption> list = new ArrayList<>();
+        OfferOption listOption = tab_option.getItems().get(tab_option.getSelectionModel().getSelectedIndex());
+        //Bateaux b = sb.getOne(listOption.getId_bateau()).get(0);
+        tab_option.setOnMouseClicked((MouseEvent event) -> {
+            
+            //bateau_opt.getSelectionModel().select(b);
 //            depart.setText(listOption.getDepart());
 //            destination.setText(listOption.getDestination());
-//            //date_dep.setDayCellFactory(value);
-//            //date_arr.setValue(listVols.getDate_arrive());
+//            date_dep.setDayCellFactory(value);
+//            date_arr.setValue(listVols.getDate_arrive());
 //            prix.setText(Float.toString(listOption.getPrix()));
 //            duree.setText(Integer.toString(listOption.getDuree()));
 //            type_avion.setText(listOption.getType_avion());
 //            image_vol.setText(listOption.getImage_vol());
 //            avis_vol.setText(Integer.toString(listOption.getAvis_vol()));
-//            list.add(listOption);
-//        });
+              input_id.setText(listOption.getId_offer_option()+"");
+              //System.out.println(sb.getOne(listOption.getId_bateau()).get(0));
+            list.add(listOption);
+        });
    }
 
     public void setIdValues(Integer id,Date offerDateDeb,String depart,String destination){
@@ -269,9 +280,9 @@ private void getValues() {
          
     }
     private void afficher(){
-        ObservableList <OfferOption> data = FXCollections.observableArrayList(sop.affiche());
         tab_option.getItems().clear();
-        tab_id.setCellValueFactory(new PropertyValueFactory<>("id_offer_option"));
+        ObservableList <OfferOption> data = FXCollections.observableArrayList(sop.affiche());
+        
         tab_offer.setCellValueFactory(new PropertyValueFactory<>("id_offer"));
         tab_bateau.setCellValueFactory(new PropertyValueFactory<>("id_bateau"));
         tab_espace.setCellValueFactory(new PropertyValueFactory<>("id_espace"));
@@ -345,6 +356,18 @@ private void getValues() {
     private void supprime(ActionEvent event) {
         sop.supprime(Integer.parseInt(input_id.getText()));
         afficher();
+    }
+
+    @FXML
+    private void retourne(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("OfferInterface.fxml"));
+            Parent root = loader.load();
+            OfferInterfaceController controller = loader.getController();
+            btn_return.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(DetailItemsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

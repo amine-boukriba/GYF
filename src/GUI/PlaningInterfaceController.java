@@ -220,8 +220,6 @@ public class PlaningInterfaceController implements Initializable {
     @FXML
     private DatePicker fin_input;
     @FXML
-    private JFXButton btn_submit;
-    @FXML
     private TextField destination_input;
     
 
@@ -580,7 +578,6 @@ public class PlaningInterfaceController implements Initializable {
     }
     }
 
-    @FXML
     private void submitPlan(ActionEvent event) {
 //        pl.setDepart(depart_input.getText());
 //        pl.setDestination(destination_input.getText());

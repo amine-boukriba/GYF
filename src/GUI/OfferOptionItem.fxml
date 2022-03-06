@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="99.0" prefWidth="355.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OfferOptionItemController">
+<AnchorPane id="AnchorPane" prefHeight="100.0" prefWidth="244.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OfferOptionItemController">
    <children>
-      <HBox layoutX="-3.0" prefHeight="100.0" prefWidth="361.0">
+      <HBox layoutX="-3.0" prefHeight="100.0" prefWidth="254.0">
          <children>
             <ImageView fx:id="image" fitHeight="94.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true" />
             <VBox prefHeight="100.0" prefWidth="253.0">
                <children>
-                  <Label fx:id="title_text" text="title" />
-                  <Label fx:id="desc_text" text="desc" />
-                  <Label fx:id="durr_text" text="durr" />
+                  <Label fx:id="title_text" text="title">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin></Label>
+                  <Label fx:id="desc_text" text="desc">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Label>
+                  <Label fx:id="durr_text" text="durr">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Label>
                </children>
             </VBox>
          </children>

@@ -68,8 +68,7 @@ public class BateauxInterfaceController implements Initializable {
     private TextField input_id;
     @FXML
     private TableView<Bateaux> tab_bateau;
-    @FXML
-    private TableColumn<Bateaux, Integer> tab_id;
+    
     @FXML
     private TableColumn<Bateaux, String> tab_comp;
     @FXML
@@ -118,7 +117,7 @@ public class BateauxInterfaceController implements Initializable {
         ObservableList <Bateaux> data = FXCollections.observableArrayList(sb.affiche());
         tab_bateau.getItems().clear();
         //System.out.println(sb.affiche());
-        tab_id.setCellValueFactory(new PropertyValueFactory<>("id_bateau"));
+        
         tab_comp.setCellValueFactory(new PropertyValueFactory<>("compagnie_maritime"));
         tab_depart.setCellValueFactory(new PropertyValueFactory<>("depart"));
         tab_dest.setCellValueFactory(new PropertyValueFactory<>("destination"));
@@ -188,12 +187,12 @@ public class BateauxInterfaceController implements Initializable {
         List<Bateaux> list = new ArrayList<>();
         tab_bateau.setOnMouseClicked((MouseEvent event) -> {
             Bateaux listBateaux = tab_bateau.getItems().get(tab_bateau.getSelectionModel().getSelectedIndex());
-             compMar.setText(listBateaux.getCompagnie_maritime());
+            compMar.setText(listBateaux.getCompagnie_maritime());
             depart.setText(listBateaux.getDepart());
             destination.setText(listBateaux.getDestination());
-            //date_dep.setDayCellFactory(value);
-            //date_arr.setValue(listVols.getDate_arrive());
-            prix.setText(Float.toString(listBateaux.getPrix()));
+            date_dep.setValue(listBateaux.getDate_depart().toLocalDate());
+            date_arr.setValue(listBateaux.getDate_arrive().toLocalDate());
+            prix.setText(Math.round(listBateaux.getPrix())+"");
             duree.setText(Integer.toString(listBateaux.getDuree()));
             nom_bateau.setText(listBateaux.getNom_bateau());
             image_bateau.setText(listBateaux.getImage_bateau());
@@ -202,21 +201,20 @@ public class BateauxInterfaceController implements Initializable {
             list.add(listBateaux);
         });
     }
-
-    @FXML
-    private void ajouter(ActionEvent event) {
-        Bateaux b = new Bateaux();
-        Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
+    
+    public boolean checkData(){
+        boolean v=false;
+         Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
         Matcher m = p.matcher(prix.getText());
         Matcher m1 = p.matcher(duree.getText());
         Matcher m2 = p.matcher(avis_bateau.getText());
-        if(compMar.getText().isEmpty() && depart.getText().isEmpty() && destination.getText().isEmpty() && date_dep.getValue()==null && date_arr.getValue()==null && prix.getText().isEmpty()&&nom_bateau.getText().isEmpty()&&duree.getText().isEmpty()&&image_bateau.getText().isEmpty()&&avis_bateau.getText().isEmpty()){
+        if(compMar.getText().isEmpty() || depart.getText().isEmpty() || destination.getText().isEmpty() || date_dep.getValue()==null || date_arr.getValue()==null || prix.getText().isEmpty() ||nom_bateau.getText().isEmpty() ||duree.getText().isEmpty() ||image_bateau.getText().isEmpty() ||avis_bateau.getText().isEmpty()){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Error");
 				alert.setHeaderText("text non valide");
 				alert.setContentText("saisire tous les champ");
                                 Optional<ButtonType> result = alert.showAndWait();
-
+                                v=true;
                                 
         }else if (!(m.find() && m.group().equals(prix.getText()))){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -224,6 +222,7 @@ public class BateauxInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                v=true;
         }
         else if (!(m1.find() && m1.group().equals(duree.getText()))){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -231,6 +230,7 @@ public class BateauxInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                v=true;
         }
         else if (!(m2.find() && m2.group().equals(avis_bateau.getText()) )){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -238,61 +238,76 @@ public class BateauxInterfaceController implements Initializable {
 				alert.setHeaderText("number non valide");
 				alert.setContentText("must be number");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                v=true;
         }else if(Date.valueOf(date_dep.getValue()).compareTo(Date.valueOf(date_arr.getValue()))>0 ){
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Error");
 				alert.setHeaderText("Date not valid");
 				alert.setContentText("la date d'arriver doit etre superieur a date de depart");
                                 Optional<ButtonType> result = alert.showAndWait();
+                                v=true;
                                 
         }
-        else{
-           b.setCompagnie_maritime(compMar.getText());
-        b.setDepart(depart.getText());
-        b.setDestination(destination.getText());
-        b.setDate_depart(Date.valueOf(date_dep.getValue()));
-        b.setDate_arrive(Date.valueOf(date_arr.getValue()));
-        b.setPrix(Integer.parseInt(prix.getText()));
-        b.setDuree(Integer.parseInt(duree.getText()));
-        b.setNom_bateau(nom_bateau.getText());
-        b.setImage_bateau(path);
-        b.setAvis_bateau(Integer.parseInt(avis_bateau.getText()));
-        
-        
-        sb.ajout(b);
-        afficher();  
+        return v;
+    }
+
+    @FXML
+    private void ajouter(ActionEvent event) {
+        Bateaux b = new Bateaux();
+       
+        if(checkData()== false){
+            b.setCompagnie_maritime(compMar.getText());
+            b.setDepart(depart.getText());
+            b.setDestination(destination.getText());
+            b.setDate_depart(Date.valueOf(date_dep.getValue()));
+            b.setDate_arrive(Date.valueOf(date_arr.getValue()));
+            b.setPrix(Integer.parseInt(prix.getText()));
+            b.setDuree(Integer.parseInt(duree.getText()));
+            b.setNom_bateau(nom_bateau.getText());
+            b.setImage_bateau(path);
+            b.setAvis_bateau(Integer.parseInt(avis_bateau.getText()));
+
+            sb.ajout(b);
+            afficher();  
         }
+        
         
     }
 
     @FXML
     private void modifier(ActionEvent event) {
-        Bateaux b = new Bateaux();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-	alert.setTitle("warning");
-	alert.setContentText("Do you want to continue and lose data ?");
-
-	Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
-            b.setCompagnie_maritime(compMar.getText());
-        b.setDepart(depart.getText());
-        b.setDestination(destination.getText());
-        b.setDate_depart(Date.valueOf(date_dep.getValue()));
-        b.setDate_arrive(Date.valueOf(date_arr.getValue()));
-        b.setPrix(Integer.parseInt(prix.getText()));
-        b.setDuree(Integer.parseInt(duree.getText()));
-        b.setNom_bateau(nom_bateau.getText());
-        b.setImage_bateau(path);
-        b.setAvis_bateau(Integer.parseInt(avis_bateau.getText()));
-        b.setId_bateau(Integer.parseInt(input_id.getText()));
         
-        sb.modifier(b);
-        afficher(); 
-        }
-        else{
-            System.out.println("");
+        Bateaux b = new Bateaux();
+        if(checkData()== false){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("warning");
+            alert.setContentText("Do you want to continue and lose data ?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                b.setCompagnie_maritime(compMar.getText());
+            b.setDepart(depart.getText());
+            b.setDestination(destination.getText());
+            b.setDate_depart(Date.valueOf(date_dep.getValue()));
+            b.setDate_arrive(Date.valueOf(date_arr.getValue()));
+            b.setPrix(Integer.parseInt(prix.getText()));
+            b.setDuree(Integer.parseInt(duree.getText()));
+            b.setNom_bateau(nom_bateau.getText());
+            b.setImage_bateau(path);
+            b.setAvis_bateau(Integer.parseInt(avis_bateau.getText()));
+            b.setId_bateau(Integer.parseInt(input_id.getText()));
+
+            sb.modifier(b);
+            afficher(); 
+            }
+            else{
+                System.out.println("");
+            }
+        }else{
+            System.out.println(checkData()); 
         }
     }
+    
 
     @FXML
     private void supprime(ActionEvent event) {

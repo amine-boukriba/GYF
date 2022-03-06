@@ -38,7 +38,7 @@ public class OfferOptionItemController implements Initializable {
         // TODO
     }    
     public void setItemm(List<String> list){
-        System.out.println("oofer option "+list);
+        //System.out.println("oofer option "+list);
         Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+list.get(0)));
         this.image.setImage(image);
         title_text.setText(list.get(1));

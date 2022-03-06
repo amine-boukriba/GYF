@@ -58,10 +58,10 @@ public class ItemBateauxController implements Initializable {
 
      public void setData(Bateaux bateaux) {
          System.out.println(bateaux);
-        depart.setText(bateaux.getDepart());
-        date_deb.setText(bateaux.getDate_depart()+"");
-        arrive.setText(bateaux.getDestination());
-        date_arr.setText(bateaux.getDate_arrive()+"");
+        depart.setText("Depart \n"+bateaux.getDepart());
+        date_deb.setText("Date depart \n"+bateaux.getDate_depart()+"");
+        arrive.setText("Date arrive \n"+bateaux.getDestination());
+        date_arr.setText("Date arrive \n"+bateaux.getDate_arrive()+"");
         prix.setText(bateaux.getPrix()+"");
         Image image = new Image(getClass().getResourceAsStream("..\\Images\\"+bateaux.getImage_bateau()));
          

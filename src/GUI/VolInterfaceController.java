@@ -42,7 +42,6 @@ import javax.swing.JFileChooser;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -82,8 +81,8 @@ public class VolInterfaceController implements Initializable {
     private TextField avis_vol;
     @FXML
     private TableView<Vols> tab_vols;
-    @FXML
-    private TableColumn<Vols, Integer> tab_id;
+//    @FXML
+//    private TableColumn<Vols, Integer> tab_id;
     @FXML
     private TableColumn<Vols, String> tab_comp;
     @FXML
@@ -121,6 +120,7 @@ public class VolInterfaceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
         affiche();
        
     }    
@@ -129,7 +129,7 @@ public class VolInterfaceController implements Initializable {
         ObservableList <Vols> data = FXCollections.observableArrayList(sv.affiche());
         tab_vols.getItems().clear();
         //System.out.println(sv.affiche());
-        tab_id.setCellValueFactory(new PropertyValueFactory<>("id_vol"));
+//        tab_id.setCellValueFactory(new PropertyValueFactory<>("id_vol"));
         tab_comp.setCellValueFactory(new PropertyValueFactory<>("compagnie_aerien"));
         tab_depart.setCellValueFactory(new PropertyValueFactory<>("depart"));
         tab_dest.setCellValueFactory(new PropertyValueFactory<>("destination"));
@@ -223,6 +223,7 @@ public class VolInterfaceController implements Initializable {
 
     @FXML
     private void modifier(ActionEvent event) {
+        if(checkData()== false){
          Vols v = new Vols();
          Alert alert = new Alert(AlertType.CONFIRMATION);
 	alert.setTitle("Unsaved data warning");
@@ -247,6 +248,7 @@ public class VolInterfaceController implements Initializable {
         }
         else{
             System.out.println();
+        }
         }
          
         
@@ -273,18 +275,19 @@ public class VolInterfaceController implements Initializable {
     private void getValues() {
         List<Vols> list = new ArrayList<>();
             tab_vols.setOnMouseClicked((MouseEvent event) -> {
-            Vols listVols = tab_vols.getItems().get(tab_vols.getSelectionModel().getSelectedIndex());
-            compAeri.setText(listVols.getCompagnie_aerien());
-            depart.setText(listVols.getDepart());
-            destination.setText(listVols.getDestination());
-            //date_dep.setDayCellFactory(value);
-            //date_arr.setValue(listVols.getDate_arrive());
-            prix.setText(Float.toString(listVols.getPrix()));
-            duree.setText(Integer.toString(listVols.getDuree()));
-            type_avion.setText(listVols.getType_avion());
-            image_vol.setText(listVols.getImage_vol());
-            avis_vol.setText(Integer.toString(listVols.getAvis_vol()));
-            list.add(listVols);
+                Vols listVols = tab_vols.getItems().get(tab_vols.getSelectionModel().getSelectedIndex());
+                compAeri.setText(listVols.getCompagnie_aerien());
+                depart.setText(listVols.getDepart());
+                destination.setText(listVols.getDestination());
+                date_dep.setValue(listVols.getDate_depart().toLocalDate());
+                date_arr.setValue(listVols.getDate_arrive().toLocalDate());
+                prix.setText(Math.round(listVols.getPrix())+"");
+                duree.setText(Integer.toString(listVols.getDuree()));
+                type_avion.setText(listVols.getType_avion());
+                image_vol.setText(listVols.getImage_vol());
+                avis_vol.setText(Integer.toString(listVols.getAvis_vol()));
+                input_id.setText(Integer.toString(listVols.getId_vol()));
+                list.add(listVols);
         });
         
     }

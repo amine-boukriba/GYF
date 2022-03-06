@@ -16,17 +16,17 @@
          <bottom>
             <AnchorPane prefHeight="102.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton fx:id="btn_retour" layoutX="236.0" layoutY="62.0" onAction="#retourVol" style="-fx-background-color: green;" text="Retour au offres" />
-                  <JFXButton fx:id="btn_payer" layoutX="346.0" layoutY="62.0" onAction="#Payer" style="-fx-background-color: green;" text="Payer" />
+                  <JFXButton fx:id="btn_retour" layoutX="208.0" layoutY="62.0" onAction="#retourVol" style="-fx-background-color: green;" text="Retour au offres" />
+                  <JFXButton fx:id="btn_payer" layoutX="362.0" layoutY="62.0" onAction="#Payer" style="-fx-background-color: green;" text="Payer" />
                   <JFXRadioButton fx:id="rad_reserver" layoutX="236.0" layoutY="22.0" text="Reserver la commande" />
                </children>
             </AnchorPane>
          </bottom>
          <right>
-            <AnchorPane prefHeight="298.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="304.0" prefWidth="346.0" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="7.0" layoutY="14.0" text="Option du l'offre" />
-                  <ScrollPane layoutX="1.0" layoutY="32.0" prefHeight="272.0" prefWidth="250.0">
+                  <ScrollPane layoutX="1.0" layoutY="32.0" prefHeight="272.0" prefWidth="339.0">
                      <content>
                         <GridPane fx:id="grid" prefHeight="104.0" prefWidth="246.0">
                           <columnConstraints>

@@ -10,128 +10,162 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VolInterfaceController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1182.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VolInterfaceController">
    <children>
-      <HBox layoutX="14.0" layoutY="18.0" prefHeight="413.0" prefWidth="200.0">
+      <HBox layoutX="14.0" layoutY="18.0" prefHeight="414.0" prefWidth="258.0">
          <children>
-            <VBox prefHeight="355.0" prefWidth="100.0">
+            <VBox prefHeight="414.0" prefWidth="116.0">
                <children>
-                  <Label prefHeight="18.0" prefWidth="101.0" text="Compagnie aerien">
+                  <Label prefHeight="18.0" prefWidth="119.0" stylesheets="@../css/style.css" text="Compagnie aerien">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label text="depart">
+                  <Label stylesheets="@../css/style.css" text="Depart">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label text="destination">
+                  <Label stylesheets="@../css/style.css" text="Destination">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label text="date depart">
+                  <Label stylesheets="@../css/style.css" text="Date depart">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label text="date arrive">
+                  <Label stylesheets="@../css/style.css" text="Date arrive">
                      <VBox.margin>
                         <Insets top="17.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label text="prix">
+                  <Label stylesheets="@../css/style.css" text="Prix">
                      <VBox.margin>
                         <Insets top="17.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label text="duree">
+                  <Label stylesheets="@../css/style.css" text="Duree">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label text="type_avion">
+                  <Label stylesheets="@../css/style.css" text="Type avion">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label text="image_vol">
+                  <Label stylesheets="@../css/style.css" text="Image vol">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label text="avis_vol">
+                  <Label stylesheets="@../css/style.css" text="Avis vol">
                      <VBox.margin>
-                        <Insets top="15.0" />
+                        <Insets top="53.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Kalam" size="12.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="label_id" text="Id">
+                  <Label fx:id="label_id" stylesheets="@../css/style.css" text="Id" visible="false">
                      <VBox.margin>
                         <Insets top="17.0" />
                      </VBox.margin>
                   </Label>
                </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="414.0" prefWidth="114.0">
                <children>
-                  <TextField fx:id="compAeri">
+                  <TextField fx:id="compAeri" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="depart">
+                  <TextField fx:id="depart" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="destination">
+                  <TextField fx:id="destination" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <DatePicker fx:id="date_dep">
+                  <DatePicker fx:id="date_dep" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </DatePicker>
-                  <DatePicker fx:id="date_arr">
+                  <DatePicker fx:id="date_arr" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
                   </DatePicker>
-                  <TextField fx:id="prix">
+                  <TextField fx:id="prix" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="duree">
+                  <TextField fx:id="duree" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="type_avion">
+                  <TextField fx:id="type_avion" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="image_vol">
+                  <TextField fx:id="image_vol" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" onAction="#saveImage" prefHeight="26.0" prefWidth="103.0" text="chosir image">
+                  <Button mnemonicParsing="false" onAction="#saveImage" prefHeight="26.0" prefWidth="103.0" stylesheets="@../css/style.css" text="chosir image">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <TextField fx:id="avis_vol">
+                  <TextField fx:id="avis_vol" stylesheets="@../css/style.css">
                      <VBox.margin>
                         <Insets top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="input_id">
+                  <TextField fx:id="input_id" stylesheets="@../css/style.css" visible="false">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -140,9 +174,8 @@
             </VBox>
          </children>
       </HBox>
-      <TableView fx:id="tab_vols" layoutX="223.0" layoutY="14.0" onMouseClicked="#getValues" prefHeight="326.0" prefWidth="861.0">
+      <TableView fx:id="tab_vols" layoutX="282.0" layoutY="14.0" onMouseClicked="#getValues" prefHeight="326.0" prefWidth="788.0" stylesheets="@../css/style.css">
          <columns>
-            <TableColumn fx:id="tab_id" prefWidth="75.0" text="id" />
             <TableColumn fx:id="tab_comp" prefWidth="120.0" text="Compagnie aerien" />
             <TableColumn fx:id="tab_depart" prefWidth="67.20001220703125" text="depart" />
             <TableColumn fx:id="tab_dest" prefWidth="84.79998779296875" text="destination" />
@@ -155,8 +188,8 @@
             <TableColumn id="tab_avi_vol" fx:id="tab_avis" prefWidth="86.40008544921875" text="avis_vol" />
          </columns>
       </TableView>
-      <Button fx:id="btn_ajout" layoutX="313.0" layoutY="371.0" mnemonicParsing="false" onAction="#ajouter" text="ajouter" />
-      <Button fx:id="btn_modif" layoutX="428.0" layoutY="371.0" mnemonicParsing="false" onAction="#modifier" text="modifier" />
-      <Button fx:id="btn_sup" layoutX="565.0" layoutY="371.0" mnemonicParsing="false" onAction="#supprime" text="supprime" />
+      <Button fx:id="btn_ajout" layoutX="313.0" layoutY="371.0" mnemonicParsing="false" onAction="#ajouter" stylesheets="@../css/style.css" text="ajouter" />
+      <Button fx:id="btn_modif" layoutX="428.0" layoutY="371.0" mnemonicParsing="false" onAction="#modifier" stylesheets="@../css/style.css" text="modifier" />
+      <Button fx:id="btn_sup" layoutX="565.0" layoutY="371.0" mnemonicParsing="false" onAction="#supprime" stylesheets="@../css/style.css" text="supprime" />
    </children>
 </AnchorPane>
