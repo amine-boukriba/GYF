@@ -5,12 +5,16 @@
  */
 package entities;
 
+import java.sql.Date;
+
 /**
  *
  * @author omarb
  */
 public class restaurants {
-        private int id_restaurant ;
+
+  
+ 
 
     public restaurants(String nom_restaurant, String localisation, String horaire, String numero_restaurant, String cuisinies, int nombre_fourchet) {
         this.nom_restaurant = nom_restaurant;
@@ -41,7 +45,13 @@ public class restaurants {
     private int avis_restaurant ;
     private String image_restaurant;
     
-  
+   private Date  date_debut;
+  private String date_creation;
+       private int  nbr_personne;
+        private String    nom_user;
+             private String   prenom_user ;
+             private int id_reservation;
+    private int id_restaurant ;
     
         public restaurants(String nom_restaurant, String localisation, String horaire, String numero_restaurant, String cuisinies, int nombre_fourchet, int avis_restaurant , String image_restaurant) {
  
@@ -141,22 +151,57 @@ public class restaurants {
     public void setImage_restaurant(String image_restaurant) {
         this.image_restaurant = image_restaurant;
     }
-    @Override
-    public String toString() {
-        return "hotels{" +
-                "id_restaurant=" + id_restaurant +
-                ", nom_restaurant='" + nom_restaurant + '\'' +
-                ", localisation='" + localisation + '\'' +
-                ", horaire='" + horaire + '\'' +
-                ", numero_restaurant='" + numero_restaurant + '\'' +
-                ", cuisinies='" + cuisinies + '\'' +
-                ", nombre_fourchet=" + nombre_fourchet +
-                ", avis_restaurant=" + avis_restaurant +
-                ", image_restaurant=" + image_restaurant +
-                '}';
-    }
+   
   
 
+  public Date getDate_debut() {
+        return date_debut;
+    }
 
+    public void setDate_debut(Date date_debut) {
+        this.date_debut = date_debut;
+    }
 
+    public String getDate_creation() {
+        return date_creation;
+    }
+
+    public void setDate_creation(String date_creation) {
+        this.date_creation = date_creation;
+    }
+
+    public int getNbr_personne() {
+        return nbr_personne;
+    }
+
+    public void setNbr_personne(int nbr_personne) {
+        this.nbr_personne = nbr_personne;
+    }
+
+    public String getNom_user() {
+        return nom_user;
+    }
+
+    public void setNom_user(String nom_user) {
+        this.nom_user = nom_user;
+    }
+
+    public String getPrenom_user() {
+        return prenom_user;
+    }
+
+    public void setPrenom_user(String prenom_user) {
+        this.prenom_user = prenom_user;
+    }
+
+    public int getId_reservation() {
+        return id_reservation;
+    }
+
+    public void setId_reservation(int id_reservation) {
+        this.id_reservation = id_reservation;
+    }
+public String toString(){
+    return   " Nom d'utilisatuer=" + nom_user + ", Prénom d'utilisateur=" + prenom_user  + ", Nom restaurant=" + nom_restaurant+ " ,jour de réservation=" + date_debut + "";
+}
 }

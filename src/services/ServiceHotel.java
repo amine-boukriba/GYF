@@ -141,13 +141,17 @@ public class ServiceHotel implements IService<Hotel> {
 
     public void ajout(Hotel h) {
         try {
-            String req = "INSERT INTO `hotels`(`nom_hotel`,`localisation`,`categorie`,`avis_hotel`,`image_hotel`) VALUES ('" + h.getNom_hotel() + "','" + h.getLocalisation() + 
-                    "','" + h.getCategorie() + "','" + h.getAvis_hotel() + "','" + h.getImage_hotel() +"')";
+            String req = "INSERT INTO `hotels`(nom_hotel,localisation,categorie,avis_hotel,image_hotel) VALUES (?,?,?,?,?)";
                 //        System.out.println(h);
+                   PreparedStatement ps = connection.prepareStatement(req);
 
- 
-                Statement sm = connection.createStatement();
-                sm.executeUpdate(req);
+             ps.setString(1, h.getNom_hotel());
+            ps.setString(2, h.getLocalisation());
+            ps.setString(3, h.getCategorie());
+            ps.setInt(4, h.getAvis_hotel());
+            ps.setString(5, h.getImage_hotel());
+
+                ps.executeUpdate();
 
             } catch (SQLException ex) {
                 Logger.getLogger(ServiceHotel.class.getName()).log(Level.SEVERE, null, ex);

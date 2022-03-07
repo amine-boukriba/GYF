@@ -77,12 +77,11 @@ public class AfficheReservationAdminController implements Initializable {
 
     private void showReservation(){
         
-      reservation ra = new reservation();
                     
                  
            
 
-                   List<reservation> r = res.AfficheInformationHotelReservationClient();
+                   List<reservation> r = res.AfficherfullinformationHotel();
                   
                            ObservableList list = FXCollections.observableArrayList(r);
                   
@@ -100,6 +99,7 @@ public class AfficheReservationAdminController implements Initializable {
             id_affiche.setItems(list);
 
             System.out.println(list);
+            
             FilteredList<reservation> filteredData = new FilteredList<>(list, b -> true);
 		
 		// 2. Set the filter Predicate whenever the filter changes.

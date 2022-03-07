@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RestoTemplateController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="662.0" prefWidth="1245.0" stylesheets="@Style.css">
+         <children>
+            <AnchorPane id="AnchorPane" layoutY="-10.0" prefHeight="694.0" prefWidth="1244.0">
+               <children>
+                  <AnchorPane fx:id="view" layoutX="88.0" layoutY="93.0" prefHeight="536.0" prefWidth="1154.0" />
+                  <AnchorPane layoutX="-11.0" prefHeight="83.0" prefWidth="1255.0" style="-fx-background-color: WHITE;">
+                     <children>
+                        <Pane layoutY="-1.0" prefHeight="31.0" prefWidth="1245.0" style="-fx-background-color: #76b776;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-1.0">
+                           <children>
+                              <ImageView fitHeight="29.0" fitWidth="109.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/LOGO%20GET%20.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <HBox layoutX="203.0" layoutY="30.0" prefHeight="61.0" prefWidth="1022.0" AnchorPane.bottomAnchor="-8.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <JFXButton prefHeight="38.0" prefWidth="139.0" styleClass="menuItem" text="Reclamation">
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/reclamationUser.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="resto" onAction="#gotoAfficheM" prefHeight="38.0" prefWidth="119.0" styleClass="menuItem" text="Restaurant" translateX="10.0">
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/resto%20user.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="hotel" onAction="#gotoHotel" prefHeight="42.0" prefWidth="90.0" styleClass="menuItem" text="Hôtel" translateX="10.0">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/HotelUser.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton prefHeight="38.0" prefWidth="123.0" styleClass="menuItem" text="Evenement" translateX="10.0">
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/userEve.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton prefHeight="40.0" prefWidth="145.0" styleClass="menuItem" text="Monument">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/Monument2.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton prefHeight="38.0" prefWidth="167.0" styleClass="menuItem" text="Espace culturel">
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/culture.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="hotel1" prefHeight="42.0" prefWidth="128.0" styleClass="menuItem" text="Voyage">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/tirppp.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="hotel2" prefHeight="42.0" prefWidth="104.0" styleClass="menuItem" text="Profil">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/profileUser.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <Label fx:id="Menu" layoutX="14.0" layoutY="36.0" prefHeight="40.0" prefWidth="185.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1045.0" AnchorPane.topAnchor="36.0">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/menu1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="MenuClose" layoutX="14.0" layoutY="36.0" prefHeight="40.0" prefWidth="231.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1010.0" AnchorPane.topAnchor="36.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/menu1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="slider" layoutX="-12.0" layoutY="85.0" prefHeight="612.0" prefWidth="176.0" style="-fx-background-color: #8CA48C;">
+                     <children>
+                        <VBox layoutY="50.0" prefHeight="649.0" prefWidth="189.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                           <children>
+                              <JFXButton fx:id="afficheResto" alignment="BASELINE_LEFT" onAction="#gotoAffiche" prefHeight="54.0" prefWidth="277.0" styleClass="sidebarItem" text="Liste Restaurant" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
+                                       <image>
+                                          <Image url="@../Images/Affiche1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="AjoutReservation" alignment="BASELINE_LEFT" onAction="#gotoRestoAjoutReservation" prefHeight="72.0" prefWidth="195.0" styleClass="sidebarItem" text="Ajout réservation" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
+                                       <image>
+                                          <Image url="@../Images/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="AfficheReservation" alignment="BASELINE_LEFT" onAction="#listReservation" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="  Liste reservation" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/data.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

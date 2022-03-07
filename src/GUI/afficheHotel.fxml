@@ -2,79 +2,42 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.geometry.Insets?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="748.0" prefWidth="1173.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficheHotelController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1063.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficheHotelController">
    <children>
-      <JFXTextField fx:id="txtHotelSearch" layoutX="140.0" layoutY="324.0" prefHeight="31.0" prefWidth="699.0" promptText="rechercher par nom/localisation" />
-      <TableView fx:id="tblhotelDetails" layoutX="44.0" layoutY="374.0" onMouseClicked="#getSelected" prefHeight="305.0" prefWidth="778.0">
+      <JFXTextField fx:id="txtHotelSearch" layoutX="152.0" layoutY="301.0" prefHeight="31.0" prefWidth="699.0" promptText="rechercher par nom/localisation" />
+      <TableView fx:id="tblhotelDetails" layoutX="101.0" layoutY="350.0" onMouseClicked="#getSelected" prefHeight="305.0" prefWidth="778.0" styleClass="transparent" stylesheets="@Style.css">
          <columns>
             <TableColumn fx:id="nom_h" prefWidth="274.0" text="Nom hôtel" />
             <TableColumn fx:id="lo" prefWidth="302.0" text="Localisation" />
             <TableColumn fx:id="caté" prefWidth="198.0" text="Catégorie" />
          </columns>
       </TableView>
-      <VBox layoutX="220.0" layoutY="129.0" prefHeight="348.0" prefWidth="475.0">
-         <children>
-            <JFXTextField fx:id="nom" labelFloat="true" promptText="Nom Hôtel:">
-               <VBox.margin>
-                  <Insets left="100.0" top="40.0" />
-               </VBox.margin>
-            </JFXTextField>
-            <JFXTextField fx:id="localisation" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Localisation:">
-               <VBox.margin>
-                  <Insets left="100.0" top="20.0" />
-               </VBox.margin>
-            </JFXTextField>
-            <JFXTextField fx:id="catégorie" labelFloat="true" layoutX="10.0" layoutY="36.0" promptText="Catégorie:">
-               <VBox.margin>
-                  <Insets left="100.0" top="20.0" />
-               </VBox.margin>
-            </JFXTextField>
-         </children>
-      </VBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="229.0" layoutY="107.0" prefHeight="44.0" prefWidth="635.0" text="Liste des Hôtels">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="20.0" prefHeight="44.0" prefWidth="635.0" text="Liste des Hôtels">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnDelete" layoutX="212.0" layoutY="701.0" onAction="#Delete" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #f44336;" text="DELETE" />
-      <JFXButton fx:id="btnUpdate" layoutX="490.0" layoutY="701.0" onAction="#UpdateTable" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #008CBA;" text="UPDATE" />
-      <GridPane fx:id="grid_img" layoutX="888.0" layoutY="393.0" prefHeight="244.0" prefWidth="200.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Separator orientation="VERTICAL" prefHeight="200.0" />
-         </children>
-      </GridPane>
-      <Separator layoutX="888.0" layoutY="393.0" prefWidth="200.0" />
-      <Separator layoutX="888.0" layoutY="644.0" prefWidth="200.0" />
-      <Separator layoutX="1096.0" layoutY="386.0" orientation="VERTICAL" prefHeight="229.0" prefWidth="6.0" />
-      <Separator layoutX="16.0" layoutY="85.0" prefHeight="20.0" prefWidth="1162.0" style="-fx-background-color: #6BD5C7;" />
-      <JFXButton layoutX="258.0" layoutY="37.0" onAction="#gotoRestaurantAd" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Restaurant" />
-      <JFXButton layoutX="430.0" layoutY="37.0" onAction="#gotoHotelAd" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Hôtel" />
-      <ImageView fitHeight="46.0" fitWidth="426.0" layoutX="21.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@LOGO%20GET%20.png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="961.0" layoutY="205.0" onAction="#gotoAjoutHotel" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Ajout Hôtel" />
-      <JFXButton layoutX="927.0" layoutY="135.0" onAction="#gotoListeResrv" prefHeight="33.0" prefWidth="187.0" style="-fx-border-color: #436D4E;" text="Liste des reservations" />
+      <JFXButton fx:id="btnDelete" layoutX="259.0" layoutY="662.0" onAction="#Delete" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #c9599c #c9599c;" stylesheets="@Style.css" text="Supprimer">
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></JFXButton>
+      <JFXButton fx:id="btnUpdate" layoutX="496.0" layoutY="662.0" onAction="#UpdateTable" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #a399c2;" stylesheets="@Style.css" text="Modifier">
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></JFXButton>
+      <ImageView fx:id="imagev" fitHeight="261.0" fitWidth="197.0" layoutX="884.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="nom" labelFloat="true" layoutX="383.0" layoutY="101.0" promptText="Nom Hôtel:" />
+      <JFXTextField fx:id="localisation" labelFloat="true" layoutX="383.0" layoutY="155.0" promptText="Localisation:" />
+      <JFXTextField fx:id="catégorie" labelFloat="true" layoutX="387.0" layoutY="227.0" promptText="Catégorie:" />
    </children>
 </AnchorPane>

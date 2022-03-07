@@ -1,4 +1,4 @@
-
+    
 package GUI;
 
 import com.jfoenix.controls.JFXButton;
@@ -27,7 +27,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import services.ServiceHotel;
 import entities.Hotel;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -54,8 +58,8 @@ ServiceHotel Hotel = new ServiceHotel();
     private TableColumn<Hotel, String> lo;
 @FXML
     private TableColumn<Hotel, String> caté;
-     @FXML 
-    private GridPane grid_img;
+     @FXML
+    private ImageView imagev;
         
     @FXML
     private JFXTextField txtHotelSearch;
@@ -75,6 +79,19 @@ ServiceHotel Hotel = new ServiceHotel();
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+          tblhotelDetails.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                System.out.println(newSelection);
+                
+                            try {
+                                Image image = new Image(new FileInputStream(newSelection.getImage_hotel()));
+                                imagev.setImage(image); 
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(AfficheHotelClientController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                
+            }
+        });
             
         showHotel();
         
@@ -241,12 +258,7 @@ ServiceHotel Hotel = new ServiceHotel();
           showHotel();
     }
       
-    private void showImage(MouseEvent event) {
-      Hotel h = tblhotelDetails.getSelectionModel().getSelectedItem();
-      String path = h.getImage_hotel();
-      grid_img.getChildren().clear();
-      grid_img.add(new ImageView(new Image("file:/"+path, 193, 200, false, false)), 0, 0);
-    }
+  
      @FXML
   public void gotoRestaurantAd(ActionEvent event) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurant.fxml"));

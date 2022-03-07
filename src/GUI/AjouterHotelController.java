@@ -37,6 +37,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -70,6 +71,8 @@ ServiceHotel Hotel = new ServiceHotel();
     private JFXButton btnNext1;
     @FXML
     private JFXTextField img;
+     @FXML
+    private ImageView imagev;
     /**
      * Initializes the controller class.
      */
@@ -96,7 +99,7 @@ ServiceHotel Hotel = new ServiceHotel();
             alert.setHeaderText(null);
             alert.setContentText("L'Hotel "+h.getNom_hotel()+" est ajouté avec succès");
             alert.showAndWait();
-         Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjouterChambre.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/TemplateHotel.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
@@ -130,14 +133,13 @@ ServiceHotel Hotel = new ServiceHotel();
         Image imagee;
           try {
               imagee = new Image(new FileInputStream(filename));
-      //         imagev.setImage(imagee);
+           imagev.setImage(imagee);
           } catch (FileNotFoundException ex) {
               Logger.getLogger(AjouterHotelController.class.getName()).log(Level.SEVERE, null, ex);
           }
           
-    };
- 
-	
+    }
+
 
   
     @FXML

@@ -42,7 +42,7 @@ public class AfficheReservationClientHotelController implements Initializable {
     @FXML
     private TableView<reservation> id_affiche;
     @FXML
-    private TableColumn<reservation, ?> nom_hotel;
+    private TableColumn<reservation, String> nom_hotel;
     @FXML
     private TableColumn<reservation, String> type_chambre;
     @FXML
@@ -68,25 +68,23 @@ public class AfficheReservationClientHotelController implements Initializable {
 
     }    
         public void showReservation(){
-             reservation ra = new reservation();
-                    
-                 
-           
-
+         
                    List<reservation> r = res.AfficheInformationHotelReservationClient();
-                  
+            
                            ObservableList list = FXCollections.observableArrayList(r);
-                  
+                                 System.out.println(r);
+                 id_affiche.setItems(list);  
         nom_hotel.setCellValueFactory(new PropertyValueFactory<>("nom_hotel"));
         type_chambre.setCellValueFactory(new PropertyValueFactory<>("type_chambre"));
+        
         total_prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
         date_entree.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
-        prix_chambre.setCellValueFactory(new PropertyValueFactory<>("mode_payment"));
+        prix_chambre.setCellValueFactory(new PropertyValueFactory<>("prix_chambre"));
         date_sortie.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
          nbr_personne.setCellValueFactory(new PropertyValueFactory<>("nbr_personne"));
-            id_affiche.setItems(list);
+           
 
-            System.out.println(list);
+      //      System.out.println(list + "ékceoezzeezezdedzezdezd");
             FilteredList<reservation> filteredData = new FilteredList<>(list, b -> true);
 		
 		// 2. Set the filter Predicate whenever the filter changes.
@@ -208,4 +206,13 @@ public class AfficheReservationClientHotelController implements Initializable {
 		stage.show();
 
 	}
+  
+      @FXML
+    private void gotolog(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("Agenda.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
 }

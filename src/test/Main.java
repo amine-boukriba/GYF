@@ -51,7 +51,7 @@ public class Main {
 //ServiceMail.sendMail("omar.bouchniba@esprit.tn");
 //rs.AjoutReservationHotel(rsh);
 
-      //    System.out.println(rs.Afficherfullinformation(50));
+          System.out.println(rs.AfficheInformationHotelReservationClient() +"omaroamr");
          //     System.out.println(rs.afficheID());
 
     }

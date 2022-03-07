@@ -1,0 +1,163 @@
+.search-box{
+    -fx-background-color:#A9A9A9;
+    -fx-background-radius: 100;
+ }
+ 
+ 
+ .transparent{
+     -fx-background-color: rgba(0,0,0,0);
+ }
+ 
+ .search-button{
+     -fx-background-color: #A9A9A9;
+     -fx-background-radius: 30;
+ }
+ 
+ .valider-button {
+     -fx-background-color: #A9A9A9;
+     -fx-background-radius: 30;
+ 
+ }
+ .valider:hover{
+  
+     -fx-background-color : #A9AB77;
+ }
+ .right-bar{
+     -fx-background-color: #D3D3D4;
+ }
+ 
+ .shadow{
+     -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+ }
+ 
+ 
+ 
+ 
+ .menuItem:hover{
+    -fx-border-color: #660099;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.sidebarItem:hover{
+    -fx-background-color: #146886;
+    -fx-border-color: WHITE;
+    -fx-border-width: 0px 0px 0px 3px;
+}
+ .img{
+     
+     -fx-border-radius: 50;
+       
+ }
+ .table-view{
+    -fx-background-color: transparent;
+ }
+ 
+ 
+ 
+ .radio-button .radio {
+     -fx-border-width: 1px;
+     -fx-border-color: -fx-darkest-grey-color;
+     -fx-background-color: white;
+     -fx-background-image: null;
+     -fx-border-radius: 15px;
+     -fx-padding: 3px;
+ }
+ .radio-button .radio:selected {
+     -fx-background-color: white;
+     -fx-background-image: null;
+ }
+ .radio-button -radio:armed {
+     -fx-background-color: white;
+     -fx-background-image: null;
+ }
+ .radio-button -radio:determinate {
+     -fx-background-color: white;
+     -fx-background-image: null;
+ }
+ .radio-button -radio:indeterminate {
+     -fx-background-color: white;
+     -fx-background-image: null;
+ }
+ .radio-button .dot {
+     -fx-background-radius: 15px;
+     -fx-padding: 8px;
+
+
+ }
+ 
+
+
+.table-button
+ {
+	-fx-primary-color: #007acc;
+	-fx-secondary-color: #4B6EAF;
+	-fx-accent-color: #B6FF00;
+	-fx-grey-color: #b9b9b9;
+	-fx-light-grey-color: #d1d1d1;
+	-fx-lightest-grey-color: #F9F9FB;
+    
+	-fx-focus-color: -fx-secondary-color;
+}
+
+.table-button {
+	-fx-background-color: -fx-primary-color;
+	-fx-cursor: hand;
+}
+.table-button:hover{
+	-fx-background-color: transparent;
+}
+.table-view {
+	-fx-border-color:  #b2ccff;
+	-fx-background-color:  transparent; /* OR  -fx-background-insets: 0.0; */
+}
+.table-view .column-header-background,
+.table-view .column-header-background .filler,
+.table-view .corner {
+	-fx-background-color: #b2ccff;
+}
+.table-view .column-header {
+	-fx-background-color: -fx-light-grey-color;
+	-fx-border-color: -fx-grey-color;
+}
+.table-view .column-header .label{
+	-fx-font-weight: bold; 
+	-fx-alignment: center-left;
+}
+/* This is just magic */
+.table-row-cell:filled {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent -fx-lightest-grey-color -fx-lightest-grey-color -fx-lightest-grey-color, transparent;
+	-fx-border-insets: 0, 1;
+}
+.table-row-cell:empty {
+	-fx-background-color: transparent;
+}
+.table-row-cell:filled:hover {
+	-fx-background-color: -fx-light-grey-color;
+}
+.table-row-cell:filled:selected:hover {
+	-fx-background-color: -fx-light-grey-color;
+}
+.table-row-cell:filled:selected {
+  	-fx-background-color: #eaeaea;
+ 	-fx-background-insets: 0.0;
+	-fx-background-radius: 0.0;
+}
+.table-row-cell:filled:selected .table-cell {
+	-fx-text-fill: black;
+}
+.table-view .cell:filled{
+	-fx-cell-size: 30;
+	-fx-alignment: center-left;
+}
+.check-box-table-cell > .check-box:selected .box .mark {
+	-fx-background-color: white;
+}
+.check-box-table-cell > .check-box:selected .box{
+	-fx-background-color: -fx-accent-color;
+}
+.table-view .placeholder .label {
+	-fx-text-fill: red;
+	-fx-padding:20px;
+ 
+}

@@ -1,6 +1,7 @@
 
 package services;
 
+import entities.reservation;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,6 +10,7 @@ import entities.restaurants;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.MyDB;
@@ -170,12 +172,20 @@ public ArrayList<restaurants> afficheBycuisinies(String cuisinies) {
     @Override
     public void ajout(restaurants r) {
         try {
-         Statement stm = connection.createStatement();
-            String req = "INSERT INTO `restaurants`(`nom_restaurant`,`localisation`, `horaire`, `numero_restaurant`,`cuisinies`,`nombre_fourchet`,`avis_restaurant`, `image_restaurant`) VALUES ('"   + r.getNom_restaurant() + "','" + r.getLocalisation() + "','"
-                 + r.getHoraire() + "','"   + r.getNumero_restaurant() + "','" + r.getCuisinies() + "','" + r.getNombre_fourchet() +  "','" + r.getAvis_restaurant() + "','" + r.getImage_restaurant() +"')";
+         
+            String req = "INSERT INTO `restaurants`(`nom_restaurant`,`localisation`, `horaire`, `numero_restaurant`,`cuisinies`,`nombre_fourchet`,`avis_restaurant`, `image_restaurant`)  VALUES (?,?,?,?,?,?,?,?);";
                      //   System.out.println(r);
+ PreparedStatement ps = connection.prepareStatement(req);
 
-            stm.executeUpdate(req);
+             ps.setString(1, r.getNom_restaurant());
+            ps.setString(2, r.getLocalisation());
+            ps.setString(3, r.getHoraire());
+            ps.setString(4, r.getNumero_restaurant());
+             ps.setString(5, r.getCuisinies());
+            ps.setInt(6, r.getNombre_fourchet());
+            ps.setInt(7,r.getAvis_restaurant());
+            ps.setString(8, r.getImage_restaurant());
+            ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error in inserting restaurant");
         }
@@ -223,6 +233,78 @@ public ArrayList<restaurants> afficheBycuisinies(String cuisinies) {
             System.out.println("Error in updating restaurant ");
         }
     }
+    
+    public List<restaurants> AfficheInformationRestoReservationClientqr(int id_reservation) {
+          
+       
+       
+       ArrayList<restaurants>  list = new ArrayList();
+
+
+       try {
+String req = "SELECT * FROM `reservations_resto_hotel` join restaurants using(id_restaurant) join users using (id_user) WHERE id_reservation ='"+id_reservation+"'";        
+           Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+
+    
+                                            restaurants r = new restaurants();
+
+                        
+                       r.setNom_restaurant(rs.getString("nom_restaurant"));
+                               
+                    r.setLocalisation(rs.getString("localisation"));
+             
+                    r.setDate_debut(rs.getDate("date_debut"));
+           
+                         r.setDate_creation(rs.getString("date_creation"));
+                         r.setNbr_personne(rs.getInt("nbr_personne"));
+                         
+                             r.setNom_user(rs.getString("nom_user"));
+                                    r.setPrenom_user(rs.getString("prenom_user"));
+                 
+      
+
+
+                         list.add(r);
+       System.out.println(r);
+                
+
+
+            }
+
+             }  
+        catch (SQLException ex) {
+                Logger.getLogger(ServiceChambre.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting reservation");
+
+        }   
+         return list;  
+  }
+     public Integer MaxID1() {
+          
+int id =0;
+       try {
+    String req = "select max(id_reservation) as max from reservations_resto_hotel where id_restaurant is not null;";          
+          PreparedStatement ps = connection.prepareStatement(req);
+
+
+          ResultSet rs = ps.executeQuery();
+                  
+             while (rs.next()){
+              id =  rs.getInt("max");
+             }
+           
+             }             
+     
+        catch (SQLException ex) {
+                Logger.getLogger(ServiceChambre.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting reservation");
+
+        }   
+     return id;    
+   }
+
 
 }
 

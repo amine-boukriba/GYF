@@ -3,43 +3,38 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutReservationRestaurantController">
    <children>
-      <JFXDatePicker fx:id="date_arrivé" defaultColor="#008e32" layoutX="321.0" layoutY="348.0" promptText="Jour de réservation" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="172.0" layoutY="116.0" prefHeight="44.0" prefWidth="635.0" text="Ajout réservation restaurant">
+      <JFXDatePicker fx:id="date_arrivé" defaultColor="#008e32" layoutX="796.0" layoutY="327.0" promptText="Jour de réservation" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="24.0" prefHeight="44.0" prefWidth="635.0" text="Ajout réservation restaurant">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="localisation" layoutX="59.0" layoutY="348.0" prefHeight="31.0" prefWidth="195.0" promptText="Nombre de personne" text="Localisation" />
-      <JFXTextField fx:id="nbr_personne" layoutX="326.0" layoutY="244.0" prefHeight="31.0" prefWidth="195.0" promptText="Nombre de personne" />
-      <JFXTextField fx:id="nom_restaurant" layoutX="59.0" layoutY="244.0" prefHeight="31.0" prefWidth="195.0" promptText="Nombre de personne" text="Nom Restaurant" />
-      <JFXButton fx:id="btnUpdate" layoutX="237.0" layoutY="441.0" onAction="#ajout" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #408c00;" text="Réserver" />
-      <JFXTextField fx:id="search_resto" layoutX="549.0" layoutY="200.0" prefHeight="31.0" prefWidth="448.0" promptText="rechercher par  Nom restaurant ou par localisation" />
-      <TableView fx:id="id_affiche" layoutX="538.0" layoutY="242.0" onMouseClicked="#getSelected" prefHeight="443.0" prefWidth="477.0">
+      <JFXTextField fx:id="localisation" layoutX="541.0" layoutY="327.0" prefHeight="31.0" prefWidth="195.0" promptText="Nombre de personne" text="Localisation" />
+      <JFXTextField fx:id="nbr_personne" layoutX="801.0" layoutY="208.0" prefHeight="31.0" prefWidth="195.0" promptText="Nombre de personne" />
+      <JFXTextField fx:id="nom_restaurant" layoutX="541.0" layoutY="208.0" prefHeight="31.0" prefWidth="195.0" promptText="Nombre de personne" text="Nom Restaurant" />
+      <JFXButton fx:id="btnUpdate" layoutX="624.0" layoutY="442.0" onAction="#ajout" prefHeight="44.0" prefWidth="112.0" style="-fx-background-color: #408c00;" stylesheets="@Style.css" text="Réserver">
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></JFXButton>
+      <JFXTextField fx:id="search_resto" layoutX="42.0" layoutY="111.0" prefHeight="31.0" prefWidth="448.0" promptText="rechercher par  Nom restaurant ou par localisation" />
+      <TableView fx:id="id_affiche" layoutX="28.0" layoutY="152.0" onMouseClicked="#getSelected" prefHeight="443.0" prefWidth="477.0">
          <columns>
             <TableColumn fx:id="reservation_nomResto" prefWidth="174.0" text="Nom restaurant" />
             <TableColumn fx:id="reservation_local_resto" prefWidth="162.0" text="Localisation" />
             <TableColumn fx:id="spécialité" prefWidth="150.0" text="Spécialité" />
          </columns>
       </TableView>
-      <Separator layoutX="7.0" layoutY="82.0" prefHeight="20.0" prefWidth="1028.0" style="-fx-background-color: #6BD5C7;" />
-      <JFXButton layoutX="221.0" layoutY="39.0" onAction="#gotoRestaurant" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Restaurant" />
-      <JFXButton layoutX="377.0" layoutY="39.0" onAction="#gotoHotel" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Hôtel" />
-      <ImageView fitHeight="46.0" fitWidth="426.0" layoutX="26.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@LOGO%20GET%20.png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="26.0" layoutY="122.0" onAction="#gotoRestaurant" prefHeight="33.0" prefWidth="137.0" style="-fx-border-color: #43696D;" text="Retour" />
+      <ImageView fx:id="image_qr" fitHeight="150.0" fitWidth="200.0" layoutX="783.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

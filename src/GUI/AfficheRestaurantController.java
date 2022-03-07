@@ -5,7 +5,9 @@
  */
 package GUI;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTreeTableView;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -28,13 +30,24 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import services.ServiceRestaurant;
 import entities.restaurants;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -58,14 +71,14 @@ public class AfficheRestaurantController implements Initializable {
   
     @FXML
     private JFXTextField téléphone1;
-    @FXML
-    private JFXTextField spécialité1;
+  
     @FXML
     private JFXTextField nbr_fourchet1;
   
-
 @FXML
-    private TableView<restaurants> id_affiche;
+private TableView<restaurants> id_affiche;
+
+ 
 @FXML
     private TableColumn<restaurants, String> nom_res;
 @FXML
@@ -81,13 +94,71 @@ public class AfficheRestaurantController implements Initializable {
     @FXML
     private JFXTextField searchres;
     
+     @FXML
+    private ImageView Exit;
+        @FXML
+    private ImageView imagev;
+
+    @FXML
+    private Label Menu;
+
+    @FXML
+    private Label MenuClose;
+
+    @FXML
+    private AnchorPane slider;
+       @FXML
+    private JFXComboBox<String> spécialité1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-                showRestaurant();
+                  id_affiche.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                System.out.println(newSelection);
+                
+                            try {
+                                Image image = new Image(new FileInputStream(newSelection.getImage_restaurant()));
+                                imagev.setImage(image); 
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(AfficheHotelClientController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                
+            }
+        });
                
+   
+         spécialité1.getItems().add("Cuisine albanaise");
+ spécialité1.getItems().add("Cuisine allemande");
+ spécialité1.getItems().add("Cuisine britannique");
+ spécialité1.getItems().add("Cuisine anglaise");
+ spécialité1.getItems().add("Cuisine écossaise");
+ spécialité1.getItems().add("Cuisine galloise");
+ spécialité1.getItems().add("Cuisine bulgare");
+ spécialité1.getItems().add("Cuisine chypriote");
+ spécialité1.getItems().add("Cuisine danoise");
+ spécialité1.getItems().add("Cuisine espagnole");
+ spécialité1.getItems().add("Cuisine française");
+ spécialité1.getItems().add("Cuisine grecque");
+ spécialité1.getItems().add("Cuisine italienne");
+ spécialité1.getItems().add("Cuisine suisse");
+ spécialité1.getItems().add("Cuisine égyptienne");
+ spécialité1.getItems().add("cuisine algérienne");
+ spécialité1.getItems().add("Cuisine libyenne");
+ spécialité1.getItems().add("Cuisine marocaine");
+ spécialité1.getItems().add("Cuisine tunisienne");
+
+ spécialité1.getItems().add("Cuisine des États-Unis");
+
+ spécialité1.getItems().add("Cuisine canadienne");
+ spécialité1.getItems().add("Cuisine mexicaine");
+ spécialité1.getItems().add("Cuisine chinoise");
+ spécialité1.getItems().add("Cuisine coréenne");
+ spécialité1.getItems().add("Cuisine japonaise");
+ spécialité1.getItems().add("Cuisine mongole");
+ spécialité1.getItems().add("Cuisine taïwanaise");
+   showRestaurant();
     }
    public void showRestaurant(){
     List<restaurants> r = res.affiche();
@@ -99,7 +170,9 @@ public class AfficheRestaurantController implements Initializable {
          nbr_fourchet.setCellValueFactory(new PropertyValueFactory<>("nombre_fourchet"));
         téléphone.setCellValueFactory(new PropertyValueFactory<>("numero_restaurant"));
         horaire.setCellValueFactory(new PropertyValueFactory<>("horaire"));
-          id_affiche.setItems(list);
+        
+            id_affiche.setItems(list);
+          
 //        try {
 
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("Ajout.fxml"));
@@ -183,9 +256,8 @@ public class AfficheRestaurantController implements Initializable {
 		// 5. Add sorted (and filtered) data to the table.
 		id_affiche.setItems(sortedData);
    }
-        
-@FXML
-    void getSelected (MouseEvent event){
+   @FXML     
+void getSelected (MouseEvent event){
        
         
     index = id_affiche.getSelectionModel().getSelectedIndex();
@@ -197,7 +269,7 @@ public class AfficheRestaurantController implements Initializable {
     }
     nom_res1.setText(nom_res.getCellData(index).toString());
     localisation1.setText(lo.getCellData(index).toString());
-    spécialité1.setText(spécialité.getCellData(index).toString());
+    spécialité1.setValue(spécialité.getCellData(index).toString());
     horaire1.setText(horaire.getCellData(index).toString());
     téléphone1.setText(téléphone.getCellData(index).toString());
     nbr_fourchet1.setText(nbr_fourchet.getCellData(index).toString());
@@ -243,7 +315,7 @@ public class AfficheRestaurantController implements Initializable {
         int nombre_fourchet = Integer.parseInt(nbr_fourchet1.getText());
         System.out.println(nombre_fourchet);
         String numero_restaurant = téléphone1.getText();
-        String cuisinies = spécialité1.getText();
+        String cuisinies = spécialité1.getValue();
         String horaire = this.horaire1.getText();
 
         restaurants r = new restaurants(id_selected, nom_restauarnt,localisation,horaire,numero_restaurant,cuisinies,nombre_fourchet);
@@ -262,7 +334,6 @@ public class AfficheRestaurantController implements Initializable {
 
 	}
 	
-   @FXML
   public void gotoAjoutRestaurant(ActionEvent event) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjouterRestaurant.fxml"));
 		Scene scene = new Scene(root);
@@ -272,7 +343,7 @@ public class AfficheRestaurantController implements Initializable {
 
 	}
   
-    @FXML
+  
   public void gotoHotelAd   (ActionEvent event) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("../GUI/afficheHotel.fxml"));
 		Scene scene = new Scene(root);
@@ -281,7 +352,6 @@ public class AfficheRestaurantController implements Initializable {
 		stage.show();
 
 	}
-     @FXML
   public void gotolistres   (ActionEvent event) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheReservationRestaurantAdmin.fxml"));
 		Scene scene = new Scene(root);

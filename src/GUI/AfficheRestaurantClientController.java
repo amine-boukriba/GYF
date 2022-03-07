@@ -7,10 +7,14 @@ package GUI;
 
 import com.jfoenix.controls.JFXTextField;
 import entities.restaurants;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -25,6 +29,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.ServiceRestaurant;
@@ -56,6 +62,8 @@ public class AfficheRestaurantClientController implements Initializable {
     private TableColumn<restaurants, Integer> nbr_fourchet;
 @FXML
     private TableColumn<restaurants, String> téléphone;
+ @FXML
+    private ImageView imagev;
     @FXML
     private JFXTextField searchres;
     
@@ -63,7 +71,19 @@ public class AfficheRestaurantClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+         id_affiche.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                System.out.println(newSelection);
+                
+                            try {
+                                Image image = new Image(new FileInputStream(newSelection.getImage_restaurant()));
+                                imagev.setImage(image); 
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(AfficheRestaurantClientController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                
+            }
+        });
                 showRestaurant();
                
     }

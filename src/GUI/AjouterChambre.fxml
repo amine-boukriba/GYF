@@ -3,42 +3,35 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="729.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterChambreController">
    <children>
-      <JFXTextField fx:id="search_hotel" layoutX="451.0" layoutY="200.0" prefHeight="31.0" prefWidth="448.0" promptText="rechercher par Type ou par Nom Hôtel disponible " />
-      <TableView fx:id="id_affiche_chambre" layoutX="431.0" layoutY="249.0" onMouseClicked="#handle" prefHeight="443.0" prefWidth="487.0">
+      <JFXTextField fx:id="search_hotel" layoutX="431.0" layoutY="148.0" prefHeight="31.0" prefWidth="448.0" promptText="rechercher par Type ou par Nom Hôtel disponible " />
+      <TableView fx:id="id_affiche_chambre" layoutX="420.0" layoutY="208.0" onMouseClicked="#handle" prefHeight="443.0" prefWidth="487.0" stylesheets="@Style.css">
          <columns>
             <TableColumn fx:id="chambre_nomHotel" prefWidth="174.0" text="Nom Hôtel" />
             <TableColumn fx:id="localisation_Hotel" prefWidth="162.0" text="Localisation" />
             <TableColumn fx:id="catégorie" prefWidth="150.0" text="Categorie" />
          </columns>
       </TableView>
-      <JFXTextField fx:id="prix_chambre" layoutX="61.0" layoutY="422.0" prefHeight="31.0" prefWidth="195.0" promptText="Prix Chambre" />
-      <JFXTextField fx:id="nbr_chambre" layoutX="61.0" layoutY="352.0" prefHeight="31.0" prefWidth="195.0" promptText="Nombre des chambres" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="143.0" layoutY="124.0" prefHeight="44.0" prefWidth="635.0" text="Ajout chambre au hôtel">
+      <JFXTextField fx:id="prix_chambre" layoutX="70.0" layoutY="363.0" prefHeight="31.0" prefWidth="195.0" promptText="Prix Chambre" />
+      <JFXTextField fx:id="nbr_chambre" layoutX="70.0" layoutY="293.0" prefHeight="31.0" prefWidth="195.0" promptText="Nombre des chambres" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="30.0" prefHeight="44.0" prefWidth="635.0" text="Ajout chambre au hôtel">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <JFXButton layoutX="103.0" layoutY="556.0" onAction="#ajout" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: #408c00;" text="AJOUTER" />
-      <JFXComboBox fx:id="type_chambre" layoutX="61.0" layoutY="267.0" prefHeight="31.0" prefWidth="195.0" promptText="Type chambre" />
-      <Separator layoutX="5.0" layoutY="90.0" prefHeight="20.0" prefWidth="978.0" style="-fx-background-color: #6BD5C7;" />
-      <JFXButton layoutX="273.0" layoutY="42.0" onAction="#gotoRestaurantAd" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Restaurant" />
-      <JFXButton layoutX="451.0" layoutY="42.0" onAction="#gotoHotelAd" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Hôtel" />
-      <ImageView fitHeight="46.0" fitWidth="426.0" layoutX="36.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@LOGO%20GET%20.png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="36.0" layoutY="124.0" onAction="#gotoaddhotel" prefHeight="31.0" prefWidth="119.0" style="-fx-border-color: #436D4E;" text="Retour" />
+      <JFXButton layoutX="112.0" layoutY="484.0" onAction="#ajout" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #408c00;" stylesheets="@Style.css" text="AJOUTER">
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></JFXButton>
+      <JFXComboBox fx:id="type_chambre" layoutX="70.0" layoutY="208.0" prefHeight="31.0" prefWidth="195.0" promptText="Type chambre" />
    </children>
 </AnchorPane>

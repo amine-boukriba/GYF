@@ -26,6 +26,11 @@ import services.ServiceChambre;
  * @author omarb
  */
 import entities.Chambre;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
@@ -34,6 +39,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.collections.transformation.FilteredList;
@@ -48,9 +55,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 import org.controlsfx.control.Notifications;
 import services.ServiceReservation;
 import utils.MyDB;
@@ -59,9 +70,11 @@ public class AjoutReservationClientController implements Initializable {
     int index = -1;
     ServiceChambre chamb = new ServiceChambre();
     ServiceReservation res = new ServiceReservation();
+    public static reservation e ; 
     /**
      * Initializes the controller class.
      */
+  
      @FXML
     private JFXTextField nbr_personne;
     @FXML
@@ -96,18 +109,22 @@ public class AjoutReservationClientController implements Initializable {
      private JFXDatePicker date_sortie;
     @FXML
     private JFXButton btnUpdate;
+    @FXML
+    private ImageView image_qr;
         
-          
+          int id= 0;
           
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        mode_payment.getItems().add("en ligne");
-        mode_payment.getItems().add("agence");
 
-        // TODO 
-        showChambreHotel();
+            mode_payment.getItems().add("en ligne");
+            mode_payment.getItems().add("agence");
+            
+            // TODO
+            showChambreHotel();
+      
     }    
+    
     
     void showChambreHotel(){
           List<Chambre> chambres = chamb.afficheavecnom_hotel();
@@ -214,8 +231,9 @@ public class AjoutReservationClientController implements Initializable {
    LocalDateTime now = LocalDateTime.now();
 
      int  id_selected = id_affiche_chambre.getSelectionModel().getSelectedItem().getId_chambre();
-
         reservation r = new reservation();
+  
+
         r.setDate_debut(Date.valueOf(date_arrivé.getValue()));
         r.setDate_fin(Date.valueOf(date_sortie.getValue()));
         r.setId_user(1);
@@ -223,10 +241,27 @@ public class AjoutReservationClientController implements Initializable {
         r.setMode_payment(mode_payment.getValue());
         r.setDate_creation(dtf.format(now));
         String text1 = nbr_personne.getText();
-          
         r.setNbr_personne(Integer.parseInt(text1));
 
         res.AjoutReservationHotel(r);
+                             try {
+                                 System.out.println(res.AfficherfullinformationHotelcodeQR(res.MaxID()) +"ncezijezjeiznezjej");   
+                                 System.out.println("ezjidi");
+            QRcodeGen(res.AfficherfullinformationHotelcodeQR(res.MaxID()).toString(),res.MaxID());
+            String absolutePath = new File("").getAbsolutePath();
+            System.out.println(".\\QRcode\\1.jpg");
+            File file = new File(absolutePath+"\\src\\GUI\\QRcode\\" +res.MaxID()+".jpg");
+            Image image;
+                          image = new Image(new FileInputStream(absolutePath+"/src/GUI/QRcode/"+res.MaxID()+".jpg"));
+                     
+//File file = new File("./QRcode/1.jpg");
+//        Image image = new Image(file.toURI().toString());
+                    image_qr.setImage(image);
+ } catch (FileNotFoundException ex) {
+                          Logger.getLogger(AjoutReservationClientController.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+       
+        
     
         try {
                          MyDB instance = MyDB.getInstance();
@@ -277,6 +312,25 @@ public class AjoutReservationClientController implements Initializable {
             return false;
         } else {
             return true;
+        }
+    }
+    
+    public void QRcodeGen(String input, int id_reservation) {
+        try {
+            ByteArrayOutputStream output = QRCode.from(input).to(ImageType.JPG).withSize(500, 500).stream();
+            String absolutePath = new File("").getAbsolutePath();
+            System.out.println(absolutePath+"\\src\\GUI\\QRCode\\");
+            File f = new File(absolutePath+"\\src\\GUI\\QRCode\\" + id_reservation + ".jpg");
+            FileOutputStream fos;
+            fos = new FileOutputStream(f);
+            
+            fos.write(output.toByteArray());
+            fos.flush();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ServiceReservation.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ServiceReservation.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
       @FXML

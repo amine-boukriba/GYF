@@ -30,6 +30,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -52,18 +53,32 @@ public class AfficheHotelClientController implements Initializable {
     private TableColumn<Hotel, String> lo;
 @FXML
     private TableColumn<Hotel, String> caté;
-     @FXML 
-    private GridPane grid_img;
-     
       @FXML
     private JFXTextField txtHotelSearch;
+        @FXML
+    private ImageView imagev;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    showHotel();
+        tblhotelDetails.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                System.out.println(newSelection);
+                
+                            try {
+                                Image image = new Image(new FileInputStream(newSelection.getImage_hotel()));
+                                imagev.setImage(image); 
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(AfficheHotelClientController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                
+            }
+        });
+   
+	
+        showHotel();
     }    
     
       public void showHotel(){
@@ -157,19 +172,6 @@ public class AfficheHotelClientController implements Initializable {
 		
 		// 5. Add sorted (and filtered) data to the table.
 		tblhotelDetails.setItems(sortedData);
-    }
-  private void showImage(MouseEvent event) {
-   Image image;
-                            try {
-                                image = new Image(new FileInputStream(h.getImage_hotel()));
-                            
-                          //      imagev.setImage(image); 
-                            } catch (FileNotFoundException ex) {
-                                Logger.getLogger(AfficheHotelClientController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-       
-    
-   
     }
   @FXML
   public void gotoRestaurant(ActionEvent event) throws IOException {

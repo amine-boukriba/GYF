@@ -12,6 +12,11 @@ import com.jfoenix.controls.JFXTextField;
 import entities.Chambre;
 import entities.reservation;
 import entities.restaurants;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -22,6 +27,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
@@ -39,8 +46,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 import services.ServiceReservation;
 import services.ServiceRestaurant;
 import utils.MyDB;
@@ -78,7 +89,8 @@ int index = -1;
     private TableColumn<restaurants, String> reservation_local_resto;
     @FXML
     private TableColumn<restaurants, String> spécialité;
-    
+    @FXML
+    private ImageView image_qr;
     
     
           
@@ -228,20 +240,26 @@ int index = -1;
 
         res1.AjoutReservationRestaurant(r);
     
-        try {
-                         MyDB instance = MyDB.getInstance();
-    Connection connection = instance.getConnection();
-
-            String req = "update chambre set etat=\"non disponible\" where id_chambre =?"  ;
-                      PreparedStatement ps = connection.prepareStatement(req);
-                ps.setInt(1,id_selected);
-
-          //      System.out.println(req);
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            
-            System.out.println("Error in updating hotel ");
-        }
+             try {
+                                 System.out.println(res.AfficheInformationRestoReservationClientqr(res.MaxID1()) +"ncezijezjeiznezjej");   
+                                 System.out.println("ezjidi");
+              QRcodeGen(res.AfficheInformationRestoReservationClientqr(res.MaxID1()).toString(),res.MaxID1());
+            String absolutePath = new File("").getAbsolutePath();
+            System.out.println(".\\QRcode\\1.jpg");
+            File file = new File(absolutePath+"\\src\\GUI\\QRcode\\" +res.MaxID1()+".jpg");
+            Image image;
+                          image = new Image(new FileInputStream(absolutePath+"/src/GUI/QRcode/"+res.MaxID1()+".jpg"));
+                     
+//File file = new File("./QRcode/1.jpg");
+//        Image image = new Image(file.toURI().toString());
+                    image_qr.setImage(image);
+ } catch (FileNotFoundException ex) {
+                          Logger.getLogger(AjoutReservationClientController.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+             
+             
+             
+       
            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succès!");
             alert.setHeaderText(null);
@@ -303,6 +321,23 @@ int index = -1;
   
  
 
-  
+  public void QRcodeGen(String input, int id_reservation) {
+        try {
+            ByteArrayOutputStream output = QRCode.from(input).to(ImageType.JPG).withSize(500, 500).stream();
+            String absolutePath = new File("").getAbsolutePath();
+            System.out.println(absolutePath+"\\src\\GUI\\QRCode\\");
+            File f = new File(absolutePath+"\\src\\GUI\\QRCode\\" + id_reservation + ".jpg");
+            FileOutputStream fos;
+            fos = new FileOutputStream(f);
+            
+            fos.write(output.toByteArray());
+            fos.flush();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ServiceReservation.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ServiceReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }
