@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+
             <file>file:/C:/Users/ASUS/Desktop/mon%20projet/bilel/GYF/src/services/ServiceMonuments.java</file>
             <file>file:/C:/Users/ASUS/Desktop/mon%20projet/bilel/GYF/src/GUI/TypeReclamationController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/mon%20projet/bilel/GYF/src/GUI/GestionreclamationclientController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/mon%20projet/bilel/GYF/src/GUI/RepondrereclamationController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/mon%20projet/bilel/GYF/src/entities/Monuments.java</file>
             <file>file:/C:/Users/ASUS/Desktop/mon%20projet/bilel/GYF/src/GUI/NewFXMain.java</file>
-=======
+
             <file>file:/C:/Users/ASUS/Desktop/GYF_2/GYF/src/GUI/TypeReclamationController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/GYF_2/GYF/src/test/Main.java</file>
             <file>file:/C:/Users/ASUS/Desktop/GYF_2/GYF/src/services/AlertBox.java</file>
@@ -23,7 +23,35 @@
             <file>file:/C:/Users/ASUS/Desktop/GYF_2/GYF/src/GUI/HistoryReclamationController.java</file>
             <file>file:/C:/Users/ASUS/Desktop/GYF_2/GYF/src/GUI/NewFXMain.java</file>
             <file>file:/C:/Users/ASUS/Desktop/GYF_2/GYF/src/GUI/GestionreclamationadminController.java</file>
->>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/setuser.fxml</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/Modfier_userController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/services/IService.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/entities/Roles.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/InterfaceUserAdminController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/services/ServicesHistorique.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/utils/SendEmail.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/auth.fxml</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/services/ServicesUsers.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/utils/RandomString.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/utils/Password_hash.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/AcceuilController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/wait_for_ressenting_password_code.fxml</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/RegisterController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/Change_passwordController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/services/ServiceRoles.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/InterfaceUserAdmin.fxml</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/Forget_passwordController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/utils/Globals.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/UserInterfaceController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/wait_for_verification_code.fxml</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/Wait_for_ressenting_password_codeController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/SetuserController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/entities/Users.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/AuthController.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/test/main_main.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/utils/MyDB.java</file>
+            <file>file:/C:/Users/boukr/Documents/NetBeansProjects/GYF/src/GUI/Wait_for_verification_codeController.java</file>
         </group>
     </open-files>
 </project-private>
