@@ -264,7 +264,7 @@ private String date_creation;
     }
 
     public String toString() {
-        return   " Nom d'utilisatuer=" + nom_user + ", Prénom d'utilisateur=" + prenom_user  + ", Nom d'Hôtel=" + nom_hotel+ " date d'entrée=" + date_debut + ", date de sortie=" + date_fin + ", mode de payment=" + mode_payment + ", prix Total=" + prix + "TND"+ "";
+        return   "  Nom d'utilisatuer=" + nom_user + ", Prénom d'utilisateur=" + prenom_user  + ", Nom d'Hôtel=" + nom_hotel+ " date d'entrée=" + date_debut + ", date de sortie=" + date_fin + ", mode de payment=" + mode_payment + ", prix Total=" + prix + "TND"+ "";
     }
 
 

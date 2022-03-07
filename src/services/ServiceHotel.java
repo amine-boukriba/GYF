@@ -78,7 +78,7 @@ public class ServiceHotel implements IService<Hotel> {
        try {
                   String req ="Select * FROM hotels WHERE localisation='"+localisation+"'"; 
             Statement st = connection.createStatement();
-            System.out.println(req);
+         //   System.out.println(req);
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){
                
@@ -112,7 +112,7 @@ public class ServiceHotel implements IService<Hotel> {
        try {
                   String req ="Select * FROM hotels WHERE nom_hotel='"+nom_hotel+"'"; 
             Statement st = connection.createStatement();
-            System.out.println(req);
+          //  System.out.println(req);
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){
                

@@ -76,7 +76,7 @@ public class ServiceReservation implements IIService<reservation> {
        try {
                   String req ="select * from reservations_resto_hotel join restaurants using (id_restaurant) where nom_restaurant ='"+nom_restaurant+"' "; 
             Statement st = connection.createStatement();
-            System.out.println(req);
+          //  System.out.println(req);
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){
                
@@ -110,7 +110,7 @@ public class ServiceReservation implements IIService<reservation> {
        try {
                   String req ="select * from reservations_resto_hotel where id_chambre in (select id_chambre from  chambre where id_hotel=(SELECT id_hotel from hotels where nom_hotel='"+nom_hotel+"')); "; 
             Statement st = connection.createStatement();
-            System.out.println(req);
+         //   System.out.println(req);
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){
                
@@ -457,6 +457,7 @@ String req = "select * from users join (select DATEDIFF( date_fin, date_debut) A
              while (rs.next()){
                                             reservation r = new reservation();
 
+                                            r.setId_reservation(rs.getInt("id_reservation"));
                              r.setPrix(rs.getInt("prix_chambre")*rs.getInt("date_difference"));
                        r.setNom_hotel(rs.getString("nom_hotel"));
                                 
@@ -472,7 +473,7 @@ String req = "select * from users join (select DATEDIFF( date_fin, date_debut) A
 
 
                          list.add(r);
-       System.out.println(r);
+  //     System.out.println(r);
                 
 
 
@@ -531,7 +532,7 @@ String req = "SELECT * FROM `reservations_resto_hotel` r join restaurants rr WHE
              while (rs.next()){
                                             reservation r = new reservation();
 
-                        
+                        r.setId_reservation(rs.getInt("id_reservation"));
                        r.setNom_restaurant(rs.getString("nom_restaurant"));
                                 
                     r.setLocalisation(rs.getString("localisation"));
@@ -546,7 +547,7 @@ String req = "SELECT * FROM `reservations_resto_hotel` r join restaurants rr WHE
 
 
                          list.add(r);
-       System.out.println(r);
+//       System.out.println(r);
                 
 
 

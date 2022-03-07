@@ -69,7 +69,7 @@ public class ServiceRestaurant implements IService<restaurants> {
        try {
                   String req ="Select * FROM restaurants WHERE nom_restaurant='"+nom_restaurant+"'"; 
             Statement st = connection.createStatement();
-            System.out.println(req);
+          //  System.out.println(req);
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){
                
@@ -105,7 +105,7 @@ public class ServiceRestaurant implements IService<restaurants> {
        try {
                   String req ="Select * FROM restaurants WHERE localisation='"+localisation+"'"; 
             Statement st = connection.createStatement();
-            System.out.println(req);
+            //System.out.println(req);
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){
                
@@ -141,7 +141,7 @@ public ArrayList<restaurants> afficheBycuisinies(String cuisinies) {
        try {
                   String req ="Select * FROM restaurants WHERE cuisinies='"+cuisinies+"'"; 
             Statement st = connection.createStatement();
-            System.out.println(req);
+            //System.out.println(req);
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){
                
@@ -216,7 +216,7 @@ public ArrayList<restaurants> afficheBycuisinies(String cuisinies) {
 
     public void modifier(restaurants r) {
         try {
-            System.out.println(r);
+            //System.out.println(r);
          Statement stm = connection.createStatement();
             String req = "UPDATE `restaurants` SET `nom_restaurant`='"
                     + r.getNom_restaurant() + "',`localisation`='"

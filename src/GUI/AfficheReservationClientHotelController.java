@@ -72,7 +72,7 @@ public class AfficheReservationClientHotelController implements Initializable {
                    List<reservation> r = res.AfficheInformationHotelReservationClient();
             
                            ObservableList list = FXCollections.observableArrayList(r);
-                                 System.out.println(r);
+                           //      System.out.println(r);
                  id_affiche.setItems(list);  
         nom_hotel.setCellValueFactory(new PropertyValueFactory<>("nom_hotel"));
         type_chambre.setCellValueFactory(new PropertyValueFactory<>("type_chambre"));
@@ -84,7 +84,6 @@ public class AfficheReservationClientHotelController implements Initializable {
          nbr_personne.setCellValueFactory(new PropertyValueFactory<>("nbr_personne"));
            
 
-      //      System.out.println(list + "ékceoezzeezezdedzezdezd");
             FilteredList<reservation> filteredData = new FilteredList<>(list, b -> true);
 		
 		// 2. Set the filter Predicate whenever the filter changes.
@@ -157,27 +156,28 @@ public class AfficheReservationClientHotelController implements Initializable {
 		id_affiche.setItems(sortedData);
         }
     @FXML
-    private void Delete(ActionEvent event) {
-    
-    
-  reservation r = id_affiche.getSelectionModel().getSelectedItem();
+    private void Deletee(ActionEvent event) {
+        reservation r = id_affiche.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Demande de confirmation");
         alert.setHeaderText(null);
-        alert.setContentText("Etes-vous sûr de vouloir annuler Votre reservation de l'hôtel  " + r.getNom_hotel());
+                                System.out.println(r.getId_reservation());
+
+        alert.setContentText("Etes-vous sûr de vouloir supprimer la  Votre reservation de   " + r.getNom_user() + ""+ r.getPrenom_user() );
         Optional<ButtonType> btn = alert.showAndWait();
         if (btn.get() == ButtonType.OK) {
+
             res.supprimerReservation(r.getId_reservation());
             showReservation();
             Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
             resAlert.setHeaderText(null);
-            resAlert.setContentText("La reservation de l'hôtel  "  + r.getNom_hotel()+" a été supprimé");
+            resAlert.setContentText("La reservation de "   + r.getNom_user() + ""+ r.getPrenom_user()+" a été supprimé");
             resAlert.showAndWait();
         } else {
             alert.close();
         }
     }
-     @FXML
+    
   public void gotoRestaurant(ActionEvent event) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheRestaurantClient.fxml"));
 		Scene scene = new Scene(root);
@@ -188,7 +188,6 @@ public class AfficheReservationClientHotelController implements Initializable {
 	}
 	
   
-    @FXML
   public void gotoHotel(ActionEvent event) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheHotelClient.fxml"));
 		Scene scene = new Scene(root);
@@ -207,7 +206,6 @@ public class AfficheReservationClientHotelController implements Initializable {
 
 	}
   
-      @FXML
     private void gotolog(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("Agenda.fxml"));
         Scene scene = new Scene(parent);

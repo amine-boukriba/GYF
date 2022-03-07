@@ -245,8 +245,8 @@ public class AjoutReservationClientController implements Initializable {
 
         res.AjoutReservationHotel(r);
                              try {
-                                 System.out.println(res.AfficherfullinformationHotelcodeQR(res.MaxID()) +"ncezijezjeiznezjej");   
-                                 System.out.println("ezjidi");
+                              //   System.out.println(res.AfficherfullinformationHotelcodeQR(res.MaxID()) +"ncezijezjeiznezjej");   
+                               //  System.out.println("ezjidi");
             QRcodeGen(res.AfficherfullinformationHotelcodeQR(res.MaxID()).toString(),res.MaxID());
             String absolutePath = new File("").getAbsolutePath();
             System.out.println(".\\QRcode\\1.jpg");

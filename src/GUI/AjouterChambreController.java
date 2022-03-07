@@ -97,7 +97,7 @@ public void gotohotels(ActionEvent event) throws IOException {
         localisation_Hotel.setCellValueFactory(new PropertyValueFactory<>("localisation"));
         catégorie.setCellValueFactory(new PropertyValueFactory<>("categorie"));
           id_affiche_chambre.setItems(list);
-          System.out.println(list);
+        //  System.out.println(list);
 //        try {
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("Ajout.fxml"));
 //            Parent root = loader.load();

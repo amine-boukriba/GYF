@@ -32,9 +32,9 @@ public class NewFXMain extends Application {
             primaryStage.setResizable(false);
    //Parent root = FXMLLoader.load(getClass().getResource("../GUI/AfficheReservationRestoClient.fxml"));
 
-           //Parent root = FXMLLoader.load(getClass().getResource("../GUI/StatRestauReservation.fxml"));
-             Parent root = FXMLLoader.load(getClass().getResource("../GUI/Template.fxml"));
- //Parent root = FXMLLoader.load(getClass().getResource("../GUI/userInterface.fxml"));
+        //   Parent root = FXMLLoader.load(getClass().getResource("../GUI/StatRestauReservation.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/Template.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("../GUI/userInterface.fxml"));
            Label lb1_size = new Label();
             Scene scene = new Scene(root);
             

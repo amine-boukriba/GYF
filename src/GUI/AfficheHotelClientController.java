@@ -91,7 +91,7 @@ public class AfficheHotelClientController implements Initializable {
 
 
           tblhotelDetails.setItems(list);
-          System.out.println(list);
+      //    System.out.println(list);
 //        try {
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("Ajout.fxml"));
 //            Parent root = loader.load();

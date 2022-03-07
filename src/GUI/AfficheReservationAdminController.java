@@ -98,7 +98,7 @@ public class AfficheReservationAdminController implements Initializable {
          prénom_user.setCellValueFactory(new PropertyValueFactory<>("prenom_user"));
             id_affiche.setItems(list);
 
-            System.out.println(list);
+           // System.out.println(list);
             
             FilteredList<reservation> filteredData = new FilteredList<>(list, b -> true);
 		
@@ -186,17 +186,20 @@ public class AfficheReservationAdminController implements Initializable {
     @FXML
     private void Delete(ActionEvent event) {
         reservation r = id_affiche.getSelectionModel().getSelectedItem();
+      
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Demande de confirmation");
         alert.setHeaderText(null);
-        alert.setContentText("Etes-vous sûr de vouloir supprimer la  Votre reservation de   " + r.getNom_user() + ""+ r.getPrenom_user() );
+        alert.setContentText("Etes-vous sûr de vouloir d'annuler   Votre reservation de   l'hôtel" +r.getNom_hotel() );
         Optional<ButtonType> btn = alert.showAndWait();
         if (btn.get() == ButtonType.OK) {
+                             //       System.out.println(r.getId_reservation());
+                                    
             res.supprimerReservation(r.getId_reservation());
             showReservation();
             Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
             resAlert.setHeaderText(null);
-            resAlert.setContentText("La reservation de "   + r.getNom_user() + ""+ r.getPrenom_user()+" a été supprimé");
+            resAlert.setContentText("votre reservation de l'hôtel "   + r.getNom_hotel()+" a été supprimé");
             resAlert.showAndWait();
         } else {
             alert.close();

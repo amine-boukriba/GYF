@@ -107,7 +107,7 @@ ServiceHotel Hotel = new ServiceHotel();
 
 
           tblhotelDetails.setItems(list);
-          System.out.println(list);
+        //  System.out.println(list);
 //        try {
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("Ajout.fxml"));
 //            Parent root = loader.load();
@@ -210,8 +210,6 @@ ServiceHotel Hotel = new ServiceHotel();
 }
      @FXML
     public void Delete(){
-
-
 
         ObservableList<Hotel> lp = tblhotelDetails.getSelectionModel().getSelectedItems();
         Hotel r = tblhotelDetails.getSelectionModel().getSelectedItem();

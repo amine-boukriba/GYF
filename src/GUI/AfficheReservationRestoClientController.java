@@ -63,8 +63,10 @@ public class AfficheReservationRestoClientController implements Initializable {
                    List<reservation> r = res.AfficheInformationRestoReservationClient();
             
                            ObservableList list = FXCollections.observableArrayList(r);
-                                 System.out.println(r);
-                 id_affiche.setItems(list);  
+                 id_affiche.setItems(list); 
+                
+               //  System.out.println("daijdzaiad");
+                // System.out.println(list);
         nom_resto.setCellValueFactory(new PropertyValueFactory<>("nom_restaurant"));
         localisation.setCellValueFactory(new PropertyValueFactory<>("localisation"));
         
@@ -146,10 +148,13 @@ public class AfficheReservationRestoClientController implements Initializable {
         }
     @FXML
     private void Delete(ActionEvent event) {
-    
-    
+        
+        
   reservation r = id_affiche.getSelectionModel().getSelectedItem();
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    
+ 
         alert.setTitle("Demande de confirmation");
         alert.setHeaderText(null);
         alert.setContentText("Etes-vous sûr de vouloir annuler Votre reservation de restaurant  " + r.getNom_restaurant());
