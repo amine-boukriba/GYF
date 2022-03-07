@@ -1,1 +1,12 @@
 /build/
+/dist/
+/src/services/ServiceEspaceCulturel.java
+/src/services/ServiceEvents.java
+/src/services/ServiceHotel.java
+/src/services/ServiceMonuments.java
+/src/services/ServiceRestaurant.java
+/src/entities/Espace_culturels.java
+/src/entities/Evenement.java
+/src/entities/Hotel.java
+/src/entities/Monuments.java
+/src/entities/restaurants.java
