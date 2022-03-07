@@ -5,10 +5,17 @@
  */
 package services;
 
+import java.util.List;
+
 /**
  *
- * @author boukr
+ * @author anwer
+ * @param <T>
  */
-public class NewClass {
+public interface IService<T> {
     
+    public void ajout(T t);
+    public void modifier(T t);
+    public void supprime(int id);
+    public List<T> affiche();
 }
