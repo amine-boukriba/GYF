@@ -5,9 +5,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Affiche_historiquesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffc13b;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Affiche_historiquesController">
    <children>
-      <TableView fx:id="tvhistorique" layoutX="95.0" layoutY="85.0" prefHeight="231.0" prefWidth="227.0">
+      <TableView fx:id="tvhistorique" layoutX="95.0" layoutY="85.0" prefHeight="231.0" prefWidth="227.0" style="-fx-background-color: #F9E4B7;" stylesheets="@../stylesheet/style.css">
         <columns>
           <TableColumn fx:id="entry_date" prefWidth="75.0" text="entry date" />
           <TableColumn fx:id="leave_date" prefWidth="75.0" text="leave date" />
@@ -15,7 +15,7 @@
         </columns>
       </TableView>
       <TextField fx:id="recherche" layoutX="209.0" layoutY="32.0" />
-      <TableView fx:id="tvuser" layoutX="322.0" layoutY="85.0" prefHeight="231.0" prefWidth="174.0">
+      <TableView fx:id="tvuser" layoutX="322.0" layoutY="85.0" prefHeight="231.0" prefWidth="174.0" style="-fx-background-color: #F9E4B7;" stylesheets="@../stylesheet/style.css">
         <columns>
             <TableColumn fx:id="email" prefWidth="39.0" text="email" />
             <TableColumn fx:id="name" prefWidth="59.6666259765625" text="name" />

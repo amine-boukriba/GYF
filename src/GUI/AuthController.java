@@ -51,6 +51,7 @@ public class AuthController implements Initializable {
     }    
     @FXML
     public void authentification(ActionEvent event) {
+        String path="../GUI/InterfaceUserAdmin.fxml";
         try {
             Globals global=new Globals();
             int state;
@@ -77,7 +78,11 @@ public class AuthController implements Initializable {
 
 		alert.showAndWait();
                 global.servicehistoriques.add_session(global.historique);
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/acceuil.fxml"));
+                global.serviceuser.update_user_information(global.user);
+                if (global.user.getId_role()==10){
+                    path="../GUI/UserInterface.fxml";
+                }
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
                 Parent root = null;
                 try {
                     root = loader.load();
@@ -85,7 +90,6 @@ public class AuthController implements Initializable {
                     Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 auth.getScene().setRoot(root);
-                global.serviceuser.update_user_information(global.user);
 
                 }
                 else {

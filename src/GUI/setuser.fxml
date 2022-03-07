@@ -3,22 +3,21 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SetuserController">
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="693.0" style="-fx-background-color: #ffc13b;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SetuserController">
    <children>
-      <TableView fx:id="TVuser" layoutX="56.0" layoutY="64.0" onMouseClicked="#fnSelected" prefHeight="298.0" prefWidth="583.0">
+      <TableView fx:id="TVuser" layoutX="56.0" layoutY="64.0" onMouseClicked="#fnSelected" prefHeight="298.0" prefWidth="583.0" style="-fx-background-color: #F9E4B7;" stylesheets="@../stylesheet/style.css">
         <columns>
-          <TableColumn fx:id="name" prefWidth="86.0" text="name" />
-          <TableColumn fx:id="last_name" minWidth="0.0" prefWidth="64.0" text="last name" />
+          <TableColumn fx:id="name" prefWidth="74.0" text="name" />
+          <TableColumn fx:id="last_name" minWidth="0.0" prefWidth="76.0" text="last name" />
             <TableColumn fx:id="sexe" minWidth="0.0" prefWidth="46.66668701171875" text="sexe" />
             <TableColumn fx:id="telephone" minWidth="0.0" prefWidth="66.33331298828125" text="telephone" />
-            <TableColumn fx:id="email" prefWidth="86.33331298828125" text="email" />
-            <TableColumn fx:id="pays" minWidth="0.0" prefWidth="31.0" text="pays" />
+            <TableColumn fx:id="email" prefWidth="65.66668701171875" text="email" />
+            <TableColumn fx:id="pays" minWidth="0.0" prefWidth="52.33331298828125" text="pays" />
             <TableColumn fx:id="ville" minWidth="0.0" prefWidth="38.33331298828125" text="ville" />
             <TableColumn fx:id="zip" minWidth="0.0" prefWidth="25.3333740234375" text="zip" />
             <TableColumn fx:id="date" minWidth="0.0" prefWidth="34.0" text="date" />
@@ -27,32 +26,23 @@
         </columns>
       </TableView>
       <TextField fx:id="recherche" layoutX="197.0" layoutY="27.0" />
-      <Button fx:id="delete" layoutX="1.0" layoutY="242.0" mnemonicParsing="false" onAction="#delete" text="delete" />
-      <Button fx:id="block" layoutX="3.0" layoutY="201.0" mnemonicParsing="false" onAction="#blockUnblock" text="block" />
-      <Button fx:id="admin" layoutX="1.0" layoutY="276.0" mnemonicParsing="false" onAction="#make_admin" text="admin" />
-      <TableView fx:id="TV_role" layoutX="639.0" layoutY="64.0" prefHeight="298.0" prefWidth="50.0">
+      <Button fx:id="delete" layoutX="1.0" layoutY="242.0" mnemonicParsing="false" onAction="#delete" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="delete" />
+      <Button fx:id="block" layoutX="3.0" layoutY="201.0" mnemonicParsing="false" onAction="#blockUnblock" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="block" />
+      <Button fx:id="admin" layoutX="1.0" layoutY="276.0" mnemonicParsing="false" onAction="#make_admin" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="admin" />
+      <TableView fx:id="TV_role" layoutX="639.0" layoutY="64.0" prefHeight="298.0" prefWidth="50.0" style="-fx-background-color: #F9E4B7;" stylesheets="@../stylesheet/style.css">
         <columns>
             <TableColumn fx:id="role" minWidth="0.0" prefWidth="55.33331298828125" text="role" />
         </columns>
       </TableView>
-      <TextField fx:id="text_name" layoutX="78.0" layoutY="380.0" />
-      <Label layoutX="26.0" layoutY="384.0" text="name" />
-      <Button fx:id="update" layoutX="613.0" layoutY="505.0" mnemonicParsing="false" onAction="#update" text="update" />
-      <TextField fx:id="text_last_name" layoutX="298.0" layoutY="380.0" />
-      <Label layoutX="240.0" layoutY="384.0" text="last name" />
-      <Label layoutX="478.0" layoutY="384.0" text="sexe" />
-      <TextField fx:id="text_telephone" layoutX="78.0" layoutY="421.0" />
-      <Label layoutX="14.0" layoutY="429.0" text="telephone" />
-      <TextField fx:id="text_email" layoutX="298.0" layoutY="421.0" />
-      <Label layoutX="238.0" layoutY="433.0" text="email" />
-      <TextField fx:id="text_pays" layoutX="530.0" layoutY="429.0" />
-      <Label layoutX="478.0" layoutY="433.0" text="pays" />
-      <TextField fx:id="text_ville" layoutX="78.0" layoutY="493.0" />
-      <Label layoutX="26.0" layoutY="497.0" text="ville" />
-      <TextField fx:id="text_zip" layoutX="298.0" layoutY="493.0" />
-      <Label layoutX="265.0" layoutY="497.0" text="zip" />
-      <DatePicker fx:id="text_date" layoutX="518.0" layoutY="462.0" />
-      <Label layoutX="464.0" layoutY="466.0" text="date" />
-      <ChoiceBox fx:id="text_sexe" layoutX="530.0" layoutY="380.0" prefWidth="150.0" />
+      <TextField fx:id="text_name" layoutX="14.0" layoutY="405.0" promptText="Name" />
+      <Button fx:id="update" layoutX="604.0" layoutY="455.0" mnemonicParsing="false" onAction="#update" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="update" />
+      <TextField fx:id="text_last_name" layoutX="178.0" layoutY="405.0" promptText="Last Name" />
+      <TextField fx:id="text_telephone" layoutX="14.0" layoutY="442.0" promptText="telephone" />
+      <TextField fx:id="text_email" layoutX="178.0" layoutY="442.0" promptText="Email" />
+      <TextField fx:id="text_pays" layoutX="346.0" layoutY="481.0" promptText="Pays" />
+      <TextField fx:id="text_ville" layoutX="14.0" layoutY="481.0" promptText="Ville" />
+      <TextField fx:id="text_zip" layoutX="178.0" layoutY="481.0" promptText="ZIP" />
+      <DatePicker fx:id="text_date" layoutX="348.0" layoutY="442.0" promptText="Date" />
+      <ChoiceBox fx:id="text_sexe" layoutX="348.0" layoutY="405.0" prefWidth="150.0" styleClass="search-button" stylesheets="@../stylesheet/style.css" />
    </children>
 </AnchorPane>
