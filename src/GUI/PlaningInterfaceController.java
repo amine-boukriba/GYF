@@ -421,7 +421,7 @@ public class PlaningInterfaceController implements Initializable {
             spp.ajoutPay(pp,listitem);    
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Succes");
-				alert.setHeaderText("reservation  valide");
+				alert.setHeaderText("Reservation  succeeded");
 				alert.setContentText("you will reseve a email with more informations");
                                 Optional<ButtonType> result = alert.showAndWait();
        }else{
@@ -435,7 +435,8 @@ public class PlaningInterfaceController implements Initializable {
                 listitem.add(prix+"");
 
                 controller.setPayment(pp,pl);
-                btn_payer.getScene().setRoot(root);
+                UserInterfaceController.userinterface.view.getChildren().clear();
+                UserInterfaceController.userinterface.view.getChildren().add(root);
             } catch (IOException ex) {
                 Logger.getLogger(DetailItemsController.class.getName()).log(Level.SEVERE, null, ex);
             }

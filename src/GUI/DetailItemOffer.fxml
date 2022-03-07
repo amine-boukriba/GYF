@@ -16,7 +16,6 @@
          <bottom>
             <AnchorPane prefHeight="102.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton fx:id="btn_retour" layoutX="208.0" layoutY="62.0" onAction="#retourVol" style="-fx-background-color: green;" text="Retour au offres" />
                   <JFXButton fx:id="btn_payer" layoutX="362.0" layoutY="62.0" onAction="#Payer" style="-fx-background-color: green;" text="Payer" />
                   <JFXRadioButton fx:id="rad_reserver" layoutX="236.0" layoutY="22.0" text="Reserver la commande" />
                </children>

@@ -18,6 +18,7 @@
             <file>file:/D:/PI/GYF/src/entities/PaymentOffers.java</file>
             <file>file:/D:/PI/GYF/src/GUI/OfferOptionItemController.java</file>
             <file>file:/D:/PI/GYF/src/GUI/BateauxInterfaceController.java</file>
+            <file>file:/D:/PI/GYF/src/GUI/AdminInterface.fxml</file>
             <file>file:/D:/PI/GYF/src/services/ServiceImages.java</file>
             <file>file:/D:/PI/GYF/src/services/ServiceHotel.java</file>
             <file>file:/D:/PI/GYF/src/services/ServicePaymentBateaux.java</file>
@@ -26,15 +27,17 @@
             <file>file:/D:/PI/GYF/src/services/ServiceVols.java</file>
             <file>file:/D:/PI/GYF/src/GUI/DetailItemsBateauxController.java</file>
             <file>file:/D:/PI/GYF/src/GUI/PaymentInterfaceController.java</file>
+            <file>file:/D:/PI/GYF/src/GUI/UserInterfaceController.java</file>
             <file>file:/D:/PI/GYF/src/GUI/VolClientInterfaceController.java</file>
             <file>file:/D:/PI/GYF/src/GUI/BateauxClientInterfaceController.java</file>
             <file>file:/D:/PI/GYF/src/services/ServiceMail.java</file>
             <file>file:/D:/PI/GYF/src/entities/Monuments.java</file>
             <file>file:/D:/PI/GYF/src/entities/OfferOption.java</file>
-            <file>file:/D:/PI/GYF/src/GUI/FXML.fxml</file>
+            <file>file:/D:/PI/GYF/src/GUI/VolInterface.fxml</file>
             <file>file:/D:/PI/GYF/src/services/ServicePaymentVols.java</file>
             <file>file:/D:/PI/GYF/src/services/IService.java</file>
             <file>file:/D:/PI/GYF/src/services/ServiceMonuments.java</file>
+            <file>file:/D:/PI/GYF/src/GUI/AdminInterfaceController.java</file>
             <file>file:/D:/PI/GYF/src/services/ServicePaymentOffers.java</file>
             <file>file:/D:/PI/GYF/src/services/ServicePaymentPlan.java</file>
             <file>file:/D:/PI/GYF/src/GUI/DetailItemsController.java</file>
@@ -42,6 +45,7 @@
             <file>file:/D:/PI/GYF/src/GUI/DetailItemOfferController.java</file>
             <file>file:/D:/PI/GYF/src/entities/Evenement.java</file>
             <file>file:/D:/PI/GYF/src/entities/restaurants.java</file>
+            <file>file:/D:/PI/GYF/src/GUI/UserInterface.fxml</file>
             <file>file:/D:/PI/GYF/src/services/ServicePaymentStripe.java</file>
             <file>file:/D:/PI/GYF/src/entities/Images.java</file>
             <file>file:/D:/PI/GYF/src/services/ServiceEspaceCulturel.java</file>

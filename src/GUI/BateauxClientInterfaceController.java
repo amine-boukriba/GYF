@@ -128,6 +128,7 @@ public class BateauxClientInterfaceController implements Initializable {
                     AnchorPane anchorPane = fxmlLoader.load();
                     ItemBateauxController itemController = fxmlLoader.getController();
                     itemController.setData(list.get(i));
+                    
                     grid.add(anchorPane, 1, i+1);
                     grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                     grid.setPrefWidth(Region.USE_COMPUTED_SIZE);

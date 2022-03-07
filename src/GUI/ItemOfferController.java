@@ -81,10 +81,8 @@ public class ItemOfferController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailItemOffer.fxml"));
             Parent root = loader.load();
             DetailItemOfferController controller = loader.getController();
-            btn_detail.getScene().setRoot(root);
-            System.out.println("itemOffer ");
-            System.out.println(listOffer);
-            System.out.println("itemOffer ");
+            UserInterfaceController.userinterface.view.getChildren().clear();
+            UserInterfaceController.userinterface.view.getChildren().add(root);
             controller.setId(listOffer);
             
             

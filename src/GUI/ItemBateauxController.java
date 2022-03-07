@@ -76,7 +76,8 @@ public class ItemBateauxController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailItemsBateaux.fxml"));
             Parent root = loader.load();
             DetailItemsBateauxController controller = loader.getController();
-            btn_detail.getScene().setRoot(root);
+            UserInterfaceController.userinterface.view.getChildren().clear();
+            UserInterfaceController.userinterface.view.getChildren().add(root);
             controller.setId(listBateaux);
             
         } catch (IOException ex) {

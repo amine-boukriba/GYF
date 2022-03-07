@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +22,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -58,8 +61,6 @@ public class DetailItemsController implements Initializable {
     @FXML
     private Label avis_text;
     @FXML
-    private JFXButton btn_retour;
-    @FXML
     private JFXButton btn_payer;
     @FXML
     private JFXRadioButton rad_reserver;
@@ -92,17 +93,7 @@ public class DetailItemsController implements Initializable {
         
     }
 
-    @FXML
-    private void retourVol(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("VolClientInterface.fxml"));
-            Parent root = loader.load();
-            VolClientInterfaceController controller = loader.getController();
-            btn_retour.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(DetailItemsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 
     @FXML
     private void Payer(ActionEvent event) {
@@ -113,7 +104,12 @@ public class DetailItemsController implements Initializable {
             payVol.setType_payment("agence");
          System.out.println(payVol);
            //listitem.add()
-            spv.ajoutPay(payVol,listitem);           
+            spv.ajoutPay(payVol,listitem);     
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Succes");
+				alert.setHeaderText("Reservation succeeded");
+				alert.setContentText("An email wel be send to your addres for more information");
+                                Optional<ButtonType> result = alert.showAndWait();
        }else{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("PaymentInterface.fxml"));
@@ -125,7 +121,9 @@ public class DetailItemsController implements Initializable {
                 listitem.add(list.getPrix()+"");
 
                 controller.setPayment(payVol,list);
-                btn_payer.getScene().setRoot(root);
+               // btn_payer.getScene().setRoot(root);
+                UserInterfaceController.userinterface.view.getChildren().clear();
+                UserInterfaceController.userinterface.view.getChildren().add(root);
             } catch (IOException ex) {
                 Logger.getLogger(DetailItemsController.class.getName()).log(Level.SEVERE, null, ex);
             }

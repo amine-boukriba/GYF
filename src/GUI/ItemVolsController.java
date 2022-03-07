@@ -79,8 +79,10 @@ public class ItemVolsController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailItems.fxml"));
             Parent root = loader.load();
             DetailItemsController controller = loader.getController();
-            btn_detail.getScene().setRoot(root);
+            //btn_detail.getScene().setRoot(root);
             controller.setId(listvol);
+            UserInterfaceController.userinterface.view.getChildren().clear();
+            UserInterfaceController.userinterface.view.getChildren().add(root);
             
         } catch (IOException ex) {
             Logger.getLogger(ItemVolsController.class.getName()).log(Level.SEVERE, null, ex);

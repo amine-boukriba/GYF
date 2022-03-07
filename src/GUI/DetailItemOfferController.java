@@ -22,6 +22,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +34,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -74,8 +77,7 @@ public class DetailItemOfferController implements Initializable {
     private Label date_dep_text;
     @FXML
     private Label date_arr_text;
-    @FXML
-    private JFXButton btn_retour;
+
     @FXML
     private JFXButton btn_payer;
     @FXML
@@ -313,17 +315,7 @@ public class DetailItemOfferController implements Initializable {
         
     }
     
-    @FXML
-    private void retourVol(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("OfferClientInterface.fxml"));
-            Parent root = loader.load();
-            OfferClientInterfaceController controller = loader.getController();
-            btn_retour.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(DetailItemsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
 
     @FXML
     private void Payer(ActionEvent event) {
@@ -334,7 +326,12 @@ public class DetailItemOfferController implements Initializable {
             payOff.setType_payment("agence");
          System.out.println(payOff);
            //listitem.add()
-            spo.ajoutPay(payOff,listitem);           
+            spo.ajoutPay(payOff,listitem);   
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Succes");
+				alert.setHeaderText("Reservation succeeded");
+				alert.setContentText("An email wel be send to your addres for more information");
+                                Optional<ButtonType> result = alert.showAndWait();
        }else{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("PaymentInterface.fxml"));
@@ -346,7 +343,8 @@ public class DetailItemOfferController implements Initializable {
                 listitem.add(list.getPrix()+"");
 
                 controller.setPayment(payOff,list);
-                btn_payer.getScene().setRoot(root);
+                UserInterfaceController.userinterface.view.getChildren().clear();
+                UserInterfaceController.userinterface.view.getChildren().add(root);
             } catch (IOException ex) {
                 Logger.getLogger(DetailItemsController.class.getName()).log(Level.SEVERE, null, ex);
             }
