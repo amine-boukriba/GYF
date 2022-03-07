@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="1245.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.UserInterfaceController">
+<AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="1245.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserInterfaceController">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="681.0" prefWidth="1244.0">
          <children>
@@ -20,7 +19,7 @@
                <children>
                   <Pane layoutY="-1.0" prefHeight="31.0" prefWidth="1039.0" style="-fx-background-color: #76b776;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
                      <children>
-                        <ImageView fx:id="Exit" fitHeight="22.0" fitWidth="22.0" layoutX="1193.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exit" fitHeight="22.0" fitWidth="22.0" layoutX="1193.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Images/exit.png" />
                            </image>
@@ -97,11 +96,29 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="91.0" styleClass="sidebarItem" text="Profil" translateX="10.0">
+                        <JFXButton fx:id="profil" alignment="BASELINE_LEFT" onAction="#change_data" prefHeight="38.0" prefWidth="91.0" styleClass="sidebarItem" text="Profil" translateX="10.0">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/profileUser.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="changePassword" onAction="#GoToChangePassword" prefHeight="38.0" prefWidth="139.0" styleClass="menuItem" text="Change Password">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/reclamationUser.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="sign_out" onAction="#gotosignout" prefHeight="38.0" prefWidth="135.0" styleClass="menuItem" text="sign out">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/resto%20user.png" />
                                  </image>
                               </ImageView>
                            </graphic>

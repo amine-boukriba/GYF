@@ -48,20 +48,20 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="btn_sign_out" onAction="#sign_out" prefHeight="38.0" prefWidth="137.0" styleClass="menuItem" text="sign out">
-                     <graphic>
-                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Desktop/GYF-master/src/Images/data1.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
                   <JFXButton fx:id="historiques" onAction="#getHistoriques" prefHeight="38.0" prefWidth="188.0" styleClass="menuItem" text="Historiques">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Desktop/GYF-master/src/Images/add1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btn_sign_out" onAction="#sign_out" prefHeight="38.0" prefWidth="137.0" styleClass="menuItem" text="sign out">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Desktop/GYF-master/src/Images/data1.png" />
                            </image>
                         </ImageView>
                      </graphic>
