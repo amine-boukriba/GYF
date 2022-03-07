@@ -10,6 +10,7 @@ import java.util.List;
 /**
  *
  * @author anwer
+ * @param <T>
  */
 public interface IService<T> {
     

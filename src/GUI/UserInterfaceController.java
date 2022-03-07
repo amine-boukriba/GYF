@@ -15,9 +15,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import utils.Globals;
+
 
 /**
  * FXML Controller class
@@ -31,6 +35,7 @@ public class UserInterfaceController implements Initializable {
     public AnchorPane view;
     @FXML
     private ImageView Exit;
+
     @FXML
     private JFXButton hotel3;
     @FXML
@@ -38,20 +43,28 @@ public class UserInterfaceController implements Initializable {
     @FXML
     private JFXButton stat;
     @FXML
+
     private JFXButton btn_vol;
     @FXML
+
     private JFXButton hotel;
     @FXML
     private JFXButton hotel1;
     @FXML
     private JFXButton hotel2;
     @FXML
+    private JFXButton profil;
+    @FXML
+    private JFXButton changePassword;
+    @FXML
+
     private Label Menu;
     @FXML
     private Label MenuClose;
     @FXML
     private AnchorPane slider;
     @FXML
+
     private JFXButton btn_bateau;
     @FXML
     private JFXButton btn_offer;
@@ -59,6 +72,12 @@ public class UserInterfaceController implements Initializable {
     private JFXButton btn_plan;
     @FXML
     private JFXButton btn_vols;
+
+    private JFXButton restoM;
+    @FXML
+    private JFXButton sign_out;
+    Globals global=new Globals();
+
 
     /**
      * Initializes the controller class.
@@ -155,6 +174,54 @@ public class UserInterfaceController implements Initializable {
                  Logger.getLogger(AdminInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
              }
         });
+=======
+    private void change_data() {
+        view.getChildren().clear();
+         profil.setOnMouseClicked(event -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("modfier_user.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                view.getChildren().add(anchorPane);
+            } catch (IOException ex) {
+                Logger.getLogger(InterfaceUserAdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         });
+    }
+
+    @FXML
+    private void GoToChangePassword() {
+        view.getChildren().clear();
+         changePassword.setOnMouseClicked(event -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("change_password.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                view.getChildren().add(anchorPane);
+            } catch (IOException ex) {
+                Logger.getLogger(InterfaceUserAdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         });
+    }
+
+    @FXML
+    private void gotorestaurant(ActionEvent event) {
+    }
+
+    @FXML
+    private void gotosignout() {
+        global.serviceuser.sign_out(global.user,global.historique);
+        global.user=null;
+        global.historique=null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/auth.fxml"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException ex) {
+                    Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                restoM.getScene().setRoot(root);
+
     }
     
 }
