@@ -10,16 +10,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane id="AnchorPane" prefHeight="662.0" prefWidth="1245.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserInterfaceController">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="681.0" prefWidth="1244.0">
          <children>
             <AnchorPane fx:id="view" layoutX="88.0" layoutY="93.0" prefHeight="587.0" prefWidth="1154.0" />
+
             <AnchorPane prefHeight="83.0" prefWidth="1244.0" style="-fx-background-color: WHITE;">
                <children>
                   <Pane layoutY="-1.0" prefHeight="31.0" prefWidth="1039.0" style="-fx-background-color: #76b776;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
                      <children>
-                        <ImageView fx:id="exit" fitHeight="22.0" fitWidth="22.0" layoutX="1193.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+
+                        <ImageView fx:id="Exit" fitHeight="22.0" fitWidth="22.0" layoutX="1193.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+
                            <image>
                               <Image url="@../Images/exit.png" />
                            </image>
@@ -42,7 +46,9 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="Ajout" onAction="#gotoHotelAjout" prefHeight="38.0" prefWidth="135.0" styleClass="menuItem" text="Restaurant" translateX="10.0">
+
+                        <JFXButton fx:id="Ajout" contentDisplay="CENTER" onAction="#gotoHotelAjout" prefHeight="38.0" prefWidth="98.0" styleClass="menuItem" text="Restaurant" textAlignment="CENTER" translateX="10.0">
+
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -60,7 +66,9 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" prefHeight="40.0" prefWidth="107.0" styleClass="sidebarItem" text="Voyage" translateX="10.0">
+
+                        <JFXButton fx:id="btn_vol" alignment="BASELINE_LEFT" onAction="#getVolsinterface" prefHeight="40.0" prefWidth="107.0" styleClass="sidebarItem" text="Voyage" translateX="10.0">
+
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -96,7 +104,9 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="profil" alignment="BASELINE_LEFT" onAction="#change_data" prefHeight="38.0" prefWidth="91.0" styleClass="sidebarItem" text="Profil" translateX="10.0">
+
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="91.0" styleClass="sidebarItem" text="Profil" translateX="10.0">
+
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -105,6 +115,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
+
                         <JFXButton fx:id="changePassword" onAction="#GoToChangePassword" prefHeight="38.0" prefWidth="139.0" styleClass="menuItem" text="Change Password">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
@@ -123,6 +134,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
+
                      </children>
                   </HBox>
                   <Label fx:id="Menu" layoutX="14.0" layoutY="36.0" prefHeight="40.0" prefWidth="185.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1045.0" AnchorPane.topAnchor="36.0">
@@ -155,7 +167,9 @@
                <children>
                   <VBox layoutY="27.0" prefHeight="649.0" prefWidth="189.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
                      <children>
+
                         <JFXButton fx:id="restoM" alignment="BASELINE_LEFT" onAction="#gotorestaurant" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Restaurant" textFill="WHITE">
+
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -167,7 +181,9 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Evenement" textFill="WHITE">
+
+                        <JFXButton fx:id="btn_bateau" alignment="BASELINE_LEFT" onAction="#getBateau" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Bateaux" textFill="WHITE">
+
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -179,7 +195,9 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" prefHeight="53.0" prefWidth="176.0" styleClass="sidebarItem" text="Monument" textFill="WHITE">
+
+                        <JFXButton fx:id="btn_offer" alignment="BASELINE_LEFT" onAction="#getOffer" prefHeight="53.0" prefWidth="176.0" styleClass="sidebarItem" text="Offres" textFill="WHITE">
+
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -191,7 +209,9 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Espace culturel" textFill="WHITE">
+
+                        <JFXButton fx:id="btn_plan" alignment="BASELINE_LEFT" onAction="#getPlan" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Plan personel" textFill="WHITE">
+
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -203,6 +223,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
+
                         <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Reclamation" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
@@ -215,6 +236,7 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
+
                      </children>
                   </VBox>
                </children>
