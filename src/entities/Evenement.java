@@ -12,11 +12,7 @@ import java.sql.Date;
  * @author moham
  */
 public class Evenement { 
-     private int id_evenement;
-
-    public Evenement(int id_evenement) {
-        this.id_evenement = id_evenement;
-    }
+     public int id_evenement;
      private String nom;
      private String description;
      private String type;
@@ -29,7 +25,9 @@ public class Evenement {
      private String localisation;
      public Evenement() {
     }
-     
+     public Evenement(int id_evenement) {
+        this.id_evenement = id_evenement;
+    }
 
     public Evenement(String nom, String description, String type, String image, Date date_debut, Date date_fin, String pays, int prix, int nbre_participants, String localisation) {
         this.nom = nom;

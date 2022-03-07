@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/moham/GYF/src/services/ServiceEvents.java</file>
-            <file>file:/C:/Users/moham/GYF/src/services/ServiceResEvent.java</file>
-            <file>file:/C:/Users/moham/GYF/src/entities/ResEvents.java</file>
-            <file>file:/C:/Users/moham/GYF/src/test/Main.java</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/GUI/UserInterfaceController.java</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/pictures/style.css</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/GUI/ModifierController.java</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/GUI/RechercherEventsController.java</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/GUI/rechercherEvents.fxml</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/GUI/AjouterController.java</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/test/NewFXMain.java</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/GUI/GerereventsController.java</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/GUI/ViewController.java</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/GUI/AfficherController.java</file>
+            <file>file:/C:/Users/moham/OneDrive/Desktop/gestion_evenement/GYF/src/services/ServiceEvents.java</file>
         </group>
     </open-files>
 </project-private>
