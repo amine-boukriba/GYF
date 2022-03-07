@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 
 public class MyDB {
     
-    private String url = "jdbc:mysql://localhost/gyfG";
+    private String url = "jdbc:mysql://localhost/gyf";
+
     private String user = "root";
     private String password =""; 
     private  Connection connection;
