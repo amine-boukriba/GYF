@@ -56,8 +56,11 @@ public class ModifierReclamationController implements Initializable {
     private Button btnImage;
     @FXML
     private ImageView ImageView;
+<<<<<<< HEAD
     @FXML
     private Button retour;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 
     /**
      * Initializes the controller class.
@@ -139,6 +142,7 @@ public class ModifierReclamationController implements Initializable {
         ImageView.setImage(img);
         }
     }
+<<<<<<< HEAD
 
     @FXML
     private void fnretour(ActionEvent event) throws IOException {
@@ -148,5 +152,7 @@ public class ModifierReclamationController implements Initializable {
         window.setScene(scene);
         window.show();
     }
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
     
 }

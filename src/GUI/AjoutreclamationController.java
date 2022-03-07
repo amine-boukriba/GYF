@@ -23,14 +23,22 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import java.util.ResourceBundle;
+<<<<<<< HEAD
  
+=======
+import java.util.regex.Pattern;
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+<<<<<<< HEAD
 
+=======
+import javafx.geometry.Pos;
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -44,16 +52,22 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
 import javafx.stage.Stage;
+<<<<<<< HEAD
 import javafx.util.Duration;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import javax.mail.MessagingException;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.controlsfx.control.Notifications;
 import services.JavaMailUtil;
 import services.ServiceReclamation;
+<<<<<<< HEAD
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 
 /**
  * FXML Controller class
@@ -89,8 +103,11 @@ public class AjoutreclamationController implements Initializable {
     private Button btnImage;
     @FXML
     private ImageView ImageView;
+<<<<<<< HEAD
     @FXML
     private Button retour;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
     /**
      * Initializes the controller class.
      * @param url
@@ -117,7 +134,11 @@ typerec.setItems(list);
         r.setStatus("En cours");
         r.setCible_reclamation(0);
         r.setType_reclamation(typerec.getValue());
+<<<<<<< HEAD
         r.setId_user(GestionreclamationclientController.id_user);
+=======
+        r.setId_user(2);
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
         r.setImage_reclamation(lbNomImage.getText());
        sr.ajout(r);
        JavaMailUtil.sendMail(r.getEmail(),"Reclamation","Reclamation en cours de traitement");
@@ -126,6 +147,7 @@ typerec.setItems(list);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show(); 
+<<<<<<< HEAD
    System.out.println("ajout avec succées");
     String title= "reclamation ajoutée avec succés";
        TrayNotification tray = new TrayNotification();
@@ -138,6 +160,11 @@ typerec.setItems(list);
    
 }
 
+=======
+   System.out.println("ajout avec succées");  
+
+    }
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 
     @FXML
     private void InsertImage(ActionEvent event) throws IOException {
@@ -153,14 +180,22 @@ typerec.setItems(list);
             try {
         
 
+<<<<<<< HEAD
                Path save=Paths.get("C:\\Users\\ASUS\\GYF_2\\GYF\\src\\Images\\"+rndchars+"_"+rndchars+".jpg");
+=======
+               Path save=Paths.get("C:\\Users\\ASUS\\GYF_2\\GYF\\src\\public\\Image\\"+rndchars+"_"+rndchars+".jpg");
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
                 Files.copy(Paths.get(filename), save);
         lbNomImage.setVisible(false);
         String pathbd=save.toString().replace("\\" , "\\\\");
         lbNomImage.setText(pathbd);
             System.out.println(save); 
             } catch (java.nio.file.FileAlreadyExistsException e) {
+<<<<<<< HEAD
                Path save=Paths.get("C:\\Users\\ASUS\\GYF_2\\GYF\\src\\Images\\"+rndchars+"_"+rndchars+".jpg");
+=======
+               Path save=Paths.get("C:\\Users\\ASUS\\GYF_2\\GYF\\src\\public\\Image\\"+rndchars+"_"+rndchars+".jpg");
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
                 Files.copy(Paths.get(filename), save);
                 String pathbd=save.toString().replace("\\" , "\\\\");
         lbNomImage.setVisible(false);
@@ -171,6 +206,7 @@ typerec.setItems(list);
         Image img=new Image("file:///"+filename);
         ImageView.setImage(img);
         }
+<<<<<<< HEAD
          System.out.println("ajout avec succées");  
     String title= "Image ajoutée avec succés";
        TrayNotification tray = new TrayNotification();
@@ -189,6 +225,8 @@ typerec.setItems(list);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
     }
 
 }

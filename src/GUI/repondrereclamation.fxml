@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import java.lang.String?>
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<<<<<<< HEAD
 <?import javafx.scene.text.Font?>
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RepondrereclamationController">
      <children>
       <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+<<<<<<< HEAD
             <Label prefHeight="22.0" prefWidth="128.0" text="Type de reponse:" />
             <ComboBox fx:id="ComboList" prefHeight="42.0" prefWidth="597.0" promptText="type" />
             <Label prefHeight="18.0" prefWidth="110.0" text="Message:">
@@ -31,6 +38,15 @@
                <font>
                   <Font size="17.0" />
                </font></Button>
+=======
+            <Label prefHeight="18.0" prefWidth="100.0" text="Type de reponse:" />
+            <ComboBox fx:id="ComboList" prefHeight="42.0" prefWidth="597.0" />
+            <Label prefHeight="18.0" prefWidth="110.0" text="Message:" />
+            <TextArea fx:id="messageTextField" prefHeight="264.0" prefWidth="494.0" />
+            <Button fx:id="envoyerMessageButton" mnemonicParsing="false" onAction="#fnEnvoyer" prefHeight="26.0" prefWidth="600.0" style="-fx-background-color: green;" text="Envoyer">
+              
+            </Button>
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
          </children>
       </VBox>
    </children>

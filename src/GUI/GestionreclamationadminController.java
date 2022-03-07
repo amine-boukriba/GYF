@@ -5,6 +5,7 @@
  */
 package GUI;
 
+<<<<<<< HEAD
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -14,13 +15,19 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+=======
+import entities.reclamation;
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+<<<<<<< HEAD
 import java.util.logging.Level;
 import java.util.logging.Logger;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -35,7 +42,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+<<<<<<< HEAD
 import javafx.scene.control.TableCell;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -45,7 +55,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+<<<<<<< HEAD
 import javafx.util.Callback;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import services.AlertBox;
 import services.ServiceReclamation;
 
@@ -125,11 +138,19 @@ public class GestionreclamationadminController implements Initializable {
     }
     public void fnshow(){
         ServiceReclamation sr= new ServiceReclamation() {};
+<<<<<<< HEAD
         List Reclamation = sr.affiche();
         ObservableList list =FXCollections.observableArrayList(Reclamation);
         
          ColId.setCellValueFactory(new PropertyValueFactory<>("id_reclamation")); 
      nom.setCellValueFactory(new PropertyValueFactory<>("nom"));       //chnowa ta3mel
+=======
+        List reclamation = sr.affiche();
+        ObservableList list =FXCollections.observableArrayList(reclamation);
+        
+         ColId.setCellValueFactory(new PropertyValueFactory<>("id_reclamation")); 
+     nom.setCellValueFactory(new PropertyValueFactory<>("nom"));       
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
      prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));          
         mail.setCellValueFactory(new PropertyValueFactory<>("email"));
         dc.setCellValueFactory(new PropertyValueFactory<>("date_creation"));
@@ -146,6 +167,10 @@ public class GestionreclamationadminController implements Initializable {
 		
 		valrecherche.textProperty().addListener((observable, oldValue, newValue) -> {
 			filteredData.setPredicate(reclam -> {
+<<<<<<< HEAD
+=======
+				// If filter text is empty, display all persons.
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 								
 				if (newValue == null || newValue.isEmpty()) {
 					return true;
@@ -163,6 +188,7 @@ public class GestionreclamationadminController implements Initializable {
 					return true; 
 				}else if (reclam.getType_reclamation().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
 					return true; 
+<<<<<<< HEAD
                                         }else if (reclam.getDate_creation().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
 					return true; 
                                         }else if (reclam.getDate_traitement().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
@@ -172,11 +198,29 @@ public class GestionreclamationadminController implements Initializable {
 				}
 				     else  
 				    	 return false; // Does not match.
+=======
+                                        
+                                }else if (reclam.getDate_traitement().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; 
+                                        
+                                }else if (reclam.getDate_creation().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; 
+                                        
+                                }else if (reclam.getStatus().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; 
+				}
+				     else  
+				    	 return false;
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 			});
 		});
 		
 		// 3. Wrap the FilteredList in a SortedList. 
+<<<<<<< HEAD
 		SortedList<reclamation> sortedData = new SortedList<>(filteredData);//3 lignes hethom
+=======
+		SortedList<reclamation> sortedData = new SortedList<>(filteredData);
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 		
 		// 4. Bind the SortedList comparator to the TableView comparator.
 		// 	  Otherwise, sorting the TableView would have no effect.
@@ -191,6 +235,7 @@ public class GestionreclamationadminController implements Initializable {
  
         
     }
+<<<<<<< HEAD
     
 });
 
@@ -274,6 +319,10 @@ public class GestionreclamationadminController implements Initializable {
        gotobtn.setCellFactory(cellFactory);
 
         tablerec.getColumns().add(gotobtn);
+=======
+});
+
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
     }
 
     @FXML

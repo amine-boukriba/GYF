@@ -26,7 +26,11 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
+<<<<<<< HEAD
             Parent root = FXMLLoader.load(getClass().getResource("templateclient.fxml"));
+=======
+            Parent root = FXMLLoader.load(getClass().getResource("gestionreclamationclient.fxml"));
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();

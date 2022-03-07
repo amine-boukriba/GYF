@@ -20,7 +20,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+<<<<<<< HEAD
 import services.ServiceMonuments;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 
 /**
  * FXML Controller class
@@ -48,8 +51,13 @@ public class TypeReclamationController implements Initializable {
     @FXML
     private void fnSuivant(ActionEvent event) throws IOException {
         if(ComboList.getValue().equals("monument")){
+<<<<<<< HEAD
             ServiceMonuments ser=new ServiceMonuments();
             list=FXCollections.observableArrayList(ser.listnom());
+=======
+            ServiceMonument ser=new ServiceMonument();
+            list=FXCollections.observableArrayList(ser.affiche().getNom_monument());
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
             Parent etab = FXMLLoader.load(getClass().getResource("ajoutreclamation.fxml"));      
         Scene scene = new Scene(etab);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

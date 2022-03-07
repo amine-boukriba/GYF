@@ -5,6 +5,7 @@
  */
 package GUI;
 
+<<<<<<< HEAD
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -14,12 +15,18 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+=======
+import entities.reclamation;
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+<<<<<<< HEAD
 import java.util.logging.Level;
 import java.util.logging.Logger;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -35,7 +42,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+<<<<<<< HEAD
 import javafx.scene.control.TableCell;
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -46,6 +56,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+<<<<<<< HEAD
 import javafx.util.Callback;
 import javafx.util.Duration;
 import services.AlertBox;
@@ -53,6 +64,10 @@ import services.ServiceReclamation;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
+=======
+import services.AlertBox;
+import services.ServiceReclamation;
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 
 /**
  * FXML Controller class
@@ -90,11 +105,14 @@ public class GestionreclamationclientController implements Initializable {
     @FXML
     private Label IdId;
     public static reclamation recco;
+<<<<<<< HEAD
     public static int id_user;
     @FXML
     private Label lbiduser;
         
     
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 
     /**
      * Initializes the controller class.
@@ -115,13 +133,19 @@ public class GestionreclamationclientController implements Initializable {
         Image image = new Image("file:///"+img);
         ImgView.setImage(image);
         IdId.setText(String.valueOf(rec.getId_reclamation()));
+<<<<<<< HEAD
         
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
      
     }
 
     @FXML
     private void ajoutreclamation(ActionEvent event) throws IOException {
+<<<<<<< HEAD
         id_user=Integer.parseInt(lbiduser.getText());
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
         Parent etab = FXMLLoader.load(getClass().getResource("ajoutreclamation.fxml"));      
         Scene scene = new Scene(etab);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -142,6 +166,7 @@ public class GestionreclamationclientController implements Initializable {
         window.setScene(scene);
         window.show(); 
         }
+<<<<<<< HEAD
          String title= "Modifieé avec Succés";
        TrayNotification tray = new TrayNotification();
         AnimationType typee = AnimationType.POPUP;
@@ -149,6 +174,8 @@ public class GestionreclamationclientController implements Initializable {
         tray.setTitle(title);
         tray.setMessage(title);
         tray.setNotificationType(NotificationType.SUCCESS);
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
     }
 
     @FXML
@@ -179,6 +206,7 @@ public class GestionreclamationclientController implements Initializable {
             window.close();
             
         }
+<<<<<<< HEAD
             String title= "Reclamation supprimée avec succés";
              TrayNotification tray = new TrayNotification();
           AnimationType typee = AnimationType.POPUP;
@@ -188,13 +216,20 @@ public class GestionreclamationclientController implements Initializable {
         tray.setNotificationType(NotificationType.SUCCESS);
         tray.showAndDismiss(Duration.millis(3000));
             
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
     }
     
     public void fnShow(){
         ServiceReclamation ser=new ServiceReclamation();
         // user id
+<<<<<<< HEAD
         ObservableList<reclamation> list=FXCollections.observableArrayList(ser.afficheById(1));
        lbiduser.setText(String.valueOf(1));
+=======
+        ObservableList<reclamation> list=FXCollections.observableArrayList(ser.afficheById(2));
+       
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
         lbId.setCellValueFactory(new PropertyValueFactory<>("id_reclamation")); 
      lbDateCrea.setCellValueFactory(new PropertyValueFactory<>("date_creation"));       
      lbDateTrai.setCellValueFactory(new PropertyValueFactory<>("date_traitement"));          
@@ -207,8 +242,13 @@ public class GestionreclamationclientController implements Initializable {
          FilteredList<reclamation> filteredData = new FilteredList<>(list, b -> true);
 		
 		tfSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+<<<<<<< HEAD
 			filteredData.setPredicate(rec -> {
 				// If filter text is empty, display all reclamation
+=======
+			filteredData.setPredicate(reclam -> {
+				// If filter text is empty, display all persons.
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 								
 				if (newValue == null || newValue.isEmpty()) {
 					return true;
@@ -218,6 +258,7 @@ public class GestionreclamationclientController implements Initializable {
 				// Compare first name and last name of every person with filter text.
 				String lowerCaseFilter = newValue.toLowerCase();
 				
+<<<<<<< HEAD
 				if (rec.getDate_creation().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
 					return true; // Filter by date creation.
                                 }
@@ -230,6 +271,21 @@ public class GestionreclamationclientController implements Initializable {
 				}
 				     else  
 				    	 return false; // Does not reclamation
+=======
+				if (reclam.getEmail().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				}else if (reclam.getStatus().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				}else if (reclam.getType_reclamation().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+                                }else if (reclam.getDate_creation().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+                                }else if (reclam.getDate_traitement().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				}
+				     else  
+				    	 return false; // Does not match.
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
 			});
 		});
 		
@@ -251,6 +307,7 @@ public class GestionreclamationclientController implements Initializable {
     }
 });
 
+<<<<<<< HEAD
      TableColumn<reclamation, Void> gotobtn = new TableColumn("Action");
           Callback<TableColumn<reclamation, Void>, TableCell<reclamation, Void>> cellFactory
            = new Callback<TableColumn<reclamation, Void>, TableCell<reclamation, Void>>() {
@@ -345,3 +402,9 @@ public class GestionreclamationclientController implements Initializable {
     }
     
 
+=======
+    
+    }
+    
+}
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
