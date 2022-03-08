@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<<<<<<< HEAD
+<?import java.lang.String?>
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<<<<<<< HEAD
+=======
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GestionreclamationclientController">
+   <children>
+<<<<<<< HEAD
+      <TableView fx:id="tablerec" layoutX="29.0" layoutY="283.0" onMouseClicked="#fnSelected" prefHeight="234.0" prefWidth="796.0" stylesheets="@style.css">
+        <columns>
+            <TableColumn fx:id="lbId" minWidth="0.0" prefWidth="0.0" text="Id" />
+            <TableColumn fx:id="lbDateCrea" prefWidth="248.80001258850098" text="Date création" />
+            <TableColumn fx:id="lbDateTrai" prefWidth="202.39996337890625" text="Date traitement" />
+            <TableColumn fx:id="lbType" minWidth="0.0" prefWidth="127.20001220703125" text="Type" />
+            <TableColumn fx:id="lbStatus" minWidth="8.00006103515625" prefWidth="100.79986572265625" text="Status" />
+        </columns>
+      </TableView>
+=======
+      <Label prefHeight="59.0" prefWidth="1102.0" text="                              Gestion reclamation" textAlignment="RIGHT">
+         <font>
+            <Font size="41.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5969162911570545" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.8315789699554443" green="0.1201169565320015" blue="0.1201169565320015" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.5879120879120879">
+                     <color>
+                        <Color red="0.8299999833106995" green="0.12449999898672104" blue="0.12449999898672104" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <TableView fx:id="tablerec" layoutX="79.0" layoutY="283.0" onMouseClicked="#fnSelected" prefHeight="234.0" prefWidth="942.0">
+        <columns>
+            <TableColumn fx:id="lbId" prefWidth="48.79998779296875" text="Id" />
+            <TableColumn fx:id="lbDateCrea" prefWidth="199.99996948242188" text="Date création" />
+            <TableColumn fx:id="lbDateTrai" prefWidth="222.4000244140625" text="Date traitement" />
+            <TableColumn fx:id="lbType" minWidth="0.0" prefWidth="251.20001220703125" text="Type" />
+            <TableColumn fx:id="lbStatus" minWidth="8.00006103515625" prefWidth="220.79998779296875" text="Status" />
+        </columns>
+      </TableView>
+      <Pane layoutY="78.0" prefHeight="6.0" prefWidth="1102.0" style="-fx-background-color: black;" />
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+      <HBox layoutX="836.0" layoutY="30.0">
+         <children>
+            <HBox />
+         </children>
+      </HBox>
+<<<<<<< HEAD
+      <Button fx:id="btnajt" layoutX="868.0" layoutY="298.0" mnemonicParsing="false" onAction="#ajoutreclamation" prefHeight="44.0" prefWidth="194.0" stylesheets="@style.css" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></Button>
+      <Button fx:id="btnmdf" layoutX="868.0" layoutY="472.0" mnemonicParsing="false" onAction="#modifierreclamation" prefHeight="37.0" prefWidth="194.0" stylesheets="@style.css" text="Modifier" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></Button>
+      <Button fx:id="btnsuppr" layoutX="868.0" layoutY="387.0" mnemonicParsing="false" onAction="#supprReclamation" prefHeight="44.0" prefWidth="194.0" stylesheets="@style.css" text="Suprimer" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass>
+=======
+      <Button fx:id="btnajt" layoutX="127.0" layoutY="589.0" mnemonicParsing="false" onAction="#ajoutreclamation" prefHeight="44.0" prefWidth="194.0" style="-fx-background-color: green;" text="Ajouter">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6941176652908325" green="0.6274510025978088" blue="0.5803921818733215" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+      <Button fx:id="btnmdf" layoutX="788.0" layoutY="589.0" mnemonicParsing="false" onAction="#modifierreclamation" prefHeight="37.0" prefWidth="194.0" style="-fx-background-color: green;" text="Modifier">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6941176652908325" green="0.6274510025978088" blue="0.5803921818733215" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+      <Button fx:id="btnsuppr" layoutX="454.0" layoutY="589.0" mnemonicParsing="false" onAction="#supprReclamation" prefHeight="44.0" prefWidth="194.0" style="-fx-background-color: green;" text="Suprimer">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6941176652908325" green="0.6274510025978088" blue="0.5803921818733215" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+      </Button>
+      <Label fx:id="lbTitreDesc" layoutX="43.0" layoutY="159.0" prefHeight="59.0" prefWidth="167.0" text="Description:" textAlignment="RIGHT">
+         <font>
+            <Font name="System Bold Italic" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbDesc" layoutX="215.0" layoutY="164.0" prefHeight="108.0" prefWidth="807.0" text="ici message du reclamation" textAlignment="RIGHT">
+         <font>
+            <Font name="System Italic" size="17.0" />
+         </font>
+      </Label>
+<<<<<<< HEAD
+      <TextField fx:id="tfSearch" layoutX="256.0" layoutY="99.0" prefHeight="44.0" prefWidth="437.0" promptText="veuillez saisir quelques chiffres" />
+=======
+      <TextField fx:id="tfSearch" layoutX="256.0" layoutY="99.0" prefHeight="44.0" prefWidth="306.0" promptText="veuillez saisir quelques chiffres" />
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+      <Label layoutX="48.0" layoutY="92.0" prefHeight="57.0" prefWidth="166.0" text="Rechercher :">
+         <font>
+            <Font name="System Bold Italic" size="29.0" />
+         </font>
+      </Label>
+<<<<<<< HEAD
+      <ImageView fx:id="ImgView" fitHeight="226.0" fitWidth="277.0" layoutX="793.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="IdId" layoutX="29.0" layoutY="92.0" visible="false" />
+      <Label fx:id="lbiduser" layoutX="117.0" layoutY="30.0" visible="false" />
+=======
+      <ImageView fx:id="ImgView" fitHeight="191.0" fitWidth="306.0" layoutX="792.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="IdId" layoutX="29.0" layoutY="92.0" visible="false" />
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+   </children>
+</AnchorPane>

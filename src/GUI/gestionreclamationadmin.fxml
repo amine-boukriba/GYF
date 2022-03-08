@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<<<<<<< HEAD
+<?import java.lang.String?>
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<<<<<<< HEAD
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="566.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GestionreclamationadminController">
+   <children>
+      <TableView fx:id="tablerec" layoutX="12.0" layoutY="209.0" onMouseClicked="#fnSelected" prefHeight="224.0" prefWidth="758.0" styleClass="transparent" stylesheets="@style.css">
+        <columns>
+          <TableColumn fx:id="ColId" minWidth="0.0" prefWidth="0.0" text="id" />
+          <TableColumn fx:id="nom" prefWidth="89.59997272491455" text="nom" />
+            <TableColumn fx:id="prenom" prefWidth="114.4000244140625" text="Prenom" />
+            <TableColumn fx:id="mail" prefWidth="123.20001220703125" text="Email" />
+            <TableColumn fx:id="dc" prefWidth="116.0" text="Date création" />
+            <TableColumn fx:id="dt" prefWidth="108.7999267578125" text="Date traitement" />
+            <TableColumn fx:id="type" text="Type" />
+            <TableColumn fx:id="status" prefWidth="62.4000244140625" text="Status" />
+        </columns>
+      </TableView>
+=======
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="566.0" prefWidth="1103.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GestionreclamationadminController">
+   <children>
+      <Label prefHeight="59.0" prefWidth="1102.0" text="                                   Gestion reclamation" textAlignment="RIGHT">
+         <font>
+            <Font size="41.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5969162911570545" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.8315789699554443" green="0.1201169565320015" blue="0.1201169565320015" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.5879120879120879">
+                     <color>
+                        <Color red="0.8299999833106995" green="0.12449999898672104" blue="0.12449999898672104" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <TableView fx:id="tablerec" layoutX="12.0" layoutY="256.0" onMouseClicked="#fnSelected" prefHeight="234.0" prefWidth="1078.0">
+        <columns>
+          <TableColumn fx:id="ColId" prefWidth="45.60000705718994" text="id" />
+          <TableColumn fx:id="nom" prefWidth="128.79998397827148" text="nom" />
+            <TableColumn fx:id="prenom" prefWidth="102.4000244140625" text="Prenom" />
+            <TableColumn fx:id="mail" prefWidth="187.19998168945312" text="Email" />
+            <TableColumn fx:id="dc" prefWidth="160.0" text="Date création" />
+            <TableColumn fx:id="dt" prefWidth="164.79998779296875" text="Date traitement" />
+            <TableColumn fx:id="type" prefWidth="148.7999267578125" text="Type" />
+            <TableColumn fx:id="status" prefWidth="146.40008544921875" text="Status" />
+        </columns>
+      </TableView>
+      <Pane layoutY="78.0" prefHeight="6.0" prefWidth="1102.0" style="-fx-background-color: black;" />
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+      <HBox layoutX="836.0" layoutY="30.0">
+         <children>
+            <HBox />
+         </children>
+      </HBox>
+<<<<<<< HEAD
+      <Button fx:id="btnajt" layoutX="34.0" layoutY="505.0" mnemonicParsing="false" onAction="#ajouterreclamation" prefHeight="40.0" prefWidth="308.0" stylesheets="@style.css" text="Répondre" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="search-button" />
+         </styleClass></Button>
+      <TextField fx:id="valrecherche" layoutX="201.0" layoutY="59.0" prefHeight="26.0" prefWidth="430.0" promptText="Veuillez saisir quelques chiffres" />
+      <ImageView fx:id="ImageView" fitHeight="164.0" fitWidth="204.0" layoutX="638.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lbTitreDesc" layoutX="36.0" layoutY="90.0" prefHeight="59.0" prefWidth="149.0" text="Description:" textAlignment="RIGHT" visible="false">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbDesc" layoutX="201.0" layoutY="90.0" prefHeight="82.0" prefWidth="430.0" textAlignment="RIGHT">
+=======
+      <Button fx:id="btnajt" layoutX="27.0" layoutY="505.0" mnemonicParsing="false" onAction="#ajouterreclamation" prefHeight="40.0" prefWidth="308.0" style="-fx-background-color: green;" text="Répondre">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+      <TextField fx:id="valrecherche" layoutX="270.0" layoutY="206.0" prefHeight="26.0" prefWidth="322.0" promptText="Veuillez saisir quelques chiffres" />
+      <ImageView fx:id="ImageView" fitHeight="164.0" fitWidth="194.0" layoutX="755.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lbTitreDesc" layoutX="80.0" layoutY="90.0" prefHeight="59.0" prefWidth="167.0" text="Description:" textAlignment="RIGHT" visible="false">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbDesc" layoutX="252.0" layoutY="95.0" prefHeight="108.0" prefWidth="807.0" textAlignment="RIGHT">
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="IdId" layoutX="27.0" layoutY="13.0" visible="false" />
+<<<<<<< HEAD
+      <Label layoutX="39.0" layoutY="54.0" text="Rechercher : ">
+=======
+      <Label layoutX="58.0" layoutY="201.0" text="Rechercher : ">
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbemail" layoutX="224.0" layoutY="30.0" visible="false" />
+<<<<<<< HEAD
+      <Button fx:id="btnHist" layoutX="456.0" layoutY="505.0" mnemonicParsing="false" onAction="#bntHistory" prefHeight="37.0" prefWidth="308.0" stylesheets="@style.css" text="Historique" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></Button>
+=======
+      <Button fx:id="btnHist" layoutX="765.0" layoutY="505.0" mnemonicParsing="false" onAction="#bntHistory" prefHeight="37.0" prefWidth="308.0" style="-fx-background-color: green;" text="Historique">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+   </children>  
+</AnchorPane>

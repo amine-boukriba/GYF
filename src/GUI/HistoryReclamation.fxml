@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<<<<<<< HEAD
+<?import java.lang.String?>
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HistoryReclamationController">
+   <children>
+<<<<<<< HEAD
+      <TableView fx:id="tvhist" layoutX="75.0" layoutY="56.0" prefHeight="413.0" prefWidth="650.0" stylesheets="@style.css">
+        <columns>
+          <TableColumn fx:id="Cl_Id" minWidth="0.0" prefWidth="0.0" text="id reponse" />
+          <TableColumn fx:id="Cl_Rec" minWidth="0.0" prefWidth="0.0" text="id reclamation" />
+            <TableColumn fx:id="Cl_Type" prefWidth="368.79998779296875" text="Type" />
+            <TableColumn fx:id="Cl_Message" prefWidth="282.0" text="message" />
+        </columns>
+      </TableView>
+      <Button fx:id="BtnRetour" layoutX="343.0" layoutY="498.0" mnemonicParsing="false" onAction="#fnRetour" prefHeight="49.0" prefWidth="113.0" stylesheets="@style.css" text="Retour">
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></Button>
+=======
+      <TableView fx:id="tvhist" layoutX="71.0" layoutY="109.0" prefHeight="413.0" prefWidth="650.0">
+        <columns>
+          <TableColumn fx:id="Cl_Id" prefWidth="75.0" text="id reponse" />
+          <TableColumn fx:id="Cl_Rec" prefWidth="123.0" text="id reclamation" />
+            <TableColumn fx:id="Cl_Type" prefWidth="169.0" text="Type" />
+            <TableColumn fx:id="Cl_Message" prefWidth="282.0" text="message" />
+        </columns>
+      </TableView>
+      <Button fx:id="BtnRetour" layoutX="45.0" layoutY="36.0" mnemonicParsing="false" onAction="#fnRetour" prefHeight="49.0" prefWidth="113.0" text="Retour" />
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+   </children>
+</AnchorPane>

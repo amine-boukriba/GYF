@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package services;
 
-/**
- *
- * @author anwer
- */
 import entities.Espace_culturels;
 import entities.Monuments;
 import java.sql.Connection;
@@ -121,6 +112,28 @@ public class ServiceMonuments implements IService<Monuments> {
         }
         return list;
     }
+     
+    public List<Monuments> listnom() {
+        List <Monuments> list = new ArrayList<>();
+        try {
+            String req="select nom_monument from monuments";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                Monuments m = new Monuments();
+               
+                m.setNom_monument(rs.getString("nom_monument"));
+                list.add(m);
+                
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
     
      public List<Monuments>  rechercherParNom(String nom_monument){
         List<Monuments> list1 =new ArrayList<>();
@@ -149,6 +162,7 @@ public class ServiceMonuments implements IService<Monuments> {
     }
    return list1;
     }
+
      public List<Monuments> getMonumentsById(int id){
          List <Monuments> list = new ArrayList<>();
         try{
@@ -156,6 +170,7 @@ public class ServiceMonuments implements IService<Monuments> {
             Statement st = cnx.createStatement();
             ResultSet rs =st.executeQuery(req);
             while(rs.next()){
+              
               Monuments m =new Monuments();
                 m.setId_monument(rs.getInt("id_monument"));
                 m.setNom_monument(rs.getString("nom_monument"));
@@ -167,6 +182,7 @@ public class ServiceMonuments implements IService<Monuments> {
                 m.setPays(rs.getString("pays"));
                 m.setLocalisation(rs.getString("localisation"));
                 m.setAvis_monument(rs.getInt("avis_monument"));
+
                 list.add(m);
                 
        
@@ -174,10 +190,9 @@ public class ServiceMonuments implements IService<Monuments> {
         } catch (SQLException ex) {
         Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
     }
+
    return list;
      }
     }
-
-    
 
    

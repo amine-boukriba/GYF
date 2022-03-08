@@ -6,8 +6,7 @@
 package entities;
 
 /**
- *
- * @author anwer
+
  */
 public class Espace_culturels{
      private int id_espace;

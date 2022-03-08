@@ -5,10 +5,7 @@
  */
 package services;
 
-/**
- *
- * @author anwer
- */
+
 import entities.Espace_culturels;
 import entities.Monuments;
 
@@ -160,6 +157,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
     }
     
 
+
     public List<Espace_culturels> getEspace_culturelsById(int id) {
         Espace_culturels est = new Espace_culturels();
         List<Espace_culturels> list = new ArrayList<>();
@@ -182,7 +180,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
                 est.setDescription(rs.getString("description"));
                 est.setAvis_espace(rs.getInt("avis_espace"));
                 list.add(est);
-                System.out.println("test");
+
                 
                 
                 
@@ -190,6 +188,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
         } catch (SQLException ex) {
             Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return list;
     }
     }
