@@ -131,5 +131,6 @@ public class Monuments {
         return "Monument{" + "id_monument=" + id_monument + ", nom_monument=" + nom_monument + ", image_monument=" + image_monument + ", payant=" + payant + ", prix=" + prix + ", description=" + description + ", date_creation=" + date_creation + ", pays=" + pays + ", localisation=" + localisation + ", avis_monument=" + avis_monument + '}';
     }
     
-     
-}
+
+} 
+

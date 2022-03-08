@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="432.0" prefWidth="1191.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OfferInterfaceController">
+    <children>
+      <HBox layoutX="14.0" layoutY="18.0" prefHeight="413.0" prefWidth="200.0">
+         <children>
+            <VBox prefHeight="355.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="101.0" text="titre">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="depart">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="destination">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="date_debut">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="date_fin">
+                     <VBox.margin>
+                        <Insets top="17.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="nombre_nuits">
+                     <VBox.margin>
+                        <Insets top="17.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="description">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="prix">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="image_offer">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="avis_offer">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="label_id" text="Id" visible="false">
+                     <VBox.margin>
+                        <Insets top="17.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TextField fx:id="titre">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="depart">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="destination">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <DatePicker fx:id="date_debut">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <DatePicker fx:id="date_fin">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <TextField fx:id="nb_nuit">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="description">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="prix">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="image_offer">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#saveImage" prefHeight="26.0" prefWidth="103.0" text="chosir image">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <TextField fx:id="avis_offer">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="input_id" visible="false">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <TableView fx:id="tab_offer" layoutX="223.0" layoutY="14.0" onMouseClicked="#getValues" prefHeight="326.0" prefWidth="790.0">
+         <columns>
+            <TableColumn fx:id="tab_titre" prefWidth="120.0" text="titre" />
+            <TableColumn fx:id="tab_depart" prefWidth="67.20001220703125" text="depart" />
+            <TableColumn fx:id="tab_dest" prefWidth="84.79998779296875" text="destination" />
+            <TableColumn fx:id="tabd_dat_debut" prefWidth="82.39996337890625" text="date_debut" />
+            <TableColumn fx:id="tab_date_fin" prefWidth="76.0" text="date_fin" />
+            <TableColumn fx:id="tab_nb_nuit" prefWidth="50.39996337890625" text="nombre_nuits" />
+            <TableColumn fx:id="tab_description" prefWidth="56.0" text="description" />
+            <TableColumn fx:id="tab_prix" prefWidth="80.00006103515625" text="prix" />
+            <TableColumn id="tab_idg_vol" fx:id="tab_img_offer" prefWidth="83.199951171875" text="image_offer" />
+            <TableColumn id="tab_avi_vol" fx:id="tab_avis" prefWidth="86.40008544921875" text="avis_offer" />
+         </columns>
+      </TableView>
+      <Button fx:id="btn_ajout" layoutX="313.0" layoutY="371.0" mnemonicParsing="false" onAction="#ajouter" text="ajouter" />
+      <Button fx:id="btn_modif" layoutX="428.0" layoutY="371.0" mnemonicParsing="false" onAction="#modifier" text="modifier" />
+      <Button fx:id="btn_sup" layoutX="565.0" layoutY="371.0" mnemonicParsing="false" onAction="#supprime" text="supprime" />
+   </children>
+</AnchorPane>

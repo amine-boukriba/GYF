@@ -22,7 +22,7 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author akram
+
  */
 public class TemplateController implements Initializable {
 
@@ -32,6 +32,8 @@ public class TemplateController implements Initializable {
     private JFXButton listemonument;
     @FXML
     private JFXButton statistique;
+
+    private JFXButton repondre;
     @FXML
     private Label Menu;
     @FXML
@@ -42,6 +44,8 @@ public class TemplateController implements Initializable {
     private JFXButton monument;
     @FXML
     private JFXButton espace;
+
+    private JFXButton reclamation;
     @FXML
     private AnchorPane view;
 
@@ -82,6 +86,15 @@ public class TemplateController implements Initializable {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("MonumentAdmin.fxml"));
+
+      @FXML
+    private void gotoreclamation() {
+        view.getChildren().clear();
+         reclamation.setOnMouseClicked(event -> {
+             
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("gestionreclamationadmin.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 view.getChildren().add(anchorPane);
             } catch (IOException ex) {
@@ -112,5 +125,10 @@ public class TemplateController implements Initializable {
         });
     }
     
+    
+
+        });
+
+    }
     
 }

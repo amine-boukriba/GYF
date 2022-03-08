@@ -6,8 +6,7 @@
 package entities;
 
 /**
- *
- * @author akram
+
  */
 public class Espace_culturels{
      private int id_espace;
@@ -149,3 +148,4 @@ public class Espace_culturels{
      
      
 }
+

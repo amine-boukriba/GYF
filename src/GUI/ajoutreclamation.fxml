@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<<<<<<< HEAD
+<?import java.lang.String?>
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutreclamationController">
+   <children>
+      <Label layoutX="62.0" layoutY="35.0" text="nom:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="380.0" layoutY="35.0" text="Email:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="62.0" layoutY="75.0" text="prenom:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <TextField fx:id="nomtxtfield" layoutX="137.0" layoutY="31.0" promptText="nom" />
+      <TextField fx:id="mailtxtfield" layoutX="434.0" layoutY="31.0" prefHeight="26.0" prefWidth="188.0" promptText="***********@*******.com" />
+      <TextField fx:id="prenomtxtfield" layoutX="137.0" layoutY="71.0" promptText="prenom" />
+      <ChoiceBox fx:id="typerec" layoutX="137.0" layoutY="127.0" prefWidth="150.0" />
+      <Label layoutX="71.0" layoutY="131.0" prefHeight="17.0" prefWidth="38.0" text="Nom :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+<<<<<<< HEAD
+      <TextField fx:id="sujetrec" layoutX="124.0" layoutY="238.0" prefHeight="66.0" prefWidth="234.0" promptText="Sujet de votre reclamation*" />
+=======
+      <TextField fx:id="sujetrec" layoutX="109.0" layoutY="238.0" prefHeight="66.0" prefWidth="234.0" promptText="Sujet de votre reclamation*" />
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+      <ImageView fitHeight="109.0" fitWidth="124.0" layoutX="380.0" layoutY="129.0" pickOnBounds="true" smooth="false" />
+      <ImageView fitHeight="32.0" fitWidth="45.0" layoutX="343.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/email.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="78.0" layoutX="14.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/listeReclamations.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbNomImage" layoutX="10.0" layoutY="149.0" prefHeight="38.0" prefWidth="518.0" textFill="#ac1f1f">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="38.0" fitWidth="44.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/nom.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="32.0" layoutX="20.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/prenom.png" />
+         </image>
+      </ImageView>
+<<<<<<< HEAD
+      <Label layoutX="15.0" layoutY="258.0" prefHeight="26.0" prefWidth="98.0" text="Description:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+=======
+      <Label layoutX="4.0" layoutY="258.0" prefHeight="26.0" prefWidth="83.0" text="Description" />
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+      <ImageView fitHeight="45.0" fitWidth="38.0" layoutX="17.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/sujet.png" />
+         </image>
+      </ImageView>
+<<<<<<< HEAD
+      <Button fx:id="btnenvoyer" layoutX="480.0" layoutY="419.0" mnemonicParsing="false" onAction="#insert" prefHeight="38.0" prefWidth="132.0" stylesheets="@style.css" text="Envoyer" textFill="#fcfcfc">
+=======
+      <Button fx:id="btnenvoyer" layoutX="480.0" layoutY="419.0" mnemonicParsing="false" onAction="#insert" prefHeight="38.0" prefWidth="132.0" style="-fx-background-color: green;" text="Envoyer">
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="0.800806999206543" green="0.9157894849777222" blue="0.5325146317481995" />
+               </color>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font>
+<<<<<<< HEAD
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass>
+=======
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6941176652908325" green="0.6274510025978088" blue="0.5803921818733215" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+      </Button>
+      <Pane layoutX="64.0" layoutY="372.0" prefHeight="3.0" prefWidth="501.0" style="-fx-background-color: black;" />
+      <Button fx:id="btnImage" layoutX="434.0" layoutY="111.0" mnemonicParsing="false" onAction="#InsertImage" prefHeight="40.0" prefWidth="188.0" style="-fx-background-color: green;" text="Ajouter une Image">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6941176652908325" green="0.6274510025978088" blue="0.5803921818733215" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <ImageView fx:id="ImageView" fitHeight="150.0" fitWidth="200.0" layoutX="428.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" />
+<<<<<<< HEAD
+      <Button fx:id="retour" layoutX="90.0" layoutY="419.0" mnemonicParsing="false" onAction="#fnretour" prefHeight="38.0" prefWidth="132.0" stylesheets="@style.css" text="Retour" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="0.800806999206543" green="0.9157894849777222" blue="0.5325146317481995" />
+               </color>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="search-button" />
+         </styleClass>
+      </Button>
+=======
+>>>>>>> c7fcde50ff82a7025c9917e62c749d6eec95001a
+   </children>
+</AnchorPane>

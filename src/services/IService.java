@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author akram
+
  */
 public interface IService<T> {
     
@@ -17,5 +17,6 @@ public interface IService<T> {
     public void modifier(T t);
     public void supprime(int id);
     public List<T> affiche();
-    
+
+
 }

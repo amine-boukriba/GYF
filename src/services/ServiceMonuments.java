@@ -98,6 +98,7 @@ public class ServiceMonuments implements IService<Monuments> {
     }
     
 
+
     @Override
     public List<Monuments> affiche() {
         List <Monuments> list = new ArrayList<>();
@@ -128,6 +129,29 @@ public class ServiceMonuments implements IService<Monuments> {
         }
         return list;
     }
+
+     
+    public List<Monuments> listnom() {
+        List <Monuments> list = new ArrayList<>();
+        try {
+            String req="select nom_monument from monuments";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                Monuments m = new Monuments();
+               
+                m.setNom_monument(rs.getString("nom_monument"));
+                list.add(m);
+                
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
     
      public List<Monuments>  rechercherParNom(String nom_monument){
         List<Monuments> list1 =new ArrayList<>();
@@ -156,16 +180,20 @@ public class ServiceMonuments implements IService<Monuments> {
     }
    return list1;
     }
-     public Monuments getMonumentsById(int id){
-         Monuments m =new Monuments();
+
+
+     public List<Monuments> getMonumentsById(int id){
+         List <Monuments> list = new ArrayList<>();
         try{
             String req ="select * from monuments where id_monument="+id+"";
             Statement st = cnx.createStatement();
             ResultSet rs =st.executeQuery(req);
             while(rs.next()){
               
+
+              Monuments m =new Monuments();
                 m.setId_monument(rs.getInt("id_monument"));
-                m.setNom_monument(rs.getString("nom_monid_monumument"));
+                m.setNom_monument(rs.getString("nom_monument"));
                 m.setImage_monument(rs.getString("image_monument"));
                 m.setPayant(rs.getBoolean("payant"));
                 m.setPrix(rs.getInt("prix"));
@@ -174,23 +202,19 @@ public class ServiceMonuments implements IService<Monuments> {
                 m.setPays(rs.getString("pays"));
                 m.setLocalisation(rs.getString("localisation"));
                 m.setAvis_monument(rs.getInt("avis_monument"));
-                
+
+
+                list.add(m);
                 
        
     }
         } catch (SQLException ex) {
         Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
     }
-   return m;
+
+
+   return list;
      }
     }
 
-    
-
    
-
-   
-
-   
-    
-
