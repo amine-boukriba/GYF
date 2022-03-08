@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="recherchepannel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="862.0" style="-fx-border-color: green;" stylesheets="@../pictures/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RechercherEventsController">
+   <children>
+     
+      <VBox layoutX="21.0" layoutY="113.0" prefHeight="192.0" prefWidth="230.0" spacing="65.0">
+         <children>
+            <TextField fx:id="nom_evenement" prefHeight="39.0" prefWidth="230.0" promptText="Rechercher" style="-fx-background-color: white;" styleClass="transparent" stylesheets="@../pictures/style.css">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </TextField>
+         </children>
+      </VBox>
+      <Button fx:id="rechercher" layoutX="316.0" layoutY="124.0" mnemonicParsing="false" onAction="#SearchEvent" prefHeight="35.0" prefWidth="123.0" stylesheets="@../pictures/style.css" text="Rechercher" textAlignment="RIGHT">
+         <styleClass>
+            <String fx:value="transparent" />
+            <String fx:value="shadow" />
+            <String fx:value="search-button" />
+         </styleClass>
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Label layoutX="21.0" layoutY="53.0" prefHeight="26.0" prefWidth="200.0" text="Trouver un évenement" textAlignment="RIGHT">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03263157978653908" green="0.9789473414421082" blue="0.33229824900627136" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <VBox layoutX="551.0" layoutY="219.0" prefHeight="200.0" prefWidth="100.0" />
+      <TableView id="search_Event_table " fx:id="table_events" layoutX="75.0" layoutY="305.0" prefHeight="262.0" prefWidth="727.0" stylesheets="@../pictures/style.css">
+        <columns>
+          <TableColumn id="Event" fx:id="nom_event" prefWidth="84.79998779296875" text="Evenement" />
+          <TableColumn fx:id="type_event" prefWidth="72.800048828125" text="Catégorie" />
+            <TableColumn fx:id="date_debut_event" prefWidth="84.79998779296875" text="Date_début" />
+            <TableColumn fx:id="date_fin_event" prefWidth="93.5999755859375" text="Date_fin" />
+            <TableColumn fx:id="prix_event" prefWidth="81.60003662109375" text="Prix" />
+            <TableColumn fx:id="pays_event" prefWidth="87.199951171875" text="Pays" />
+            <TableColumn fx:id="localisation_event" prefWidth="128.0" text="Localisation" />
+            <TableColumn fx:id="gotobtn" minWidth="0.0" prefWidth="0.0" />
+        </columns>
+         <effect>
+            <ColorAdjust brightness="-0.22" contrast="0.09" hue="-0.13" saturation="-0.15" />
+         </effect>
+         
+            </TableView>
+      <ImageView fitHeight="249.0" fitWidth="292.0" layoutX="518.0" layoutY="66.0" opacity="0.22" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/events.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

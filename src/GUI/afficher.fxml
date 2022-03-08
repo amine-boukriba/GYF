@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane layoutX="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficherController">
+    <children>
+      <TableView id="search_Event_table " fx:id="table_events" layoutX="14.0" layoutY="119.0" prefHeight="383.0" prefWidth="677.0" stylesheets="@../pictures/style.css">
+        <columns>
+          <TableColumn id="Event" fx:id="nom_event" prefWidth="90.39999389648438" text="Evénément" />
+          <TableColumn fx:id="type_event" prefWidth="76.0" text="Catégorie" />
+            <TableColumn fx:id="date_debut_event" prefWidth="95.20001220703125" text="Date Début" />
+            <TableColumn fx:id="date_fin_event" prefWidth="81.5999755859375" text="Date Fin" />
+            <TableColumn fx:id="prix_event" prefWidth="87.20004272460938" text="Prix" />
+            <TableColumn fx:id="pays_event" prefWidth="76.79998779296875" text="Pays" />
+            <TableColumn fx:id="localisation_event" prefWidth="85.5999755859375" text="Localisation" />
+        </columns>
+         <effect>
+            <ColorAdjust brightness="-0.22" contrast="0.09" hue="-0.13" saturation="-0.15" />
+         </effect>
+        
+      </TableView>
+      <VBox layoutY="140.0" prefHeight="200.0" prefWidth="100.0" />
+      <Label layoutX="324.0" layoutY="54.0" prefHeight="26.0" prefWidth="227.0" text="Calendrier des Evenements" textAlignment="RIGHT">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03263157978653908" green="0.9789473414421082" blue="0.33229824900627136" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ImageView fx:id="imagev" fitHeight="150.0" fitWidth="180.0" layoutX="712.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

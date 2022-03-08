@@ -5,6 +5,7 @@
  */
 package entities;
 
+
 import java.sql.Date;
 
 /**
@@ -21,6 +22,15 @@ public class Evenement {
      private Date date_debut;
      private Date date_fin;
      private String pays;
+     private int  prix;
+     private int nbre_participants;
+     private String localisation;
+     public Evenement() {
+    }
+     public Evenement(int id_evenement) {
+        this.id_evenement = id_evenement;
+    }
+
      private int nbre_participants;
      private int  prix;
      
@@ -45,6 +55,7 @@ public class Evenement {
         this.nbre_participants = nbre_participants;
         this.localisation=localisation;
     }
+
 
     public Evenement(int id_evenement, String nom, String description, String type,String localisation, String image, Date date_debut, Date date_fin, String pays, int prix, int nbre_participants) {
         this.id_evenement = id_evenement;
@@ -150,6 +161,8 @@ public class Evenement {
     public void setLocalisation(String localisation) {
         this.localisation = localisation;
     }
+
+
 
     @Override
     public String toString() {

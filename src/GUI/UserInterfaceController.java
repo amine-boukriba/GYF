@@ -19,6 +19,21 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * FXML Controller class
+ *
+ * @author omarb
+ */
+public class UserInterfaceController implements Initializable {
+
+    @FXML
+    private AnchorPane view;
+    @FXML
+    private ImageView Exit;
+    @FXML
+    private JFXButton Eventss;
+    @FXML
+
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
@@ -68,6 +83,13 @@ public class UserInterfaceController implements Initializable {
     private Label MenuClose;
     @FXML
     private AnchorPane slider;
+    @FXML
+    private JFXButton Events;
+    @FXML
+    private JFXButton btn_calendar;
+    @FXML
+    private JFXButton btn_search;
+
 
     @FXML
 
@@ -90,6 +112,43 @@ public class UserInterfaceController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
+            // TODO
+            
+            view.getChildren().clear();
+            
+            
+            
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("afficher.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+            view.getChildren().add(anchorPane);
+        } catch (IOException ex) {
+            Logger.getLogger(UserInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }    
+
+   
+
+
+    @FXML
+    private void gotoEventss() {
+          view.getChildren().clear();
+         Eventss.setOnMouseClicked(event -> {
+            
+          
+              try {
+                  FXMLLoader fxmlLoader = new FXMLLoader();
+                  fxmlLoader.setLocation(getClass().getResource("afficher.fxml"));
+                  AnchorPane anchorPane = fxmlLoader.load();
+                  view.getChildren().add(anchorPane);
+              } catch (IOException ex) {
+                  Logger.getLogger(UserInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+              }
+            
+             
+
         // TODO
     }    
 
@@ -114,6 +173,23 @@ public class UserInterfaceController implements Initializable {
              
         });
     }
+
+    @FXML
+    private void gotoevents() {
+         view.getChildren().clear();
+         Events.setOnMouseClicked(event -> {
+            
+          
+              try {
+                  FXMLLoader fxmlLoader = new FXMLLoader();
+                  fxmlLoader.setLocation(getClass().getResource("afficher.fxml"));
+                  AnchorPane anchorPane = fxmlLoader.load();
+                  view.getChildren().add(anchorPane);
+              } catch (IOException ex) {
+                  Logger.getLogger(UserInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+              }
+            
+             
 
    
 
@@ -140,6 +216,45 @@ public class UserInterfaceController implements Initializable {
     }
 
     @FXML
+    private void gotocalendar() {
+            view.getChildren().clear();
+         btn_calendar.setOnMouseClicked(event -> {
+            
+          
+              try {
+                  FXMLLoader fxmlLoader = new FXMLLoader();
+                  fxmlLoader.setLocation(getClass().getResource("afficher.fxml"));
+                  AnchorPane anchorPane = fxmlLoader.load();
+                  view.getChildren().add(anchorPane);
+              } catch (IOException ex) {
+                  Logger.getLogger(UserInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+              }
+            
+             
+             
+        });
+    }
+
+    @FXML
+    private void searchevents() {
+            view.getChildren().clear();
+         btn_search.setOnMouseClicked(event -> {
+            
+          
+              try {
+                  FXMLLoader fxmlLoader = new FXMLLoader();
+                  fxmlLoader.setLocation(getClass().getResource("rechercherEvents.fxml"));
+                  AnchorPane anchorPane = fxmlLoader.load();
+                  view.getChildren().add(anchorPane);
+              } catch (IOException ex) {
+                  Logger.getLogger(UserInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+              }
+            
+             
+             
+        });
+    }
+
     private void gotoespace() {
         view.getChildren().clear();
          espace.setOnMouseClicked(event -> {

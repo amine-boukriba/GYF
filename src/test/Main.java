@@ -5,7 +5,6 @@
  * and open the template in the editor.
  */
 package test;
-
 import com.stripe.exception.StripeException;
 import entities.Bateaux;
 import entities.Images;

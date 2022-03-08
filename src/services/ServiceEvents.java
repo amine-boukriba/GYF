@@ -5,10 +5,7 @@
  */
 package services;
 
-/**
- *
- * @author anwer
- */
+
 import entities.Evenement;
 import java.sql.SQLException;
 import java.util.List;
@@ -62,7 +59,10 @@ public class ServiceEvents implements IService<Evenement> {
         ps.setInt(9, t.getNbre_participants());
         ps.setInt(10, t.getPrix());
         ps.setInt(11,t.getId_event());
+        System.out.println(ps);
         ps.executeUpdate();
+        System.out.println(ps);
+
         } catch (SQLException ex) {
             Logger.getLogger(ServiceEvents.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -78,6 +78,7 @@ public class ServiceEvents implements IService<Evenement> {
                 System.out.println(ps);
 
         ps.setInt(1, id);
+
                         System.out.println(ps);
 
         ps.executeUpdate();
@@ -118,6 +119,7 @@ public class ServiceEvents implements IService<Evenement> {
        
        
     }
+
     public List<Evenement> getById(int id ){
         List<Evenement> list = new ArrayList<>();
         try {
@@ -138,6 +140,7 @@ public class ServiceEvents implements IService<Evenement> {
                 E.setPays(rs.getString("pays"));
                 E.setNbre_participants(rs.getInt("nombre_participants"));
                 E.setPrix(rs.getInt("prix"));
+
                 list.add(E);
             }
         } catch (SQLException ex) {
