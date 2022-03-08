@@ -1,6 +1,12 @@
 package entities;
 
 
+
+
+/**
+ *
+ * @author anwer
+ */
 public class Monuments {
      private int id_monument;
      private String nom_monument;
@@ -132,3 +138,4 @@ public class Monuments {
     
      
 } 
+

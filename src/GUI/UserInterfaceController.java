@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -25,14 +26,16 @@ import utils.Globals;
 /**
  * FXML Controller class
  *
- * @author omarb
+ * @author anwer
  */
 public class UserInterfaceController implements Initializable {
 
+    static UserInterfaceController userinterface;
     @FXML
-    private AnchorPane view;
+    public AnchorPane view;
     @FXML
-    private ImageView exit;
+    private ImageView Exit;
+
     @FXML
     private JFXButton hotel3;
     @FXML
@@ -40,6 +43,10 @@ public class UserInterfaceController implements Initializable {
     @FXML
     private JFXButton stat;
     @FXML
+
+    private JFXButton btn_vol;
+    @FXML
+
     private JFXButton hotel;
     @FXML
     private JFXButton hotel1;
@@ -50,16 +57,27 @@ public class UserInterfaceController implements Initializable {
     @FXML
     private JFXButton changePassword;
     @FXML
+
     private Label Menu;
     @FXML
     private Label MenuClose;
     @FXML
     private AnchorPane slider;
     @FXML
+
+    private JFXButton btn_bateau;
+    @FXML
+    private JFXButton btn_offer;
+    @FXML
+    private JFXButton btn_plan;
+    @FXML
+    private JFXButton btn_vols;
+
     private JFXButton restoM;
     @FXML
     private JFXButton sign_out;
     Globals global=new Globals();
+
 
     /**
      * Initializes the controller class.
@@ -67,6 +85,7 @@ public class UserInterfaceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        userinterface=this;
     }    
 
     @FXML
@@ -82,6 +101,80 @@ public class UserInterfaceController implements Initializable {
     }
 
     @FXML
+    private void getVols() {
+        view.getChildren().clear();
+         btn_vols.setOnMouseClicked(event -> {
+             try {
+                 FXMLLoader fxmlLoader = new FXMLLoader();
+                 fxmlLoader.setLocation(getClass().getResource("VolClientInterface.fxml"));
+                 AnchorPane anchorPane = fxmlLoader.load();
+                 view.getChildren().add(anchorPane);
+             } catch (IOException ex) {
+                 Logger.getLogger(AdminInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        });
+    }
+
+    @FXML
+    private void getBateau() {
+        view.getChildren().clear();
+         btn_bateau.setOnMouseClicked(event -> {
+             try {
+                 FXMLLoader fxmlLoader = new FXMLLoader();
+                 fxmlLoader.setLocation(getClass().getResource("BateauxClientInterface.fxml"));
+                 AnchorPane anchorPane = fxmlLoader.load();
+                 view.getChildren().add(anchorPane);
+             } catch (IOException ex) {
+                 Logger.getLogger(AdminInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        });
+    }
+
+    @FXML
+    private void getOffer() {
+        view.getChildren().clear();
+         btn_offer.setOnMouseClicked(event -> {
+             try {
+                 FXMLLoader fxmlLoader = new FXMLLoader();
+                 fxmlLoader.setLocation(getClass().getResource("OfferClientInterface.fxml"));
+                 AnchorPane anchorPane = fxmlLoader.load();
+                 view.getChildren().add(anchorPane);
+             } catch (IOException ex) {
+                 Logger.getLogger(AdminInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        });
+    }
+
+    @FXML
+    private void getPlan() {
+        view.getChildren().clear();
+         btn_plan.setOnMouseClicked(event -> {
+             try {
+                 FXMLLoader fxmlLoader = new FXMLLoader();
+                 fxmlLoader.setLocation(getClass().getResource("PlaningInterface.fxml"));
+                 AnchorPane anchorPane = fxmlLoader.load();
+                 view.getChildren().add(anchorPane);
+             } catch (IOException ex) {
+                 Logger.getLogger(AdminInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        });
+    }
+
+    @FXML
+    private void getVolsinterface() {
+        
+         view.getChildren().clear();
+         btn_vol.setOnMouseClicked(event -> {
+             try {
+                 FXMLLoader fxmlLoader = new FXMLLoader();
+                 fxmlLoader.setLocation(getClass().getResource("VolClientInterface.fxml"));
+                 AnchorPane anchorPane = fxmlLoader.load();
+                 view.getChildren().add(anchorPane);
+             } catch (IOException ex) {
+                 Logger.getLogger(AdminInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        });
+=======
     private void change_data() {
         view.getChildren().clear();
          profil.setOnMouseClicked(event -> {
@@ -128,6 +221,7 @@ public class UserInterfaceController implements Initializable {
                     Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 restoM.getScene().setRoot(root);
+
     }
     
 }

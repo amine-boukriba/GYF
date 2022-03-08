@@ -5,6 +5,7 @@
  */
 package services;
 
+
 import entities.Espace_culturels;
 import entities.Monuments;
 
@@ -156,8 +157,10 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
     }
     
 
-    public Espace_culturels getEspace_culturelsById(int id) {
+
+    public List<Espace_culturels> getEspace_culturelsById(int id) {
         Espace_culturels est = new Espace_culturels();
+        List<Espace_culturels> list = new ArrayList<>();
         try {
             String req="select * from espace_culturels where id_espace="+id+"";
             Statement st = cnx.createStatement();
@@ -176,7 +179,8 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
                 est.setLocalisation(rs.getString("localisation"));
                 est.setDescription(rs.getString("description"));
                 est.setAvis_espace(rs.getInt("avis_espace"));
-                System.out.println("test");
+                list.add(est);
+
                 
                 
                 
@@ -184,6 +188,7 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
         } catch (SQLException ex) {
             Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return est;
+
+        return list;
     }
     }
