@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fffffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MesReservationController">
+   <children>
+      <TableView fx:id="tvEsp" layoutX="29.0" layoutY="100.0" onMouseClicked="#fnSelectedEsp" prefHeight="200.0" prefWidth="227.0" style="-fx-background-color: #76b776;" stylesheets="@../stylesheet/style.css">
+        <columns>
+          <TableColumn fx:id="EspID" prefWidth="35.0" text="id" />
+          <TableColumn fx:id="EspIdEsp" prefWidth="70.0" text="Id_Espace" />
+            <TableColumn fx:id="EspDate" prefWidth="120.0" text="Date" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tvMon" layoutX="316.0" layoutY="100.0" onMouseClicked="#fnSelectedMon" prefHeight="200.0" prefWidth="227.0" style="-fx-background-color: #76b776;" stylesheets="@../stylesheet/style.css">
+         <columns>
+            <TableColumn fx:id="MonId" prefWidth="40.0" text="id" />
+            <TableColumn fx:id="MonIdEsp" prefWidth="71.0" text="Id_Espace" />
+            <TableColumn fx:id="MonDate" prefWidth="115.0" text="Date" />
+         </columns>
+      </TableView>
+      <Label layoutX="52.0" layoutY="52.0" prefHeight="42.0" prefWidth="113.0" text="Espace Culturels ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="360.0" layoutY="52.0" prefHeight="42.0" prefWidth="113.0" text="Monuments">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="id_esp" layoutX="52.0" layoutY="14.0" visible="false" />
+      <Label fx:id="id_mon" layoutX="389.0" layoutY="23.0" visible="false" />
+      <Button fx:id="btnDetailsCult" layoutX="109.0" layoutY="328.0" mnemonicParsing="false" onAction="#fnDetails" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Affiche Details" />
+      <Button fx:id="btnDetailsMon" layoutX="384.0" layoutY="325.0" mnemonicParsing="false" onAction="#fnDetailsMon" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Affiche Details" />
+      <Button fx:id="btnRetour" layoutX="40.0" layoutY="19.0" mnemonicParsing="false" onAction="#fnRetour" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Retour" visible="false" />
+   </children>
+</AnchorPane>

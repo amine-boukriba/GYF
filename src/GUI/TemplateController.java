@@ -22,12 +22,17 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author ASUS
+
  */
 public class TemplateController implements Initializable {
 
     @FXML
     private ImageView Exit;
+    @FXML
+    private JFXButton listemonument;
+    @FXML
+    private JFXButton statistique;
+
     private JFXButton repondre;
     @FXML
     private Label Menu;
@@ -36,6 +41,10 @@ public class TemplateController implements Initializable {
     @FXML
     private AnchorPane slider;
     @FXML
+    private JFXButton monument;
+    @FXML
+    private JFXButton espace;
+
     private JFXButton reclamation;
     @FXML
     private AnchorPane view;
@@ -47,6 +56,37 @@ public class TemplateController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+   
+    @FXML
+    private void gotostatistique() {
+        view.getChildren().clear();
+         statistique.setOnMouseClicked(event -> {
+             
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("EspaceAdmin.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                view.getChildren().add(anchorPane);
+            } catch (IOException ex) {
+                Logger.getLogger(TemplateController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             
+                
+             
+        });
+        
+    }
+
+    @FXML
+    private void gotoMonument() {
+        view.getChildren().clear();
+         monument.setOnMouseClicked(event -> {
+             
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("MonumentAdmin.fxml"));
+
       @FXML
     private void gotoreclamation() {
         view.getChildren().clear();
@@ -61,6 +101,32 @@ public class TemplateController implements Initializable {
                 Logger.getLogger(TemplateController.class.getName()).log(Level.SEVERE, null, ex);
             }
              
+                
+             
+        });
+    }
+
+    @FXML
+    private void gotoEspace() {
+        view.getChildren().clear();
+         espace.setOnMouseClicked(event -> {
+             
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("EspaceCulturels.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                view.getChildren().add(anchorPane);
+            } catch (IOException ex) {
+                Logger.getLogger(TemplateController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             
+                
+             
+        });
+    }
+    
+    
+
         });
 
     }

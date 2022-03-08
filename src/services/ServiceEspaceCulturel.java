@@ -94,6 +94,20 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
             Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+     public int count() {
+        int nbre =0;
+        try {
+            String req="SELECT COUNT(*) AS rowcount FROM espace_culturels";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            rs.next();
+            nbre = rs.getInt("rowcount");
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nbre;
+    }
 
     @Override
     public List<Espace_culturels> affiche() {
@@ -179,15 +193,18 @@ public class ServiceEspaceCulturel implements IService <Espace_culturels> {
                 est.setLocalisation(rs.getString("localisation"));
                 est.setDescription(rs.getString("description"));
                 est.setAvis_espace(rs.getInt("avis_espace"));
+                System.out.println("test");
+
                 list.add(est);
 
-                
+ 
                 
                 
             }
         } catch (SQLException ex) {
             Logger.getLogger(ServiceEspaceCulturel.class.getName()).log(Level.SEVERE, null, ex);
         }
+    
 
         return list;
     }

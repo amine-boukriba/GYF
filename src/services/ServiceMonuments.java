@@ -1,3 +1,4 @@
+
 package services;
 
 import entities.Espace_culturels;
@@ -81,6 +82,22 @@ public class ServiceMonuments implements IService<Monuments> {
             Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public int count() {
+        int nbre =0;
+        try {
+            String req="SELECT COUNT(*) AS rowcount FROM monuments";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            rs.next();
+            nbre = rs.getInt("rowcount");
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nbre;
+    }
+    
+
 
     @Override
     public List<Monuments> affiche() {
@@ -112,6 +129,7 @@ public class ServiceMonuments implements IService<Monuments> {
         }
         return list;
     }
+
      
     public List<Monuments> listnom() {
         List <Monuments> list = new ArrayList<>();
@@ -163,6 +181,7 @@ public class ServiceMonuments implements IService<Monuments> {
    return list1;
     }
 
+
      public List<Monuments> getMonumentsById(int id){
          List <Monuments> list = new ArrayList<>();
         try{
@@ -171,6 +190,7 @@ public class ServiceMonuments implements IService<Monuments> {
             ResultSet rs =st.executeQuery(req);
             while(rs.next()){
               
+
               Monuments m =new Monuments();
                 m.setId_monument(rs.getInt("id_monument"));
                 m.setNom_monument(rs.getString("nom_monument"));
@@ -183,6 +203,7 @@ public class ServiceMonuments implements IService<Monuments> {
                 m.setLocalisation(rs.getString("localisation"));
                 m.setAvis_monument(rs.getInt("avis_monument"));
 
+
                 list.add(m);
                 
        
@@ -190,6 +211,7 @@ public class ServiceMonuments implements IService<Monuments> {
         } catch (SQLException ex) {
         Logger.getLogger(ServiceMonuments.class.getName()).log(Level.SEVERE, null, ex);
     }
+
 
    return list;
      }

@@ -15,6 +15,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
@@ -26,6 +30,7 @@ import utils.Globals;
 /**
  * FXML Controller class
  *
+
  * @author anwer
  */
 public class UserInterfaceController implements Initializable {
@@ -63,6 +68,7 @@ public class UserInterfaceController implements Initializable {
     private Label MenuClose;
     @FXML
     private AnchorPane slider;
+
     @FXML
 
     private JFXButton btn_bateau;
@@ -85,6 +91,75 @@ public class UserInterfaceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }    
+
+    @FXML
+    private void gotomesreserv() {
+        view.getChildren().clear();
+         mesreservations.setOnMouseClicked(event -> {
+             
+            
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("MesReservation.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                view.getChildren().add(anchorPane);
+            } catch (IOException ex) {
+                Logger.getLogger(UserInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+             
+                
+             
+        });
+    }
+
+   
+
+    @FXML
+    private void gotomonument() {
+        view.getChildren().clear();
+         monument.setOnMouseClicked(event -> {
+             
+            
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("ClientMonuments.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                view.getChildren().add(anchorPane);
+            } catch (IOException ex) {
+                Logger.getLogger(UserInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+             
+                
+             
+        });
+    }
+
+    @FXML
+    private void gotoespace() {
+        view.getChildren().clear();
+         espace.setOnMouseClicked(event -> {
+             
+            
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("ClientEspaceCulturels.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                view.getChildren().add(anchorPane);
+            } catch (IOException ex) {
+                Logger.getLogger(UserInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+             
+                
+             
+        });
+
         userinterface=this;
     }    
 
@@ -174,7 +249,7 @@ public class UserInterfaceController implements Initializable {
                  Logger.getLogger(AdminInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
              }
         });
-=======
+
     private void change_data() {
         view.getChildren().clear();
          profil.setOnMouseClicked(event -> {
