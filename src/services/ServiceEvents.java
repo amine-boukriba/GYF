@@ -5,6 +5,7 @@
  */
 package services;
 
+
 import entities.Evenement;
 import java.sql.SQLException;
 import java.util.List;
@@ -61,6 +62,7 @@ public class ServiceEvents implements IService<Evenement> {
         System.out.println(ps);
         ps.executeUpdate();
         System.out.println(ps);
+
         } catch (SQLException ex) {
             Logger.getLogger(ServiceEvents.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -76,7 +78,7 @@ public class ServiceEvents implements IService<Evenement> {
                 System.out.println(ps);
 
         ps.setInt(1, id);
-        
+
                         System.out.println(ps);
 
         ps.executeUpdate();
@@ -117,14 +119,16 @@ public class ServiceEvents implements IService<Evenement> {
        
        
     }
-    public List<Evenement>  rechercherparnom(String nom_evenement){
-        ArrayList<Evenement> list1 =new ArrayList<>();
-        try{
-            String req ="select * from evenement where nom_evenement = '"+nom_evenement+"'";
+
+    public List<Evenement> getById(int id ){
+        List<Evenement> list = new ArrayList<>();
+        try {
+            String req = "select * from evenement where id_evenement="+id+"";
             Statement st = cnx.createStatement();
-            ResultSet rs =st.executeQuery(req);
+            ResultSet rs = st.executeQuery(req);
+            
             while(rs.next()){
-              Evenement E =new Evenement();
+                 Evenement E =new Evenement();
                 E.setId_event(rs.getInt("id_evenement"));
                 E.setNom(rs.getString("nom_evenement"));
                 E.setDescription(rs.getString("description"));
@@ -136,40 +140,15 @@ public class ServiceEvents implements IService<Evenement> {
                 E.setPays(rs.getString("pays"));
                 E.setNbre_participants(rs.getInt("nombre_participants"));
                 E.setPrix(rs.getInt("prix"));
-                
-       list1.add(E);
-    }
-        } catch (SQLException ex) {
-        Logger.getLogger(ServiceEvents.class.getName()).log(Level.SEVERE, null, ex);
-    }
-   return list1;
-    }
-    public List<Evenement>  rechercherpartype(String type_evenement){
-        List<Evenement> list= new ArrayList<>();
-           try{
-            String req ="select * from evenement where type_evenement = '"+type_evenement+"'";
-            Statement st = cnx.createStatement();
-            ResultSet rs =st.executeQuery(req);
-            while(rs.next()){
-              Evenement E =new Evenement();
-                E.setId_event(rs.getInt("id_evenement"));
-                E.setNom(rs.getString("nom_evenement"));
-                E.setDescription(rs.getString("description"));
-                E.setType(rs.getString("type_evenement"));
-                E.setLocalisation(rs.getString("localisation"));
-                E.setImage(rs.getString("image_evenement"));
-                E.setDate_debut(rs.getDate("date_debut"));
-                E.setDate_fin(rs.getDate("date_fin"));
-                E.setPays(rs.getString("pays"));
-                E.setNbre_participants(rs.getInt("nombre_participants"));
-                E.setPrix(rs.getInt("prix"));
-                
-       list.add(E);
+
+                list.add(E);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ServiceEvents.class.getName()).log(Level.SEVERE, null, ex);
-       
-}
-return list;
-           }
+        }
+        return list;
+        
+    }
+    
+   
 }

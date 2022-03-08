@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="448.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.PlaningInterfaceController">
+   <children>
+      <TableView fx:id="tab_vols" layoutX="371.0" layoutY="16.0" onMouseClicked="#getValues" prefHeight="190.0" prefWidth="567.0">
+         <columns>
+            <TableColumn fx:id="tab_compv" prefWidth="120.0" text="Compagnie aerien" />
+            <TableColumn fx:id="tab_departv" prefWidth="67.20001220703125" text="depart" />
+            <TableColumn fx:id="tab_destv" prefWidth="84.79998779296875" text="destination" />
+            <TableColumn fx:id="tabd_dat_depv" prefWidth="82.39996337890625" text="date depart" />
+            <TableColumn fx:id="tab_date_arrv" prefWidth="76.0" text="date arrive" />
+            <TableColumn fx:id="tab_prixv" prefWidth="50.39996337890625" text="prix" />
+            <TableColumn id="tab_avi_vol" fx:id="tab_avisv" prefWidth="86.40008544921875" text="avis_vol" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btn_show_vol" layoutX="215.0" layoutY="30.0" onAction="#showVol" text="show Vols" />
+      <TableView fx:id="tab_bateau" layoutX="367.0" layoutY="10.0" onMouseClicked="#getValues" prefHeight="190.0" prefWidth="557.0">
+         <columns>
+            <TableColumn fx:id="tab_comp1" prefWidth="120.0" text="compagnie maritime" />
+            <TableColumn fx:id="tab_depart1" prefWidth="67.20001220703125" text="depart" />
+            <TableColumn fx:id="tab_dest1" prefWidth="84.79998779296875" text="destination" />
+            <TableColumn fx:id="tabd_dat_dep1" prefWidth="82.39996337890625" text="date depart" />
+            <TableColumn fx:id="tab_date_arr1" prefWidth="76.0" text="date arrive" />
+            <TableColumn fx:id="tab_prix1" prefWidth="91.20001220703125" text="prix" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btn_show_bat" layoutX="218.0" layoutY="80.0" onAction="#showBateau" text="show Bateaux" />
+      <JFXButton fx:id="btn_payer" layoutX="613.0" layoutY="291.0" onAction="#payer" style="-fx-background-color: green;" text="Payer" />
+      <TableView fx:id="tab_monument" layoutX="369.0" layoutY="20.0" onMouseClicked="#getValues" prefHeight="190.0" prefWidth="557.0">
+         <columns>
+            <TableColumn fx:id="tab_nomm" prefWidth="120.0" text="nom monument" />
+            <TableColumn fx:id="tab_descm" prefWidth="67.20001220703125" text="description" />
+            <TableColumn fx:id="tab_createm" prefWidth="84.79998779296875" text="date_creation" />
+            <TableColumn fx:id="tab_paym" prefWidth="82.39996337890625" text="pays" />
+            <TableColumn fx:id="tab_localm" prefWidth="76.0" text="localisation" />
+            <TableColumn fx:id="tab_prixm" prefWidth="91.20001220703125" text="prix" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btn_monu" layoutX="217.0" layoutY="122.0" onAction="#showMonument" text="show monument" />
+      <TableView fx:id="tab_hotel" layoutX="369.0" layoutY="30.0" onMouseClicked="#getValues" prefHeight="190.0" prefWidth="363.0">
+         <columns>
+            <TableColumn fx:id="tab_nomh" prefWidth="120.0" text="nom hotel" />
+            <TableColumn fx:id="tab_localh" prefWidth="67.20001220703125" text="localisation" />
+            <TableColumn fx:id="tab_categh" prefWidth="84.79998779296875" text="categorie" />
+            <TableColumn fx:id="tab_avish" prefWidth="82.39996337890625" text="avis_hotel" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btn_hotel" layoutX="218.0" layoutY="161.0" onAction="#showHotel" text="show hotel" />
+      <TableView fx:id="tab_evenement" layoutX="370.0" layoutY="30.0" onMouseClicked="#getValues" prefHeight="190.0" prefWidth="557.0">
+         <columns>
+            <TableColumn fx:id="tab_nomev" prefWidth="120.0" text="nom evenement" />
+            <TableColumn fx:id="tab_descev" prefWidth="67.20001220703125" text="description" />
+            <TableColumn fx:id="tab_typeev" prefWidth="84.79998779296875" text="type_evenement" />
+            <TableColumn fx:id="tab_localev" prefWidth="82.39996337890625" text="localisation" />
+            <TableColumn fx:id="tab_payev" prefWidth="76.0" text="pays" />
+            <TableColumn fx:id="tab_prixev" prefWidth="91.20001220703125" text="prix" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btn_event" layoutX="218.0" layoutY="205.0" onAction="#showEvent" text="show events" />
+      <TableView fx:id="tab_restaurant" layoutX="371.0" layoutY="40.0" onMouseClicked="#getValues" prefHeight="190.0" prefWidth="557.0">
+         <columns>
+            <TableColumn fx:id="tab_nomres" prefWidth="120.0" text="nom restaurant" />
+            <TableColumn fx:id="tab_locares" prefWidth="67.20001220703125" text="localisation" />
+            <TableColumn fx:id="tab_horaireres" prefWidth="84.79998779296875" text="horaire" />
+            <TableColumn fx:id="tab_cuisineres" prefWidth="82.39996337890625" text="cuisinies" />
+            <TableColumn fx:id="tab_nbfourchetres" prefWidth="76.0" text="nombre fourchet" />
+            <TableColumn fx:id="tab_avisres" prefWidth="91.20001220703125" text="avis restaurant" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btn_restaurant" layoutX="216.0" layoutY="246.0" onAction="#showRestaurant" text="show restaurent" />
+      <TableView fx:id="tab_espace" layoutX="373.0" layoutY="50.0" onMouseClicked="#getValues" prefHeight="190.0" prefWidth="557.0">
+         <columns>
+            <TableColumn fx:id="tab_nomesp" prefWidth="120.0" text="nom espace" />
+            <TableColumn fx:id="tab_horairesp" prefWidth="67.20001220703125" text="horaire" />
+            <TableColumn fx:id="tab_prixesp" prefWidth="84.79998779296875" text="prix" />
+            <TableColumn fx:id="tab_createsp" prefWidth="82.39996337890625" text="date creation" />
+            <TableColumn fx:id="tab_paysesp" prefWidth="76.0" text="pays" />
+            <TableColumn fx:id="tab_locatesp" prefWidth="91.20001220703125" text="localisation" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btn_espace" layoutX="216.0" layoutY="285.0" onAction="#showEspace" text="show espace" />
+      <Label layoutX="444.0" layoutY="292.0" text="Total prix" />
+      <Label fx:id="lab_prix" layoutX="515.0" layoutY="292.0" />
+      <JFXRadioButton fx:id="rad_reserver" layoutX="612.0" layoutY="343.0" text="Payer a lagence" />
+      <TextField fx:id="depart_input" layoutX="14.0" layoutY="43.0" promptText="depart" />
+      <TextField fx:id="destination_input" layoutX="15.0" layoutY="93.0" promptText="destination" />
+      <DatePicker fx:id="debut_input" layoutX="18.0" layoutY="134.0" prefHeight="26.0" prefWidth="143.0" promptText="Date debut" />
+      <DatePicker fx:id="fin_input" layoutX="18.0" layoutY="183.0" prefHeight="26.0" prefWidth="143.0" promptText="Date fin" />
+   </children>
+</AnchorPane>

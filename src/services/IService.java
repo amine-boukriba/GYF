@@ -9,11 +9,6 @@ import entities.Evenement;
 import entities.ResEvents;
 import java.util.List;
 
-/**
- *
- * @author moham
- *
- */
 
 public interface IService<T> {
     
@@ -21,4 +16,5 @@ public interface IService<T> {
     public void modifier(T t);
     public void supprime(int id);
     public List<T> affiche();
+
 }

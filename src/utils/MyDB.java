@@ -1,6 +1,7 @@
 
-package utils;
 
+
+package utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +12,9 @@ import java.util.logging.Logger;
 
 public class MyDB {
     
-    private String url = "jdbc:mysql://localhost/gyf";
+
+    private String url = "jdbc:mysql://localhost/gyfG";
+
     private String user = "root";
     private String password =""; 
     private  Connection connection;
@@ -39,5 +42,7 @@ public class MyDB {
     }
     
        
-}
 
+
+}
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #fffffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DetailsReservationMonController">
+   <children>
+      <VBox layoutX="23.0" layoutY="37.0" prefHeight="253.0" prefWidth="100.0" spacing="20.0">
+         <children>
+            <Label prefHeight="56.0" prefWidth="143.0" text="Num card" />
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="95.0" text="Card pasword" />
+            <Label layoutX="10.0" layoutY="27.0" prefHeight="56.0" prefWidth="115.0" text="Date Reservation" />
+         </children>
+      </VBox>
+      <VBox layoutX="178.0" layoutY="46.0" prefHeight="200.0" prefWidth="182.0" spacing="30.0">
+         <children>
+            <TextField fx:id="tfNumCard" prefHeight="40.0" prefWidth="100.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
+            <TextField fx:id="tfPasswordCard" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="100.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
+            <DatePicker fx:id="tfDate" prefHeight="28.0" prefWidth="185.0" styleClass="shadow" stylesheets="@../stylesheet/style.css" />
+         </children>
+      </VBox>
+      <VBox layoutX="14.0" layoutY="246.0" prefHeight="281.0" prefWidth="182.0">
+         <children>
+            <Label prefHeight="51.0" prefWidth="190.0" text="Nom" />
+            <Label prefHeight="59.0" prefWidth="189.0" text="Pays" />
+            <Label prefHeight="56.0" prefWidth="189.0" text="Localisation" />
+            <Label prefHeight="81.0" prefWidth="201.0" text="Description" />
+         </children>
+      </VBox>
+      <VBox layoutX="227.0" layoutY="246.0" prefHeight="266.0" prefWidth="339.0">
+         <children>
+            <Label fx:id="lbNom" prefHeight="54.0" prefWidth="355.0" />
+            <Label fx:id="lbPays" prefHeight="48.0" prefWidth="379.0" />
+            <Label fx:id="lbLocalisation" prefHeight="70.0" prefWidth="347.0" />
+            <Label fx:id="lbDesc" prefHeight="101.0" prefWidth="339.0" />
+         </children>
+      </VBox>
+      <Label layoutX="426.0" layoutY="29.0" prefHeight="35.0" prefWidth="75.0" text="Image">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgView" fitHeight="165.0" fitWidth="283.0" layoutX="459.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnModif" layoutX="187.0" layoutY="544.0" mnemonicParsing="false" onAction="#fnModif" prefHeight="38.0" prefWidth="87.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Modifier" />
+      <Button fx:id="btnSupp" layoutX="381.0" layoutY="543.0" mnemonicParsing="false" onAction="#fnSupp" prefHeight="38.0" prefWidth="87.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Supprimer" />
+      <Label fx:id="filename" layoutX="227.0" layoutY="14.0" visible="false" />
+      <Button fx:id="btnRetour" layoutX="33.0" layoutY="20.0" mnemonicParsing="false" onAction="#FnRetour" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Retour" />
+   </children>
+</AnchorPane>

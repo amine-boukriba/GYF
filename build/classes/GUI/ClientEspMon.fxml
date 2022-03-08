@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #fffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ClientEspMonController">
+   <children>
+      <Button fx:id="btnEspCult" layoutX="252.0" layoutY="174.0" mnemonicParsing="false" onAction="#fnEspac" prefHeight="112.0" prefWidth="296.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Gestion Espace Culturels">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnMonm" layoutX="252.0" layoutY="315.0" mnemonicParsing="false" onAction="#fnMonume" prefHeight="112.0" prefWidth="296.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Gestion Monuments">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnReservation" layoutX="252.0" layoutY="447.0" mnemonicParsing="false" onAction="#fnReservation" prefHeight="112.0" prefWidth="296.0" style="-fx-background-color: #76b776;" styleClass="search-button" stylesheets="@../stylesheet/style.css" text="Mes Reservation">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../public/Image/gyf20.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
